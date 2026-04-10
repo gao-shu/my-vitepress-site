@@ -15,7 +15,7 @@ jobs:
       - name: Node环境
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: 'npm' # 启用 npm 缓存，加速安装并减少冲突
 
       - name: 安装依赖
