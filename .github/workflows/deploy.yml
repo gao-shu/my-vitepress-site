@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: 构建
-        run: npm run build
+        run: npx vitepress build docs
 
       - name: 部署
         uses: peaceiris/actions-gh-pages@v3
