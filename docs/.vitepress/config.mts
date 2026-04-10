@@ -175,6 +175,7 @@ function resourceAndDevtoolsSidebar() {
 export default defineConfig({
   title: "Java 面试指南",
   description: "专注 Java 后端面试辅导",
+  base: '/my-vitepress-site/',
   ignoreDeadLinks: true,  // 添加这行
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config

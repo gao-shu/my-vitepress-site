@@ -1,0 +1,1 @@
+import{_ as t,o as r,c as e,ai as l}from"./chunks/framework.ampVZV4B.js";const c=JSON.parse('{"title":"关于本站","description":"","frontmatter":{},"headers":[],"relativePath":"about.md","filePath":"about.md"}'),o={name:"about.md"};function n(i,a,s,h,d,g){return r(),e("div",null,[...a[0]||(a[0]=[l("",40)])])}const b=t(o,[["render",n]]);export{c as __pageData,b as default};
