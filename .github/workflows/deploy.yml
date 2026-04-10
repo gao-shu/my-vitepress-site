@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
 
+    # 👇 添加这部分：明确授予写入权限
+permissions:
+  contents: write
+  
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
