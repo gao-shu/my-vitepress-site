@@ -1,0 +1,138 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 722B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/nginx:alpine
+#2 ...
+
+#3 [internal] load metadata for docker.io/library/node:20-alpine
+#3 DONE 0.5s
+
+#2 [internal] load metadata for docker.io/library/nginx:alpine
+#2 DONE 0.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 109B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [stage-1 1/2] FROM docker.io/library/nginx:alpine@sha256:f46cb72c7df02710e693e863a983ac42f6a9579058a59a35f1ae36c9958e4ce0
+#6 resolve docker.io/library/nginx:alpine@sha256:f46cb72c7df02710e693e863a983ac42f6a9579058a59a35f1ae36c9958e4ce0 0.0s done
+#6 CACHED
+
+#7 [builder 1/6] FROM docker.io/library/node:20-alpine@sha256:b88333c42c23fbd91596ebd7fd10de239cedab9617de04142dde7315e3bc0afa
+#7 resolve docker.io/library/node:20-alpine@sha256:b88333c42c23fbd91596ebd7fd10de239cedab9617de04142dde7315e3bc0afa 0.0s done
+#7 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 12.56kB 0.0s done
+#5 DONE 0.0s
+
+#8 [builder 3/6] COPY package.json package-lock.json* ./
+#8 CACHED
+
+#9 [builder 4/6] RUN npm ci --silent
+#9 CACHED
+
+#10 [builder 2/6] WORKDIR /app
+#10 CACHED
+
+#11 [builder 5/6] COPY . .
+#11 CACHED
+
+#12 [builder 6/6] RUN npm run build
+#12 0.307 
+#12 0.307 > build
+#12 0.307 > vitepress build docs
+#12 0.307 
+#12 0.574 
+#12 0.574   vitepress v2.0.0-alpha.16
+#12 0.574 
+#12 0.577 - building client + server bundles...
+#12 1.489 
+#12 1.489 The language 'redis' is not loaded, falling back to 'txt' for syntax highlighting.
+#12 1.489 
+#12 1.489 The language 'redis' is not loaded, falling back to 'txt' for syntax highlighting.
+#12 1.490 
+#12 1.490 The language 'redis' is not loaded, falling back to 'txt' for syntax highlighting.
+#12 1.490 
+#12 1.490 The language 'redis' is not loaded, falling back to 'txt' for syntax highlighting.
+#12 1.491 
+#12 1.491 The language 'redis' is not loaded, falling back to 'txt' for syntax highlighting.
+#12 1.777 
+#12 1.777 The language 'promql' is not loaded, falling back to 'txt' for syntax highlighting.
+#12 1.777 
+#12 1.777 The language 'promql' is not loaded, falling back to 'txt' for syntax highlighting.
+#12 3.413 
+#12 3.413 
+#12 3.413 (!) Found dead link ./skills-optimization in file /app/docs/resume/resume-analysis.md
+#12 3.413 (!) Found dead link ./devops/docker in file /app/docs/tech-system/index.md
+#12 3.413 (!) Found dead link ./devops/kubernetes in file /app/docs/tech-system/index.md
+#12 3.413 (!) Found dead link ./devops/container-security in file /app/docs/tech-system/index.md
+#12 3.413 (!) Found dead link ./devops/jenkins in file /app/docs/tech-system/index.md
+#12 3.413 (!) Found dead link ./devops/gitlab-ci in file /app/docs/tech-system/index.md
+#12 3.413 (!) Found dead link ./devops/github-actions in file /app/docs/tech-system/index.md
+#12 3.413 (!) Found dead link ./devops/logging in file /app/docs/tech-system/index.md
+#12 3.413 (!) Found dead link ./devops/tracing in file /app/docs/tech-system/index.md
+#12 3.413 (!) Found dead link ./tools/vscode in file /app/docs/tech-system/index.md
+#12 3.413 (!) Found dead link ./tools/intellij in file /app/docs/tech-system/index.md
+#12 3.413 (!) Found dead link ./tools/pycharm in file /app/docs/tech-system/index.md
+#12 3.413 (!) Found dead link ./tools/git-workflow in file /app/docs/tech-system/index.md
+#12 3.414 (!) Found dead link ./tools/github-collaboration in file /app/docs/tech-system/index.md
+#12 3.414 (!) Found dead link ./tools/gitlab-enterprise in file /app/docs/tech-system/index.md
+#12 3.414 (!) Found dead link ./tools/build-tools in file /app/docs/tech-system/index.md
+#12 3.414 (!) Found dead link ./tools/package-managers in file /app/docs/tech-system/index.md
+#12 3.414 (!) Found dead link ./tools/bundlers in file /app/docs/tech-system/index.md
+#12 3.414 (!) Found dead link ./tools/unit-testing in file /app/docs/tech-system/index.md
+#12 3.414 (!) Found dead link ./tools/integration-testing in file /app/docs/tech-system/index.md
+#12 3.414 (!) Found dead link ./tools/performance-testing in file /app/docs/tech-system/index.md
+#12 3.414 (!) Found dead link ./data/data-lake in file /app/docs/tech-system/index.md
+#12 3.414 (!) Found dead link ./data/stream-processing in file /app/docs/tech-system/index.md
+#12 3.414 (!) Found dead link ./data/visualization in file /app/docs/tech-system/index.md
+#12 3.414 (!) Found dead link ./data/reporting in file /app/docs/tech-system/index.md
+#12 3.414 (!) Found dead link ./data/analytics in file /app/docs/tech-system/index.md
+#12 3.414 
+#12 3.414 If this is expected, you can disable this check via config. Refer: https://vitepress.dev/reference/site-config#ignoredeadlinks
+#12 3.414 
+#12 3.421 鉁?Build failed in 2.66s
+#12 3.422 鉁?[0m building client + server bundles...
+#12 3.424 build error:
+#12 3.424 [vitepress] 26 dead link(s) found.
+#12 3.424 [vitepress] 26 dead link(s) found.
+#12 3.424     at Object.renderStart (file:///app/node_modules/vitepress/dist/node/chunk-CCYAX98b.js:41794:15)
+#12 3.424     at Object.handler (file:///app/node_modules/vite/dist/node/chunks/config.js:33743:13)
+#12 3.424     at file:///app/node_modules/rollup/dist/es/shared/node-entry.js:22571:40
+#12 3.424     at async Promise.all (index 1)
+#12 3.424     at async PluginDriver.hookParallel (file:///app/node_modules/rollup/dist/es/shared/node-entry.js:22481:9)
+#12 3.424     at async Bundle.generate (file:///app/node_modules/rollup/dist/es/shared/node-entry.js:20603:13)
+#12 3.424     at async file:///app/node_modules/rollup/dist/es/shared/node-entry.js:23558:27
+#12 3.424     at async catchUnfinishedHookActions (file:///app/node_modules/rollup/dist/es/shared/node-entry.js:22925:16)
+#12 ERROR: process "/bin/sh -c npm run build" did not complete successfully: exit code: 1
+------
+ > [builder 6/6] RUN npm run build:
+3.424 [vitepress] 26 dead link(s) found.
+3.424 [vitepress] 26 dead link(s) found.
+3.424     at Object.renderStart (file:///app/node_modules/vitepress/dist/node/chunk-CCYAX98b.js:41794:15)
+3.424     at Object.handler (file:///app/node_modules/vite/dist/node/chunks/config.js:33743:13)
+3.424     at file:///app/node_modules/rollup/dist/es/shared/node-entry.js:22571:40
+3.424     at async Promise.all (index 1)
+3.424     at async PluginDriver.hookParallel (file:///app/node_modules/rollup/dist/es/shared/node-entry.js:22481:9)
+3.424     at async Bundle.generate (file:///app/node_modules/rollup/dist/es/shared/node-entry.js:20603:13)
+3.424     at async file:///app/node_modules/rollup/dist/es/shared/node-entry.js:23558:27
+3.424     at async catchUnfinishedHookActions (file:///app/node_modules/rollup/dist/es/shared/node-entry.js:22925:16)
+------
+Dockerfile:11
+--------------------
+   9 |     
+  10 |     COPY . .
+  11 | >>> RUN npm run build
+  12 |     
+  13 |     # 鐢熶骇闃舵锛氱敤 nginx 杩愯鏋勫缓浜х墿
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c npm run build" did not complete successfully: exit code: 1
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/ndpbsdkikpo1bf2g4wshbb0qr

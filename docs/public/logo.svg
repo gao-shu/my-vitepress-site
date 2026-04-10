@@ -1,0 +1,13 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景圆形 -->
+  <circle cx="100" cy="100" r="95" fill="#f0f7ff" stroke="#4f46e5" stroke-width="2"/>
+  
+  <!-- Java Code Symbol (< > 符号) -->
+  <text x="100" y="120" font-size="80" font-weight="bold" text-anchor="middle" fill="#4f46e5" font-family="Arial, sans-serif">&lt;&gt;</text>
+  
+  <!-- 顶部文字 -->
+  <text x="100" y="30" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Java Interview</text>
+  
+  <!-- 底部文字 -->
+  <text x="100" y="180" font-size="12" text-anchor="middle" fill="#666">Guide</text>
+</svg>
