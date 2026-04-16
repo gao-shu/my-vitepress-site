@@ -109,6 +109,10 @@ export async function readFlags() {
 
 ## 延伸阅读（站内）
 
-- [HTTP 跨语言协作：Node.js ↔ Python](/tech-system/integration/http-node-python)
+- [Modbus TCP：Python ↔ PLC](./modbus-tcp-python-plc.md)
+- [Siemens S7：Node.js ↔ PLC](./s7-comm-node-plc.md)
+- [Siemens S7：Python ↔ PLC](./s7-comm-python-plc.md)
+- [HTTP 跨语言协作：Node.js ↔ Python](./http-node-python.md)
 - [物联网项目学习路线](/tech-system/backend/iot-project)
 - [Node.js 技术栈](/tech-system/backend/nodejs-stack)
+- [常见 PLC 品牌与选型](/tech-system/plc/common-brands.md)

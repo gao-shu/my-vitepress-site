@@ -90,6 +90,17 @@ Settings → Build, Execution, Deployment → Build Tools → Maven
 ✓ Override
 ```
 
+**关闭双击相关功能（按需）：**
+```
+1) 关闭“单击文件自动打开”（避免频繁双击/误开）
+Settings → Editor → General → Editor Tabs
+取消勾选 Enable preview tab
+
+2) 关闭“编辑器标签双击关闭”
+Settings → Editor → General → Editor Tabs
+将 “Close tab on double click” 设为 None（或取消对应双击动作）
+```
+
 ---
 
 ## 个人环境备忘（可替换为你的路径）

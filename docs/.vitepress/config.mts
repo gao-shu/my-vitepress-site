@@ -143,30 +143,82 @@ function resourceAndDevtoolsSidebar() {
       text: '热门资源',
       collapsed: false,
       items: [
-        { text: '资源库首页', link: '/resources/' },
-        { text: '学习教程', link: '/resources/learning' },
-        { text: '工具推荐', link: '/resources/tools' },
-        { text: '书籍推荐', link: '/resources/books' },
-        { text: '视频资源', link: '/resources/videos' }
+        { text: '学习教程（官网）', link: '/resources/learning' },
+        { text: '书籍推荐(免费下载)', link: '/resources/books' }
       ]
     },
     {
       text: '开发工具与环境配置',
       collapsed: false,
       items: [
-        { text: '总览', link: '/devtools/' },
         { text: 'JDK 安装与多版本管理', link: '/devtools/jdk' },
+        { text: 'Node.js 安装与版本控制', link: '/devtools/nodejs-install-version' },
+        { text: 'Python 安装与版本控制', link: '/devtools/python-install-version' },
+        { text: '本地 MySQL 安装配置', link: '/devtools/mysql-local' },
+        { text: 'Redis 安装配置', link: '/devtools/redis-local' },
+        { text: 'Docker 快速上手', link: '/devtools/docker' },
+        { text: '环境常见问题排查', link: '/devtools/troubleshooting' }
+      ]
+    },
+    {
+      text: '开发工具',
+      collapsed: false,
+      items: [
         { text: 'IntelliJ IDEA 配置', link: '/devtools/intellij-idea' },
         { text: 'Maven 配置与最佳实践', link: '/devtools/maven' },
         { text: 'Git 版本控制实战', link: '/devtools/git' },
-        { text: 'Docker 快速上手', link: '/devtools/docker' },
         { text: '数据库客户端工具', link: '/devtools/database-tools' },
         { text: 'API 测试工具', link: '/devtools/api-testing' },
         { text: '其他实用工具', link: '/devtools/misc-tools' },
-        { text: '一键配置脚本', link: '/devtools/setup-scripts' },
-        { text: '环境常见问题排查', link: '/devtools/troubleshooting' },
         { text: '工具选型建议', link: '/devtools/tool-selection' },
-        { text: '持续学习资源', link: '/devtools/learning-resources' }
+        { text: '一键配置脚本', link: '/devtools/setup-scripts' }
+      ]
+    }
+  ]
+}
+
+function industrialSidebar() {
+  return [
+    {
+      text: '工业数字化',
+      collapsed: false,
+      items: [
+        { text: '模块总览', link: '/tech-system/industrial-digitalization/' },
+        { text: '工业数字化学习路线', link: '/tech-system/industrial-digitalization/index' }
+      ]
+    },
+    {
+      text: '工业自动化（PLC）',
+      collapsed: false,
+      items: [
+        { text: '常见 PLC 品牌与选型', link: '/tech-system/plc/common-brands' },
+        { text: '西门子 S7 详解与 Python 采集', link: '/tech-system/plc/s7-python-data-collection' },
+        { text: 'S7 速查手册', link: '/tech-system/plc/s7-quick-reference' }
+      ]
+    },
+    {
+      text: '设备通信与集成',
+      collapsed: true,
+      items: [
+        { text: 'Modbus TCP：Node.js ↔ PLC', link: '/tech-system/integration/modbus-tcp-node-plc' },
+        { text: 'Modbus TCP：Python ↔ PLC', link: '/tech-system/integration/modbus-tcp-python-plc' },
+        { text: 'Siemens S7：Node.js ↔ PLC', link: '/tech-system/integration/s7-comm-node-plc' },
+        { text: 'Siemens S7：Python ↔ PLC', link: '/tech-system/integration/s7-comm-python-plc' },
+        { text: '物联网项目学习路线', link: '/tech-system/backend/iot-project' }
+      ]
+    },
+    {
+      text: '工业数字化设计（IoT + SCADA + MES）',
+      collapsed: true,
+      items: [
+        { text: '00-整体架构概览', link: '/tech-system/industrial-digitalization/00-architecture-overview' },
+        { text: '01-设备接入与数据采集', link: '/tech-system/industrial-digitalization/01-device-access' },
+        { text: '02-数据平台设计', link: '/tech-system/industrial-digitalization/02-data-platform' },
+        { text: '03-实时系统设计', link: '/tech-system/industrial-digitalization/03-realtime-system' },
+        { text: '04-工业可视化（SCADA）', link: '/tech-system/industrial-digitalization/04-scada-visualization' },
+        { text: '05-业务抽象设计（核心）', link: '/tech-system/industrial-digitalization/05-business-abstract' },
+        { text: '06-轻量MES能力实现', link: '/tech-system/industrial-digitalization/06-mes-lite' },
+        { text: '07-完整系统设计与实现', link: '/tech-system/industrial-digitalization/07-full-system' }
       ]
     }
   ]
@@ -177,19 +229,29 @@ export default defineConfig({
   description: "专注 Java 后端面试辅导",
   base: '/my-vitepress-site/',
   ignoreDeadLinks: true,  // 添加这行
+  
+  // Head 配置 - 用于设置 favicon 等 meta 标签
+  head: [
+    ['link', { rel: 'icon', href: '/logo.svg' }]
+  ],
+  
   themeConfig: {
+    // Logo 配置
+    logo: '/logo.svg',
+    
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
       { text: '面试指南', link: '/guide/' },
       { text: 'AI 探索', link: '/ai/' },
+      { text: '工业数字化', link: '/tech-system/industrial-digitalization/' },
       { text: '技术体系', link: '/tech-system/' },
       {
         text: '资源库',
-        link: '/resources/',
+        link: '/resources/books',
         activeMatch: '^\\/(resources|devtools)(\\/|$)',
         items: [
-          { text: '热门资源', link: '/resources/' },
+          { text: '热门资源', link: '/resources/books' },
           { text: '开发工具与环境', link: '/devtools/' }
         ]
       },
@@ -218,6 +280,10 @@ export default defineConfig({
       '/design-patterns/': guideSidebar(),
       '/scenarios/': guideSidebar(),
       '/resume/': guideSidebar(),
+      '/tech-system/industrial-digitalization/': industrialSidebar(),
+      '/tech-system/plc/': industrialSidebar(),
+      '/tech-system/integration/': industrialSidebar(),
+      '/tech-system/backend/iot-project': industrialSidebar(),
       '/ai/': [
         {
           text: 'AI 热门生态（探索）',
@@ -231,6 +297,7 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: 'AI 探索总览', link: '/ai/' },
+            { text: '7 天快速入门', link: '/ai/quickstart' },
             { text: '阶段一：LLM 入门与 Prompt 规划', link: '/ai/llm-basics' },
             { text: '阶段一进阶：Agent / 工具型 AI 规划', link: '/ai/agent-basics' },
             { text: '阶段二：MVP Server / 数据中台规划', link: '/ai/mvp-server' },
@@ -372,17 +439,7 @@ export default defineConfig({
             { text: 'Java & Spring', link: '/tech-system/backend/java-spring' },
             { text: 'Node.js 技术栈', link: '/tech-system/backend/nodejs-stack' },
             { text: 'Python 技术栈', link: '/tech-system/backend/python-stack' },
-            { text: 'Golang 技术栈', link: '/tech-system/backend/golang' },
-            { text: '物联网项目学习路线', link: '/tech-system/backend/iot-project' }
-          ]
-        },
-        {
-          text: '工业自动化（PLC）',
-          collapsed: false,
-          items: [
-            { text: '常见 PLC 品牌与选型', link: '/tech-system/plc/common-brands' },
-            { text: '西门子 S7 详解与 Python 采集', link: '/tech-system/plc/s7-python-data-collection' },
-            { text: 'S7 速查手册', link: '/tech-system/plc/s7-quick-reference' }
+            { text: 'Golang 技术栈', link: '/tech-system/backend/golang' }
           ]
         },
         {
@@ -411,8 +468,7 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: '跨语言调用（选型）', link: '/tech-system/integration/cross-language-interop' },
-            { text: 'HTTP：Node.js ↔ Python', link: '/tech-system/integration/http-node-python' },
-            { text: 'Modbus TCP：Node.js ↔ PLC', link: '/tech-system/integration/modbus-tcp-node-plc' }
+            { text: 'HTTP：Node.js ↔ Python', link: '/tech-system/integration/http-node-python' }
           ]
         },
         {
@@ -423,29 +479,6 @@ export default defineConfig({
             { text: '监控与可观测', link: '/tech-system/devops/monitoring-observability' },
             { text: '监控', link: '/tech-system/devops/monitoring' },
             { text: 'Windows Docker Desktop', link: '/tech-system/devops/docker-desktop-windows' }
-          ]
-        },
-        {
-          text: '安全',
-          collapsed: true,
-          items: [
-            { text: '安全技术栈', link: '/tech-system/security/security-stack' },
-            { text: 'Web 安全', link: '/tech-system/security/web-security' }
-          ]
-        },
-        {
-          text: '工程实践',
-          collapsed: true,
-          items: [
-            { text: '研发规范', link: '/tech-system/practices/development-practices' },
-            { text: '代码质量', link: '/tech-system/practices/code-quality' }
-          ]
-        },
-        {
-          text: '趋势',
-          collapsed: true,
-          items: [
-            { text: '行业趋势', link: '/tech-system/trends/industry-trends' }
           ]
         },
         {

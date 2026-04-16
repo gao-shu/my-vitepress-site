@@ -1,6 +1,6 @@
 # 技术体系
 
-本站“技术体系”仅面向 **初级 / 中级开发**，用来梳理学习路线与知识地图。偏 **中高级/高级** 的内容（如分布式一致性、云原生、LLM 微调、数仓/大数据、系统架构模式专题等）会暂时下线。
+本站“技术体系”仅面向 **初级 / 中级开发**，用来梳理学习路线与知识地图。偏 **中高级/高级** 的内容（如分布式一致性、云原生、LLM 微调、数仓/大数据、系统架构模式专题等）会暂时下线；同时会结合**当前趋势分析**与**个人学习方向把控**，动态调整保留内容与学习优先级。
 
 ## 🏗️ 核心技术栈
 
@@ -9,12 +9,8 @@
 - [Python 生态](./backend/python-stack.md) - Django、Flask、FastAPI
 - [Node.js 生态](./backend/nodejs-stack.md) - Express、NestJS
 - [Go 语言](./backend/golang.md) - 基础语法、并发、Web 开发
-- [物联网项目学习路线](./backend/iot-project.md) - 设备接入、数据上报、在线状态、可视化
 
-### 工业自动化（PLC）
-- [常见 PLC 品牌与选型](./plc/common-brands.md) - 西门子、三菱、欧姆龙等主流品牌对比与选型指南
-- [西门子 S7 详解与 Python 采集](./plc/s7-python-data-collection.md) - S7 协议、内存结构、python-snap7 实战
-- [S7 速查手册](./plc/s7-quick-reference.md) - 常用 API、地址对照、快速示例
+> 工业自动化、设备通信、IoT/SCADA/MES 等内容已迁移到 **[工业数字化](/tech-system/industrial-digitalization/)** 独立模块。
 
 ### 前端技术栈
 - [Vue.js 生态](./frontend/vue-stack.md) - Vue 3、组合式API、Vuex/Pinia
@@ -29,15 +25,12 @@
 - [缓存系统](./database/caching.md) - Redis集群、缓存策略、性能优化
 > 数仓/大数据、分布式存储等偏中高级内容，暂时下线。
 
-## 🔌 系统集成与设备通信（HTTP / 工控）
+## 🔌 系统集成与通信（HTTP / 服务）
 
-面向 **多语言服务对接** 与 **PLC 数采** 等场景：广义都属于「数据通信」，但 HTTP 偏 **应用层 API**，Modbus TCP 偏 **工控设备层协议**。
+面向 **多语言服务对接** 场景：侧重应用层 API 与服务间协作。
 
 - [跨语言调用：方式选型与常见实现](./integration/cross-language-interop.md) — HTTP/gRPC/MQ/FFI/子进程等是否可行、怎么选
 - [HTTP 跨语言协作：Node.js ↔ Python](./integration/http-node-python.md) — REST/JSON、网关与算法服务拆分、常见 Express/axios 踩坑
-- [Modbus TCP：Node.js ↔ PLC](./integration/modbus-tcp-node-plc.md) — 从站、寄存器/线圈、502 端口、联调清单与安全注意
-
-可与 [物联网项目学习路线](./backend/iot-project.md) 一起看：设备接入、上报与可视化常与上述通信方式组合使用。
 
 ## 🚀 DevOps 与运维
 
@@ -92,21 +85,6 @@
 - [数据可视化](./data/visualization.md) - Tableau、Power BI、开源替代
 - [报表系统](./data/reporting.md) - 动态报表、仪表板设计
 - [数据分析](./data/analytics.md) - SQL分析、Python分析、统计建模
-
-## 🔒 安全与合规
-
-### 应用安全（初中级）
-- [Web安全](./security/web-security.md) - XSS、CSRF、SQL注入防护
-- [安全技术栈](./security/security-stack.md) - 常见安全能力地图与落地
-
-## 📈 技术趋势与最佳实践
-
-### 技术趋势（初中级视角）
-- [行业趋势](./trends/industry-trends.md) - 常见方向与关键词
-
-### 最佳实践
-- [代码质量](./practices/code-quality.md) - 代码审查、静态分析、文档
-- [研发规范](./practices/development-practices.md) - 研发流程、分支策略、上线规范
 
 ---
 

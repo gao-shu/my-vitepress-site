@@ -6,17 +6,21 @@
 
 ## 文档目录
 
-### 核心环境
+### 开发环境
 - [JDK 安装与多版本管理](./jdk)
+- [Node.js 安装与版本控制](./nodejs-install-version)
+- [Python 安装与版本控制](./python-install-version)
+- [本地 MySQL 安装配置](./mysql-local)
+- [Redis 安装配置](./redis-local)
+- [Docker 快速上手](./docker)
+
+### 开发工具
 - [IntelliJ IDEA 配置](./intellij-idea)（含 Maven 联动、插件与 Live Template 备忘）
+- VS Code（见 [其他实用工具](./misc-tools) 与 [工具选型建议](./tool-selection)）
+- Cursor（可视为“带 AI 的 VS Code”，按需补充单独文档）
 - [Maven 配置与最佳实践](./maven)
 - [Git 版本控制实战](./git)
-
-### 容器与数据
-- [Docker 快速上手](./docker)
 - [数据库客户端工具](./database-tools)
-
-### 协作与效率
 - [API 测试工具](./api-testing)
 - [其他实用工具](./misc-tools)
 
@@ -24,8 +28,5 @@
 - [一键配置脚本](./setup-scripts)
 - [环境常见问题排查](./troubleshooting)
 - [工具选型建议](./tool-selection)
-- [持续学习资源](./learning-resources)
 
 ---
-
-与教程、书摘等「热门资源」的入口见：[资源库首页](/resources/)。
