@@ -165,6 +165,8 @@ function resourceAndDevtoolsSidebar() {
       collapsed: false,
       items: [
         { text: 'IntelliJ IDEA 配置', link: '/devtools/intellij-idea' },
+        { text: 'VS Code 安装与配置', link: '/devtools/vscode' },
+        { text: 'Cursor 安装与配置', link: '/devtools/cursor' },
         { text: 'Maven 配置与最佳实践', link: '/devtools/maven' },
         { text: 'Git 版本控制实战', link: '/devtools/git' },
         { text: '数据库客户端工具', link: '/devtools/database-tools' },
@@ -224,6 +226,38 @@ function industrialSidebar() {
   ]
 }
 
+function englishSpeakingSidebar() {
+  return [
+    {
+      text: '英语口语',
+      collapsed: false,
+      items: [
+        { text: '模块总览', link: '/english-speaking/' },
+        { text: '学习路线与使用方式', link: '/english-speaking/' }
+      ]
+    },
+    {
+      text: '发音基础',
+      collapsed: false,
+      items: [
+        { text: '48 音标与发音入门', link: '/english-speaking/phonetics-48' }
+      ]
+    },
+    {
+      text: '句子模板',
+      collapsed: false,
+      items: [
+        { text: '通用沟通句型总览', link: '/english-speaking/common-templates' },
+        { text: '日常通用口语模板', link: '/english-speaking/templates-daily' },
+        { text: '工作沟通口语模板', link: '/english-speaking/templates-work' },
+        { text: '会议表达口语模板', link: '/english-speaking/templates-meeting' },
+        { text: '电话/视频沟通模板', link: '/english-speaking/templates-call' },
+        { text: '社交寒暄口语模板', link: '/english-speaking/templates-social' }
+      ]
+    }
+  ]
+}
+
 export default defineConfig({
   title: "Java 面试指南",
   description: "专注 Java 后端面试辅导",
@@ -256,6 +290,7 @@ export default defineConfig({
         ]
       },
       { text: '开源项目', link: '/open-source/' },
+      { text: '英语口语', link: '/english-speaking/' },
       { text: '关于我', link: '/about/' }
     ],
 
@@ -280,6 +315,7 @@ export default defineConfig({
       '/design-patterns/': guideSidebar(),
       '/scenarios/': guideSidebar(),
       '/resume/': guideSidebar(),
+      '/english-speaking/': englishSpeakingSidebar(),
       '/tech-system/industrial-digitalization/': industrialSidebar(),
       '/tech-system/plc/': industrialSidebar(),
       '/tech-system/integration/': industrialSidebar(),

@@ -16,8 +16,10 @@
 
 ### 开发工具
 - [IntelliJ IDEA 配置](./intellij-idea)（含 Maven 联动、插件与 Live Template 备忘）
-- VS Code（见 [其他实用工具](./misc-tools) 与 [工具选型建议](./tool-selection)）
-- Cursor（可视为“带 AI 的 VS Code”，按需补充单独文档）
+- [VS Code 安装与配置](./vscode)
+- [Cursor 安装与配置](./cursor)（含 MCP 集成用法）
+- [GitHub Codespaces](./github-codespaces)（云端开发环境）
+- [Figma](./figma)（协作式 UI 设计工具）
 - [Maven 配置与最佳实践](./maven)
 - [Git 版本控制实战](./git)
 - [数据库客户端工具](./database-tools)
