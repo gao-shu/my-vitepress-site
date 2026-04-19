@@ -247,7 +247,6 @@ function englishSpeakingSidebar() {
       text: '句子模板',
       collapsed: false,
       items: [
-        { text: '通用沟通句型总览', link: '/english-speaking/common-templates' },
         { text: '日常通用口语模板', link: '/english-speaking/templates-daily' },
         { text: '工作沟通口语模板', link: '/english-speaking/templates-work' },
         { text: '会议表达口语模板', link: '/english-speaking/templates-meeting' },
