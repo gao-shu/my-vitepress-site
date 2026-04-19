@@ -11,10 +11,5 @@ docs/.vitepress/dist/
 .DS_Store
 Thumbs.db
 
-# 音乐文件（版权保护，不上传到Git）
-docs/public/music/*.mp3
-docs/public/music/*.wav
-docs/public/music/*.flac
-
-# 保留说明文档
-!docs/public/music/README.md
+# 注意：音乐文件需要提交到Git才能在GitHub Pages上播放
+# 如果担心版权问题，可以使用无版权音乐或自己创作的音乐
