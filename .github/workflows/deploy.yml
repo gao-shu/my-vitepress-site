@@ -4,7 +4,6 @@ on:
   push:
     branches: [main]
 
-    # 👇 添加这部分：明确授予写入权限
 permissions:
   contents: write
   
@@ -20,16 +19,29 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm' # 启用 npm 缓存，加速安装并减少冲突
+          cache: 'npm'
 
       - name: 安装依赖
-        run: npm ci # 使用 npm ci 代替 npm install，更严格且适合 CI 环境
+        run: npm ci
 
       - name: 构建
-        run: npm run build # 确保 package.json 中有 "build": "vitepress build docs"
+        run: npm run build
 
-      - name: 部署
+      - name: 验证构建产物
+        run: |
+          echo "检查构建输出目录..."
+          ls -la docs/.vitepress/dist/
+          echo "检查关键文件..."
+          test -f docs/.vitepress/dist/index.html && echo "✅ index.html 存在" || echo "❌ index.html 缺失"
+          test -f docs/.vitepress/dist/logo.svg && echo "✅ logo.svg 存在" || echo "❌ logo.svg 缺失"
+          test -d docs/.vitepress/dist/assets && echo "✅ assets 目录存在" || echo "❌ assets 目录缺失"
+
+      - name: 部署到 GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/.vitepress/dist
+          force_orphan: true  # 强制创建新的孤儿分支，避免历史累积
+          commit_message: ${{ github.event.head_commit.message }}
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
