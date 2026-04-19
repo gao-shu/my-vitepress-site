@@ -1,0 +1,20 @@
+# 依赖
+node_modules/
+
+# 构建输出
+docs/.vitepress/dist/
+
+# 日志文件
+*.log
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 音乐文件（版权保护，不上传到Git）
+docs/public/music/*.mp3
+docs/public/music/*.wav
+docs/public/music/*.flac
+
+# 保留说明文档
+!docs/public/music/README.md

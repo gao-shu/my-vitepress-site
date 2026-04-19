@@ -265,7 +265,176 @@ export default defineConfig({
   
   // Head 配置 - 用于设置 favicon 等 meta 标签
   head: [
-    ['link', { rel: 'icon', href: '/logo.svg' }]
+    ['link', { rel: 'icon', href: '/logo.svg' }],
+    // 全局音乐播放器脚本 - 周杰伦经典歌曲轮播（使用本地MP3文件）
+    ['script', {}, `
+      (function() {
+        let audio = null;
+        let isPlaying = false;
+        let currentSongIndex = 0;
+        
+        // 周杰伦经典歌曲列表（请确保文件已放到 docs/public/music/ 目录）
+        const songs = [
+          { name: '晴天', url: '/my-vitepress-site/music/qingtian.mp3' },
+          { name: '稻香', url: '/my-vitepress-site/music/daoxiang.mp3' }
+        ];
+        
+        function initMusicPlayer() {
+          if (document.getElementById('global-music-btn')) return;
+          
+          // 创建样式
+          const style = document.createElement('style');
+          style.textContent = \`
+            #global-music-btn {
+              position: fixed;
+              bottom: 20px;
+              right: 20px;
+              z-index: 9999;
+              padding: 12px;
+              background: var(--vp-c-brand);
+              color: white;
+              border-radius: 50%;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+              cursor: pointer;
+              transition: all 0.3s ease;
+              font-size: 20px;
+              width: 48px;
+              height: 48px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            #global-music-btn:hover {
+              transform: scale(1.1);
+              box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            }
+            #global-music-btn.playing {
+              animation: pulse 2s infinite;
+            }
+            @keyframes pulse {
+              0%, 100% { opacity: 1; }
+              50% { opacity: 0.7; }
+            }
+            #music-tooltip {
+              position: fixed;
+              bottom: 75px;
+              right: 20px;
+              background: var(--vp-c-bg);
+              color: var(--vp-c-text-1);
+              padding: 8px 12px;
+              border-radius: 6px;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+              font-size: 12px;
+              opacity: 0;
+              transition: opacity 0.3s;
+              pointer-events: none;
+              z-index: 9999;
+              max-width: 200px;
+            }
+            #global-music-btn:hover + #music-tooltip,
+            #music-tooltip.show {
+              opacity: 1;
+            }
+          \`;
+          document.head.appendChild(style);
+          
+          // 创建按钮
+          const btn = document.createElement('div');
+          btn.id = 'global-music-btn';
+          btn.innerHTML = '🎵';
+          btn.title = '点击播放/暂停音乐';
+          document.body.appendChild(btn);
+          
+          // 创建提示框
+          const tooltip = document.createElement('div');
+          tooltip.id = 'music-tooltip';
+          document.body.appendChild(tooltip);
+          
+          // 绑定事件
+          btn.addEventListener('click', function() {
+            if (!audio) {
+              loadSong(currentSongIndex);
+            }
+            
+            if (isPlaying) {
+              audio.pause();
+              isPlaying = false;
+              btn.innerHTML = '🎵';
+              btn.classList.remove('playing');
+              hideTooltip();
+            } else {
+              audio.play().then(function() {
+                isPlaying = true;
+                btn.innerHTML = '⏸️';
+                btn.classList.add('playing');
+                showTooltip('正在播放: 周杰伦 - ' + songs[currentSongIndex].name);
+              }).catch(function(err) {
+                console.error('播放失败:', err);
+                alert('⚠️ 播放被阻止\\n\\n请先点击页面任意位置，然后再试');
+              });
+            }
+          });
+          
+          // 监听歌曲结束，自动切换下一首
+          function setupAutoNext() {
+            if (audio) {
+              audio.addEventListener('ended', function() {
+                console.log('🎵 歌曲结束，切换到下一首');
+                playNextSong();
+              });
+            }
+          }
+          
+          // 加载歌曲
+          function loadSong(index) {
+            currentSongIndex = index % songs.length;
+            audio = new Audio(songs[currentSongIndex].url);
+            audio.loop = false; // 不循环单曲，改为轮播
+            audio.volume = 0.4;
+            
+            audio.addEventListener('error', function(e) {
+              console.error('❌ 歌曲加载失败: ' + songs[currentSongIndex].name, e);
+              alert('⚠️ 找不到文件: ' + songs[currentSongIndex].name + '.mp3\\n\\n请检查：\\n1. 文件是否在 docs/public/music/ 目录\\n2. 文件名是否正确');
+            });
+            
+            setupAutoNext();
+          }
+          
+          // 播放下一首
+          function playNextSong() {
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+            console.log('🎶 切换到: 周杰伦 - ' + songs[currentSongIndex].name);
+            
+            if (isPlaying) {
+              loadSong(currentSongIndex);
+              audio.play().then(function() {
+                showTooltip('正在播放: 周杰伦 - ' + songs[currentSongIndex].name);
+              }).catch(function(err) {
+                console.error('切换失败:', err);
+              });
+            }
+          }
+          
+          // 显示提示
+          function showTooltip(text) {
+            tooltip.textContent = text;
+            tooltip.classList.add('show');
+            setTimeout(hideTooltip, 3000);
+          }
+          
+          function hideTooltip() {
+            tooltip.classList.remove('show');
+          }
+          
+          console.log('✅ 全局音乐播放器已加载 - 周杰伦经典歌曲轮播（本地MP3）');
+        }
+        
+        // 立即执行 + 重试机制（适配 SPA 路由）
+        initMusicPlayer();
+        setTimeout(initMusicPlayer, 100);
+        setTimeout(initMusicPlayer, 500);
+      })();
+    `]
   ],
   
   themeConfig: {

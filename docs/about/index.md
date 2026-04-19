@@ -39,3 +39,90 @@
 > 💭 **我的理念**：最好的学习方式就是尝试教会别人。这个网站是我学习路上的见证，也是我不断进步的动力。
 
 感谢你的访问！如果这些内容对你有帮助，那我会很开心；如果发现错误或不足，也欢迎指正，这同样是我学习的机会。
+
+## 🎵 听首歌放松一下
+
+<div style="margin-top: 2rem; padding: 1.5rem; background: var(--vp-c-bg-soft); border-radius: 8px; text-align: center;">
+  <p style="margin-bottom: 1rem; color: var(--vp-c-text-2);">工作累了？听首《Summer》放松一下吧 ☕</p>
+  <button id="musicBtn" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--vp-c-brand); color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0, 0, 0, 0.1)'">
+    <span id="musicIcon">🎵</span>
+    <span id="musicText">播放音乐</span>
+  </button>
+</div>
+
+<script>
+(function() {
+  let audio = null;
+  let isPlaying = false;
+  
+  function toggleMusic() {
+    console.log('🎵 点击了音乐按钮');
+    
+    if (!audio) {
+      // 久石让风格轻音乐 - Pixabay 免费资源
+      audio = new Audio('https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3');
+      audio.loop = true;
+      audio.volume = 0.5;
+      
+      audio.addEventListener('error', function(e) {
+        console.error('❌ 音乐加载失败:', e);
+        alert('⚠️ 音乐加载失败\n\n请检查网络连接后重试');
+        isPlaying = false;
+        updateButton();
+      });
+      
+      audio.addEventListener('canplaythrough', function() {
+        console.log('✅ 音乐可以播放了');
+      });
+    }
+    
+    if (isPlaying) {
+      audio.pause();
+      isPlaying = false;
+      console.log('⏸️ 音乐已暂停');
+    } else {
+      audio.play().then(function() {
+        isPlaying = true;
+        console.log('▶️ 音乐开始播放');
+      }).catch(function(err) {
+        console.error('❌ 播放失败:', err);
+        if (err.name === 'NotAllowedError') {
+          alert('⚠️ 播放被阻止\n\n请先点击页面任意位置，然后再试');
+        } else {
+          alert('⚠️ 播放失败: ' + err.message);
+        }
+      });
+    }
+    
+    updateButton();
+  }
+  
+  function updateButton() {
+    const icon = document.getElementById('musicIcon');
+    const text = document.getElementById('musicText');
+    if (icon && text) {
+      icon.textContent = isPlaying ? '⏸️' : '🎵';
+      text.textContent = isPlaying ? '暂停音乐' : '播放音乐';
+    }
+  }
+  
+  // 立即执行绑定，不等待 DOMContentLoaded
+  function bindEvent() {
+    const btn = document.getElementById('musicBtn');
+    if (btn) {
+      console.log('✅ 找到音乐按钮，绑定点击事件');
+      btn.onclick = toggleMusic;
+      return true;
+    }
+    return false;
+  }
+  
+  // 尝试立即绑定
+  if (!bindEvent()) {
+    // 如果没找到，等待一小段时间再试（VitePress SPA 路由）
+    setTimeout(bindEvent, 100);
+    setTimeout(bindEvent, 500);
+    setTimeout(bindEvent, 1000);
+  }
+})();
+</script>
