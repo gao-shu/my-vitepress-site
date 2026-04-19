@@ -260,18 +260,8 @@ function englishSpeakingSidebar() {
 export default defineConfig({
   title: "Java 面试指南",
   description: "专注 Java 后端面试辅导",
-  base: '/',
-  ignoreDeadLinks: true,  // 添加这行
-  
-  // Markdown 配置 - Shiki 代码高亮
-  markdown: {
-    lineNumbers: true,
-    image: {
-      lazyLoading: true
-    }
-    // Shiki 会自动加载常用语言，无需手动配置
-    // conf、redis、promql 等会回退到 txt，不影响使用
-  },
+  base: '/my-vitepress-site/',
+  ignoreDeadLinks: true,
   
   // Head 配置 - 用于设置 favicon 等 meta 标签
   head: [
@@ -285,8 +275,8 @@ export default defineConfig({
         
         // 周杰伦经典歌曲列表（请确保文件已放到 docs/public/music/ 目录）
         const songs = [
-          { name: '晴天', url: '/music/qingtian.mp3' },
-          { name: '稻香', url: '/music/daoxiang.mp3' }
+          { name: '晴天', url: '/my-vitepress-site/music/qingtian.mp3' },
+          { name: '稻香', url: '/my-vitepress-site/music/daoxiang.mp3' }
         ];
         
         function initMusicPlayer() {
@@ -794,6 +784,15 @@ export default defineConfig({
       pattern: 'https://github.com/yourname/yourrepo/edit/main/docs/:path',
       text: '在 GitHub 上编辑此页面'
     }
+  },
+
+  markdown: {
+    lineNumbers: true,
+    image: {
+      lazyLoading: true
+    },
+    // 不要配置 markdown.languages 白名单，除非你能覆盖全站用到的所有语言；
+    // 误写（例如把反引号当成语言 id）会导致 Shiki 启动失败。
   },
 
   vite: {
