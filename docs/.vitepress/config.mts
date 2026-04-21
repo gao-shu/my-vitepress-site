@@ -11,7 +11,8 @@ function guideSidebar() {
         { text: 'Java 基础概述', link: '/java/base-overview' },
         { text: '面向对象编程', link: '/java/oop' },
         { text: '集合框架', link: '/java/collections' },
-        { text: '多线程与并发', link: '/java/concurrency' },
+        { text: '多线程基础与线程池', link: '/java/thread-basics' },
+        { text: '并发编程核心机制', link: '/java/concurrency-core' },
         { text: 'JVM 内存模型', link: '/java/jvm' },
         { text: 'Java 8 新特性', link: '/java/java8-features' },
         { text: '异常处理与 IO 流', link: '/java/exception-io' },
@@ -112,7 +113,10 @@ function guideSidebar() {
         { text: '秒杀系统抗高并发设计【中高级】', link: '/scenarios/seckill' },
         { text: '单点登录与 OAuth2 授权', link: '/scenarios/sso' },
         { text: '接口幂等性设计实战【中级】', link: '/scenarios/api-idempotent' },
-        { text: '大文件分片与断点续传【中高级】', link: '/scenarios/large-file' }
+        { text: '大文件分片与断点续传【中高级】', link: '/scenarios/large-file' },
+        { text: '多租户架构设计与数据隔离【中高级】', link: '/scenarios/multi-tenant' },
+        { text: '对外 API 接口开发实战【中高级】', link: '/scenarios/open-api' },
+        { text: 'Web 系统架构设计与开发实战【中高级】', link: '/scenarios/web-system-design' }
       ]
     },
     {
@@ -266,17 +270,23 @@ export default defineConfig({
   // Head 配置 - 用于设置 favicon 等 meta 标签
   head: [
     ['link', { rel: 'icon', href: '/logo.svg' }],
-    // 全局音乐播放器脚本 - 周杰伦经典歌曲轮播（使用本地MP3文件）
+    // 全局音乐播放器脚本 - 周杰伦经典歌曲轮播（使用在线CDN链接）
     ['script', {}, `
       (function() {
         let audio = null;
         let isPlaying = false;
         let currentSongIndex = 0;
         
-        // 周杰伦经典歌曲列表（请确保文件已放到 docs/public/music/ 目录）
+        // 音乐播放器配置
         const songs = [
-          { name: '晴天', url: '/my-vitepress-site/music/qingtian.mp3' },
-          { name: '稻香', url: '/my-vitepress-site/music/daoxiang.mp3' }
+          { 
+            name: '晴天', 
+            url: 'https://cdn.jsdelivr.net/gh/gao-shu/my-vitepress-site@main/docs/public/music/qingtian.mp3' 
+          },
+          { 
+            name: '稻香', 
+            url: 'https://cdn.jsdelivr.net/gh/gao-shu/my-vitepress-site@main/docs/public/music/daoxiang.mp3' 
+          }
         ];
         
         function initMusicPlayer() {
