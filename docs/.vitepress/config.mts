@@ -504,16 +504,19 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: '热门软件与开源项目地图', link: '/ai/explore/' },
-            { text: '模型选择指南（按环境/场景）', link: '/ai/explore/model-selection' },
+            { text: 'AI 选型概览', link: '/ai/explore/ai-selection/' },
             { text: 'Java 开发者稳定项目优先版', link: '/ai/explore/java-stable-learning-path' },
             { text: 'AI 漫剧平台深度解析', link: '/ai/explore/ai-drama-platform-analysis' }
           ]
         },
         {
-          text: 'AI 高效开发',
+          text: 'AI 选型',
           collapsed: false,
           items: [
-            { text: 'MCP 协议详解与实战', link: '/ai/explore/ai-efficient-dev/mcp-intro' }
+            { text: 'AI 选型概览', link: '/ai/explore/ai-selection/' },
+            { text: 'AI 大模型选型指南', link: '/ai/explore/ai-selection/llm-selection' },
+            { text: 'AI 开发工具选型', link: '/ai/explore/ai-selection/dev-tools-selection' },
+            { text: 'MCP 与 Skill 选型', link: '/ai/explore/ai-selection/mcp-skill-selection' }
           ]
         },
         {
