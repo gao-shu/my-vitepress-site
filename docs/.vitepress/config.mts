@@ -455,9 +455,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '面试指南', link: '/guide/' },
-      { text: 'AI 探索', link: '/ai/' },
       { text: '工业数字化', link: '/tech-system/industrial-digitalization/' },
-      { text: '技术体系', link: '/tech-system/' },
       {
         text: '资源库',
         link: '/resources/books',
@@ -467,7 +465,9 @@ export default defineConfig({
           { text: '开发工具与环境', link: '/devtools/' }
         ]
       },
+      { text: '技术体系', link: '/tech-system/' },
       { text: '开源项目', link: '/open-source/' },
+      { text: 'AI 探索', link: '/ai/' },
       { text: '英语口语', link: '/english-speaking/' },
       { text: '关于我', link: '/about/' }
     ],
@@ -503,7 +503,17 @@ export default defineConfig({
           text: 'AI 热门生态（探索）',
           collapsed: false,
           items: [
-            { text: '热门软件与开源项目地图', link: '/ai/explore/' }
+            { text: '热门软件与开源项目地图', link: '/ai/explore/' },
+            { text: '模型选择指南（按环境/场景）', link: '/ai/explore/model-selection' },
+            { text: 'Java 开发者稳定项目优先版', link: '/ai/explore/java-stable-learning-path' },
+            { text: 'AI 漫剧平台深度解析', link: '/ai/explore/ai-drama-platform-analysis' }
+          ]
+        },
+        {
+          text: 'AI 高效开发',
+          collapsed: false,
+          items: [
+            { text: 'MCP 协议详解与实战', link: '/ai/explore/ai-efficient-dev/mcp-intro' }
           ]
         },
         {
@@ -517,17 +527,6 @@ export default defineConfig({
             { text: '阶段二：MVP Server / 数据中台规划', link: '/ai/mvp-server' },
             { text: '阶段三：多模态 & 知识图谱规划', link: '/ai/multimodal-kg' },
             { text: '阶段四：部署 & MLOps 规划', link: '/ai/mlops-platform' }
-          ]
-        },
-        {
-          text: '大模型部署及使用',
-          collapsed: true,
-          items: [
-            { text: '模块导航', link: '/ai/model-deploy/' },
-            { text: '本地部署', link: '/ai/model-deploy/01-local-deploy' },
-            { text: '云端部署', link: '/ai/model-deploy/02-cloud-deploy' },
-            { text: '模型选择指南（按环境/场景）', link: '/ai/model-deploy/03-model-selection' },
-            { text: '推理框架对比与选型（2026）', link: '/ai/model-deploy/04-runtime-compare' }
           ]
         },
         {
@@ -702,7 +701,15 @@ export default defineConfig({
             { text: '技能储备', link: '/tech-system/python/python-skill' }
           ]
         },
-        // 资源/工具统一放在“资源库”模块，这里不再单独展示
+        {
+          text: '其他',
+          collapsed: true,
+          items: [
+            { text: 'Flowable 快速入门', link: '/tech-system/backend/flowable-bpmn' },
+            { text: 'Flowable 企业二开', link: '/tech-system/backend/flowable-enterprise-extensions' }
+          ]
+        },
+        // 资源/工具统一放在"资源库"模块，这里不再单独展示
       ],
       '/resources/': resourceAndDevtoolsSidebar(),
       '/devtools/': resourceAndDevtoolsSidebar(),

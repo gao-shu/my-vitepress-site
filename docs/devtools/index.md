@@ -11,6 +11,9 @@
 - [Node.js 安装与版本控制](./nodejs-install-version)
 - [Python 安装与版本控制](./python-install-version)
 - [本地 MySQL 安装配置](./mysql-local)
+- [本地 PostgreSQL 安装配置](./postgresql-local)
+- [本地 MongoDB 安装配置](./mongodb-local)
+- [本地 Oracle 安装配置](./oracle-local)
 - [Redis 安装配置](./redis-local)
 - [Docker 快速上手](./docker)
 
