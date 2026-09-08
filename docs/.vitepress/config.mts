@@ -144,6 +144,14 @@ function guideSidebar() {
 function resourceAndDevtoolsSidebar() {
   return [
     {
+      text: '归属：资源 / 工具',
+      collapsed: false,
+      items: [
+        { text: '第二大脑入口', link: '/resources/tools/' },
+        { text: 'Docker（Canonical）', link: '/devtools/docker' }
+      ]
+    },
+    {
       text: '热门资源',
       collapsed: false,
       items: [
@@ -233,6 +241,13 @@ function industrialSidebar() {
 function englishSpeakingSidebar() {
   return [
     {
+      text: '归属：知识 / 英语',
+      collapsed: false,
+      items: [
+        { text: '第二大脑入口', link: '/knowledge/english/' }
+      ]
+    },
+    {
       text: '英语口语',
       collapsed: false,
       items: [
@@ -264,13 +279,39 @@ function englishSpeakingSidebar() {
 function lifeFitnessSidebar() {
   return [
     {
-      text: '运动健身',
+      text: '兼容入口（已归入健康）',
       collapsed: false,
       items: [
-        { text: '模块总览', link: '/life/fitness/' },
-        { text: '睡眠与作息入门', link: '/life/fitness/sleep-basics' },
-        { text: '运动起步：每周最小可行计划', link: '/life/fitness/exercise-start' },
-        { text: '久坐与肩颈：程序员常见问题', link: '/life/fitness/desk-posture' }
+        { text: '说明与跳转', link: '/life/fitness/' },
+        { text: '健康总览（正式）', link: '/life/health/' },
+        { text: '睡眠与作息', link: '/life/health/sleep-basics' },
+        { text: '运动起步', link: '/life/health/exercise-start' },
+        { text: '久坐与肩颈', link: '/life/health/desk-posture' }
+      ]
+    }
+  ]
+}
+
+function lifeHealthSidebar() {
+  return [
+    {
+      text: '健康',
+      collapsed: false,
+      items: [
+        { text: '模块总览', link: '/life/health/' },
+        { text: '睡眠与作息入门', link: '/life/health/sleep-basics' },
+        { text: '运动起步：每周最小可行计划', link: '/life/health/exercise-start' },
+        { text: '久坐与肩颈：程序员常见问题', link: '/life/health/desk-posture' }
+      ]
+    },
+    {
+      text: '生活',
+      collapsed: true,
+      items: [
+        { text: '生活总览', link: '/life/' },
+        { text: '财务', link: '/life/finance/' },
+        { text: '个人管理', link: '/life/personal-management/' },
+        { text: '兴趣', link: '/life/interests/' }
       ]
     }
   ]
@@ -286,6 +327,166 @@ function lifeFinanceSidebar() {
         { text: '记账与月度复盘', link: '/life/finance/budget-basics' },
         { text: '应急金：先给自己买安全感', link: '/life/finance/emergency-fund' },
         { text: '理财认知入门（非荐股）', link: '/life/finance/money-mindset' }
+      ]
+    }
+  ]
+}
+
+function growthSidebar() {
+  return [
+    {
+      text: '成长',
+      collapsed: false,
+      items: [
+        { text: '总览', link: '/growth/' },
+        { text: '目标', link: '/growth/goals/' },
+        { text: '能力地图', link: '/growth/capability-map/' },
+        { text: '当前学习', link: '/growth/current-learning/' },
+        { text: '学习计划', link: '/growth/learning-plan/' },
+        { text: '成长复盘', link: '/growth/reviews/' }
+      ]
+    }
+  ]
+}
+
+function careerSidebar() {
+  return [
+    {
+      text: '职业',
+      collapsed: false,
+      items: [
+        { text: '总览', link: '/career/' },
+        { text: '当前定位', link: '/career/positioning/' },
+        { text: '职业保障', link: '/career/protection/' },
+        { text: '职业能力', link: '/career/capabilities/' },
+        { text: '项目履历', link: '/career/projects/' },
+        { text: '远程工作', link: '/career/remote-work/' },
+        { text: '职业发展', link: '/career/development/' }
+      ]
+    },
+    {
+      text: '职业保障',
+      collapsed: false,
+      items: [
+        { text: 'Java 面试', link: '/career/protection/java-interview/' },
+        { text: '简历', link: '/career/protection/resume/' },
+        { text: '面试', link: '/career/protection/interview/' }
+      ]
+    },
+    {
+      text: '兼容入口（旧）',
+      collapsed: true,
+      items: [
+        { text: '求职准备总览', link: '/guide/' },
+        { text: '简历专题', link: '/resume/resume-guide' }
+      ]
+    }
+  ]
+}
+
+function knowledgeSidebar() {
+  return [
+    {
+      text: '知识',
+      collapsed: false,
+      items: [
+        { text: '总览', link: '/knowledge/' },
+        { text: '编程', link: '/knowledge/programming/' },
+        { text: 'AI', link: '/knowledge/ai/' },
+        { text: '产品', link: '/knowledge/product/' },
+        { text: '商业', link: '/knowledge/business/' },
+        { text: '英语', link: '/knowledge/english/' },
+        { text: '其他', link: '/knowledge/other/' }
+      ]
+    },
+    {
+      text: '编程',
+      collapsed: true,
+      items: [
+        { text: 'Java', link: '/knowledge/programming/java/' },
+        { text: 'Python', link: '/knowledge/programming/python/' },
+        { text: 'Go', link: '/knowledge/programming/go/' },
+        { text: 'TypeScript', link: '/knowledge/programming/typescript/' }
+      ]
+    },
+    {
+      text: 'AI',
+      collapsed: true,
+      items: [
+        { text: 'AI 开发', link: '/knowledge/ai/ai-development/' },
+        { text: 'AI 模型', link: '/knowledge/ai/ai-models/' },
+        { text: 'AI 多模态', link: '/knowledge/ai/ai-multimodal/' },
+        { text: 'AI 工具', link: '/knowledge/ai/ai-tools/' }
+      ]
+    },
+    {
+      text: '兼容入口（旧）',
+      collapsed: true,
+      items: [
+        { text: '技术体系', link: '/tech-system/' },
+        { text: 'AI 探索', link: '/ai/' },
+        { text: '工业数字化', link: '/tech-system/industrial-digitalization/' },
+        { text: '英语口语', link: '/english-speaking/' }
+      ]
+    }
+  ]
+}
+
+function practicesSidebar() {
+  return [
+    {
+      text: '实践',
+      collapsed: false,
+      items: [
+        { text: '实践总览', link: '/practices/' }
+      ]
+    }
+  ]
+}
+
+function lifeHubSidebar() {
+  return [
+    {
+      text: '生活',
+      collapsed: false,
+      items: [
+        { text: '总览', link: '/life/' },
+        { text: '财务', link: '/life/finance/' },
+        { text: '健康', link: '/life/health/' },
+        { text: '个人管理', link: '/life/personal-management/' },
+        { text: '兴趣', link: '/life/interests/' }
+      ]
+    },
+    {
+      text: '兼容入口',
+      collapsed: true,
+      items: [
+        { text: '旧路径说明（fitness）', link: '/life/fitness/' }
+      ]
+    }
+  ]
+}
+
+function resourcesHubSidebar() {
+  return [
+    {
+      text: '资源',
+      collapsed: false,
+      items: [
+        { text: '总览', link: '/resources/' },
+        { text: '书籍', link: '/resources/books' },
+        { text: '课程', link: '/resources/courses/' },
+        { text: '网站', link: '/resources/websites/' },
+        { text: '工具', link: '/resources/tools/' },
+        { text: '收藏', link: '/resources/collections/' }
+      ]
+    },
+    {
+      text: '兼容入口（旧）',
+      collapsed: true,
+      items: [
+        { text: '开发工具与环境', link: '/devtools/' },
+        { text: '开源清单', link: '/open-source/' }
       ]
     }
   ]
@@ -482,46 +683,58 @@ export default defineConfig({
     logo: '/logo.svg',
     
     // https://vitepress.dev/reference/default-theme-config
-    // 顶栏：首页 · 求职笔记 · 技术 · 项目 · 资源 · AI · 生活 · 关于
+    // 顶栏：第二大脑 V1.0 — 首页 · 成长 · 职业 · 知识 · 实践 · 生活 · 资源
     // 注意：VitePress 下拉项不能同时写 link + items，否则只会当普通链接、子项不显示
     nav: [
       { text: '首页', link: '/' },
+      { text: '成长', link: '/growth/', activeMatch: '^\\/growth(\\/|$)' },
       {
-        text: '求职笔记',
-        link: '/guide/',
-        activeMatch: '^\\/(guide|java|database|redis|framework|mq|network-linux|design-patterns|scenarios|resume|springboot)(\\/|$)'
+        text: '职业',
+        link: '/career/',
+        activeMatch: '^\\/(career|guide|java|database|redis|framework|mq|network-linux|design-patterns|scenarios|resume)(\\/|$)'
       },
       {
-        text: '技术',
-        activeMatch: '^\\/tech-system(\\/|$)',
-        items: [
-          { text: '技术体系', link: '/tech-system/' },
-          { text: '工业数字化', link: '/tech-system/industrial-digitalization/' }
-        ]
+        text: '知识',
+        link: '/knowledge/',
+        activeMatch: '^\\/(knowledge|tech-system|ai|english-speaking|springboot)(\\/|$)'
       },
-      { text: '项目', link: '/open-source/', activeMatch: '^\\/open-source(\\/|$)' },
-      {
-        text: '资源',
-        activeMatch: '^\\/(resources|devtools)(\\/|$)',
-        items: [
-          { text: '热门资源', link: '/resources/books' },
-          { text: '开发工具与环境', link: '/devtools/' }
-        ]
-      },
-      { text: 'AI', link: '/ai/', activeMatch: '^\\/ai(\\/|$)' },
+      { text: '实践', link: '/practices/', activeMatch: '^\\/practices(\\/|$)' },
       {
         text: '生活',
-        activeMatch: '^\\/(life|english-speaking)(\\/|$)',
+        activeMatch: '^\\/life(\\/|$)',
         items: [
-          { text: '英语口语', link: '/english-speaking/' },
-          { text: '运动健身', link: '/life/fitness/' },
-          { text: '财务', link: '/life/finance/' }
+          { text: '财务', link: '/life/finance/' },
+          { text: '健康', link: '/life/health/' },
+          { text: '个人管理', link: '/life/personal-management/' },
+          { text: '兴趣', link: '/life/interests/' }
         ]
       },
-      { text: '关于', link: '/about/', activeMatch: '^\\/about(\\/|$)' }
+      {
+        text: '资源',
+        activeMatch: '^\\/(resources|devtools|open-source)(\\/|$)',
+        items: [
+          { text: '书籍', link: '/resources/books' },
+          { text: '课程', link: '/resources/courses/' },
+          { text: '网站', link: '/resources/websites/' },
+          { text: '工具', link: '/resources/tools/' },
+          { text: '收藏', link: '/resources/collections/' }
+        ]
+      }
     ],
 
     sidebar: {
+      '/growth/': growthSidebar(),
+      '/career/': careerSidebar(),
+      '/knowledge/': knowledgeSidebar(),
+      '/practices/': practicesSidebar(),
+      '/life/': lifeHubSidebar(),
+      '/life/health/': lifeHealthSidebar(),
+      '/life/personal-management/': lifeHubSidebar(),
+      '/life/interests/': lifeHubSidebar(),
+      '/resources/courses/': resourcesHubSidebar(),
+      '/resources/websites/': resourcesHubSidebar(),
+      '/resources/tools/': resourcesHubSidebar(),
+      '/resources/collections/': resourcesHubSidebar(),
       '/': [
         {
           text: '关于本站',
@@ -624,6 +837,11 @@ export default defineConfig({
         }
       ],
       '/open-source/': [
+        {
+          text: '归属：资源 / 收藏',
+          collapsed: false,
+          items: [{ text: '第二大脑入口', link: '/resources/collections/' }]
+        },
         {
           text: '概览',
           collapsed: false,
@@ -765,7 +983,7 @@ export default defineConfig({
         },
         // 资源/工具统一放在"资源库"模块，这里不再单独展示
       ],
-      '/resources/': resourceAndDevtoolsSidebar(),
+      '/resources/': resourcesHubSidebar(),
       '/devtools/': resourceAndDevtoolsSidebar(),
       '/springboot/': [
         {
@@ -835,8 +1053,13 @@ export default defineConfig({
     // },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/gao-shu/my-vitepress-site' }
     ],
+
+    footer: {
+      message: '<a href="./about/">关于本站</a> · <a href="./about/changelog">更新日志</a> · <a href="./about/contact">联系</a>',
+      copyright: 'Second Brain · Personal knowledge system'
+    },
 
     outline: {
       level: 'deep',
