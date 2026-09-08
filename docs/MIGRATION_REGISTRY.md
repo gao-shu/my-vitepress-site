@@ -28,6 +28,22 @@ Status 取值：`pending` · `linked` · `migrated` · `canonical` · `duplicate
 | `docs/ai/**`（主树） | AI 知识 | 知识 / AI | pending | pending | Phase B 挂接 |
 | `docs/tech-system/industrial-*` 等 | 工业数字化 | 知识 / 其他 / 工业 | pending | pending | |
 | `docs/about/*` | 关于 | 页脚 | linked | linked | A1 已移出一级导航 |
+| `docs/growth/**` | 成长空壳 | 成长 | linked | linked | A1 建立 |
+| `docs/career/**` | 职业空壳 + 兼容链 | 职业 | linked | linked | A1；正文仍在 guide/resume/java… |
+| `docs/knowledge/**` | 知识空壳 + 兼容链 | 知识 | linked | linked | A1/A2 |
+| `docs/practices/index.md` | 实践日志层（空） | 实践 | linked | linked | 无固定二级菜单 |
+| `docs/resources/{books,learning,docs,official-links}` | 原文 | 资源 | linked | linked | books 已有；courses/websites 为索引 |
+| `docs/database/local-cache.md` | 非长文主源 | 职业保障侧短文？ | pending | duplicate | 与 framework/local-cache 同主题；framework 更长 |
+| `docs/framework/local-cache.md` | 倾向 Canonical 长文 | 待 Phase B 定 | pending | duplicate | |
+| `docs/tech-system/devops/monitoring.md` | 待定 | 知识/其他 | pending | duplicate | 与 monitoring-observability 同主题 |
+| `docs/tech-system/devops/monitoring-observability.md` | 待定 | 知识/其他 | pending | duplicate | |
+| `docs/mq|network-linux|design-patterns|scenarios|resume/*` | 面试体 → 职业保障 | 职业 / 职业保障 | pending | pending | 求职集群细分 |
+| `docs/english-speaking/SPEAK_FEATURE_GUIDE.md` | 站点功能说明 | 非 IA / meta | pending | pending | 含 file:// 链接；非学习正文 |
+| `docs/ai/index.md` → `/ai/model-deploy/*` | — | — | pending | pending | **死链**：目标页不存在（规划未写） |
+| `docs/tech-system/index.md` → 大量 ./devops|tools|data/* | — | — | pending | pending | **死链**：路线图占位未落地 |
+| `docs/english-speaking/common-templates` | — | — | pending | pending | **死链**：索引引用缺失页 |
+| `docs/resume/skills-optimization` | — | — | pending | pending | **死链** |
+| `docs/tech-system/integration/*` 内 `../../plc/*` | 相对路径错误 | 工业知识 | pending | pending | 应为 `../plc/`；本阶段不修 |
 
 ## Phase log
 
@@ -35,3 +51,4 @@ Status 取值：`pending` · `linked` · `migrated` · `canonical` · `duplicate
 |-------|------|---------|
 | A1 | 2026-09-08 | IA 骨架 + 新 nav；旧 URL 保留 |
 | A2 | 2026-09-08 | 英语/健康/收藏/工具归位；本登记表建立 |
+| A3 | 2026-09-08 | 结构健康检查；补登记表缺口；不修正文 |
