@@ -14,8 +14,8 @@ Status 取值：`pending` · `linked` · `migrated` · `canonical` · `duplicate
 | `docs/devtools/*` | 原文（不复制） | 资源 / 工具 | linked | linked | `/resources/tools/` 索引 |
 | `docs/devtools/docker.md` | **Docker Canonical** | 资源 / 工具 | canonical | canonical | Phase 1.5 D2 |
 | `docs/tech-system/devops/docker.md` | 非 Canonical | 知识侧兼容 | linked | duplicate | 本阶段仅引用，不合并删除 |
-| `docs/ai/explore/model-selection.md` | **AI 模型选型 Canonical** | 知识 / AI / AI模型 | pending | pending | D1=B；**未在 B-1.2 处理** |
-| `docs/ai/explore/llm-selection.md` | 待收敛到 model-selection | 知识 / AI / AI模型 | pending | pending | **未在 B-1.2 处理** |
+| `docs/ai/explore/model-selection.md` | **AI 模型选型 Canonical** | 知识 / AI / AI模型 | keep | canonical | B-2.2：D1=B；Extract from llm-selection |
+| `docs/ai/explore/llm-selection.md` | `docs/ai/explore/model-selection.md` | 知识 / AI / AI模型 | legacy_stub | migrated | B-2.2：Extract + Stub；旧 URL 保留 |
 | `docs/tech-system/ai/{llm,agent,mvp,multimodal,mlops,ai-roadmap}.md` | **`docs/ai/*` 同名文** | 知识 / AI（Canonical） | legacy_stub | migrated | B-1.2：旧 URL 保留为 Stub → `/ai/*` |
 | `docs/ai/{llm-basics,agent-basics,mvp-server,multimodal-kg,mlops-platform,ai-roadmap}.md` | **Canonical** | 知识 / AI | keep | canonical | B-1.2 确认 |
 | `docs/tech-system/ai/phase1–4*.md`（旧） | 学习计划正文已迁出 | 成长 / 学习计划 / AI | legacy_stub | migrated | Stub → `/growth/learning-plan/ai/phase*` |
@@ -56,3 +56,15 @@ Status 取值：`pending` · `linked` · `migrated` · `canonical` · `duplicate
 | A2 | 2026-09-08 | 英语/健康/收藏/工具归位；本登记表建立 |
 | A3 | 2026-09-08 | 结构健康检查；补登记表缺口；不修正文 |
 | B-1.2 | 2026-09-08 | AI 双源收敛：6 同名 Stub；phase1–4 → 成长/学习计划/AI |
+| B-2.2 | 2026-09-08 | model-selection Canonical；llm-selection Extract+Stub；导航统一主推 Canonical |
+
+### B-2.2 detail
+
+- **Canonical**：`docs/ai/explore/model-selection.md`（路径不变）
+- **Legacy**：`docs/ai/explore/llm-selection.md` → Stub → `/ai/explore/model-selection`
+- **收敛策略**：Extract + Stub（方案 C）
+- **提取的独有内容**：LLM 三梯队表（含 Gemini / GLM / Llama 4 / Phi-4 / Mistral）；Ollama + Open WebUI；Cursor / Continue / MCP / Gateway / A-B / 监控；本知识库用途推荐表；→ `dev-tools-selection` 导航
+- **导航调整**：sidebar「AI 选型」主推 model-selection；`ai-selection/index` 主推 Canonical；`knowledge/ai/ai-models` 区分主入口 / Legacy；`ai/index` 死链 `/ai/model-deploy/03-model-selection` → `/ai/explore/model-selection`
+- **旧 URL**：`/ai/explore/llm-selection` 保留
+- **本次未处理**：Flowable / Spring / Docker / RAG 专页 / model-deploy 模块其余死链 / 其他 duplicate / 模型知识大更新
+

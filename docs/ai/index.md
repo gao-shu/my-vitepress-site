@@ -46,7 +46,7 @@
 - [模块导航：大模型部署及使用](/ai/model-deploy/)
   - [本地部署](/ai/model-deploy/01-local-deploy)
   - [云端部署](/ai/model-deploy/02-cloud-deploy)
-  - [模型选择指南（按环境/场景）](/ai/model-deploy/03-model-selection)
+  - [模型选择指南（按环境/场景）](/ai/explore/model-selection)
   - [推理框架/工具对比与选型（2026）](/ai/model-deploy/04-runtime-compare)
 
 ---

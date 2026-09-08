@@ -797,7 +797,7 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: 'AI 选型概览', link: '/ai/explore/ai-selection/' },
-            { text: 'AI 大模型选型指南', link: '/ai/explore/llm-selection' },
+            { text: 'AI 模型选型指南', link: '/ai/explore/model-selection' },
             { text: 'AI 开发工具选型', link: '/ai/explore/dev-tools-selection' },
             { text: 'MCP 与 Skill 选型', link: '/ai/explore/mcp-skill-selection' }
           ]
