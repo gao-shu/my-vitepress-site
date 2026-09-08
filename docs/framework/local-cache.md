@@ -526,6 +526,34 @@ spring:
       config: classpath:ehcache.xml
 ```
 
+### 7.4 自定义 Key 生成器
+
+批量查询等场景可用自定义 `KeyGenerator`（例如：类名 + 方法名 + 参数 hash）：
+
+```java
+import org.springframework.cache.interceptor.KeyGenerator;
+import org.springframework.stereotype.Component;
+
+@Component("cacheKeyGenerator")
+public class CacheKeyGenerator implements KeyGenerator {
+
+    @Override
+    public Object generate(Object target, Method method, Object... params) {
+        String className = target.getClass().getSimpleName();
+        String methodName = method.getName();
+        int paramHash = Arrays.hashCode(params);
+        return String.format("%s:%s:%d", className, methodName, paramHash);
+    }
+}
+```
+
+```java
+@Cacheable(value = "users", keyGenerator = "cacheKeyGenerator")
+public List<User> getUsersByIds(List<String> userIds) {
+    return userRepository.findAllById(userIds);
+}
+```
+
 ---
 
 ## 八、多级缓存架构（生产环境最佳实践）
@@ -703,6 +731,12 @@ public class CacheMonitor {
 | 命中率 < 80% | 过期太快 | 延长 `expireAfterWrite` |
 | OOM | 无容量限制 | 必须设置 `maximumSize` |
 | 数据不一致 | 更新未清理 | 使用 `@CacheEvict` |
+
+**容量规划（经验值）：**
+
+- 单个缓存建议不超过约 5 万条
+- 本地缓存总占用建议不超过 JVM 堆的约 20%
+- 定期看命中率；长期低于约 80% 时优先调容量/过期，而不是盲目加层
 
 ---
 

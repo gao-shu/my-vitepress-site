@@ -37,8 +37,12 @@ Status 取值：`pending` · `linked` · `migrated` · `canonical` · `duplicate
 | `docs/knowledge/**` | 知识空壳 + 兼容链 | 知识 | linked | linked | A1/A2 |
 | `docs/practices/index.md` | 实践日志层（空） | 实践 | linked | linked | 无固定二级菜单 |
 | `docs/resources/{books,learning,docs,official-links}` | 原文 | 资源 | linked | linked | books 已有；courses/websites 为索引 |
-| `docs/database/local-cache.md` | 非长文主源 | 职业保障侧短文？ | pending | duplicate | 与 framework/local-cache 同主题；framework 更长 |
-| `docs/framework/local-cache.md` | 倾向 Canonical 长文 | 待 Phase B 定 | pending | duplicate | |
+| `docs/framework/local-cache.md` | **本地缓存 Canonical** | 职业 / 职业保障（框架侧） | keep | canonical | B-4.2：Extract from database/local-cache |
+| `docs/database/local-cache.md` | `docs/framework/local-cache.md` | 职业 / 职业保障 | legacy_stub | migrated | B-4.2：Extract+Stub → `/framework/local-cache` |
+| `docs/java/concurrency.md` | `concurrency-core` + `thread-basics` | 职业 / 职业保障 | legacy_stub | migrated | B-4.2：Survey Stub；scenario 独立 |
+| `docs/java/concurrency-core.md` | **并发核心 Canonical** | 职业 / 职业保障 | keep | canonical | B-4.2 确认 |
+| `docs/java/thread-basics.md` | **线程/线程池 Canonical** | 职业 / 职业保障 | keep | canonical | B-4.2 确认 |
+| `docs/java/concurrency-scenario.md` | **场景实战 Canonical** | 职业 / 职业保障 | keep | canonical | B-4.2：保持独立，未合并 |
 | `docs/tech-system/devops/monitoring.md` | 待定 | 知识/其他 | pending | duplicate | 与 monitoring-observability 同主题 |
 | `docs/tech-system/devops/monitoring-observability.md` | 待定 | 知识/其他 | pending | duplicate | |
 | `docs/mq|network-linux|design-patterns|scenarios|resume/*` | 面试体 → 职业保障 | 职业 / 职业保障 | pending | pending | 求职集群细分 |
@@ -59,6 +63,7 @@ Status 取值：`pending` · `linked` · `migrated` · `canonical` · `duplicate
 | B-1.2 | 2026-09-08 | AI 双源收敛：6 同名 Stub；phase1–4 → 成长/学习计划/AI |
 | B-2.2 | 2026-09-08 | model-selection Canonical；llm-selection Extract+Stub；导航统一主推 Canonical |
 | B-3.2 | 2026-09-08 | Flowable：入门+企业二开双 Canonical；framework 克隆 Stub |
+| B-4.2 | 2026-09-08 | Local Cache Extract+Stub；java/concurrency Survey Stub |
 
 ### B-2.2 detail
 
@@ -79,4 +84,13 @@ Status 取值：`pending` · `linked` · `migrated` · `canonical` · `duplicate
 - **未创建**：Practice / Career Project
 - **未参与收敛**：`open-source/admin-jeecg.md`、`scenarios/web-system-design.md`
 - **本次未处理**：Spring / Docker / 其他 duplicate / 全站 dead links
+
+### B-4.2 detail
+
+- **Local Cache Canonical**：`docs/framework/local-cache.md`
+- **Local Cache Legacy**：`docs/database/local-cache.md` → Stub → `/framework/local-cache`
+- **Extract**：§7.4 自定义 Key 生成器；§10.2 容量规划要点（来自 database 版）
+- **Concurrency Survey Legacy**：`docs/java/concurrency.md` → Stub → `/java/thread-basics` + `/java/concurrency-core`
+- **保持独立**：`docs/java/concurrency-scenario.md`
+- **未处理**：Monitoring / Docker / Spring / RuoYi / Jeecg / 工业平行篇
 
