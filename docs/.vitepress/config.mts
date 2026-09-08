@@ -345,6 +345,25 @@ function growthSidebar() {
         { text: '学习计划', link: '/growth/learning-plan/' },
         { text: '成长复盘', link: '/growth/reviews/' }
       ]
+    },
+    {
+      text: '学习计划 · AI',
+      collapsed: false,
+      items: [
+        { text: 'AI 计划总览', link: '/growth/learning-plan/ai/' },
+        { text: 'Phase 1：LLM & Agent', link: '/growth/learning-plan/ai/phase1-llm-agent' },
+        { text: 'Phase 2：MVP Server', link: '/growth/learning-plan/ai/phase2-mvp-server' },
+        { text: 'Phase 3：多模态 / KG', link: '/growth/learning-plan/ai/phase3-multimodal-kg' },
+        { text: 'Phase 4：MLOps', link: '/growth/learning-plan/ai/phase4-mlops-platform' }
+      ]
+    },
+    {
+      text: '关联知识（Canonical）',
+      collapsed: true,
+      items: [
+        { text: 'AI 探索总览', link: '/ai/' },
+        { text: 'AI 路线图', link: '/ai/ai-roadmap' }
+      ]
     }
   ]
 }

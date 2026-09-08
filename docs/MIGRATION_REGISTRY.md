@@ -14,9 +14,13 @@ Status 取值：`pending` · `linked` · `migrated` · `canonical` · `duplicate
 | `docs/devtools/*` | 原文（不复制） | 资源 / 工具 | linked | linked | `/resources/tools/` 索引 |
 | `docs/devtools/docker.md` | **Docker Canonical** | 资源 / 工具 | canonical | canonical | Phase 1.5 D2 |
 | `docs/tech-system/devops/docker.md` | 非 Canonical | 知识侧兼容 | linked | duplicate | 本阶段仅引用，不合并删除 |
-| `docs/ai/explore/model-selection.md` | **AI 模型选型 Canonical** | 知识 / AI / AI模型 | pending | pending | D1=B；A2 不处理正文 |
-| `docs/ai/explore/llm-selection.md` | 待收敛到 model-selection | 知识 / AI / AI模型 | pending | pending | 检查独立价值后再提取/重定向 |
-| `docs/tech-system/ai/*` | 以 `docs/ai` 为准 | 知识 / AI | pending | duplicate | A/B 类重复；B/C 处理 |
+| `docs/ai/explore/model-selection.md` | **AI 模型选型 Canonical** | 知识 / AI / AI模型 | pending | pending | D1=B；**未在 B-1.2 处理** |
+| `docs/ai/explore/llm-selection.md` | 待收敛到 model-selection | 知识 / AI / AI模型 | pending | pending | **未在 B-1.2 处理** |
+| `docs/tech-system/ai/{llm,agent,mvp,multimodal,mlops,ai-roadmap}.md` | **`docs/ai/*` 同名文** | 知识 / AI（Canonical） | legacy_stub | migrated | B-1.2：旧 URL 保留为 Stub → `/ai/*` |
+| `docs/ai/{llm-basics,agent-basics,mvp-server,multimodal-kg,mlops-platform,ai-roadmap}.md` | **Canonical** | 知识 / AI | keep | canonical | B-1.2 确认 |
+| `docs/tech-system/ai/phase1–4*.md`（旧） | 学习计划正文已迁出 | 成长 / 学习计划 / AI | legacy_stub | migrated | Stub → `/growth/learning-plan/ai/phase*` |
+| `docs/growth/learning-plan/ai/phase*.md` | **学习计划 Canonical** | 成长 / 学习计划 / AI | migrated | canonical | B-1.2：非知识正文 |
+| `docs/ai/**`（其余主树） | AI 知识 | 知识 / AI | keep | canonical | B-1.2 未改正文 |
 | `docs/framework/flowable-bpmn.md` | 待定一篇 | 知识 / 编程 | pending | duplicate | 与 tech-system 完全相同 |
 | `docs/tech-system/backend/flowable-bpmn.md` | 待定一篇 | 知识 / 编程 | pending | duplicate | 同上 |
 | `docs/springboot/*` | 教程 → 知识 | 知识 / 编程 / Java | pending | pending | D3=A |
@@ -25,7 +29,6 @@ Status 取值：`pending` · `linked` · `migrated` · `canonical` · `duplicate
 | `docs/tech-system/practices/*` | 工程方法 | 知识 / 其他 | pending | pending | D4=A；**不进实践日志** |
 | `docs/java|database|redis|…`（求职集群） | 面试体 → 职业保障 | 职业 / 职业保障 | pending | pending | 后期可抽 Knowledge Canonical |
 | `docs/guide/*` | 求职总纲 | 职业 / 定位·保障 | pending | pending | |
-| `docs/ai/**`（主树） | AI 知识 | 知识 / AI | pending | pending | Phase B 挂接 |
 | `docs/tech-system/industrial-*` 等 | 工业数字化 | 知识 / 其他 / 工业 | pending | pending | |
 | `docs/about/*` | 关于 | 页脚 | linked | linked | A1 已移出一级导航 |
 | `docs/growth/**` | 成长空壳 | 成长 | linked | linked | A1 建立 |
@@ -52,3 +55,4 @@ Status 取值：`pending` · `linked` · `migrated` · `canonical` · `duplicate
 | A1 | 2026-09-08 | IA 骨架 + 新 nav；旧 URL 保留 |
 | A2 | 2026-09-08 | 英语/健康/收藏/工具归位；本登记表建立 |
 | A3 | 2026-09-08 | 结构健康检查；补登记表缺口；不修正文 |
+| B-1.2 | 2026-09-08 | AI 双源收敛：6 同名 Stub；phase1–4 → 成长/学习计划/AI |
