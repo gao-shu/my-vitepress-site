@@ -3,40 +3,39 @@
 layout: home
 
 hero:
-  name: "我的学习成长记录"
-  text: "持续学习，系统整理，不断进步"
-  tagline: 个人知识体系构建 · 技术学习笔记 · 知识分享
+  name: "Second Brain"
+  text: "把学到的，写下来"
+  tagline: 求职笔记 · 技术 · AI · 生活 · 个人第二大脑
   image:
     src: /logo.svg
-    alt: Java Guide
+    alt: Second Brain
   actions:
     - theme: brand
-      text: 开始学习
+      text: 求职笔记
       link: /guide/
     - theme: alt
-      text: 查看 GitHub
-      link: https://github.com/vuejs/vitepress
+      text: 关于本站
+      link: /about/
 
 features:
   - icon: 📝
-    title: 我的学习笔记
-    details: 通过系统整理和输出，加深对技术的理解。每一篇文章都是学习过程的记录，帮助自己建立完整的知识体系
+    title: 求职笔记
+    details: Java / 数据库 / 框架 / 场景与简历，面向求职的系统整理
     link: /guide/
-    linkText: 查看笔记
-  - icon: 🎯
-    title: 知识体系构建
-    details: 持续学习并整理 Java、数据库、框架、AI 等各领域知识，形成自己的技术知识框架
+    linkText: 进入笔记
+  - icon: 🛠️
+    title: 技术
+    details: 技术体系地图与工业数字化等场景能力，服务长期工程成长
     link: /tech-system/
-    linkText: 查看体系
-  - icon: 📚
-    title: 知识分享
-    details: 在自我学习的同时，将整理的内容分享出来，希望能帮助到同样在学习的开发者
-    link: /resources/
-    linkText: 浏览内容
+    linkText: 查看技术
+  - icon: 🤖
+    title: AI
+    details: 大模型、Agent、工具链与实战路径，独立一条学习线
+    link: /ai/
+    linkText: AI 专区
   - icon: 🌱
-    title: 持续成长
-    details: 记录学习路径、踩坑经验、项目实践，见证自己的技术成长轨迹
-    link: /open-source/
-    linkText: 查看记录
+    title: 生活
+    details: 英语口语、运动健身、财富等生活主题，与技术线分开沉淀
+    link: /life/fitness/
+    linkText: 进入生活
 ---
-

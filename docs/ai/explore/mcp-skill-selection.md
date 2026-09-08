@@ -225,4 +225,4 @@ def validate_function_call(func_name, args):
 
 ---
 
-> **回到顶部**：[AI 选型概览](./index.md) | 下一篇：[AI 开发工具选型](./dev-tools-selection)
+> **回到顶部**：[AI 选型概览](./ai-selection/) | 下一篇：[AI 开发工具选型](./dev-tools-selection)

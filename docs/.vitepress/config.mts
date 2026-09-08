@@ -261,9 +261,39 @@ function englishSpeakingSidebar() {
   ]
 }
 
+function lifeFitnessSidebar() {
+  return [
+    {
+      text: '运动健身',
+      collapsed: false,
+      items: [
+        { text: '模块总览', link: '/life/fitness/' },
+        { text: '睡眠与作息入门', link: '/life/fitness/sleep-basics' },
+        { text: '运动起步：每周最小可行计划', link: '/life/fitness/exercise-start' },
+        { text: '久坐与肩颈：程序员常见问题', link: '/life/fitness/desk-posture' }
+      ]
+    }
+  ]
+}
+
+function lifeWealthSidebar() {
+  return [
+    {
+      text: '财富',
+      collapsed: false,
+      items: [
+        { text: '模块总览', link: '/life/wealth/' },
+        { text: '记账与月度复盘', link: '/life/wealth/budget-basics' },
+        { text: '应急金：先给自己买安全感', link: '/life/wealth/emergency-fund' },
+        { text: '理财认知入门（非荐股）', link: '/life/wealth/money-mindset' }
+      ]
+    }
+  ]
+}
+
 export default defineConfig({
-  title: "Java 面试指南",
-  description: "专注 Java 后端面试辅导",
+  title: "Second Brain",
+  description: "Personal second brain · Tech · AI · Health · Wealth",
   base: '/my-vitepress-site/',
   ignoreDeadLinks: true,
   
@@ -452,24 +482,43 @@ export default defineConfig({
     logo: '/logo.svg',
     
     // https://vitepress.dev/reference/default-theme-config
+    // 顶栏：首页 · 求职笔记 · 技术 · 项目 · 资源 · AI · 生活 · 关于
+    // 注意：VitePress 下拉项不能同时写 link + items，否则只会当普通链接、子项不显示
     nav: [
       { text: '首页', link: '/' },
-      { text: '面试指南', link: '/guide/' },
-      { text: '工业数字化', link: '/tech-system/industrial-digitalization/' },
       {
-        text: '资源库',
-        link: '/resources/books',
+        text: '求职笔记',
+        link: '/guide/',
+        activeMatch: '^\\/(guide|java|database|redis|framework|mq|network-linux|design-patterns|scenarios|resume|springboot)(\\/|$)'
+      },
+      {
+        text: '技术',
+        activeMatch: '^\\/tech-system(\\/|$)',
+        items: [
+          { text: '技术体系', link: '/tech-system/' },
+          { text: '工业数字化', link: '/tech-system/industrial-digitalization/' }
+        ]
+      },
+      { text: '项目', link: '/open-source/', activeMatch: '^\\/open-source(\\/|$)' },
+      {
+        text: '资源',
         activeMatch: '^\\/(resources|devtools)(\\/|$)',
         items: [
           { text: '热门资源', link: '/resources/books' },
           { text: '开发工具与环境', link: '/devtools/' }
         ]
       },
-      { text: '技术体系', link: '/tech-system/' },
-      { text: '开源项目', link: '/open-source/' },
-      { text: 'AI 探索', link: '/ai/' },
-      { text: '英语口语', link: '/english-speaking/' },
-      { text: '关于我', link: '/about/' }
+      { text: 'AI', link: '/ai/', activeMatch: '^\\/ai(\\/|$)' },
+      {
+        text: '生活',
+        activeMatch: '^\\/(life|english-speaking)(\\/|$)',
+        items: [
+          { text: '英语口语', link: '/english-speaking/' },
+          { text: '运动健身', link: '/life/fitness/' },
+          { text: '财富', link: '/life/wealth/' }
+        ]
+      },
+      { text: '关于', link: '/about/', activeMatch: '^\\/about(\\/|$)' }
     ],
 
     sidebar: {
@@ -494,6 +543,8 @@ export default defineConfig({
       '/scenarios/': guideSidebar(),
       '/resume/': guideSidebar(),
       '/english-speaking/': englishSpeakingSidebar(),
+      '/life/fitness/': lifeFitnessSidebar(),
+      '/life/wealth/': lifeWealthSidebar(),
       '/tech-system/industrial-digitalization/': industrialSidebar(),
       '/tech-system/plc/': industrialSidebar(),
       '/tech-system/integration/': industrialSidebar(),
@@ -514,9 +565,9 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: 'AI 选型概览', link: '/ai/explore/ai-selection/' },
-            { text: 'AI 大模型选型指南', link: '/ai/explore/ai-selection/llm-selection' },
-            { text: 'AI 开发工具选型', link: '/ai/explore/ai-selection/dev-tools-selection' },
-            { text: 'MCP 与 Skill 选型', link: '/ai/explore/ai-selection/mcp-skill-selection' }
+            { text: 'AI 大模型选型指南', link: '/ai/explore/llm-selection' },
+            { text: 'AI 开发工具选型', link: '/ai/explore/dev-tools-selection' },
+            { text: 'MCP 与 Skill 选型', link: '/ai/explore/mcp-skill-selection' }
           ]
         },
         {
