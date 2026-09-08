@@ -10,7 +10,7 @@
 - [Node.js 生态](./backend/nodejs-stack.md) - Express、NestJS
 - [Go 语言](./backend/golang.md) - 基础语法、并发、Web 开发
 
-> 工业自动化、设备通信、IoT/SCADA/MES 等内容已迁移到 **[工业数字化](/tech-system/industrial-digitalization/)** 独立模块。
+> 工业自动化、设备通信、IoT/SCADA/MES 等内容见 **[工业数字化](/tech-system/industrial-digitalization/)**（技术体系下拉入口）。
 
 ### 前端技术栈
 - [Vue.js 生态](./frontend/vue-stack.md) - Vue 3、组合式API、Vuex/Pinia

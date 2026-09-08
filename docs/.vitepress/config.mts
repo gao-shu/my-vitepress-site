@@ -144,14 +144,6 @@ function guideSidebar() {
 function resourceAndDevtoolsSidebar() {
   return [
     {
-      text: '归属：资源 / 工具',
-      collapsed: false,
-      items: [
-        { text: '第二大脑入口', link: '/resources/tools/' },
-        { text: 'Docker（Canonical）', link: '/devtools/docker' }
-      ]
-    },
-    {
       text: '热门资源',
       collapsed: false,
       items: [
@@ -238,15 +230,164 @@ function industrialSidebar() {
   ]
 }
 
-function englishSpeakingSidebar() {
+/** 技术体系：原二级升为侧栏一级，文章仍为二级 */
+function techSystemOverviewSidebar() {
   return [
     {
-      text: '归属：知识 / 英语',
+      text: '技术体系概览',
       collapsed: false,
-      items: [
-        { text: '第二大脑入口', link: '/knowledge/english/' }
-      ]
+      items: [{ text: '技术体系概览', link: '/tech-system/' }]
+    }
+  ]
+}
+
+function techSystemBackendSidebar() {
+  return [
+    {
+      text: 'Java & Spring',
+      collapsed: false,
+      items: [{ text: 'Java & Spring', link: '/tech-system/backend/java-spring' }]
     },
+    {
+      text: 'Node.js 技术栈',
+      collapsed: false,
+      items: [{ text: 'Node.js 技术栈', link: '/tech-system/backend/nodejs-stack' }]
+    },
+    {
+      text: 'Python 技术栈',
+      collapsed: false,
+      items: [{ text: 'Python 技术栈', link: '/tech-system/backend/python-stack' }]
+    },
+    {
+      text: 'Golang 技术栈',
+      collapsed: false,
+      items: [{ text: 'Golang 技术栈', link: '/tech-system/backend/golang' }]
+    }
+  ]
+}
+
+function techSystemFrontendSidebar() {
+  return [
+    {
+      text: 'Vue 技术栈',
+      collapsed: false,
+      items: [{ text: 'Vue 技术栈', link: '/tech-system/frontend/vue-stack' }]
+    },
+    {
+      text: 'React 技术栈',
+      collapsed: false,
+      items: [{ text: 'React 技术栈', link: '/tech-system/frontend/react-stack' }]
+    },
+    {
+      text: '移动端',
+      collapsed: false,
+      items: [{ text: '移动端', link: '/tech-system/frontend/mobile' }]
+    },
+    {
+      text: '跨端',
+      collapsed: false,
+      items: [{ text: '跨端', link: '/tech-system/frontend/cross-platform' }]
+    },
+    {
+      text: '工程化',
+      collapsed: false,
+      items: [{ text: '工程化', link: '/tech-system/frontend/engineering' }]
+    }
+  ]
+}
+
+function techSystemDatabaseSidebar() {
+  return [
+    {
+      text: '数据库体系与选型',
+      collapsed: false,
+      items: [{ text: '数据库体系与选型', link: '/tech-system/database/database-stack' }]
+    },
+    {
+      text: '关系型数据库',
+      collapsed: false,
+      items: [{ text: '关系型数据库', link: '/tech-system/database/relational' }]
+    },
+    {
+      text: 'NoSQL',
+      collapsed: false,
+      items: [{ text: 'NoSQL', link: '/tech-system/database/nosql' }]
+    },
+    {
+      text: '缓存体系',
+      collapsed: false,
+      items: [{ text: '缓存体系', link: '/tech-system/database/caching' }]
+    }
+  ]
+}
+
+function techSystemIntegrationSidebar() {
+  return [
+    {
+      text: '跨语言调用（选型）',
+      collapsed: false,
+      items: [{ text: '跨语言调用（选型）', link: '/tech-system/integration/cross-language-interop' }]
+    },
+    {
+      text: 'HTTP：Node.js ↔ Python',
+      collapsed: false,
+      items: [{ text: 'HTTP：Node.js ↔ Python', link: '/tech-system/integration/http-node-python' }]
+    }
+  ]
+}
+
+function techSystemDevopsSidebar() {
+  return [
+    {
+      text: 'CI/CD 流水线',
+      collapsed: false,
+      items: [{ text: 'CI/CD 流水线', link: '/tech-system/devops/ci-cd-pipeline' }]
+    },
+    {
+      text: '监控与可观测',
+      collapsed: false,
+      items: [{ text: '监控与可观测', link: '/tech-system/devops/monitoring-observability' }]
+    },
+    {
+      text: '监控',
+      collapsed: false,
+      items: [{ text: '监控', link: '/tech-system/devops/monitoring' }]
+    },
+    {
+      text: 'Windows Docker Desktop',
+      collapsed: false,
+      items: [{ text: 'Windows Docker Desktop', link: '/tech-system/devops/docker-desktop-windows' }]
+    }
+  ]
+}
+
+function techSystemPythonSidebar() {
+  return [
+    {
+      text: '技能储备',
+      collapsed: false,
+      items: [{ text: '技能储备', link: '/tech-system/python/python-skill' }]
+    }
+  ]
+}
+
+function techSystemOtherSidebar() {
+  return [
+    {
+      text: 'Flowable 快速入门',
+      collapsed: false,
+      items: [{ text: 'Flowable 快速入门', link: '/tech-system/backend/flowable-bpmn' }]
+    },
+    {
+      text: 'Flowable 企业二开',
+      collapsed: false,
+      items: [{ text: 'Flowable 企业二开', link: '/tech-system/backend/flowable-enterprise-extensions' }]
+    }
+  ]
+}
+
+function englishSpeakingSidebar() {
+  return [
     {
       text: '英语口语',
       collapsed: false,
@@ -276,244 +417,9 @@ function englishSpeakingSidebar() {
   ]
 }
 
-function lifeFitnessSidebar() {
-  return [
-    {
-      text: '兼容入口（已归入健康）',
-      collapsed: false,
-      items: [
-        { text: '说明与跳转', link: '/life/fitness/' },
-        { text: '健康总览（正式）', link: '/life/health/' },
-        { text: '睡眠与作息', link: '/life/health/sleep-basics' },
-        { text: '运动起步', link: '/life/health/exercise-start' },
-        { text: '久坐与肩颈', link: '/life/health/desk-posture' }
-      ]
-    }
-  ]
-}
-
-function lifeHealthSidebar() {
-  return [
-    {
-      text: '健康',
-      collapsed: false,
-      items: [
-        { text: '模块总览', link: '/life/health/' },
-        { text: '睡眠与作息入门', link: '/life/health/sleep-basics' },
-        { text: '运动起步：每周最小可行计划', link: '/life/health/exercise-start' },
-        { text: '久坐与肩颈：程序员常见问题', link: '/life/health/desk-posture' }
-      ]
-    },
-    {
-      text: '生活',
-      collapsed: true,
-      items: [
-        { text: '生活总览', link: '/life/' },
-        { text: '财务', link: '/life/finance/' },
-        { text: '个人管理', link: '/life/personal-management/' },
-        { text: '兴趣', link: '/life/interests/' }
-      ]
-    }
-  ]
-}
-
-function lifeFinanceSidebar() {
-  return [
-    {
-      text: '财务',
-      collapsed: false,
-      items: [
-        { text: '模块总览', link: '/life/finance/' },
-        { text: '记账与月度复盘', link: '/life/finance/budget-basics' },
-        { text: '应急金：先给自己买安全感', link: '/life/finance/emergency-fund' },
-        { text: '理财认知入门（非荐股）', link: '/life/finance/money-mindset' }
-      ]
-    }
-  ]
-}
-
-function growthSidebar() {
-  return [
-    {
-      text: '成长',
-      collapsed: false,
-      items: [
-        { text: '总览', link: '/growth/' },
-        { text: '目标', link: '/growth/goals/' },
-        { text: '能力地图', link: '/growth/capability-map/' },
-        { text: '当前学习', link: '/growth/current-learning/' },
-        { text: '学习计划', link: '/growth/learning-plan/' },
-        { text: '成长复盘', link: '/growth/reviews/' }
-      ]
-    },
-    {
-      text: '学习计划 · AI',
-      collapsed: false,
-      items: [
-        { text: 'AI 计划总览', link: '/growth/learning-plan/ai/' },
-        { text: 'Phase 1：LLM & Agent', link: '/growth/learning-plan/ai/phase1-llm-agent' },
-        { text: 'Phase 2：MVP Server', link: '/growth/learning-plan/ai/phase2-mvp-server' },
-        { text: 'Phase 3：多模态 / KG', link: '/growth/learning-plan/ai/phase3-multimodal-kg' },
-        { text: 'Phase 4：MLOps', link: '/growth/learning-plan/ai/phase4-mlops-platform' }
-      ]
-    },
-    {
-      text: '关联知识（Canonical）',
-      collapsed: true,
-      items: [
-        { text: 'AI 探索总览', link: '/ai/' },
-        { text: 'AI 路线图', link: '/ai/ai-roadmap' }
-      ]
-    }
-  ]
-}
-
-function careerSidebar() {
-  return [
-    {
-      text: '职业',
-      collapsed: false,
-      items: [
-        { text: '总览', link: '/career/' },
-        { text: '当前定位', link: '/career/positioning/' },
-        { text: '职业保障', link: '/career/protection/' },
-        { text: '职业能力', link: '/career/capabilities/' },
-        { text: '项目履历', link: '/career/projects/' },
-        { text: '远程工作', link: '/career/remote-work/' },
-        { text: '职业发展', link: '/career/development/' }
-      ]
-    },
-    {
-      text: '职业保障',
-      collapsed: false,
-      items: [
-        { text: 'Java 面试', link: '/career/protection/java-interview/' },
-        { text: '简历', link: '/career/protection/resume/' },
-        { text: '面试', link: '/career/protection/interview/' }
-      ]
-    },
-    {
-      text: '兼容入口（旧）',
-      collapsed: true,
-      items: [
-        { text: '求职准备总览', link: '/guide/' },
-        { text: '简历专题', link: '/resume/resume-guide' }
-      ]
-    }
-  ]
-}
-
-function knowledgeSidebar() {
-  return [
-    {
-      text: '知识',
-      collapsed: false,
-      items: [
-        { text: '总览', link: '/knowledge/' },
-        { text: '编程', link: '/knowledge/programming/' },
-        { text: 'AI', link: '/knowledge/ai/' },
-        { text: '产品', link: '/knowledge/product/' },
-        { text: '商业', link: '/knowledge/business/' },
-        { text: '英语', link: '/knowledge/english/' },
-        { text: '其他', link: '/knowledge/other/' }
-      ]
-    },
-    {
-      text: '编程',
-      collapsed: true,
-      items: [
-        { text: 'Java', link: '/knowledge/programming/java/' },
-        { text: 'Python', link: '/knowledge/programming/python/' },
-        { text: 'Go', link: '/knowledge/programming/go/' },
-        { text: 'TypeScript', link: '/knowledge/programming/typescript/' }
-      ]
-    },
-    {
-      text: 'AI',
-      collapsed: true,
-      items: [
-        { text: 'AI 开发', link: '/knowledge/ai/ai-development/' },
-        { text: 'AI 模型', link: '/knowledge/ai/ai-models/' },
-        { text: 'AI 多模态', link: '/knowledge/ai/ai-multimodal/' },
-        { text: 'AI 工具', link: '/knowledge/ai/ai-tools/' }
-      ]
-    },
-    {
-      text: '兼容入口（旧）',
-      collapsed: true,
-      items: [
-        { text: '技术体系', link: '/tech-system/' },
-        { text: 'AI 探索', link: '/ai/' },
-        { text: '工业数字化', link: '/tech-system/industrial-digitalization/' },
-        { text: '英语口语', link: '/english-speaking/' }
-      ]
-    }
-  ]
-}
-
-function practicesSidebar() {
-  return [
-    {
-      text: '实践',
-      collapsed: false,
-      items: [
-        { text: '实践总览', link: '/practices/' }
-      ]
-    }
-  ]
-}
-
-function lifeHubSidebar() {
-  return [
-    {
-      text: '生活',
-      collapsed: false,
-      items: [
-        { text: '总览', link: '/life/' },
-        { text: '财务', link: '/life/finance/' },
-        { text: '健康', link: '/life/health/' },
-        { text: '个人管理', link: '/life/personal-management/' },
-        { text: '兴趣', link: '/life/interests/' }
-      ]
-    },
-    {
-      text: '兼容入口',
-      collapsed: true,
-      items: [
-        { text: '旧路径说明（fitness）', link: '/life/fitness/' }
-      ]
-    }
-  ]
-}
-
-function resourcesHubSidebar() {
-  return [
-    {
-      text: '资源',
-      collapsed: false,
-      items: [
-        { text: '总览', link: '/resources/' },
-        { text: '书籍', link: '/resources/books' },
-        { text: '课程', link: '/resources/courses/' },
-        { text: '网站', link: '/resources/websites/' },
-        { text: '工具', link: '/resources/tools/' },
-        { text: '收藏', link: '/resources/collections/' }
-      ]
-    },
-    {
-      text: '兼容入口（旧）',
-      collapsed: true,
-      items: [
-        { text: '开发工具与环境', link: '/devtools/' },
-        { text: '开源清单', link: '/open-source/' }
-      ]
-    }
-  ]
-}
-
 export default defineConfig({
-  title: "Second Brain",
-  description: "Personal second brain · Tech · AI · Fitness · Finance",
+  title: "Java 面试指南",
+  description: "专注 Java 后端面试辅导",
   base: '/my-vitepress-site/',
   ignoreDeadLinks: true,
   
@@ -702,58 +608,40 @@ export default defineConfig({
     logo: '/logo.svg',
     
     // https://vitepress.dev/reference/default-theme-config
-    // 顶栏：第二大脑 V1.0 — 首页 · 成长 · 职业 · 知识 · 实践 · 生活 · 资源
-    // 注意：VitePress 下拉项不能同时写 link + items，否则只会当普通链接、子项不显示
+    // 注意：下拉父级不要同时写 link + items，否则子项不显示
     nav: [
       { text: '首页', link: '/' },
-      { text: '成长', link: '/growth/', activeMatch: '^\\/growth(\\/|$)' },
+      { text: '就业指南', link: '/guide/' },
       {
-        text: '职业',
-        link: '/career/',
-        activeMatch: '^\\/(career|guide|java|database|redis|framework|mq|network-linux|design-patterns|scenarios|resume)(\\/|$)'
-      },
-      {
-        text: '知识',
-        link: '/knowledge/',
-        activeMatch: '^\\/(knowledge|tech-system|ai|english-speaking|springboot)(\\/|$)'
-      },
-      { text: '实践', link: '/practices/', activeMatch: '^\\/practices(\\/|$)' },
-      {
-        text: '生活',
-        activeMatch: '^\\/life(\\/|$)',
+        text: '技术体系',
+        activeMatch: '^\\/tech-system(\\/|$)',
         items: [
-          { text: '财务', link: '/life/finance/' },
-          { text: '健康', link: '/life/health/' },
-          { text: '个人管理', link: '/life/personal-management/' },
-          { text: '兴趣', link: '/life/interests/' }
+          { text: '技术体系概览', link: '/tech-system/' },
+          { text: '工业数字化', link: '/tech-system/industrial-digitalization/' },
+          { text: '后端', link: '/tech-system/backend/java-spring' },
+          { text: '前端', link: '/tech-system/frontend/vue-stack' },
+          { text: '数据库与数据', link: '/tech-system/database/database-stack' },
+          { text: '系统集成与通信', link: '/tech-system/integration/cross-language-interop' },
+          { text: 'DevOps', link: '/tech-system/devops/ci-cd-pipeline' },
+          { text: '后端-python', link: '/tech-system/python/python-skill' },
+          { text: '其他', link: '/tech-system/backend/flowable-bpmn' }
         ]
       },
+      { text: 'AI 探索', link: '/ai/' },
       {
-        text: '资源',
-        activeMatch: '^\\/(resources|devtools|open-source)(\\/|$)',
+        text: '资源库',
+        activeMatch: '^\\/(resources|devtools|open-source|english-speaking)(\\/|$)',
         items: [
-          { text: '书籍', link: '/resources/books' },
-          { text: '课程', link: '/resources/courses/' },
-          { text: '网站', link: '/resources/websites/' },
-          { text: '工具', link: '/resources/tools/' },
-          { text: '收藏', link: '/resources/collections/' }
+          { text: '热门资源', link: '/resources/books' },
+          { text: '开发工具与环境', link: '/devtools/' },
+          { text: '开源项目', link: '/open-source/' },
+          { text: '英语口语', link: '/english-speaking/' }
         ]
-      }
+      },
+      { text: '关于我', link: '/about/' }
     ],
 
     sidebar: {
-      '/growth/': growthSidebar(),
-      '/career/': careerSidebar(),
-      '/knowledge/': knowledgeSidebar(),
-      '/practices/': practicesSidebar(),
-      '/life/': lifeHubSidebar(),
-      '/life/health/': lifeHealthSidebar(),
-      '/life/personal-management/': lifeHubSidebar(),
-      '/life/interests/': lifeHubSidebar(),
-      '/resources/courses/': resourcesHubSidebar(),
-      '/resources/websites/': resourcesHubSidebar(),
-      '/resources/tools/': resourcesHubSidebar(),
-      '/resources/collections/': resourcesHubSidebar(),
       '/': [
         {
           text: '关于本站',
@@ -775,12 +663,23 @@ export default defineConfig({
       '/scenarios/': guideSidebar(),
       '/resume/': guideSidebar(),
       '/english-speaking/': englishSpeakingSidebar(),
-      '/life/fitness/': lifeFitnessSidebar(),
-      '/life/finance/': lifeFinanceSidebar(),
+      // 技术体系：更具体的路径写在前面，避免被 /tech-system/ 笼统匹配
       '/tech-system/industrial-digitalization/': industrialSidebar(),
       '/tech-system/plc/': industrialSidebar(),
-      '/tech-system/integration/': industrialSidebar(),
+      '/tech-system/integration/modbus-tcp-node-plc': industrialSidebar(),
+      '/tech-system/integration/modbus-tcp-python-plc': industrialSidebar(),
+      '/tech-system/integration/s7-comm-node-plc': industrialSidebar(),
+      '/tech-system/integration/s7-comm-python-plc': industrialSidebar(),
       '/tech-system/backend/iot-project': industrialSidebar(),
+      '/tech-system/backend/flowable-bpmn': techSystemOtherSidebar(),
+      '/tech-system/backend/flowable-enterprise-extensions': techSystemOtherSidebar(),
+      '/tech-system/backend/': techSystemBackendSidebar(),
+      '/tech-system/frontend/': techSystemFrontendSidebar(),
+      '/tech-system/database/': techSystemDatabaseSidebar(),
+      '/tech-system/integration/': techSystemIntegrationSidebar(),
+      '/tech-system/devops/': techSystemDevopsSidebar(),
+      '/tech-system/python/': techSystemPythonSidebar(),
+      '/tech-system/': techSystemOverviewSidebar(),
       '/ai/': [
         {
           text: 'AI 热门生态（探索）',
@@ -797,9 +696,9 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: 'AI 选型概览', link: '/ai/explore/ai-selection/' },
-            { text: 'AI 模型选型指南', link: '/ai/explore/model-selection' },
-            { text: 'AI 开发工具选型', link: '/ai/explore/dev-tools-selection' },
-            { text: 'MCP 与 Skill 选型', link: '/ai/explore/mcp-skill-selection' }
+            { text: 'AI 大模型选型指南', link: '/ai/explore/ai-selection/llm-selection' },
+            { text: 'AI 开发工具选型', link: '/ai/explore/ai-selection/dev-tools-selection' },
+            { text: 'MCP 与 Skill 选型', link: '/ai/explore/ai-selection/mcp-skill-selection' }
           ]
         },
         {
@@ -856,11 +755,6 @@ export default defineConfig({
         }
       ],
       '/open-source/': [
-        {
-          text: '归属：资源 / 收藏',
-          collapsed: false,
-          items: [{ text: '第二大脑入口', link: '/resources/collections/' }]
-        },
         {
           text: '概览',
           collapsed: false,
@@ -930,79 +824,7 @@ export default defineConfig({
           ]
         }
       ],
-      '/tech-system/': [
-        {
-          text: '技术体系',
-          collapsed: false,
-          items: [{ text: '技术体系概览', link: '/tech-system/' }]
-        },
-        {
-          text: '后端',
-          collapsed: true,
-          items: [
-            { text: 'Java & Spring', link: '/tech-system/backend/java-spring' },
-            { text: 'Node.js 技术栈', link: '/tech-system/backend/nodejs-stack' },
-            { text: 'Python 技术栈', link: '/tech-system/backend/python-stack' },
-            { text: 'Golang 技术栈', link: '/tech-system/backend/golang' }
-          ]
-        },
-        {
-          text: '前端',
-          collapsed: true,
-          items: [
-            { text: 'Vue 技术栈', link: '/tech-system/frontend/vue-stack' },
-            { text: 'React 技术栈', link: '/tech-system/frontend/react-stack' },
-            { text: '移动端', link: '/tech-system/frontend/mobile' },
-            { text: '跨端', link: '/tech-system/frontend/cross-platform' },
-            { text: '工程化', link: '/tech-system/frontend/engineering' }
-          ]
-        },
-        {
-          text: '数据库与数据',
-          collapsed: true,
-          items: [
-            { text: '数据库体系与选型', link: '/tech-system/database/database-stack' },
-            { text: '关系型数据库', link: '/tech-system/database/relational' },
-            { text: 'NoSQL', link: '/tech-system/database/nosql' },
-            { text: '缓存体系', link: '/tech-system/database/caching' }
-          ]
-        },
-        {
-          text: '系统集成与通信',
-          collapsed: true,
-          items: [
-            { text: '跨语言调用（选型）', link: '/tech-system/integration/cross-language-interop' },
-            { text: 'HTTP：Node.js ↔ Python', link: '/tech-system/integration/http-node-python' }
-          ]
-        },
-        {
-          text: 'DevOps',
-          collapsed: true,
-          items: [
-            { text: 'CI/CD 流水线', link: '/tech-system/devops/ci-cd-pipeline' },
-            { text: '监控与可观测', link: '/tech-system/devops/monitoring-observability' },
-            { text: '监控', link: '/tech-system/devops/monitoring' },
-            { text: 'Windows Docker Desktop', link: '/tech-system/devops/docker-desktop-windows' }
-          ]
-        },
-        {
-          text: '后端-python',
-          collapsed: true,
-          items: [
-            { text: '技能储备', link: '/tech-system/python/python-skill' }
-          ]
-        },
-        {
-          text: '其他',
-          collapsed: true,
-          items: [
-            { text: 'Flowable 快速入门', link: '/tech-system/backend/flowable-bpmn' },
-            { text: 'Flowable 企业二开', link: '/tech-system/backend/flowable-enterprise-extensions' }
-          ]
-        },
-        // 资源/工具统一放在"资源库"模块，这里不再单独展示
-      ],
-      '/resources/': resourcesHubSidebar(),
+      '/resources/': resourceAndDevtoolsSidebar(),
       '/devtools/': resourceAndDevtoolsSidebar(),
       '/springboot/': [
         {
@@ -1072,13 +894,15 @@ export default defineConfig({
     // },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/gao-shu/my-vitepress-site' }
+      { icon: 'github', link: 'https://github.com/gao-shu', ariaLabel: 'GitHub' },
+      {
+        icon: {
+          svg: '<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Gitee</title><path fill="#C71D23" d="M11.984 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.016 0zm6.09 5.333c.328 0 .593.266.592.593v1.482a.594.594 0 0 1-.593.592H9.777c-.982 0-1.778.796-1.778 1.778v5.63c0 .327.266.592.593.592h5.63c.982 0 1.778-.796 1.778-1.778v-.296a.593.593 0 0 0-.592-.593h-4.15a.592.592 0 0 1-.592-.592v-1.482a.593.593 0 0 1 .593-.592h6.815c.327 0 .593.265.593.592v3.408a4 4 0 0 1-4 4H5.926a.593.593 0 0 1-.593-.593V9.778a4.444 4.444 0 0 1 4.445-4.444h8.296Z"/></svg>'
+        },
+        link: 'https://gitee.com/gaoshuteacher',
+        ariaLabel: 'Gitee'
+      }
     ],
-
-    footer: {
-      message: '<a href="./about/">关于本站</a> · <a href="./about/changelog">更新日志</a> · <a href="./about/contact">联系</a>',
-      copyright: 'Second Brain · Personal knowledge system'
-    },
 
     outline: {
       level: 'deep',
