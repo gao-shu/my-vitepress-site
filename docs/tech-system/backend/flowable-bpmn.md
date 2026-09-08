@@ -1,7 +1,7 @@
 # Flowable + BPMN 快速入门（Java开发者版）
 
-> **所属专题**: [框架技术](/framework/overview)
-> 
+> **归属**：知识 / 编程 / Java / 工作流（Canonical：入门）
+>
 > **适合人群**:
 > - Java 开发者
 > - 第一次接触 BPM / 工作流引擎

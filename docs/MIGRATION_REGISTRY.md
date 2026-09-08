@@ -21,8 +21,9 @@ Status 取值：`pending` · `linked` · `migrated` · `canonical` · `duplicate
 | `docs/tech-system/ai/phase1–4*.md`（旧） | 学习计划正文已迁出 | 成长 / 学习计划 / AI | legacy_stub | migrated | Stub → `/growth/learning-plan/ai/phase*` |
 | `docs/growth/learning-plan/ai/phase*.md` | **学习计划 Canonical** | 成长 / 学习计划 / AI | migrated | canonical | B-1.2：非知识正文 |
 | `docs/ai/**`（其余主树） | AI 知识 | 知识 / AI | keep | canonical | B-1.2 未改正文 |
-| `docs/framework/flowable-bpmn.md` | 待定一篇 | 知识 / 编程 | pending | duplicate | 与 tech-system 完全相同 |
-| `docs/tech-system/backend/flowable-bpmn.md` | 待定一篇 | 知识 / 编程 | pending | duplicate | 同上 |
+| `docs/tech-system/backend/flowable-bpmn.md` | **Flowable 入门 Canonical** | 知识 / 编程 / Java / 工作流 | keep | canonical | B-3.2：Canonical-1 |
+| `docs/framework/flowable-bpmn.md` | `docs/tech-system/backend/flowable-bpmn.md` | 知识 / 编程 / Java / 工作流 | legacy_stub | migrated | B-3.2：字节级克隆 → Stub；旧 URL 保留 |
+| `docs/tech-system/backend/flowable-enterprise-extensions.md` | **Flowable 企业二开 Canonical** | 知识 / 编程 / Java / 工作流 | keep | canonical | B-3.2：Canonical-2；独立正文，不并入门 |
 | `docs/springboot/*` | 教程 → 知识 | 知识 / 编程 / Java | pending | pending | D3=A |
 | `docs/framework/springboot-*` | 面试/FAQ → 职业保障 | 职业 / 职业保障 | pending | pending | D3=A |
 | `docs/tech-system/backend/java-spring.md` | 生态地图 → 知识 | 知识 / 编程 / Java | pending | pending | 与上两线同主题不同用途 |
@@ -57,6 +58,7 @@ Status 取值：`pending` · `linked` · `migrated` · `canonical` · `duplicate
 | A3 | 2026-09-08 | 结构健康检查；补登记表缺口；不修正文 |
 | B-1.2 | 2026-09-08 | AI 双源收敛：6 同名 Stub；phase1–4 → 成长/学习计划/AI |
 | B-2.2 | 2026-09-08 | model-selection Canonical；llm-selection Extract+Stub；导航统一主推 Canonical |
+| B-3.2 | 2026-09-08 | Flowable：入门+企业二开双 Canonical；framework 克隆 Stub |
 
 ### B-2.2 detail
 
@@ -67,4 +69,14 @@ Status 取值：`pending` · `linked` · `migrated` · `canonical` · `duplicate
 - **导航调整**：sidebar「AI 选型」主推 model-selection；`ai-selection/index` 主推 Canonical；`knowledge/ai/ai-models` 区分主入口 / Legacy；`ai/index` 死链 `/ai/model-deploy/03-model-selection` → `/ai/explore/model-selection`
 - **旧 URL**：`/ai/explore/llm-selection` 保留
 - **本次未处理**：Flowable / Spring / Docker / RAG 专页 / model-deploy 模块其余死链 / 其他 duplicate / 模型知识大更新
+
+### B-3.2 detail
+
+- **Canonical-1**：`docs/tech-system/backend/flowable-bpmn.md`（入门；路径不变）
+- **Canonical-2**：`docs/tech-system/backend/flowable-enterprise-extensions.md`（企业二开；独立，未合并）
+- **Legacy**：`docs/framework/flowable-bpmn.md` → Stub → `/tech-system/backend/flowable-bpmn`
+- **导航**：tech-system sidebar 已主推两篇 Canonical；framework sidebar 无 Flowable 完整正文入口
+- **未创建**：Practice / Career Project
+- **未参与收敛**：`open-source/admin-jeecg.md`、`scenarios/web-system-design.md`
+- **本次未处理**：Spring / Docker / 其他 duplicate / 全站 dead links
 
