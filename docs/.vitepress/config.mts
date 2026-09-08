@@ -276,16 +276,16 @@ function lifeFitnessSidebar() {
   ]
 }
 
-function lifeWealthSidebar() {
+function lifeFinanceSidebar() {
   return [
     {
-      text: '财富',
+      text: '财务',
       collapsed: false,
       items: [
-        { text: '模块总览', link: '/life/wealth/' },
-        { text: '记账与月度复盘', link: '/life/wealth/budget-basics' },
-        { text: '应急金：先给自己买安全感', link: '/life/wealth/emergency-fund' },
-        { text: '理财认知入门（非荐股）', link: '/life/wealth/money-mindset' }
+        { text: '模块总览', link: '/life/finance/' },
+        { text: '记账与月度复盘', link: '/life/finance/budget-basics' },
+        { text: '应急金：先给自己买安全感', link: '/life/finance/emergency-fund' },
+        { text: '理财认知入门（非荐股）', link: '/life/finance/money-mindset' }
       ]
     }
   ]
@@ -293,7 +293,7 @@ function lifeWealthSidebar() {
 
 export default defineConfig({
   title: "Second Brain",
-  description: "Personal second brain · Tech · AI · Health · Wealth",
+  description: "Personal second brain · Tech · AI · Fitness · Finance",
   base: '/my-vitepress-site/',
   ignoreDeadLinks: true,
   
@@ -515,7 +515,7 @@ export default defineConfig({
         items: [
           { text: '英语口语', link: '/english-speaking/' },
           { text: '运动健身', link: '/life/fitness/' },
-          { text: '财富', link: '/life/wealth/' }
+          { text: '财务', link: '/life/finance/' }
         ]
       },
       { text: '关于', link: '/about/', activeMatch: '^\\/about(\\/|$)' }
@@ -544,7 +544,7 @@ export default defineConfig({
       '/resume/': guideSidebar(),
       '/english-speaking/': englishSpeakingSidebar(),
       '/life/fitness/': lifeFitnessSidebar(),
-      '/life/wealth/': lifeWealthSidebar(),
+      '/life/finance/': lifeFinanceSidebar(),
       '/tech-system/industrial-digitalization/': industrialSidebar(),
       '/tech-system/plc/': industrialSidebar(),
       '/tech-system/integration/': industrialSidebar(),

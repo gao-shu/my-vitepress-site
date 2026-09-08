@@ -35,7 +35,7 @@ features:
     linkText: AI 专区
   - icon: 🌱
     title: 生活
-    details: 英语口语、运动健身、财富等生活主题，与技术线分开沉淀
+    details: 英语口语、运动健身、财务等生活主题，与技术线分开沉淀
     link: /life/fitness/
     linkText: 进入生活
 ---
