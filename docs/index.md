@@ -3,49 +3,39 @@
 layout: home
 
 hero:
-  name: "Second Brain"
-  text: "把学到的，写下来"
-  tagline: 成长 · 职业 · 知识 · 实践 · 生活 · 资源
+  name: "一口三个馍"
+  text: "个人技术学习站"
+  tagline: 就业指南 · 技术体系 · AI · 资源库
   image:
     src: /logo.svg
-    alt: Second Brain
+    alt: 一口三个馍
   actions:
     - theme: brand
-      text: 当前成长
-      link: /growth/
+      text: 就业指南
+      link: /guide/
     - theme: alt
-      text: 职业方向
-      link: /career/
+      text: 技术体系
+      link: /tech-system/
 
 features:
-  - icon: 🧭
-    title: 成长
-    details: 目标、能力地图、当前学习与复盘——回答「我现在要成长什么」
-    link: /growth/
-    linkText: 进入成长
-  - icon: 💼
-    title: 职业
-    details: 定位、职业保障、履历与远程——回答「如何保持竞争力」
-    link: /career/
-    linkText: 进入职业
-  - icon: 🧠
-    title: 知识
-    details: 编程、AI、英语等领域知识——回答「我理解和掌握了什么」
-    link: /knowledge/
-    linkText: 进入知识
-  - icon: 🛠️
-    title: 实践
-    details: 跨领域统一记录「我实际做过什么」（无固定二级分类）
-    link: /practices/
-    linkText: 进入实践
-  - icon: 🌱
-    title: 生活
-    details: 财务、健康、个人管理与兴趣
-    link: /life/
-    linkText: 进入生活
+  - icon: 📝
+    title: 就业指南
+    details: Java、数据库、框架、面试准备与项目讲述
+    link: /guide/
+    linkText: 开始学习
+  - icon: 🎯
+    title: 技术体系
+    details: 后端、前端、DevOps、工业数字化等知识地图
+    link: /tech-system/
+    linkText: 查看体系
+  - icon: 🤖
+    title: AI
+    details: AI 开发、应用与学习路线
+    link: /ai/
+    linkText: 进入 AI
   - icon: 📚
-    title: 资源
-    details: 书籍、课程、网站、工具与收藏——外部输入仓库
+    title: 资源库
+    details: 书籍、工具、开源项目与英语口语
     link: /resources/
-    linkText: 进入资源
+    linkText: 浏览资源
 ---

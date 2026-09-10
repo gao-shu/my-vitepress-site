@@ -7,6 +7,7 @@
 ### 后端技术栈
 - [Java/Spring 生态](./backend/java-spring.md) - Spring Boot、常用组件、工程化
 - [Python 生态](./backend/python-stack.md) - Django、Flask、FastAPI
+- [Python 技能速成](./python/python-skill.md) - 会用即可的 AI/工具向速成
 - [Node.js 生态](./backend/nodejs-stack.md) - Express、NestJS
 - [Go 语言](./backend/golang.md) - 基础语法、并发、Web 开发
 

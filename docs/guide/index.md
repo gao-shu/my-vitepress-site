@@ -13,6 +13,7 @@
 
 ## 核心学习模块
 
+- **[个人简历](./my-resume.md)**：当前求职简历正文（技能 / 项目 / 工作经历）
 - [Java 基础](../java/base-overview.md)：深入讲解 Java 核心概念。
 - [数据库](../database/overview.md)：MySQL、Redis 等数据库知识。
 - [框架](../framework/spring-core.md)：Spring、SpringBoot 等框架原理。

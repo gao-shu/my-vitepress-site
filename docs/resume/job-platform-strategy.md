@@ -101,7 +101,7 @@
 
 **开聊模板（可直接复制）**：
 
-> 你好，我是张孟杰，8 年 Java 后端/全栈经验，最近 4 年主要是 Spring Boot/Cloud Alibaba（Nacos/Feign/Xxl-job）+ MySQL/Redis，也做过 Docker/Linux 部署。  
+> 你好，我是一名有 8 年经验的 Java 后端/全栈开发，最近 4 年主要是 Spring Boot/Cloud Alibaba（Nacos/Feign/Xxl-job）+ MySQL/Redis，也做过 Docker/Linux 部署。  
 > 我期望远程/异地（可灵活），想确认下：  
 > 1）这个岗位是否支持远程/异地？  
 > 2）主要技术栈是 Spring Boot 单体还是微服务？是否用 Redis/MySQL？  
