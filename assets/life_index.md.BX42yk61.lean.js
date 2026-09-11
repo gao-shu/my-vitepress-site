@@ -1,0 +1,1 @@
+import{_ as a,o as t,c as i,ai as r}from"./chunks/framework.ampVZV4B.js";const h=JSON.parse('{"title":"生活","description":"","frontmatter":{},"headers":[],"relativePath":"life/index.md","filePath":"life/index.md"}'),l={name:"life/index.md"};function n(o,e,s,c,d,f){return t(),i("div",null,[...e[0]||(e[0]=[r("",5)])])}const p=a(l,[["render",n]]);export{h as __pageData,p as default};

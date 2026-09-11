@@ -1,1 +1,0 @@
-import{_ as e,o as a,c as r,ak as i}from"./chunks/framework.B6q2wfXj.js";const m=JSON.parse('{"title":"一口三个馍","description":"","frontmatter":{},"headers":[],"relativePath":"index.md","filePath":"index.md"}'),s={name:"index.md"};function d(o,t,n,l,h,c){return a(),r("div",null,[...t[0]||(t[0]=[i("",11)])])}const f=e(s,[["render",d]]);export{m as __pageData,f as default};
