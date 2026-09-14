@@ -513,9 +513,9 @@ function englishSpeakingSidebar() {
 function aiDevSidebar() {
   return [
     {
-      text: 'AI 初步了解',
-      collapsed: true,
+      text: '技术',
       items: [
+        { text: '技术入口', link: '/ai/dev/' },
         { text: '主流厂商一览', link: '/ai/dev/basics/model-landscape' },
         { text: 'Prompt 怎么写才像工程', link: '/ai/dev/basics/prompt-engineering' },
         { text: 'Agent 是什么', link: '/ai/dev/agent/agent-overview' },
@@ -535,7 +535,7 @@ function aiDevSidebar() {
       ]
     },
     {
-      text: 'Agent 应用开发',
+      text: 'Agent',
       collapsed: true,
       items: [
         { text: 'Tool Calling 最小例子', link: '/ai/dev/agent/tool-calling' },
@@ -547,6 +547,12 @@ function aiDevSidebar() {
 
 function aiAppSidebar() {
   return [
+    {
+      text: '应用',
+      items: [
+        { text: '应用入口', link: '/ai/app/' }
+      ]
+    },
     {
       text: '企业业务',
       collapsed: true,
@@ -592,6 +598,23 @@ function aiAppSidebar() {
       items: [
         { text: 'AI 产品最小闭环', link: '/ai/app/product/mvp-loop' },
         { text: '最小 AI 功能怎么定范围', link: '/ai/app/product/mvp-scope' }
+      ]
+    }
+  ]
+}
+
+function aiOpportunitySidebar() {
+  return [
+    {
+      text: '机会',
+      items: [
+        { text: '机会入口', link: '/ai/intel/opportunity/' },
+        { text: '岗位需求在变什么', link: '/ai/intel/opportunity/job-signal' },
+        { text: '岗位名在变', link: '/ai/intel/opportunity/job-titles' },
+        { text: '商业模式观察', link: '/ai/intel/opportunity/model-notes' },
+        { text: 'ROI 比模型名更重要', link: '/ai/intel/opportunity/roi-first' },
+        { text: '个人可执行机会', link: '/ai/intel/opportunity/personal-bets' },
+        { text: '个人可做的小切口', link: '/ai/intel/opportunity/small-cut' }
       ]
     }
   ]
@@ -886,8 +909,8 @@ export default defineConfig({
         text: 'AI 应用',
         activeMatch: '^\\/ai(\\/|$)',
         items: [
-          { text: '技术', link: '/ai/intel/technology/' },
-          { text: '应用', link: '/ai/intel/application/' },
+          { text: '技术', link: '/ai/dev/' },
+          { text: '应用', link: '/ai/app/' },
           { text: '机会', link: '/ai/intel/opportunity/' }
         ]
       },
@@ -933,6 +956,7 @@ export default defineConfig({
       // AI：更具体路径在前，避免被 /ai/ 笼统匹配
       '/ai/dev/': aiDevSidebar(),
       '/ai/app/': aiAppSidebar(),
+      '/ai/intel/opportunity/': aiOpportunitySidebar(),
       '/ai/intel/': aiIntelSidebar(),
       '/ai/': aiLegacySidebar(),
       '/open-source/': [
