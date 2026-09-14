@@ -1,3 +1,5 @@
-# 岗位名在变（占位）
+# 已迁移
 
-AI Application / Agent 相关岗位观察（占位）。
+本页已迁至 [岗位名在变](/ai/intel/opportunity/job-titles)。
+
+旧链接保留，避免书签失效。
