@@ -1,5 +1,6 @@
 # 资源库
 
-- [书籍推荐(免费下载)](/resources/books)
-- [开发工具与环境配置](/devtools/)
-- [学习教程（官网）](/resources/learning)
+本站已不再单独设置「资源库」顶栏。
+
+- 开源项目 → [技术体系 · 开源拆解](/open-source/)
+- 英语口语 → [技术体系 · 英语口语](/english-speaking/)

@@ -32,7 +32,7 @@
 - **工程化**：Docker / Linux / Git；能推到可部署、可继续迭代  
 
 更细的项目讲述与求职材料 → [就业指南](/guide/)  
-技术与 AI 相关整理 → [技术体系](/tech-system/) · [AI 工程](/ai/dev/)
+技术与 AI 相关整理 → [技术体系](/tech-system/) · [AI 应用](/ai/dev/)
 
 ---
 

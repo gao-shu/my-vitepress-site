@@ -143,6 +143,16 @@ function guideSidebar() {
       items: [
         { text: 'Vue 面试基础：高频 8 题', link: '/resume/vue-interview' }
       ]
+    },
+    {
+      text: 'DevOps',
+      collapsed: true,
+      items: [
+        { text: 'DevOps 总览', link: '/guide/devops/' },
+        { text: 'Docker 实战与面试', link: '/guide/devops/docker-interview' },
+        { text: 'CI/CD 实战与面试', link: '/guide/devops/cicd-interview' },
+        { text: '监控排查实战与面试', link: '/guide/devops/monitoring-interview' }
+      ]
     }
   ]
 }
@@ -218,6 +228,14 @@ function industrialSidebar() {
         { text: 'Siemens S7：Node.js ↔ PLC', link: '/tech-system/integration/s7-comm-node-plc' },
         { text: 'Siemens S7：Python ↔ PLC', link: '/tech-system/integration/s7-comm-python-plc' },
         { text: '物联网项目学习路线', link: '/tech-system/backend/iot-project' }
+      ]
+    },
+    {
+      text: '服务间通信',
+      collapsed: true,
+      items: [
+        { text: '跨语言调用（选型）', link: '/tech-system/integration/cross-language-interop' },
+        { text: 'HTTP：Node.js ↔ Python', link: '/tech-system/integration/http-node-python' }
       ]
     },
     {
@@ -443,7 +461,9 @@ function aiDevSidebar() {
         { text: 'Cursor 工作流草稿', link: '/ai/dev/coding/cursor-workflow' },
         { text: '用 AI 做 Code Review', link: '/ai/dev/coding/ai-code-review' },
         { text: '用 AI 改一个小 Bug', link: '/ai/dev/coding/fix-one-bug' },
-        { text: 'AI Coding 工作流草图', link: '/ai/dev/coding/workflow-sketch' }
+        { text: 'AI Coding 工作流草图', link: '/ai/dev/coding/workflow-sketch' },
+        { text: 'AI 如何提高研发人效', link: '/ai/app/software/dev-efficiency' },
+        { text: '开发者如何用 AI 提速', link: '/ai/app/software/dev-speedup' }
       ]
     },
     {
@@ -478,14 +498,6 @@ function aiDevSidebar() {
 
 function aiAppSidebar() {
   return [
-    {
-      text: '软件研发',
-      collapsed: true,
-      items: [
-        { text: 'AI 如何提高研发人效', link: '/ai/app/software/dev-efficiency' },
-        { text: '开发者如何用 AI 提速', link: '/ai/app/software/dev-speedup' }
-      ]
-    },
     {
       text: '企业业务',
       collapsed: true,
@@ -844,38 +856,30 @@ export default defineConfig({
     // 注意：下拉父级不要同时写 link + items，否则子项不显示
     nav: [
       { text: '首页', link: '/' },
-      { text: '就业指南', link: '/guide/' },
+      {
+        text: '就业指南',
+        link: '/guide/',
+        activeMatch: '^\\/(guide|java|database|redis|framework|mq|network-linux|design-patterns|scenarios|resume|springboot)(\\/|$)'
+      },
       {
         text: '技术体系',
-        activeMatch: '^\\/tech-system(\\/|$)',
+        activeMatch: '^\\/(open-source|english-speaking)(\\/|$)|^\\/tech-system(\\/|$)',
         items: [
-          { text: '技术体系概览', link: '/tech-system/' },
           { text: '后端', link: '/tech-system/backend/java-spring' },
           { text: '前端', link: '/tech-system/frontend/vue-stack' },
-          { text: 'DevOps', link: '/tech-system/devops/ci-cd-pipeline' },
-          { text: '数据库与数据', link: '/tech-system/database/database-stack' },
-          { text: '系统集成与通信', link: '/tech-system/integration/cross-language-interop' },
           { text: '工业数字化', link: '/tech-system/industrial-digitalization/' },
+          { text: '开源拆解', link: '/open-source/' },
+          { text: '英语口语', link: '/english-speaking/' },
           { text: '其他', link: '/tech-system/backend/flowable-bpmn' }
         ]
       },
       {
-        text: 'AI 工程',
+        text: 'AI 应用',
         activeMatch: '^\\/ai(\\/|$)',
         items: [
-          { text: 'AI 开发', link: '/ai/dev/' },
-          { text: 'AI 应用', link: '/ai/app/' },
-          { text: 'AI 情报', link: '/ai/intel/' }
-        ]
-      },
-      {
-        text: '资源库',
-        activeMatch: '^\\/(resources|devtools|open-source|english-speaking)(\\/|$)',
-        items: [
-          { text: '热门资源', link: '/resources/books' },
-          { text: '开发工具与环境', link: '/devtools/' },
-          { text: '开源项目', link: '/open-source/' },
-          { text: '英语口语', link: '/english-speaking/' }
+          { text: '方法总结', link: '/ai/dev/' },
+          { text: '场景总结', link: '/ai/app/' },
+          { text: '情报摘录', link: '/ai/intel/' }
         ]
       },
       { text: '关于我', link: '/about/' }
@@ -893,6 +897,7 @@ export default defineConfig({
         }
       ],
       '/guide/': guideSidebar(),
+      '/guide/devops/': guideSidebar(),
       '/java/': guideSidebar(),
       '/database/': guideSidebar(),
       '/redis/': guideSidebar(),
@@ -906,10 +911,7 @@ export default defineConfig({
       // 技术体系：更具体的路径写在前面，避免被 /tech-system/ 笼统匹配
       '/tech-system/industrial-digitalization/': industrialSidebar(),
       '/tech-system/plc/': industrialSidebar(),
-      '/tech-system/integration/modbus-tcp-node-plc': industrialSidebar(),
-      '/tech-system/integration/modbus-tcp-python-plc': industrialSidebar(),
-      '/tech-system/integration/s7-comm-node-plc': industrialSidebar(),
-      '/tech-system/integration/s7-comm-python-plc': industrialSidebar(),
+      '/tech-system/integration/': industrialSidebar(),
       '/tech-system/backend/iot-project': industrialSidebar(),
       '/tech-system/backend/flowable-bpmn': techSystemOtherSidebar(),
       '/tech-system/backend/flowable-enterprise-extensions': techSystemOtherSidebar(),
@@ -917,8 +919,7 @@ export default defineConfig({
       '/tech-system/python/': techSystemBackendSidebar(),
       '/tech-system/frontend/': techSystemFrontendSidebar(),
       '/tech-system/database/': techSystemDatabaseSidebar(),
-      '/tech-system/integration/': techSystemIntegrationSidebar(),
-      '/tech-system/devops/': techSystemDevopsSidebar(),
+      '/tech-system/devops/': guideSidebar(),
       '/tech-system/': techSystemOverviewSidebar(),
       // AI：更具体路径在前，避免被 /ai/ 笼统匹配
       '/ai/dev/': aiDevSidebar(),
