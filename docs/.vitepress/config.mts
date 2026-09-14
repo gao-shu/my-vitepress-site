@@ -600,51 +600,11 @@ function aiAppSidebar() {
 function aiIntelSidebar() {
   return [
     {
-      text: '技术雷达',
-      collapsed: true,
+      text: '情报摘录',
       items: [
-        { text: '本周值得盯的技术点', link: '/ai/intel/tech/weekly-tech' },
-        { text: '技术观察备忘', link: '/ai/intel/tech/watchlist' }
-      ]
-    },
-    {
-      text: '产品雷达',
-      collapsed: true,
-      items: [
-        { text: '工具与产品观察', link: '/ai/intel/product/tool-watch' },
-        { text: '本周工具速览', link: '/ai/intel/product/tools-glance' }
-      ]
-    },
-    {
-      text: '行业雷达',
-      collapsed: true,
-      items: [
-        { text: '行业落地速记', link: '/ai/intel/industry/landing-notes' },
-        { text: '行业一则', link: '/ai/intel/industry/note' }
-      ]
-    },
-    {
-      text: '职业雷达',
-      collapsed: true,
-      items: [
-        { text: '岗位需求在变什么', link: '/ai/intel/career/job-signal' },
-        { text: '岗位名在变', link: '/ai/intel/career/job-titles' }
-      ]
-    },
-    {
-      text: '商业雷达',
-      collapsed: true,
-      items: [
-        { text: '商业模式观察', link: '/ai/intel/business/model-notes' },
-        { text: 'ROI 比模型名更重要', link: '/ai/intel/business/roi-first' }
-      ]
-    },
-    {
-      text: '机会雷达',
-      collapsed: true,
-      items: [
-        { text: '个人可执行机会', link: '/ai/intel/opportunity/personal-bets' },
-        { text: '个人可做的小切口', link: '/ai/intel/opportunity/small-cut' }
+        { text: '技术', link: '/ai/intel/technology/' },
+        { text: '应用', link: '/ai/intel/application/' },
+        { text: '机会', link: '/ai/intel/opportunity/' }
       ]
     }
   ]
