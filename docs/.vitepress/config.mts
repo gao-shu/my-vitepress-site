@@ -886,9 +886,9 @@ export default defineConfig({
         text: 'AI 应用',
         activeMatch: '^\\/ai(\\/|$)',
         items: [
-          { text: '方法总结', link: '/ai/dev/' },
-          { text: '场景总结', link: '/ai/app/' },
-          { text: '情报摘录', link: '/ai/intel/' }
+          { text: '技术', link: '/ai/intel/technology/' },
+          { text: '应用', link: '/ai/intel/application/' },
+          { text: '机会', link: '/ai/intel/opportunity/' }
         ]
       },
       { text: '关于我', link: '/about/' }
