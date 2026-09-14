@@ -5,13 +5,17 @@
 ## 🏗️ 核心技术栈
 
 ### 后端技术栈
-- [Java/Spring 生态](./backend/java-spring.md) - Spring Boot、常用组件、工程化
-- [Python 生态](./backend/python-stack.md) - Django、Flask、FastAPI
-- [Python 技能速成](./python/python-skill.md) - 会用即可的 AI/工具向速成
-- [Node.js 生态](./backend/nodejs-stack.md) - Express、NestJS
-- [Go 语言](./backend/golang.md) - 基础语法、并发、Web 开发
 
-> 工业自动化、设备通信、IoT/SCADA/MES 等内容见 **[工业数字化](/tech-system/industrial-digitalization/)**（技术体系下拉入口）。
+沉淀判断，不是教程：[后端技术体系](./backend/)（语言/框架 + 跨语言工程问题）。
+
+- **Java**：[分组总览](./backend/java/) · [语言系列](./backend/java/language/positioning.md) · [Spring 系列](./backend/java/spring/what-it-solves.md)  
+- **Python**：[语言总结](./backend/python/language.md) · [框架总结](./backend/python/frameworks.md) · [技能速成](./python/python-skill.md)  
+- **Node(TS)**：[语言与运行时](./backend/nodejs/language.md) · [框架总结](./backend/nodejs/frameworks.md)  
+- **Go**：[语言总结](./backend/go/language.md) · [框架总结](./backend/go/frameworks.md)  
+- **C#**：[语言总结](./backend/csharp/language.md) · [.NET 框架总结](./backend/csharp/frameworks.md)  
+- **后端问题**：[并发 / 库 / Redis / MQ / 分布式…](./backend/problems/)  
+
+> 工业自动化、设备通信、IoT/SCADA/MES 等内容见 **[工业数字化](/tech-system/industrial-digitalization/)**。
 
 ### 前端技术栈
 - [Vue.js 生态](./frontend/vue-stack.md) - Vue 3、组合式API、Vuex/Pinia

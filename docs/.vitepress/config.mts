@@ -203,43 +203,60 @@ function resourceAndDevtoolsSidebar() {
 function industrialSidebar() {
   return [
     {
-      text: '工业数字化',
+      text: '总览',
       collapsed: false,
       items: [
-        { text: '模块总览', link: '/tech-system/industrial-digitalization/' },
-        { text: '工业数字化学习路线', link: '/tech-system/industrial-digitalization/index' }
+        { text: '工业数字化实验室', link: '/tech-system/industrial-digitalization/' }
       ]
     },
     {
-      text: '工业自动化（PLC）',
+      text: 'Mini MES',
       collapsed: false,
       items: [
-        { text: '常见 PLC 品牌与选型', link: '/tech-system/plc/common-brands' },
-        { text: '西门子 S7 详解与 Python 采集', link: '/tech-system/plc/s7-python-data-collection' },
-        { text: 'S7 速查手册', link: '/tech-system/plc/s7-quick-reference' }
+        { text: '项目目标', link: '/tech-system/industrial-digitalization/mini-mes/' },
+        { text: '架构演进', link: '/tech-system/industrial-digitalization/mini-mes/architecture' },
+        { text: 'Roadmap', link: '/tech-system/industrial-digitalization/mini-mes/roadmap' },
+        { text: 'Domain / 问题', link: '/tech-system/industrial-digitalization/mini-mes/domain' }
       ]
     },
     {
-      text: '设备通信与集成',
+      text: '判断记录',
+      collapsed: false,
+      items: [
+        { text: '判断索引', link: '/tech-system/industrial-digitalization/decisions/' },
+        { text: 'V0 为何 Gateway → HTTP', link: '/tech-system/industrial-digitalization/decisions/01-v0-gateway-http' },
+        { text: '为何暂不用 MQTT / EMQX', link: '/tech-system/industrial-digitalization/decisions/02-no-mqtt-yet' },
+        { text: 'Redis 与 MySQL 怎么分', link: '/tech-system/industrial-digitalization/decisions/03-redis-vs-mysql' },
+        { text: '为何暂不用 TDengine', link: '/tech-system/industrial-digitalization/decisions/04-no-tdengine' },
+        { text: '为何第一版不做微服务', link: '/tech-system/industrial-digitalization/decisions/05-no-microservice' }
+      ]
+    },
+    {
+      text: '实验室',
+      collapsed: false,
+      items: [
+        { text: '实验室索引', link: '/tech-system/industrial-digitalization/labs/' },
+        { text: 'Lab 001 · 设备采集最小闭环', link: '/tech-system/industrial-digitalization/labs/lab-001' }
+      ]
+    },
+    {
+      text: '速查',
       collapsed: true,
       items: [
+        { text: '常见 PLC 品牌与选型', link: '/tech-system/plc/common-brands' },
+        { text: '西门子 S7 与 Python 采集', link: '/tech-system/plc/s7-python-data-collection' },
+        { text: 'S7 速查手册', link: '/tech-system/plc/s7-quick-reference' },
         { text: 'Modbus TCP：Node.js ↔ PLC', link: '/tech-system/integration/modbus-tcp-node-plc' },
         { text: 'Modbus TCP：Python ↔ PLC', link: '/tech-system/integration/modbus-tcp-python-plc' },
         { text: 'Siemens S7：Node.js ↔ PLC', link: '/tech-system/integration/s7-comm-node-plc' },
         { text: 'Siemens S7：Python ↔ PLC', link: '/tech-system/integration/s7-comm-python-plc' },
-        { text: '物联网项目学习路线', link: '/tech-system/backend/iot-project' }
-      ]
-    },
-    {
-      text: '服务间通信',
-      collapsed: true,
-      items: [
         { text: '跨语言调用（选型）', link: '/tech-system/integration/cross-language-interop' },
-        { text: 'HTTP：Node.js ↔ Python', link: '/tech-system/integration/http-node-python' }
+        { text: 'HTTP：Node.js ↔ Python', link: '/tech-system/integration/http-node-python' },
+        { text: '物联网项目笔记', link: '/tech-system/backend/iot-project' }
       ]
     },
     {
-      text: '工业数字化设计（IoT + SCADA + MES）',
+      text: '底稿（不维护）',
       collapsed: true,
       items: [
         { text: '00-整体架构概览', link: '/tech-system/industrial-digitalization/00-architecture-overview' },
@@ -247,7 +264,7 @@ function industrialSidebar() {
         { text: '02-数据平台设计', link: '/tech-system/industrial-digitalization/02-data-platform' },
         { text: '03-实时系统设计', link: '/tech-system/industrial-digitalization/03-realtime-system' },
         { text: '04-工业可视化（SCADA）', link: '/tech-system/industrial-digitalization/04-scada-visualization' },
-        { text: '05-业务抽象设计（核心）', link: '/tech-system/industrial-digitalization/05-business-abstract' },
+        { text: '05-业务抽象设计', link: '/tech-system/industrial-digitalization/05-business-abstract' },
         { text: '06-轻量MES能力实现', link: '/tech-system/industrial-digitalization/06-mes-lite' },
         { text: '07-完整系统设计与实现', link: '/tech-system/industrial-digitalization/07-full-system' }
       ]
@@ -269,27 +286,85 @@ function techSystemOverviewSidebar() {
 function techSystemBackendSidebar() {
   return [
     {
-      text: 'Java & Spring',
-      collapsed: false,
-      items: [{ text: 'Java & Spring', link: '/tech-system/backend/java-spring' }]
-    },
-    {
-      text: 'Node.js 技术栈',
-      collapsed: false,
-      items: [{ text: 'Node.js 技术栈', link: '/tech-system/backend/nodejs-stack' }]
-    },
-    {
-      text: 'Python 技术栈',
-      collapsed: false,
+      text: '后端总览',
+      collapsed: true,
       items: [
-        { text: 'Python 技术栈', link: '/tech-system/backend/python-stack' },
+        { text: '后端技术体系', link: '/tech-system/backend/' }
+      ]
+    },
+    {
+      text: 'Java · 语言',
+      collapsed: true,
+      items: [
+        { text: 'Java 总览', link: '/tech-system/backend/java/' },
+        { text: '我怎么看 Java', link: '/tech-system/backend/java/language/positioning' },
+        { text: 'JVM 与运行机制', link: '/tech-system/backend/java/language/jvm' },
+        { text: '并发模型', link: '/tech-system/backend/java/language/concurrency' },
+        { text: '内存与性能直觉', link: '/tech-system/backend/java/language/memory-performance' },
+        { text: '适合什么 / 不适合什么', link: '/tech-system/backend/java/language/fit' },
+        { text: '为什么仍选 Java', link: '/tech-system/backend/java/language/why-java' }
+      ]
+    },
+    {
+      text: 'Java · Spring',
+      collapsed: true,
+      items: [
+        { text: 'Spring 解决了什么', link: '/tech-system/backend/java/spring/what-it-solves' },
+        { text: 'IoC / DI 怎么看', link: '/tech-system/backend/java/spring/ioc-di' },
+        { text: 'Spring Boot 解决了什么', link: '/tech-system/backend/java/spring/boot' },
+        { text: 'Web（MVC）与接口层', link: '/tech-system/backend/java/spring/mvc' },
+        { text: '事务', link: '/tech-system/backend/java/spring/transaction' },
+        { text: 'Spring Cloud：用过 ≠ 该用', link: '/tech-system/backend/java/spring/cloud' },
+        { text: '我在项目里的实际选择', link: '/tech-system/backend/java/spring/my-choices' }
+      ]
+    },
+    {
+      text: 'Python',
+      collapsed: true,
+      items: [
+        { text: 'Python 语言总结', link: '/tech-system/backend/python/language' },
+        { text: 'Python 框架总结', link: '/tech-system/backend/python/frameworks' },
         { text: 'Python 技能速成', link: '/tech-system/python/python-skill' }
       ]
     },
     {
-      text: 'Golang 技术栈',
-      collapsed: false,
-      items: [{ text: 'Golang 技术栈', link: '/tech-system/backend/golang' }]
+      text: 'Node(TS)',
+      collapsed: true,
+      items: [
+        { text: '语言与运行时总结', link: '/tech-system/backend/nodejs/language' },
+        { text: '框架总结', link: '/tech-system/backend/nodejs/frameworks' }
+      ]
+    },
+    {
+      text: 'Go',
+      collapsed: true,
+      items: [
+        { text: 'Go 语言总结', link: '/tech-system/backend/go/language' },
+        { text: 'Go 框架总结', link: '/tech-system/backend/go/frameworks' }
+      ]
+    },
+    {
+      text: 'C#',
+      collapsed: true,
+      items: [
+        { text: 'C# 语言总结', link: '/tech-system/backend/csharp/language' },
+        { text: 'C# / .NET 框架总结', link: '/tech-system/backend/csharp/frameworks' }
+      ]
+    },
+    {
+      text: '后端问题',
+      collapsed: true,
+      items: [
+        { text: '问题总览', link: '/tech-system/backend/problems/' },
+        { text: '并发', link: '/tech-system/backend/problems/concurrency' },
+        { text: '数据库', link: '/tech-system/backend/problems/database' },
+        { text: 'Redis', link: '/tech-system/backend/problems/redis' },
+        { text: 'MQ', link: '/tech-system/backend/problems/mq' },
+        { text: '分布式', link: '/tech-system/backend/problems/distributed' },
+        { text: '网络', link: '/tech-system/backend/problems/network' },
+        { text: '性能', link: '/tech-system/backend/problems/performance' },
+        { text: '安全', link: '/tech-system/backend/problems/security' }
+      ]
     }
   ]
 }
@@ -438,20 +513,13 @@ function englishSpeakingSidebar() {
 function aiDevSidebar() {
   return [
     {
-      text: 'AI 基础',
+      text: 'AI 初步了解',
       collapsed: true,
       items: [
-        { text: '什么是 LLM', link: '/ai/dev/basics/what-is-llm' },
+        { text: '主流厂商一览', link: '/ai/dev/basics/model-landscape' },
         { text: 'Prompt 怎么写才像工程', link: '/ai/dev/basics/prompt-engineering' },
-        { text: 'Prompt 最小结构', link: '/ai/dev/basics/prompt-min' }
-      ]
-    },
-    {
-      text: '模型与 API',
-      collapsed: true,
-      items: [
-        { text: '第一次调用模型 API', link: '/ai/dev/model-api/first-api-call' },
-        { text: '结构化输出', link: '/ai/dev/model-api/structured-output' }
+        { text: 'Agent 是什么', link: '/ai/dev/agent/agent-overview' },
+        { text: 'RAG 是什么', link: '/ai/dev/basics/what-is-rag' }
       ]
     },
     {
@@ -467,30 +535,11 @@ function aiDevSidebar() {
       ]
     },
     {
-      text: '知识增强',
+      text: 'Agent 应用开发',
       collapsed: true,
       items: [
-        { text: 'RAG 一句话理解', link: '/ai/dev/knowledge/rag-overview' },
-        { text: '知识库从哪来', link: '/ai/dev/knowledge/knowledge-source' },
-        { text: 'RAG 一句话', link: '/ai/dev/knowledge/rag-one-liner' }
-      ]
-    },
-    {
-      text: '工具与 Agent',
-      collapsed: true,
-      items: [
-        { text: 'Agent 是什么', link: '/ai/dev/agent/agent-overview' },
         { text: 'Tool Calling 最小例子', link: '/ai/dev/agent/tool-calling' },
         { text: 'Agent 不是聊天框', link: '/ai/dev/agent/not-just-chat' }
-      ]
-    },
-    {
-      text: '评测与工程',
-      collapsed: true,
-      items: [
-        { text: '为什么要做评测', link: '/ai/dev/evaluation/why-eval' },
-        { text: '可靠性清单草稿', link: '/ai/dev/evaluation/reliability-checklist' },
-        { text: '先有测试再谈智能', link: '/ai/dev/evaluation/tests-first' }
       ]
     }
   ]
@@ -865,7 +914,7 @@ export default defineConfig({
         text: '技术体系',
         activeMatch: '^\\/(open-source|english-speaking)(\\/|$)|^\\/tech-system(\\/|$)',
         items: [
-          { text: '后端', link: '/tech-system/backend/java-spring' },
+          { text: '后端', link: '/tech-system/backend/' },
           { text: '前端', link: '/tech-system/frontend/vue-stack' },
           { text: '工业数字化', link: '/tech-system/industrial-digitalization/' },
           { text: '开源拆解', link: '/open-source/' },
