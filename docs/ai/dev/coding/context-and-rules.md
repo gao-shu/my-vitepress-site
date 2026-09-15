@@ -2,6 +2,19 @@
 
 > 一页讲清楚：给 AI 什么信息（Context），约束它怎么改（Rules）。够用即可，不建复杂规范体系。
 
+### 什么时候用？
+
+* AI 不理解项目
+* AI 总改错位置
+* AI 不遵守项目规范
+* 每次都要重复解释项目背景
+
+### 目标
+
+建立可复用的 **Context + Rules**。
+
+> 不是给 AI 塞更多信息，而是给足够且必要的上下文。
+
 核心：
 
 > **Context = 这个项目现在是什么。Rules = 在这个项目里应该怎么做。**
@@ -14,7 +27,7 @@
 * [Cursor 老项目实战](/ai/ai-programming/cursor-legacy-project)
 * [Cursor 新项目实战](/ai/ai-programming/cursor-new-project)
 
-本页只提供：**最小理解 + 可复制模板**。
+本页只提供：**最小理解 + 可复制模板**（直接滚到下方模板复制即可）。
 
 ---
 

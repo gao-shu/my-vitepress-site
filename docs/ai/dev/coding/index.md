@@ -8,6 +8,31 @@
 
 ---
 
+## 快速开始：我现在要做什么？
+
+| 我现在要做什么 | 直接去这里 |
+| --- | --- |
+| 我要开发一个新项目 | [Cursor 新项目实战](/ai/ai-programming/cursor-new-project) |
+| 我要接手一个老项目 | [Cursor 老项目实战](/ai/ai-programming/cursor-legacy-project) |
+| 我要让 AI 理解项目 | [Context & Rules](/ai/dev/coding/context-and-rules) |
+| 我要让 AI 写代码 | [Prompt Pattern · 实现](/ai/dev/coding/prompt-pattern#3-实现) |
+| 我要 Review AI 生成的代码 | [Code Review](/ai/dev/coding/ai-code-review) |
+| 我要 Debug | [Prompt Pattern · Debug](/ai/dev/coding/prompt-pattern#5-debug) |
+| 我要写测试 | [Prompt Pattern · 测试](/ai/dev/coding/prompt-pattern#6-测试) |
+| 我要从头走完整流程 | [工作流](/ai/dev/coding/cursor-workflow) |
+
+打开对应页 → 复制模板 → 执行 → 按页内标准验收。
+
+---
+
+## 适用范围
+
+本套方法主要面向**个人开发者**，以及 **2～5 人**小型研发团队，重点解决：AI 如何真正进入软件开发流程，同时保持开发者对需求、架构、质量和最终结果负责。
+
+不以大型企业级 AI 治理、复杂权限体系和大规模研发管理为目标。
+
+---
+
 ## 我的定位
 
 - 10 年 Java / 全栈开发经验
