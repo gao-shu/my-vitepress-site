@@ -1,0 +1,90 @@
+import{_ as n,o as a,c as p,ai as e}from"./chunks/framework.ampVZV4B.js";const m=JSON.parse('{"title":"Prompt Pattern","description":"","frontmatter":{},"headers":[],"relativePath":"ai/dev/coding/prompt-pattern.md","filePath":"ai/dev/coding/prompt-pattern.md"}'),l={name:"ai/dev/coding/prompt-pattern.md"};function i(r,s,t,c,b,d){return a(),p("div",null,[...s[0]||(s[0]=[e(`<h1 id="prompt-pattern" tabindex="-1">Prompt Pattern <a class="header-anchor" href="#prompt-pattern" aria-label="Permalink to “Prompt Pattern”">​</a></h1><blockquote><p>AI Coding 常用 6 类 Prompt。每类一个可复制模板。不是 100 个技巧大全。</p></blockquote><p>核心：</p><blockquote><p><strong>Prompt 不是魔法。好的 Prompt = 明确目标 + Context + 约束 + 输出要求 + 验收标准。</strong></p></blockquote><p>通用写法见 <a href="/my-vitepress-site/ai/dev/basics/prompt-engineering.html">Prompt 怎么写才像工程</a>。<br> 本页只服务：<strong>写代码闭环里反复用到的六种问法</strong>。</p><p>使用前尽量带上 <a href="/my-vitepress-site/ai/dev/coding/context-and-rules.html">Context &amp; Rules</a> 里的摘要。</p><hr><h2 id="_1-理解" tabindex="-1">1. 理解 <a class="header-anchor" href="#_1-理解" aria-label="Permalink to “1. 理解”">​</a></h2><p><strong>场景：</strong> 接手模块、读调用链、搞清「改一处会影响哪」。</p><p><strong>注意：</strong> 要求基于代码事实；未知标「不确定」，禁止编造业务故事。</p><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>角色：熟悉本仓库的工程师</span></span>
+<span class="line"><span>任务：理解下面代码 / 模块，为后续修改做准备</span></span>
+<span class="line"><span>Context：</span></span>
+<span class="line"><span>[粘贴相关代码或路径说明]</span></span>
+<span class="line"><span>约束：</span></span>
+<span class="line"><span>- 只根据给定材料推断</span></span>
+<span class="line"><span>- 不确定明确写「不确定」</span></span>
+<span class="line"><span>- 不要给出修改代码</span></span>
+<span class="line"><span>输出：</span></span>
+<span class="line"><span>1. 这段代码在系统里的职责（3～5 句）</span></span>
+<span class="line"><span>2. 关键输入 / 输出 / 副作用</span></span>
+<span class="line"><span>3. 主要调用链</span></span>
+<span class="line"><span>4. 修改时最容易踩的点</span></span>
+<span class="line"><span>5. 我还需要补充什么材料</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><hr><h2 id="_2-设计" tabindex="-1">2. 设计 <a class="header-anchor" href="#_2-设计" aria-label="Permalink to “2. 设计”">​</a></h2><p><strong>场景：</strong> 方案比选、接口形状、表结构影响、要不要引入新组件。</p><p><strong>注意：</strong> 先方案后代码；列出取舍与风险，不直接开写。</p><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>角色：负责本模块的工程师</span></span>
+<span class="line"><span>任务：针对下面需求给「最小可行」设计方案</span></span>
+<span class="line"><span>需求与验收：</span></span>
+<span class="line"><span>[…]</span></span>
+<span class="line"><span>Context / 约束：</span></span>
+<span class="line"><span>[…]</span></span>
+<span class="line"><span>要求：</span></span>
+<span class="line"><span>- 本轮不要写业务代码</span></span>
+<span class="line"><span>- 给出 1～2 个方案，推荐其中一个并说明理由</span></span>
+<span class="line"><span>- 标明对现有模块 / API / 数据的影响</span></span>
+<span class="line"><span>- 列出风险与需要我确认的点</span></span>
+<span class="line"><span>输出：</span></span>
+<span class="line"><span>1. 推荐方案</span></span>
+<span class="line"><span>2. 为何不选另一方案</span></span>
+<span class="line"><span>3. 涉及文件 / 接口（预估）</span></span>
+<span class="line"><span>4. 验收方式</span></span>
+<span class="line"><span>5. 待确认问题</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><hr><h2 id="_3-实现" tabindex="-1">3. 实现 <a class="header-anchor" href="#_3-实现" aria-label="Permalink to “3. 实现”">​</a></h2><p><strong>场景：</strong> 按已确认方案改代码、加功能、补一小段逻辑。</p><p><strong>注意：</strong> 锁死范围；禁止顺手重构；改完说明 Diff 意图。</p><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>角色：实现工程师</span></span>
+<span class="line"><span>任务：按已确认方案实现下面改动</span></span>
+<span class="line"><span>方案与验收：</span></span>
+<span class="line"><span>[…]</span></span>
+<span class="line"><span>相关代码 / Diff：</span></span>
+<span class="line"><span>[…]</span></span>
+<span class="line"><span>约束：</span></span>
+<span class="line"><span>- 只改必要文件</span></span>
+<span class="line"><span>- 不无关重构、不扩 scope</span></span>
+<span class="line"><span>- 保持现有代码风格</span></span>
+<span class="line"><span>- 不确定先问我，不要猜业务规则</span></span>
+<span class="line"><span>输出：</span></span>
+<span class="line"><span>1. 将修改的文件列表</span></span>
+<span class="line"><span>2. 关键改动说明</span></span>
+<span class="line"><span>3. 如何验收</span></span>
+<span class="line"><span>4. 可能副作用</span></span>
+<span class="line"><span>（若在 Agent 中：先给方案，我确认后再改文件）</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><hr><h2 id="_4-review" tabindex="-1">4. Review <a class="header-anchor" href="#_4-review" aria-label="Permalink to “4. Review”">​</a></h2><p><strong>场景：</strong> PR 前、AI 生成后、重构后。完整版见 <a href="/my-vitepress-site/ai/dev/coding/ai-code-review.html">AI Code Review</a>。</p><p><strong>注意：</strong> 只审 Diff；不改代码；分级；区分真问题与优化建议。</p><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>请只 Review 下面 Diff，不要修改代码。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>检查：正确性、边界、异常、数据一致性、并发、安全、性能、</span></span>
+<span class="line"><span>兼容性、测试遗漏。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>输出每个问题：</span></span>
+<span class="line"><span>- P0/P1/P2/P3</span></span>
+<span class="line"><span>- 真实问题 / 需要确认 / 优化建议</span></span>
+<span class="line"><span>- 位置、原因、影响、最小建议</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>不要为风格问题或无意义重构提意见。</span></span>
+<span class="line"><span>没有问题就说没有。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Diff：</span></span>
+<span class="line"><span>[…]</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><hr><h2 id="_5-debug" tabindex="-1">5. Debug <a class="header-anchor" href="#_5-debug" aria-label="Permalink to “5. Debug”">​</a></h2><p><strong>场景：</strong> 有复现、有日志、要定位根因。</p><p><strong>注意：</strong> 先复现与缩小范围；本轮先分析，确认后再改。</p><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>角色：负责排障的工程师</span></span>
+<span class="line"><span>任务：定位下面问题的根因，先不要改代码</span></span>
+<span class="line"><span>现象 / 复现步骤：</span></span>
+<span class="line"><span>[…]</span></span>
+<span class="line"><span>日志 / 报错：</span></span>
+<span class="line"><span>[…]</span></span>
+<span class="line"><span>相关代码：</span></span>
+<span class="line"><span>[…]</span></span>
+<span class="line"><span>约束：</span></span>
+<span class="line"><span>- 基于证据推断，不要编造</span></span>
+<span class="line"><span>- 给出最可能的 1～2 个根因及验证方法</span></span>
+<span class="line"><span>输出：</span></span>
+<span class="line"><span>1. 根因判断</span></span>
+<span class="line"><span>2. 证据</span></span>
+<span class="line"><span>3. 如何验证（最小实验）</span></span>
+<span class="line"><span>4. 最小修复思路</span></span>
+<span class="line"><span>5. 修复风险</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><hr><h2 id="_6-测试" tabindex="-1">6. 测试 <a class="header-anchor" href="#_6-测试" aria-label="Permalink to “6. 测试”">​</a></h2><p><strong>场景：</strong> 补单测 / 接口测草稿，或列出手工验收清单。</p><p><strong>注意：</strong> 人定测什么；AI 出草稿；绿测试 ≠ 业务正确。</p><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>角色：关心回归风险的工程师</span></span>
+<span class="line"><span>任务：为下面改动设计测试 / 验收</span></span>
+<span class="line"><span>改动说明与 Diff：</span></span>
+<span class="line"><span>[…]</span></span>
+<span class="line"><span>验收标准：</span></span>
+<span class="line"><span>[…]</span></span>
+<span class="line"><span>约束：</span></span>
+<span class="line"><span>- 优先覆盖主路径与关键失败路径</span></span>
+<span class="line"><span>- 不提出与本次改动无关的大面积测试重构</span></span>
+<span class="line"><span>输出：</span></span>
+<span class="line"><span>1. 建议自动化的用例（名称 + 断言要点）</span></span>
+<span class="line"><span>2. 必须手工验收的步骤</span></span>
+<span class="line"><span>3. 已知测不到的风险</span></span>
+<span class="line"><span>4. （可选）测试代码草稿</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><hr><h2 id="怎么选" tabindex="-1">怎么选 <a class="header-anchor" href="#怎么选" aria-label="Permalink to “怎么选”">​</a></h2><table tabindex="0"><thead><tr><th>你卡在…</th><th>用</th></tr></thead><tbody><tr><td>看不懂现有代码</td><td>理解</td></tr><tr><td>还没想清楚怎么做</td><td>设计</td></tr><tr><td>方案已定，要落代码</td><td>实现</td></tr><tr><td>怕引入问题</td><td>Review</td></tr><tr><td>已经坏了 / 报错</td><td>Debug</td></tr><tr><td>怕回归</td><td>测试</td></tr></tbody></table><p>习惯：</p><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>理解 / 设计 → 实现 → Review → 测试</span></span>
+<span class="line"><span>出问题再 Debug</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>与 <a href="/my-vitepress-site/ai/dev/coding/cursor-workflow.html">工作流</a> 对齐；不要跳过「人确认」直接让 AI 连写带合。</p>`,42)])])}const o=n(l,[["render",i]]);export{m as __pageData,o as default};

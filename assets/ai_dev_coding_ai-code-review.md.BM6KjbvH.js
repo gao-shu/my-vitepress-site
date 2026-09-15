@@ -1,0 +1,83 @@
+import{_ as n,o as a,c as e,ai as p}from"./chunks/framework.ampVZV4B.js";const u=JSON.parse('{"title":"AI Code Review","description":"","frontmatter":{},"headers":[],"relativePath":"ai/dev/coding/ai-code-review.md","filePath":"ai/dev/coding/ai-code-review.md"}'),l={name:"ai/dev/coding/ai-code-review.md"};function i(r,s,t,c,b,d){return a(),e("div",null,[...s[0]||(s[0]=[p(`<h1 id="ai-code-review" tabindex="-1">AI Code Review <a class="header-anchor" href="#ai-code-review" aria-label="Permalink to “AI Code Review”">​</a></h1><blockquote><p>打开这篇 → 复制 Prompt → 只 Review Diff → 人做最终判断。AI 初检 ≠ 最终 Review。</p></blockquote><p>核心原则：</p><blockquote><p><strong>让 AI 扩大检查范围，人负责最终判断。不是所有 AI 建议都必须改。</strong></p></blockquote><hr><h2 id="什么时候使用" tabindex="-1">什么时候使用 <a class="header-anchor" href="#什么时候使用" aria-label="Permalink to “什么时候使用”">​</a></h2><p>适合：</p><ul><li>AI 生成代码后</li><li>功能开发完成后</li><li>提交 PR 前自查</li><li>Bug 修复后查副作用</li><li>重构后检查行为是否被破坏</li><li>人工 Review 前做第一轮扫描</li></ul><p>不适合：</p><ul><li>一上来 Review 整个仓库</li><li>把 AI 结论直接当合并条件</li><li>用 Review 当借口做无关大重构</li></ul><hr><h2 id="review-流程" tabindex="-1">Review 流程 <a class="header-anchor" href="#review-流程" aria-label="Permalink to “Review 流程”">​</a></h2><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>Diff</span></span>
+<span class="line"><span>  → AI 初检（只找问题，不改代码）</span></span>
+<span class="line"><span>  → 人工判断（真问题 / 误报 / 可忽略）</span></span>
+<span class="line"><span>  → 问题分级（P0～P3）</span></span>
+<span class="line"><span>  → 修复（确认后再改）</span></span>
+<span class="line"><span>  → 测试 / 运行验证</span></span>
+<span class="line"><span>  → 二次 Review（再看 Diff）</span></span>
+<span class="line"><span>  → 验收</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>更细的防误报与修复 Prompt 见下文「验证」与「修复」两节。</p><hr><h2 id="review-检查维度" tabindex="-1">Review 检查维度 <a class="header-anchor" href="#review-检查维度" aria-label="Permalink to “Review 检查维度”">​</a></h2><p>扫描项即可，不必每项写长文。不确定标「需要确认」。</p><table tabindex="0"><thead><tr><th>维度</th><th>看什么</th></tr></thead><tbody><tr><td>正确性</td><td>业务逻辑是否按需求实现</td></tr><tr><td>边界条件</td><td>空值、极值、空集合、非法输入</td></tr><tr><td>异常处理</td><td>失败路径、错误码、是否吞异常</td></tr><tr><td>数据一致性</td><td>事务、多表写入、状态机</td></tr><tr><td>并发</td><td>竞态、重复提交、锁范围（若相关）</td></tr><tr><td>安全</td><td>权限、注入、敏感信息、越权</td></tr><tr><td>性能</td><td>明显 N+1、无界查询、热路径浪费</td></tr><tr><td>可维护性</td><td>重复、命名混乱、无关大改</td></tr><tr><td>兼容性</td><td>是否破坏已有接口 / 数据 / 调用方</td></tr><tr><td>测试</td><td>关键路径有无覆盖或验收步骤</td></tr></tbody></table><p>核心问题始终是：</p><blockquote><p><strong>这次修改有没有引入问题？</strong></p></blockquote><hr><h2 id="问题分级" tabindex="-1">问题分级 <a class="header-anchor" href="#问题分级" aria-label="Permalink to “问题分级”">​</a></h2><table tabindex="0"><thead><tr><th>级别</th><th>含义</th><th>怎么处理</th></tr></thead><tbody><tr><td><strong>P0</strong></td><td>严重：功能错误、数据损坏、安全漏洞</td><td>必须立即处理，不修不合并</td></tr><tr><td><strong>P1</strong></td><td>高风险：易在边界/并发下出错</td><td>本次尽量修；否则有明确风险说明</td></tr><tr><td><strong>P2</strong></td><td>一般：稳定性 / 可维护性问题</td><td>评估后决定本次或后续</td></tr><tr><td><strong>P3</strong></td><td>优化建议</td><td>可选；不为「看起来更好」硬改</td></tr></tbody></table><p>明确：</p><ul><li>AI 列出来的不一定是真问题</li><li>P3 多数可以不改</li><li>风格偏好 ≠ 缺陷</li></ul><hr><h2 id="使用前准备" tabindex="-1">使用前准备 <a class="header-anchor" href="#使用前准备" aria-label="Permalink to “使用前准备”">​</a></h2><p>尽量提供：</p><ul><li>Git Diff（优先）</li><li>相关调用链 / 业务代码</li><li>接口与表结构（若涉及）</li><li>已知业务规则</li><li>相关测试或验收步骤</li><li>报错 / 现象（若有）</li></ul><p>只丢孤立片段 → 结果只能当参考。</p><hr><h2 id="可复制-review-prompt" tabindex="-1">可复制：Review Prompt <a class="header-anchor" href="#可复制-review-prompt" aria-label="Permalink to “可复制：Review Prompt”">​</a></h2><p>直接复制。要求：<strong>只 Review 当前 Diff，不许改代码。</strong></p><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>你现在作为我的 Code Reviewer。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>请对下面「代码变更」做一次问题优先的 Code Review。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## 硬性约束</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>- 只 Review 本次 Diff / 我提供的变更，不要扩散到整仓无关代码</span></span>
+<span class="line"><span>- 不要修改任何代码</span></span>
+<span class="line"><span>- 不要为了「看起来更好」建议无意义重构</span></span>
+<span class="line"><span>- 不要仅因代码风格不同提问题</span></span>
+<span class="line"><span>- 不确定的问题明确标「需要确认」</span></span>
+<span class="line"><span>- 不要假设不存在的业务规则</span></span>
+<span class="line"><span>- 没有明显问题就直接说没有，不要硬凑</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## 检查维度（扫描项）</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>正确性、边界条件、异常处理、数据一致性、并发、安全、性能、</span></span>
+<span class="line"><span>可维护性、兼容性、测试遗漏、是否影响已有功能。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## 输出格式</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>先列问题，再解释。每个问题必须包含：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>- 级别：P0 / P1 / P2 / P3</span></span>
+<span class="line"><span>- 类型：真实问题 / 需要确认 / 优化建议</span></span>
+<span class="line"><span>- 文件 / 位置</span></span>
+<span class="line"><span>- 问题是什么</span></span>
+<span class="line"><span>- 为什么可能存在</span></span>
+<span class="line"><span>- 可能影响</span></span>
+<span class="line"><span>- 建议（最小改动）</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>分组输出：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>### P0 / P1</span></span>
+<span class="line"><span>### P2</span></span>
+<span class="line"><span>### P3</span></span>
+<span class="line"><span>### 已检查但未发现问题的方面</span></span>
+<span class="line"><span>### Review 结论</span></span>
+<span class="line"><span>- 是否建议合并：是 / 否 / 需要确认</span></span>
+<span class="line"><span>- 最重要的 1～3 个问题</span></span>
+<span class="line"><span>- 还需要我人工确认什么</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>下面是本次代码变更：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[粘贴 Git Diff / 代码]</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br></div></div><hr><h2 id="人工最终检查" tabindex="-1">人工最终检查 <a class="header-anchor" href="#人工最终检查" aria-label="Permalink to “人工最终检查”">​</a></h2><p>AI 初检之后，开发者必须自己回答：</p><ul><li>是不是真问题？</li><li>要不要改？现在改还是以后改？</li><li>是否影响真实业务 / 数据 / 权限？</li><li>要不要补测试或手工验收？</li><li>修复会不会扩大修改范围？</li></ul><p>AI 初检 ≠ 最终 Review。业务正确性与合并责任在人。</p><hr><h2 id="验证问题-防误报" tabindex="-1">验证问题（防误报） <a class="header-anchor" href="#验证问题-防误报" aria-label="Permalink to “验证问题（防误报）”">​</a></h2><p>AI 指出问题后，先验证，再动手：</p><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>你刚才指出了这个问题：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[粘贴问题]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>现在不要修改代码。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>请重新检查相关调用链、业务逻辑和上下文，判断这个问题是否真实存在。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>请给出：</span></span>
+<span class="line"><span>1. 问题是否真实存在</span></span>
+<span class="line"><span>2. 判断依据</span></span>
+<span class="line"><span>3. 如果是误报，为什么</span></span>
+<span class="line"><span>4. 如果是真问题，最小修改方案</span></span>
+<span class="line"><span>5. 修改后可能产生的副作用</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>不要为了证明之前的结论而强行支持它。</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><hr><h2 id="修复与二次-review" tabindex="-1">修复与二次 Review <a class="header-anchor" href="#修复与二次-review" aria-label="Permalink to “修复与二次 Review”">​</a></h2><p>确认真问题后：</p><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>请只修复已经确认的问题：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[问题列表，含级别]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>要求：</span></span>
+<span class="line"><span>1. 只进行必要修改</span></span>
+<span class="line"><span>2. 不改变未确认的业务逻辑</span></span>
+<span class="line"><span>3. 不进行无关重构</span></span>
+<span class="line"><span>4. 不修改无关文件</span></span>
+<span class="line"><span>5. 保持现有代码风格</span></span>
+<span class="line"><span>6. 补充必要测试或说明如何验收</span></span>
+<span class="line"><span>7. 修改前先给方案，我确认后再执行</span></span>
+<span class="line"><span>8. 完成后说明改了什么、可能副作用</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>然后：</p><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>修复</span></span>
+<span class="line"><span>  → 跑测试 / 手工验收</span></span>
+<span class="line"><span>  → 再对「新 Diff」做一次 Review（可复用上面 Prompt）</span></span>
+<span class="line"><span>  → 人验收通过再合并</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>Cursor / Agent 建议：分析与修改拆开；先只分析当前 Diff，确认后再逐个修。</p><hr><h2 id="完整闭环-可背" tabindex="-1">完整闭环（可背） <a class="header-anchor" href="#完整闭环-可背" aria-label="Permalink to “完整闭环（可背）”">​</a></h2><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>Diff → AI 初检 → 人工判断 → 分级</span></span>
+<span class="line"><span>  → 修复 → 测试 → 二次 Review → 验收</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>相关：</p><ul><li><a href="/my-vitepress-site/ai/dev/coding/cursor-workflow.html">AI Coding 工作流</a></li><li><a href="/my-vitepress-site/ai/dev/coding/context-and-rules.html">Context &amp; Rules</a></li><li><a href="/my-vitepress-site/ai/dev/coding/prompt-pattern.html">Prompt Pattern</a></li></ul><hr><h2 id="我的判断" tabindex="-1">我的判断 <a class="header-anchor" href="#我的判断" aria-label="Permalink to “我的判断”">​</a></h2><p>AI Code Review 最适合：</p><blockquote><p><strong>第一轮广泛扫描，而不是最终质量保证。</strong></p></blockquote><p>它提高发现问题的概率；业务正确性与最终责任仍由人承担。</p>`,60)])])}const o=n(l,[["render",i]]);export{u as __pageData,o as default};
