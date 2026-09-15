@@ -533,8 +533,14 @@ function aiDevSidebar() {
         { text: '概览', link: '/ai/dev/coding/' },
         { text: '工作流', link: '/ai/dev/coding/cursor-workflow' },
         { text: 'Code Review', link: '/ai/dev/coding/ai-code-review' },
-        { text: 'Cursor 老项目实战', link: '/ai/ai-programming/cursor-legacy-project' },
-        { text: 'Cursor 新项目实战', link: '/ai/ai-programming/cursor-new-project' }
+        {
+          text: '实战',
+          collapsed: false,
+          items: [
+            { text: 'Cursor 老项目实战', link: '/ai/ai-programming/cursor-legacy-project' },
+            { text: 'Cursor 新项目实战', link: '/ai/ai-programming/cursor-new-project' }
+          ]
+        }
       ]
     },
     {
