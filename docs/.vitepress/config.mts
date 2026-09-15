@@ -532,6 +532,8 @@ function aiDevSidebar() {
       items: [
         { text: '概览', link: '/ai/dev/coding/' },
         { text: '工作流', link: '/ai/dev/coding/cursor-workflow' },
+        { text: 'Context & Rules', link: '/ai/dev/coding/context-and-rules' },
+        { text: 'Prompt Pattern', link: '/ai/dev/coding/prompt-pattern' },
         { text: 'Code Review', link: '/ai/dev/coding/ai-code-review' },
         {
           text: '实战',
