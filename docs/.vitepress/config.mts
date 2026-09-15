@@ -516,14 +516,12 @@ function aiDevSidebar() {
       text: '技术基础',
       items: [
         { text: '技术入口', link: '/ai/dev/' },
-        { text: 'Prompt 怎么写才像工程', link: '/ai/dev/basics/prompt-engineering' }
-      ]
-    },
-    {
-      text: '大模型',
-      collapsed: true,
-      items: [
-        { text: '主流厂商一览', link: '/ai/dev/basics/model-landscape' }
+        { text: '主流大模型厂商一览', link: '/ai/dev/basics/model-landscape' },
+        { text: '主流 Agent 厂商一览', link: '/ai/dev/basics/agent-landscape' },
+        { text: 'Prompt 怎么写才像工程', link: '/ai/dev/basics/prompt-engineering' },
+        { text: '我怎么选模型', link: '/ai/dev/basics/how-i-choose-models' },
+        { text: 'RAG / Agent / 微调对照', link: '/ai/dev/basics/rag-agent-finetune' },
+        { text: 'AI 应用最小链路', link: '/ai/dev/basics/ai-app-min-loop' }
       ]
     },
     {
