@@ -513,33 +513,44 @@ function englishSpeakingSidebar() {
 function aiDevSidebar() {
   return [
     {
-      text: '技术',
+      text: '技术基础',
       items: [
         { text: '技术入口', link: '/ai/dev/' },
-        { text: '主流厂商一览', link: '/ai/dev/basics/model-landscape' },
-        { text: 'Prompt 怎么写才像工程', link: '/ai/dev/basics/prompt-engineering' },
-        { text: 'Agent 是什么', link: '/ai/dev/agent/agent-overview' },
-        { text: 'RAG 是什么', link: '/ai/dev/basics/what-is-rag' }
+        { text: 'Prompt 怎么写才像工程', link: '/ai/dev/basics/prompt-engineering' }
+      ]
+    },
+    {
+      text: '大模型',
+      collapsed: true,
+      items: [
+        { text: '主流厂商一览', link: '/ai/dev/basics/model-landscape' }
       ]
     },
     {
       text: 'AI Coding',
-      collapsed: true,
+      collapsed: false,
       items: [
-        { text: 'Cursor 工作流草稿', link: '/ai/dev/coding/cursor-workflow' },
-        { text: '用 AI 做 Code Review', link: '/ai/dev/coding/ai-code-review' },
-        { text: '用 AI 改一个小 Bug', link: '/ai/dev/coding/fix-one-bug' },
-        { text: 'AI Coding 工作流草图', link: '/ai/dev/coding/workflow-sketch' },
-        { text: 'AI 如何提高研发人效', link: '/ai/app/software/dev-efficiency' },
-        { text: '开发者如何用 AI 提速', link: '/ai/app/software/dev-speedup' }
+        { text: '概览', link: '/ai/dev/coding/' },
+        { text: '工作流', link: '/ai/dev/coding/cursor-workflow' },
+        { text: 'Code Review', link: '/ai/dev/coding/ai-code-review' },
+        { text: 'Cursor 老项目实战', link: '/ai/ai-programming/cursor-legacy-project' },
+        { text: 'Cursor 新项目实战', link: '/ai/ai-programming/cursor-new-project' }
       ]
     },
     {
       text: 'Agent',
       collapsed: true,
       items: [
+        { text: 'Agent 是什么', link: '/ai/dev/agent/agent-overview' },
         { text: 'Tool Calling 最小例子', link: '/ai/dev/agent/tool-calling' },
         { text: 'Agent 不是聊天框', link: '/ai/dev/agent/not-just-chat' }
+      ]
+    },
+    {
+      text: 'RAG',
+      collapsed: true,
+      items: [
+        { text: 'RAG 是什么', link: '/ai/dev/basics/what-is-rag' }
       ]
     }
   ]
@@ -955,6 +966,7 @@ export default defineConfig({
       '/tech-system/': techSystemOverviewSidebar(),
       // AI：更具体路径在前，避免被 /ai/ 笼统匹配
       '/ai/dev/': aiDevSidebar(),
+      '/ai/ai-programming/': aiDevSidebar(),
       '/ai/app/': aiAppSidebar(),
       '/ai/intel/opportunity/': aiOpportunitySidebar(),
       '/ai/intel/': aiIntelSidebar(),
