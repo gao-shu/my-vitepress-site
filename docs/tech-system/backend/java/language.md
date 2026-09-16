@@ -1,12 +1,9 @@
-# Java 语言总结（已拆成系列）
+# Java 语言总结（已合并）
 
-请改看分组文章：
+已并入统一五篇，请从 [Java 总览](./) 进入：
 
-- [我怎么看 Java](./language/positioning.md)
-- [JVM 与运行机制](./language/jvm.md)
-- [并发模型](./language/concurrency.md)
-- [内存与性能直觉](./language/memory-performance.md)
-- [适合什么 / 不适合什么](./language/fit.md)
-- [为什么仍选 Java](./language/why-java.md)
-
-总览：[Java](./)  
+- [01 语言基础](./01-basics.md)
+- [02 核心能力](./02-core.md)
+- [03 框架与生态](./03-frameworks.md)
+- [04 工程实践](./04-engineering.md)
+- [05 常见问题](./05-faq.md)

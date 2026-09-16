@@ -1,4 +1,4 @@
-# 🔧 语音/音乐功能故障排查指南
+# 🔧 语音功能故障排查指南
 
 ## 🎤 英语口语发音功能
 
@@ -49,55 +49,6 @@ speechSynthesis.speak(test)
 
 ---
 
-## 🎵 背景音乐播放器
-
-### 常见问题
-
-#### 1. "音乐加载失败"
-
-**原因分析：**
-- 网络连接问题
-- CDN 链接暂时不可用
-- 防火墙/代理阻止
-
-**解决方案：**
-✅ **已自动优化**：配置了 3 个备用音乐链接，自动切换
-✅ 第一个链接失败会自动尝试第二个、第三个
-
-**手动排查：**
-```javascript
-// 在浏览器控制台测试音乐链接
-const testAudio = new Audio('https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3')
-testAudio.play()
-  .then(() => console.log('✅ 音乐链接正常'))
-  .catch(err => console.error('❌ 音乐链接失败:', err))
-```
-
-#### 2. 点击播放没反应
-
-**可能原因：**
-- 浏览器阻止了自动播放
-- 页面还未完全加载
-
-**解决步骤：**
-1. 确保页面完全加载完成
-2. 点击页面任意位置
-3. 再次点击播放按钮
-4. 查看浏览器控制台是否有错误
-
-#### 3. 音乐卡顿或断断续续
-
-**原因：**
-- 网络速度慢
-- CDN 服务器负载高
-
-**解决方案：**
-- 等待缓冲完成再播放
-- 切换到其他备用链接（会自动进行）
-- 检查网络连接
-
----
-
 ## 🌐 GitHub Pages 部署后的问题
 
 ### 1. 本地正常，部署后不工作
@@ -135,28 +86,24 @@ testAudio.play()
 
 1. 按 `F12` 打开开发者工具
 2. 切换到 **Console** 标签
-3. 点击发音/播放按钮
+3. 点击发音按钮
 4. 查看输出的日志信息
 
 **正常情况应该看到：**
 ```
 ✅ 语音播放已启动
-🎵 开始播放音乐
-✅ 音乐加载成功
 ```
 
 **异常情况会看到：**
 ```
 ❌ 语音播放失败: NotAllowedError
 ⚠️ 重试第 1 次...
-音乐加载失败: NetworkError
 ```
 
 ### 测试浏览器兼容性
 
 访问以下网站测试你的浏览器：
 - Web Speech API: https://caniuse.com/speech-synthesis
-- HTML5 Audio: https://caniuse.com/audio
 
 ### 清除缓存
 
@@ -195,7 +142,6 @@ testAudio.play()
 // 测试 1：检查浏览器支持
 console.log('=== 浏览器能力检测 ===')
 console.log('Web Speech API:', 'speechSynthesis' in window)
-console.log('HTML5 Audio:', typeof Audio !== 'undefined')
 
 // 测试 2：测试语音合成
 if ('speechSynthesis' in window) {
@@ -205,15 +151,6 @@ if ('speechSynthesis' in window) {
   test.onerror = (e) => console.error('❌ 语音测试失败:', e)
   speechSynthesis.speak(test)
 }
-
-// 测试 3：测试音频播放
-const audio = new Audio('https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3')
-audio.play()
-  .then(() => {
-    console.log('✅ 音频测试成功')
-    audio.pause()
-  })
-  .catch(err => console.error('❌ 音频测试失败:', err))
 ```
 
 ---

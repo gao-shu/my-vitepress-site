@@ -1,3 +1,4 @@
+> **底稿（不维护）**：本文是早期知识底稿，主线已改为 [工业数字化实验室](/tech-system/industrial-digitalization/)（Mini MES · 判断 · 实验）。请勿当作当前方案。
 # 02-数据平台设计（存储/处理）
 
 > **前置知识**: [01-设备接入与数据采集](./01-device-access.md)

@@ -165,5 +165,5 @@ def send_image(image_path: str) -> None:
 
 - [跨语言调用：方式选型与常见实现](/tech-system/integration/cross-language-interop) — gRPC、消息队列、FFI 等与 HTTP 的对比
 - [物联网项目学习路线（设备接入与上报）](/tech-system/backend/iot-project) — 常用 HTTP/MQTT 等与设备云对接。
-- [Node(TS) · 语言与运行时](/tech-system/backend/nodejs/language)
-- [Python 语言总结](/tech-system/backend/python/language)
+- [Node(TS)](/tech-system/backend/nodejs/)
+- [Python](/tech-system/backend/python/)

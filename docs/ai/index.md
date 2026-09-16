@@ -79,5 +79,5 @@
 ## 🔗 关联模块
 
 - 技术体系总览：`/tech-system/`  
-- 开源项目中的 AI & 大模型实践：`/open-source/ai-projects`、`/open-source/llm-projects`
+- 我的开源：`/open-source/`（OpenBiz / 本地漫创 / ModelDesk）
 

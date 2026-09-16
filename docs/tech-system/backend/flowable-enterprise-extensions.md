@@ -1,6 +1,6 @@
 # Flowable 企业二开（三层二开体系）
 
-> **与入门衔接**：[Flowable 快速入门](/tech-system/backend/flowable-bpmn)（本站侧栏「技术体系 → … → 其他」内与之并列）
+> **与入门衔接**：[Flowable 快速入门](/tech-system/backend/flowable-bpmn)
 >
 > **适合人群**：
 > - 已能跑通「部署 → 起流程 → 查待办 → 完成任务」这一条主线  

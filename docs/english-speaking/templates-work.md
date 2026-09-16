@@ -102,24 +102,24 @@ const speak = (text) => {
 
 ## 1. 开始沟通（8 句）
 
-1. `I'd like to discuss something with you.` <button class="speak-btn" onclick="speak('I\'d like to discuss something with you.')">🔊</button>
-2. `Do you have a minute?` <button class="speak-btn" onclick="speak('Do you have a minute?')">🔊</button>
-3. `Can we talk about this for a moment?` <button class="speak-btn" onclick="speak('Can we talk about this for a moment?')">🔊</button>
-4. `I want to give you a quick update.` <button class="speak-btn" onclick="speak('I want to give you a quick update.')">🔊</button>
-5. `I need your input on this.` <button class="speak-btn" onclick="speak('I need your input on this.')">🔊</button>
-6. `I'd like to get your opinion.` <button class="speak-btn" onclick="speak('I\'d like to get your opinion.')">🔊</button>
-7. `Let's go over this together.` <button class="speak-btn" onclick="speak('Let\'s go over this together.')">🔊</button>
-8. `I want to make sure we're aligned.` <button class="speak-btn" onclick="speak('I want to make sure we\'re aligned.')">🔊</button>
+1. `I'd like to discuss something with you.` <button class="speak-btn" @click="speak('I\'d like to discuss something with you.')">🔊</button>
+2. `Do you have a minute?` <button class="speak-btn" @click="speak('Do you have a minute?')">🔊</button>
+3. `Can we talk about this for a moment?` <button class="speak-btn" @click="speak('Can we talk about this for a moment?')">🔊</button>
+4. `I want to give you a quick update.` <button class="speak-btn" @click="speak('I want to give you a quick update.')">🔊</button>
+5. `I need your input on this.` <button class="speak-btn" @click="speak('I need your input on this.')">🔊</button>
+6. `I'd like to get your opinion.` <button class="speak-btn" @click="speak('I\'d like to get your opinion.')">🔊</button>
+7. `Let's go over this together.` <button class="speak-btn" @click="speak('Let\'s go over this together.')">🔊</button>
+8. `I want to make sure we're aligned.` <button class="speak-btn" @click="speak('I want to make sure we\'re aligned.')">🔊</button>
 
 ## 2. 反馈进度（10 句）
 
-9. `I'm working on it now.` <button class="speak-btn" onclick="speak('I\'m working on it now.')">🔊</button>
-10. `I've already started on it.` <button class="speak-btn" onclick="speak('I\'ve already started on it.')">🔊</button>
-11. `It's currently in progress.` <button class="speak-btn" onclick="speak('It\'s currently in progress.')">🔊</button>
-12. `I'm almost done.` <button class="speak-btn" onclick="speak('I\'m almost done.')">🔊</button>
-13. `I've completed the first part.` <button class="speak-btn" onclick="speak('I\'ve completed the first part.')">🔊</button>
-14. `I'm waiting for the final confirmation.` <button class="speak-btn" onclick="speak('I\'m waiting for the final confirmation.')">🔊</button>
-15. `We are on schedule.` <button class="speak-btn" onclick="speak('We are on schedule.')">🔊</button>
-16. `We're making good progress.` <button class="speak-btn" onclick="speak('We\'re making good progress.')">🔊</button>
-17. `There are still a few things to finish.` <button class="speak-btn" onclick="speak('There are still a few things to finish.')">🔊</button>
-18. `I expect to finish it by tomorrow.` <button class="speak-btn" onclick="speak('I expect to finish it by tomorrow.')">🔊</button>
+9. `I'm working on it now.` <button class="speak-btn" @click="speak('I\'m working on it now.')">🔊</button>
+10. `I've already started on it.` <button class="speak-btn" @click="speak('I\'ve already started on it.')">🔊</button>
+11. `It's currently in progress.` <button class="speak-btn" @click="speak('It\'s currently in progress.')">🔊</button>
+12. `I'm almost done.` <button class="speak-btn" @click="speak('I\'m almost done.')">🔊</button>
+13. `I've completed the first part.` <button class="speak-btn" @click="speak('I\'ve completed the first part.')">🔊</button>
+14. `I'm waiting for the final confirmation.` <button class="speak-btn" @click="speak('I\'m waiting for the final confirmation.')">🔊</button>
+15. `We are on schedule.` <button class="speak-btn" @click="speak('We are on schedule.')">🔊</button>
+16. `We're making good progress.` <button class="speak-btn" @click="speak('We\'re making good progress.')">🔊</button>
+17. `There are still a few things to finish.` <button class="speak-btn" @click="speak('There are still a few things to finish.')">🔊</button>
+18. `I expect to finish it by tomorrow.` <button class="speak-btn" @click="speak('I expect to finish it by tomorrow.')">🔊</button>

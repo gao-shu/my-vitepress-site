@@ -5,7 +5,7 @@
 
 ## 兼容入口（旧）
 
-- [技术体系 · Java](/tech-system/backend/java/) · [语言系列](/tech-system/backend/java/language/positioning) · [Spring 系列](/tech-system/backend/java/spring/what-it-solves)
+- [技术体系 · Java 五篇](/tech-system/backend/java/)
 - [Spring Boot 概述](/springboot/overview)
 - 面试向正文暂见 [职业保障 / Java 面试](/career/protection/java-interview/)
 

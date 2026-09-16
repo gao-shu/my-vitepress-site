@@ -6,13 +6,13 @@
 
 ### 后端技术栈
 
-沉淀判断，不是教程：[后端技术体系](./backend/)（语言/框架 + 跨语言工程问题）。
+沉淀判断，不是教程：[后端技术体系](./backend/)。每种语言统一五篇：基础 → 核心 → 框架 → 工程 → 常见问题。
 
-- **Java**：[分组总览](./backend/java/) · [语言系列](./backend/java/language/positioning.md) · [Spring 系列](./backend/java/spring/what-it-solves.md)  
-- **Python**：[语言总结](./backend/python/language.md) · [框架总结](./backend/python/frameworks.md) · [技能速成](./python/python-skill.md)  
-- **Node(TS)**：[语言与运行时](./backend/nodejs/language.md) · [框架总结](./backend/nodejs/frameworks.md)  
-- **Go**：[语言总结](./backend/go/language.md) · [框架总结](./backend/go/frameworks.md)  
-- **C#**：[语言总结](./backend/csharp/language.md) · [.NET 框架总结](./backend/csharp/frameworks.md)  
+- **Java**：[总览](./backend/java/)（含 Spring，不再拆两组）  
+- **Python**：[总览](./backend/python/) · [技能速成](./python/python-skill.md)  
+- **TypeScript**：[总览](./backend/nodejs/)（Node 运行时）  
+- **Go**：[总览](./backend/go/)  
+- **C#**：[总览](./backend/csharp/)  
 - **后端问题**：[并发 / 库 / Redis / MQ / 分布式…](./backend/problems/)  
 
 > 工业自动化、设备通信、IoT/SCADA/MES 等内容见 **[工业数字化](/tech-system/industrial-digitalization/)**。
@@ -94,9 +94,9 @@
 ---
 ## 开源拆解
 
-学习与对照用的开源项目清单与二次开发笔记（若依、Jeecg、各技术栈示例等）：
+以我维护的项目为主（OpenBiz、本地漫创、ModelDesk）：
 
-- [开源项目总览](/open-source/)
+- [开源拆解](/open-source/)
 
 ---
 💡 **更新计划**: 每个技术领域会持续更新最新内容，涵盖新版本特性、最佳实践和行业趋势。欢迎关注和投稿！

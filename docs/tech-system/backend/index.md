@@ -1,42 +1,36 @@
 # 后端技术体系
 
-这里沉淀的是：**我对语言、框架和真实工程问题的判断**，不是「从零教一门语言」。
+这里沉淀的是：**我对语言与真实工程问题的判断**，不是「从零教一门语言」。
 
 别人看完应感觉到：这是干过业务之后的理解，不是教程搬运。
 
 ---
 
-## 两个维度
+## 每种语言同一套五篇
 
-| 维度 | 回答的问题 |
+和菜鸟教程一类站点的共同点：门类统一，方便对照切换。
+
+| 分类 | 解决的问题 |
 |------|------------|
-| **语言 / 框架** | 我怎么看它？适合什么？我实际怎么选？ |
-| **后端问题** | 并发、库、缓存、MQ……出了问题我怎么理解和处理？ |
+| **01 语言基础** | 语法、类型、集合、函数 |
+| **02 核心能力** | 语言真正不同的地方 |
+| **03 框架与生态** | 用什么框架干活 |
+| **04 工程实践** | 项目怎么开发、测试、部署 |
+| **05 常见问题** | 遇到问题快速查 |
 
-各语言目录结构统一，但**篇数不必一样多**：Java/Spring 可以厚，Go / C# 可以薄——深度本身就是能力证明。
+一门语言 **只占一组**（例如 Java 含 Spring，不再拆成「语言 / Spring」两个顶栏分组）。
 
 ---
 
 ## 目录
 
-### 语言与框架
+### 语言（五篇 × N）
 
-- **Java**
-  - [分组总览](./java/)
-  - 语言：[定位](./java/language/positioning.md) · [JVM](./java/language/jvm.md) · [并发](./java/language/concurrency.md) · [内存与性能](./java/language/memory-performance.md) · [适合边界](./java/language/fit.md) · [为何仍选](./java/language/why-java.md)
-  - Spring：[解决什么](./java/spring/what-it-solves.md) · [IoC/DI](./java/spring/ioc-di.md) · [Boot](./java/spring/boot.md) · [MVC](./java/spring/mvc.md) · [事务](./java/spring/transaction.md) · [Cloud](./java/spring/cloud.md) · [我的选择](./java/spring/my-choices.md)
-- **Python**
-  - [Python 语言总结](./python/language.md)
-  - [Python 框架总结](./python/frameworks.md)
-- **Node(TS)**
-  - [语言与运行时总结](./nodejs/language.md)
-  - [框架总结](./nodejs/frameworks.md)
-- **Go**
-  - [Go 语言总结](./go/language.md)
-  - [Go 框架总结](./go/frameworks.md)
-- **C#**
-  - [C# 语言总结](./csharp/language.md)
-  - [C# / .NET 框架总结](./csharp/frameworks.md)
+- **[Java](./java/)**（主栈）· [01](./java/01-basics.md) · [02](./java/02-core.md) · [03](./java/03-frameworks.md) · [04](./java/04-engineering.md) · [05](./java/05-faq.md)
+- **[Python](./python/)** · [01](./python/01-basics.md) · [02](./python/02-core.md) · [03](./python/03-frameworks.md) · [04](./python/04-engineering.md) · [05](./python/05-faq.md)
+- **[TypeScript](./nodejs/)**（路径 `nodejs/`）· [01](./nodejs/01-basics.md) · [02](./nodejs/02-core.md) · [03](./nodejs/03-frameworks.md) · [04](./nodejs/04-engineering.md) · [05](./nodejs/05-faq.md)
+- **[Go](./go/)** · [01](./go/01-basics.md) · [02](./go/02-core.md) · [03](./go/03-frameworks.md) · [04](./go/04-engineering.md) · [05](./go/05-faq.md)
+- **[C#](./csharp/)** · [01](./csharp/01-basics.md) · [02](./csharp/02-core.md) · [03](./csharp/03-frameworks.md) · [04](./csharp/04-engineering.md) · [05](./csharp/05-faq.md)
 
 ### 后端问题（跨语言）
 
@@ -51,4 +45,4 @@
 1. 写判断与取舍，少贴语法大全  
 2. 能挂真实项目经验就挂（MES、CRM、AI 编排等）  
 3. 面试体细题放在 [就业指南](/guide/)，这里偏「我怎么看」  
-4. 空目录不硬填；够讲 5 分钟再公开发  
+4. 五篇骨架统一；单篇厚度按主栈深、补位薄  

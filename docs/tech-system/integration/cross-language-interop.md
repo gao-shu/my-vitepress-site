@@ -118,4 +118,4 @@
 ## 延伸阅读（站内）
 
 - [物联网项目学习路线](/tech-system/backend/iot-project) — 设备上报与后端拆分，常与 MQ/HTTP 同现。  
-- [Node(TS)](/tech-system/backend/nodejs/language) / [Python](/tech-system/backend/python/language)
+- [Node(TS)](/tech-system/backend/nodejs/) / [Python](/tech-system/backend/python/)

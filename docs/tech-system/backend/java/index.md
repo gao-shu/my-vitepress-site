@@ -1,24 +1,13 @@
 # Java
 
-主栈。这里按 **语言判断** 与 **Spring 判断** 两组文章沉淀，不是两篇「大全」。
+主栈。与 Python / Node(TS) / Go / C# **同一套五篇结构**——一门语言只占一组，不再拆「语言 vs Spring」。
 
-## 语言
+| 篇 | 解决什么 |
+|----|----------|
+| [01 语言基础](./01-basics.md) | 语法、类型、集合、函数 |
+| [02 核心能力](./02-core.md) | JVM、并发、内存——Java 真正不同的地方 |
+| [03 框架与生态](./03-frameworks.md) | Spring / Boot / 生态怎么干活 |
+| [04 工程实践](./04-engineering.md) | 项目怎么开发、测试、部署 |
+| [05 常见问题](./05-faq.md) | 遇到问题快速查 |
 
-- [我怎么看 Java](./language/positioning.md)
-- [JVM 与运行机制](./language/jvm.md)
-- [并发模型](./language/concurrency.md)
-- [内存与性能直觉](./language/memory-performance.md)
-- [适合什么 / 不适合什么](./language/fit.md)
-- [为什么仍选 Java](./language/why-java.md)
-
-## Spring 体系
-
-- [Spring 解决了什么](./spring/what-it-solves.md)
-- [IoC / DI 怎么看](./spring/ioc-di.md)
-- [Spring Boot 解决了什么](./spring/boot.md)
-- [Web（MVC）与接口层](./spring/mvc.md)
-- [事务](./spring/transaction.md)
-- [Spring Cloud：用过 ≠ 该用](./spring/cloud.md)
-- [我在项目里的实际选择](./spring/my-choices.md)
-
-旧入口：[原语言单页](./language.md) · [原 Spring 单页](./spring.md)（已改为索引跳转）  
+> 面试细题见 [就业指南](/guide/)。这里偏判断与取舍。

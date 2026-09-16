@@ -102,25 +102,25 @@ const speak = (text) => {
 
 ## 1. 接通与确认（10 句）
 
-1. `Hello, this is [your name].` <button class="speak-btn" onclick="speak('Hello, this is [your name].')">🔊</button>
-2. `Hi, am I speaking to [name]?` <button class="speak-btn" onclick="speak('Hi, am I speaking to [name]?')">🔊</button>
-3. `Can you hear me clearly?` <button class="speak-btn" onclick="speak('Can you hear me clearly?')">🔊</button>
-4. `Can you see my screen?` <button class="speak-btn" onclick="speak('Can you see my screen?')">🔊</button>
-5. `Is the audio okay on your side?` <button class="speak-btn" onclick="speak('Is the audio okay on your side?')">🔊</button>
-6. `Thanks for joining the call.` <button class="speak-btn" onclick="speak('Thanks for joining the call.')">🔊</button>
-7. `Let's wait a minute for the others to join.` <button class="speak-btn" onclick="speak('Let\'s wait a minute for the others to join.')">🔊</button>
-8. `Can we start now?` <button class="speak-btn" onclick="speak('Can we start now?')">🔊</button>
-9. `I'm calling about today's update.` <button class="speak-btn" onclick="speak('I\'m calling about today\'s update.')">🔊</button>
-10. `I'm reaching out to discuss this issue.` <button class="speak-btn" onclick="speak('I\'m reaching out to discuss this issue.')">🔊</button>
+1. `Hello, this is [your name].` <button class="speak-btn" @click="speak('Hello, this is [your name].')">🔊</button>
+2. `Hi, am I speaking to [name]?` <button class="speak-btn" @click="speak('Hi, am I speaking to [name]?')">🔊</button>
+3. `Can you hear me clearly?` <button class="speak-btn" @click="speak('Can you hear me clearly?')">🔊</button>
+4. `Can you see my screen?` <button class="speak-btn" @click="speak('Can you see my screen?')">🔊</button>
+5. `Is the audio okay on your side?` <button class="speak-btn" @click="speak('Is the audio okay on your side?')">🔊</button>
+6. `Thanks for joining the call.` <button class="speak-btn" @click="speak('Thanks for joining the call.')">🔊</button>
+7. `Let's wait a minute for the others to join.` <button class="speak-btn" @click="speak('Let\'s wait a minute for the others to join.')">🔊</button>
+8. `Can we start now?` <button class="speak-btn" @click="speak('Can we start now?')">🔊</button>
+9. `I'm calling about today's update.` <button class="speak-btn" @click="speak('I\'m calling about today\'s update.')">🔊</button>
+10. `I'm reaching out to discuss this issue.` <button class="speak-btn" @click="speak('I\'m reaching out to discuss this issue.')">🔊</button>
 
 ## 2. 听不清 / 网络问题（10 句）
 
-11. `Your voice is breaking up.` <button class="speak-btn" onclick="speak('Your voice is breaking up.')">🔊</button>
-12. `The connection is a bit unstable.` <button class="speak-btn" onclick="speak('The connection is a bit unstable.')">🔊</button>
-13. `I can't hear you very well.` <button class="speak-btn" onclick="speak('I can\'t hear you very well.')">🔊</button>
-14. `Could you say that again?` <button class="speak-btn" onclick="speak('Could you say that again?')">🔊</button>
-15. `Could you speak a little louder?` <button class="speak-btn" onclick="speak('Could you speak a little louder?')">🔊</button>
-16. `I think your microphone is muted.` <button class="speak-btn" onclick="speak('I think your microphone is muted.')">🔊</button>
-17. `The screen is frozen on my side.` <button class="speak-btn" onclick="speak('The screen is frozen on my side.')">🔊</button>
-18. `You cut out for a second.` <button class="speak-btn" onclick="speak('You cut out for a second.')">🔊</button>
-19. `Let me reconnect quickly.` <button class="speak-btn" onclick="speak('Let me reconnect quickly.')">🔊</button>
+11. `Your voice is breaking up.` <button class="speak-btn" @click="speak('Your voice is breaking up.')">🔊</button>
+12. `The connection is a bit unstable.` <button class="speak-btn" @click="speak('The connection is a bit unstable.')">🔊</button>
+13. `I can't hear you very well.` <button class="speak-btn" @click="speak('I can\'t hear you very well.')">🔊</button>
+14. `Could you say that again?` <button class="speak-btn" @click="speak('Could you say that again?')">🔊</button>
+15. `Could you speak a little louder?` <button class="speak-btn" @click="speak('Could you speak a little louder?')">🔊</button>
+16. `I think your microphone is muted.` <button class="speak-btn" @click="speak('I think your microphone is muted.')">🔊</button>
+17. `The screen is frozen on my side.` <button class="speak-btn" @click="speak('The screen is frozen on my side.')">🔊</button>
+18. `You cut out for a second.` <button class="speak-btn" @click="speak('You cut out for a second.')">🔊</button>
+19. `Let me reconnect quickly.` <button class="speak-btn" @click="speak('Let me reconnect quickly.')">🔊</button>

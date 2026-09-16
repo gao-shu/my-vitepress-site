@@ -24,4 +24,4 @@
 
 ---
 
-Spring Cloud 组件「用过」与「该不该用」要分开讲，见 [Spring 体系总结](/tech-system/backend/java/spring)。  
+Spring Cloud 组件「用过」与「该不该用」要分开讲，见 [Java · 03 框架与生态](/tech-system/backend/java/03-frameworks)。  

@@ -102,25 +102,25 @@ const speak = (text) => {
 
 ## 1. 初次见面（10 句）
 
-1. `Nice to meet you.` <button class="speak-btn" onclick="speak('Nice to meet you.')">🔊</button>
-2. `It's great to meet you.` <button class="speak-btn" onclick="speak('It\'s great to meet you.')">🔊</button>
-3. `I've heard a lot about you.` <button class="speak-btn" onclick="speak('I\'ve heard a lot about you.')">🔊</button>
-4. `Thanks for taking the time to meet me.` <button class="speak-btn" onclick="speak('Thanks for taking the time to meet me.')">🔊</button>
-5. `I'm glad we finally met.` <button class="speak-btn" onclick="speak('I\'m glad we finally met.')">🔊</button>
-6. `Please call me [name].` <button class="speak-btn" onclick="speak('Please call me [name].')">🔊</button>
-7. `Let me introduce myself.` <button class="speak-btn" onclick="speak('Let me introduce myself.')">🔊</button>
-8. `It's a pleasure to meet you.` <button class="speak-btn" onclick="speak('It\'s a pleasure to meet you.')">🔊</button>
-9. `I've been looking forward to meeting you.` <button class="speak-btn" onclick="speak('I\'ve been looking forward to meeting you.')">🔊</button>
-10. `Thanks for being here.` <button class="speak-btn" onclick="speak('Thanks for being here.')">🔊</button>
+1. `Nice to meet you.` <button class="speak-btn" @click="speak('Nice to meet you.')">🔊</button>
+2. `It's great to meet you.` <button class="speak-btn" @click="speak('It\'s great to meet you.')">🔊</button>
+3. `I've heard a lot about you.` <button class="speak-btn" @click="speak('I\'ve heard a lot about you.')">🔊</button>
+4. `Thanks for taking the time to meet me.` <button class="speak-btn" @click="speak('Thanks for taking the time to meet me.')">🔊</button>
+5. `I'm glad we finally met.` <button class="speak-btn" @click="speak('I\'m glad we finally met.')">🔊</button>
+6. `Please call me [name].` <button class="speak-btn" @click="speak('Please call me [name].')">🔊</button>
+7. `Let me introduce myself.` <button class="speak-btn" @click="speak('Let me introduce myself.')">🔊</button>
+8. `It's a pleasure to meet you.` <button class="speak-btn" @click="speak('It\'s a pleasure to meet you.')">🔊</button>
+9. `I've been looking forward to meeting you.` <button class="speak-btn" @click="speak('I\'ve been looking forward to meeting you.')">🔊</button>
+10. `Thanks for being here.` <button class="speak-btn" @click="speak('Thanks for being here.')">🔊</button>
 
 ## 2. 轻松聊天（10 句）
 
-11. `How's your day going?` <button class="speak-btn" onclick="speak('How\'s your day going?')">🔊</button>
-12. `What have you been up to lately?` <button class="speak-btn" onclick="speak('What have you been up to lately?')">🔊</button>
-13. `How was your weekend?` <button class="speak-btn" onclick="speak('How was your weekend?')">🔊</button>
-14. `Did you do anything fun recently?` <button class="speak-btn" onclick="speak('Did you do anything fun recently?')">🔊</button>
-15. `That's interesting. Tell me more.` <button class="speak-btn" onclick="speak('That\'s interesting. Tell me more.')">🔊</button>
-16. `That sounds really nice.` <button class="speak-btn" onclick="speak('That sounds really nice.')">🔊</button>
-17. `I've had a similar experience.` <button class="speak-btn" onclick="speak('I\'ve had a similar experience.')">🔊</button>
-18. `I know what you mean.` <button class="speak-btn" onclick="speak('I know what you mean.')">🔊</button>
-19. `That must have been exciting.` <button class="speak-btn" onclick="speak('That must have been exciting.')">🔊</button>
+11. `How's your day going?` <button class="speak-btn" @click="speak('How\'s your day going?')">🔊</button>
+12. `What have you been up to lately?` <button class="speak-btn" @click="speak('What have you been up to lately?')">🔊</button>
+13. `How was your weekend?` <button class="speak-btn" @click="speak('How was your weekend?')">🔊</button>
+14. `Did you do anything fun recently?` <button class="speak-btn" @click="speak('Did you do anything fun recently?')">🔊</button>
+15. `That's interesting. Tell me more.` <button class="speak-btn" @click="speak('That\'s interesting. Tell me more.')">🔊</button>
+16. `That sounds really nice.` <button class="speak-btn" @click="speak('That sounds really nice.')">🔊</button>
+17. `I've had a similar experience.` <button class="speak-btn" @click="speak('I\'ve had a similar experience.')">🔊</button>
+18. `I know what you mean.` <button class="speak-btn" @click="speak('I know what you mean.')">🔊</button>
+19. `That must have been exciting.` <button class="speak-btn" @click="speak('That must have been exciting.')">🔊</button>

@@ -102,25 +102,25 @@ const speak = (text) => {
 
 ## 1. 会议开场（10 句）
 
-1. `Let's get started.` <button class="speak-btn" onclick="speak('Let\'s get started.')">🔊</button>
-2. `Thanks, everyone, for joining.` <button class="speak-btn" onclick="speak('Thanks, everyone, for joining.')">🔊</button>
-3. `Let's begin with a quick overview.` <button class="speak-btn" onclick="speak('Let\'s begin with a quick overview.')">🔊</button>
-4. `The purpose of today's meeting is to discuss this issue.` <button class="speak-btn" onclick="speak('The purpose of today\'s meeting is to discuss this issue.')">🔊</button>
-5. `I'll briefly walk through the current status.` <button class="speak-btn" onclick="speak('I\'ll briefly walk through the current status.')">🔊</button>
-6. `Let's start with the main point.` <button class="speak-btn" onclick="speak('Let\'s start with the main point.')">🔊</button>
-7. `We have a few things to cover today.` <button class="speak-btn" onclick="speak('We have a few things to cover today.')">🔊</button>
-8. `First, let's review where we are.` <button class="speak-btn" onclick="speak('First, let\'s review where we are.')">🔊</button>
-9. `I'd like to start with a short update.` <button class="speak-btn" onclick="speak('I\'d like to start with a short update.')">🔊</button>
-10. `Let's go through the agenda together.` <button class="speak-btn" onclick="speak('Let\'s go through the agenda together.')">🔊</button>
+1. `Let's get started.` <button class="speak-btn" @click="speak('Let\'s get started.')">🔊</button>
+2. `Thanks, everyone, for joining.` <button class="speak-btn" @click="speak('Thanks, everyone, for joining.')">🔊</button>
+3. `Let's begin with a quick overview.` <button class="speak-btn" @click="speak('Let\'s begin with a quick overview.')">🔊</button>
+4. `The purpose of today's meeting is to discuss this issue.` <button class="speak-btn" @click="speak('The purpose of today\'s meeting is to discuss this issue.')">🔊</button>
+5. `I'll briefly walk through the current status.` <button class="speak-btn" @click="speak('I\'ll briefly walk through the current status.')">🔊</button>
+6. `Let's start with the main point.` <button class="speak-btn" @click="speak('Let\'s start with the main point.')">🔊</button>
+7. `We have a few things to cover today.` <button class="speak-btn" @click="speak('We have a few things to cover today.')">🔊</button>
+8. `First, let's review where we are.` <button class="speak-btn" @click="speak('First, let\'s review where we are.')">🔊</button>
+9. `I'd like to start with a short update.` <button class="speak-btn" @click="speak('I\'d like to start with a short update.')">🔊</button>
+10. `Let's go through the agenda together.` <button class="speak-btn" @click="speak('Let\'s go through the agenda together.')">🔊</button>
 
 ## 2. 补充观点（10 句）
 
-11. `I'd like to add something here.` <button class="speak-btn" onclick="speak('I\'d like to add something here.')">🔊</button>
-12. `Let me add one more point.` <button class="speak-btn" onclick="speak('Let me add one more point.')">🔊</button>
-13. `I want to build on that.` <button class="speak-btn" onclick="speak('I want to build on that.')">🔊</button>
-14. `From my perspective, this is important.` <button class="speak-btn" onclick="speak('From my perspective, this is important.')">🔊</button>
-15. `I think there's another angle to consider.` <button class="speak-btn" onclick="speak('I think there\'s another angle to consider.')">🔊</button>
-16. `One thing we should keep in mind is this.` <button class="speak-btn" onclick="speak('One thing we should keep in mind is this.')">🔊</button>
-17. `I'd also like to point out that...` <button class="speak-btn" onclick="speak('I\'d also like to point out that...')">🔊</button>
-18. `Another thing to consider is the timeline.` <button class="speak-btn" onclick="speak('Another thing to consider is the timeline.')">🔊</button>
-19. `We should also think about the impact.` <button class="speak-btn" onclick="speak('We should also think about the impact.')">🔊</button>
+11. `I'd like to add something here.` <button class="speak-btn" @click="speak('I\'d like to add something here.')">🔊</button>
+12. `Let me add one more point.` <button class="speak-btn" @click="speak('Let me add one more point.')">🔊</button>
+13. `I want to build on that.` <button class="speak-btn" @click="speak('I want to build on that.')">🔊</button>
+14. `From my perspective, this is important.` <button class="speak-btn" @click="speak('From my perspective, this is important.')">🔊</button>
+15. `I think there's another angle to consider.` <button class="speak-btn" @click="speak('I think there\'s another angle to consider.')">🔊</button>
+16. `One thing we should keep in mind is this.` <button class="speak-btn" @click="speak('One thing we should keep in mind is this.')">🔊</button>
+17. `I'd also like to point out that...` <button class="speak-btn" @click="speak('I\'d also like to point out that...')">🔊</button>
+18. `Another thing to consider is the timeline.` <button class="speak-btn" @click="speak('Another thing to consider is the timeline.')">🔊</button>
+19. `We should also think about the impact.` <button class="speak-btn" @click="speak('We should also think about the impact.')">🔊</button>

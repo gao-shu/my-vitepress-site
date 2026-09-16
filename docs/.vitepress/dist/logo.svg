@@ -1,13 +1,23 @@
-<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-  <!-- 背景圆形 -->
-  <circle cx="100" cy="100" r="95" fill="#f0f7ff" stroke="#4f46e5" stroke-width="2"/>
-  
-  <!-- Java Code Symbol (< > 符号) -->
-  <text x="100" y="120" font-size="80" font-weight="bold" text-anchor="middle" fill="#4f46e5" font-family="Arial, sans-serif">&lt;&gt;</text>
-  
-  <!-- 顶部文字 -->
-  <text x="100" y="30" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Java Interview</text>
-  
-  <!-- 底部文字 -->
-  <text x="100" y="180" font-size="12" text-anchor="middle" fill="#666">Guide</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="一口三个馍">
+  <rect width="64" height="64" rx="14" fill="#141414"/>
+
+  <!-- 三枚馒头：左 · 中 · 右 -->
+  <g fill="#F4E6D2">
+    <!-- 左 -->
+    <path d="M7 40c0-9 5.5-16 11-16s11 7 11 16c0 2.5-1 4.5-3 5.5C22 47 12 47 10 45.5 8 44.5 7 42.5 7 40z"/>
+    <!-- 中（略大、略上） -->
+    <path d="M20 37c0-10.5 6-18.5 12-18.5S44 26.5 44 37c0 3-1.2 5.2-3.5 6.3C36.5 45.5 27.5 45.5 23.5 43.3 21.2 42.2 20 40 20 37z"/>
+    <!-- 右 -->
+    <path d="M35 40c0-9 5.5-16 11-16s11 7 11 16c0 2.5-1 4.5-3 5.5C50 47 40 47 38 45.5 36 44.5 35 42.5 35 40z"/>
+  </g>
+
+  <!-- 顶褶高光 -->
+  <g fill="none" stroke="#C9A882" stroke-width="1.4" stroke-linecap="round" opacity="0.85">
+    <path d="M12 30c2.2-2.2 7.8-2.2 10 0"/>
+    <path d="M26 25c2.8-2.8 9.2-2.8 12 0"/>
+    <path d="M40 30c2.2-2.2 7.8-2.2 10 0"/>
+  </g>
+
+  <!-- 一口：右上小缺角，像咬了一口 -->
+  <path d="M48 18c4 1 7 5 7 10 0-8-5-13-11-14 2 0 3.5 1.5 4 4z" fill="#141414"/>
 </svg>

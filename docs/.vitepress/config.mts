@@ -145,6 +145,20 @@ function guideSidebar() {
       ]
     },
     {
+      text: 'Agent 面试',
+      collapsed: true,
+      items: [
+        { text: 'Agent 面试总览', link: '/guide/agent/' },
+        { text: '高频快答', link: '/guide/agent/quick-qa' },
+        { text: '概念与边界', link: '/guide/agent/concepts-interview' },
+        { text: 'Tool Calling', link: '/guide/agent/tool-calling-interview' },
+        { text: '可靠性与安全', link: '/guide/agent/reliability-interview' },
+        { text: '场景设计题', link: '/guide/agent/scenario-interview' },
+        { text: '对比与选型口述', link: '/guide/agent/compare-interview' },
+        { text: '项目讲述模板', link: '/guide/agent/project-story' }
+      ]
+    },
+    {
       text: 'DevOps',
       collapsed: true,
       items: [
@@ -283,6 +297,22 @@ function techSystemOverviewSidebar() {
   ]
 }
 
+function languageFiveArticles(base: string, label: string, extraItems: { text: string; link: string }[] = []) {
+  return {
+    text: label,
+    collapsed: true,
+    items: [
+      { text: `${label} 总览`, link: `${base}/` },
+      { text: '01 语言基础', link: `${base}/01-basics` },
+      { text: '02 核心能力', link: `${base}/02-core` },
+      { text: '03 框架与生态', link: `${base}/03-frameworks` },
+      { text: '04 工程实践', link: `${base}/04-engineering` },
+      { text: '05 常见问题', link: `${base}/05-faq` },
+      ...extraItems
+    ]
+  }
+}
+
 function techSystemBackendSidebar() {
   return [
     {
@@ -292,65 +322,13 @@ function techSystemBackendSidebar() {
         { text: '后端技术体系', link: '/tech-system/backend/' }
       ]
     },
-    {
-      text: 'Java · 语言',
-      collapsed: true,
-      items: [
-        { text: 'Java 总览', link: '/tech-system/backend/java/' },
-        { text: '我怎么看 Java', link: '/tech-system/backend/java/language/positioning' },
-        { text: 'JVM 与运行机制', link: '/tech-system/backend/java/language/jvm' },
-        { text: '并发模型', link: '/tech-system/backend/java/language/concurrency' },
-        { text: '内存与性能直觉', link: '/tech-system/backend/java/language/memory-performance' },
-        { text: '适合什么 / 不适合什么', link: '/tech-system/backend/java/language/fit' },
-        { text: '为什么仍选 Java', link: '/tech-system/backend/java/language/why-java' }
-      ]
-    },
-    {
-      text: 'Java · Spring',
-      collapsed: true,
-      items: [
-        { text: 'Spring 解决了什么', link: '/tech-system/backend/java/spring/what-it-solves' },
-        { text: 'IoC / DI 怎么看', link: '/tech-system/backend/java/spring/ioc-di' },
-        { text: 'Spring Boot 解决了什么', link: '/tech-system/backend/java/spring/boot' },
-        { text: 'Web（MVC）与接口层', link: '/tech-system/backend/java/spring/mvc' },
-        { text: '事务', link: '/tech-system/backend/java/spring/transaction' },
-        { text: 'Spring Cloud：用过 ≠ 该用', link: '/tech-system/backend/java/spring/cloud' },
-        { text: '我在项目里的实际选择', link: '/tech-system/backend/java/spring/my-choices' }
-      ]
-    },
-    {
-      text: 'Python',
-      collapsed: true,
-      items: [
-        { text: 'Python 语言总结', link: '/tech-system/backend/python/language' },
-        { text: 'Python 框架总结', link: '/tech-system/backend/python/frameworks' },
-        { text: 'Python 技能速成', link: '/tech-system/python/python-skill' }
-      ]
-    },
-    {
-      text: 'Node(TS)',
-      collapsed: true,
-      items: [
-        { text: '语言与运行时总结', link: '/tech-system/backend/nodejs/language' },
-        { text: '框架总结', link: '/tech-system/backend/nodejs/frameworks' }
-      ]
-    },
-    {
-      text: 'Go',
-      collapsed: true,
-      items: [
-        { text: 'Go 语言总结', link: '/tech-system/backend/go/language' },
-        { text: 'Go 框架总结', link: '/tech-system/backend/go/frameworks' }
-      ]
-    },
-    {
-      text: 'C#',
-      collapsed: true,
-      items: [
-        { text: 'C# 语言总结', link: '/tech-system/backend/csharp/language' },
-        { text: 'C# / .NET 框架总结', link: '/tech-system/backend/csharp/frameworks' }
-      ]
-    },
+    languageFiveArticles('/tech-system/backend/java', 'Java'),
+    languageFiveArticles('/tech-system/backend/python', 'Python', [
+      { text: 'Python 技能速成', link: '/tech-system/python/python-skill' }
+    ]),
+    languageFiveArticles('/tech-system/backend/nodejs', 'TypeScript'),
+    languageFiveArticles('/tech-system/backend/go', 'Go'),
+    languageFiveArticles('/tech-system/backend/csharp', 'C#'),
     {
       text: '后端问题',
       collapsed: true,
@@ -464,21 +442,6 @@ function techSystemDevopsSidebar() {
   ]
 }
 
-function techSystemOtherSidebar() {
-  return [
-    {
-      text: 'Flowable 快速入门',
-      collapsed: false,
-      items: [{ text: 'Flowable 快速入门', link: '/tech-system/backend/flowable-bpmn' }]
-    },
-    {
-      text: 'Flowable 企业二开',
-      collapsed: false,
-      items: [{ text: 'Flowable 企业二开', link: '/tech-system/backend/flowable-enterprise-extensions' }]
-    }
-  ]
-}
-
 function englishSpeakingSidebar() {
   return [
     {
@@ -513,22 +476,22 @@ function englishSpeakingSidebar() {
 function aiDevSidebar() {
   return [
     {
-      text: '技术基础',
+      text: '基础认知',
+      collapsed: false,
       items: [
-        { text: '技术入口', link: '/ai/dev/' },
+        { text: '我怎么选模型', link: '/ai/dev/basics/how-i-choose-models' },
         { text: '主流大模型厂商一览', link: '/ai/dev/basics/model-landscape' },
         { text: '主流 Agent 厂商一览', link: '/ai/dev/basics/agent-landscape' },
         { text: 'Prompt 怎么写才像工程', link: '/ai/dev/basics/prompt-engineering' },
-        { text: '我怎么选模型', link: '/ai/dev/basics/how-i-choose-models' },
         { text: 'RAG / Agent / 微调对照', link: '/ai/dev/basics/rag-agent-finetune' },
-        { text: 'AI 应用最小链路', link: '/ai/dev/basics/ai-app-min-loop' }
+        { text: 'AI 应用最小链路', link: '/ai/dev/basics/ai-app-min-loop' },
+        { text: 'RAG 是什么', link: '/ai/dev/basics/what-is-rag' }
       ]
     },
     {
       text: 'AI Coding',
       collapsed: false,
       items: [
-        { text: '概览', link: '/ai/dev/coding/' },
         { text: '工作流', link: '/ai/dev/coding/cursor-workflow' },
         { text: 'Context & Rules', link: '/ai/dev/coding/context-and-rules' },
         { text: 'Prompt Pattern', link: '/ai/dev/coding/prompt-pattern' },
@@ -551,13 +514,6 @@ function aiDevSidebar() {
         { text: 'Tool Calling 最小例子', link: '/ai/dev/agent/tool-calling' },
         { text: 'Agent 不是聊天框', link: '/ai/dev/agent/not-just-chat' }
       ]
-    },
-    {
-      text: 'RAG',
-      collapsed: true,
-      items: [
-        { text: 'RAG 是什么', link: '/ai/dev/basics/what-is-rag' }
-      ]
     }
   ]
 }
@@ -565,56 +521,28 @@ function aiDevSidebar() {
 function aiAppSidebar() {
   return [
     {
-      text: '应用',
-      items: [
-        { text: '应用入口', link: '/ai/app/' }
-      ]
-    },
-    {
-      text: '企业业务',
-      collapsed: true,
+      text: 'AI 应用',
+      collapsed: false,
       items: [
         { text: '业务系统里的 AI 切口', link: '/ai/app/enterprise/biz-entry' },
-        { text: '审批助手草图', link: '/ai/app/enterprise/approval-assistant' }
+        { text: 'MES 里的 AI 切口', link: '/ai/app/manufacturing/mes-assistant' },
+        { text: '内容生产流水线', link: '/ai/app/content/content-pipeline' }
       ]
     },
     {
-      text: '工业制造',
-      collapsed: true,
+      text: 'Agent 应用',
+      collapsed: false,
       items: [
-        { text: '制造现场能先做什么', link: '/ai/app/manufacturing/mes-assistant' },
-        { text: '产线知识问答', link: '/ai/app/manufacturing/shopfloor-qa' }
+        { text: '开发', link: '/ai/app/agent/development' },
+        { text: '问题', link: '/ai/app/agent/problems' },
+        { text: '场景', link: '/ai/app/agent/scenarios' }
       ]
     },
     {
-      text: '内容生产',
-      collapsed: true,
+      text: 'AI 产品',
+      collapsed: false,
       items: [
-        { text: '内容生产流水线思路', link: '/ai/app/content/content-pipeline' },
-        { text: '内容生产链路一句话', link: '/ai/app/content/pipeline-oneliner' }
-      ]
-    },
-    {
-      text: '数据分析',
-      collapsed: true,
-      items: [
-        { text: '用自然语言问数据', link: '/ai/app/data/ask-data' }
-      ]
-    },
-    {
-      text: '流程自动化',
-      collapsed: true,
-      items: [
-        { text: '个人工作流自动化', link: '/ai/app/automation/personal-workflow' },
-        { text: '周报自动草稿', link: '/ai/app/automation/weekly-report-draft' }
-      ]
-    },
-    {
-      text: '产品形态',
-      collapsed: true,
-      items: [
-        { text: 'AI 产品最小闭环', link: '/ai/app/product/mvp-loop' },
-        { text: '最小 AI 功能怎么定范围', link: '/ai/app/product/mvp-scope' }
+        { text: 'AI 产品最小闭环', link: '/ai/app/product/mvp-loop' }
       ]
     }
   ]
@@ -624,8 +552,8 @@ function aiOpportunitySidebar() {
   return [
     {
       text: '机会',
+      collapsed: false,
       items: [
-        { text: '机会入口', link: '/ai/intel/opportunity/' },
         { text: '岗位需求在变什么', link: '/ai/intel/opportunity/job-signal' },
         { text: '岗位名在变', link: '/ai/intel/opportunity/job-titles' },
         { text: '商业模式观察', link: '/ai/intel/opportunity/model-notes' },
@@ -719,182 +647,7 @@ export default defineConfig({
   
   // Head 配置 - 用于设置 favicon 等 meta 标签
   head: [
-    ['link', { rel: 'icon', href: '/logo.svg' }],
-    // 全局音乐播放器脚本 - 周杰伦经典歌曲轮播（使用在线CDN链接）
-    ['script', {}, `
-      (function() {
-        let audio = null;
-        let isPlaying = false;
-        let currentSongIndex = 0;
-        
-        // 音乐播放器配置
-        const songs = [
-          { 
-            name: '晴天', 
-            url: 'https://cdn.jsdelivr.net/gh/gao-shu/my-vitepress-site@main/docs/public/music/qingtian.mp3' 
-          },
-          { 
-            name: '稻香', 
-            url: 'https://cdn.jsdelivr.net/gh/gao-shu/my-vitepress-site@main/docs/public/music/daoxiang.mp3' 
-          }
-        ];
-        
-        function initMusicPlayer() {
-          if (document.getElementById('global-music-btn')) return;
-          
-          // 创建样式
-          const style = document.createElement('style');
-          style.textContent = \`
-            #global-music-btn {
-              position: fixed;
-              bottom: 20px;
-              right: 20px;
-              z-index: 9999;
-              padding: 12px;
-              background: var(--vp-c-brand);
-              color: white;
-              border-radius: 50%;
-              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-              cursor: pointer;
-              transition: all 0.3s ease;
-              font-size: 20px;
-              width: 48px;
-              height: 48px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            }
-            #global-music-btn:hover {
-              transform: scale(1.1);
-              box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-            }
-            #global-music-btn.playing {
-              animation: pulse 2s infinite;
-            }
-            @keyframes pulse {
-              0%, 100% { opacity: 1; }
-              50% { opacity: 0.7; }
-            }
-            #music-tooltip {
-              position: fixed;
-              bottom: 75px;
-              right: 20px;
-              background: var(--vp-c-bg);
-              color: var(--vp-c-text-1);
-              padding: 8px 12px;
-              border-radius: 6px;
-              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-              font-size: 12px;
-              opacity: 0;
-              transition: opacity 0.3s;
-              pointer-events: none;
-              z-index: 9999;
-              max-width: 200px;
-            }
-            #global-music-btn:hover + #music-tooltip,
-            #music-tooltip.show {
-              opacity: 1;
-            }
-          \`;
-          document.head.appendChild(style);
-          
-          // 创建按钮
-          const btn = document.createElement('div');
-          btn.id = 'global-music-btn';
-          btn.innerHTML = '🎵';
-          btn.title = '点击播放/暂停音乐';
-          document.body.appendChild(btn);
-          
-          // 创建提示框
-          const tooltip = document.createElement('div');
-          tooltip.id = 'music-tooltip';
-          document.body.appendChild(tooltip);
-          
-          // 绑定事件
-          btn.addEventListener('click', function() {
-            if (!audio) {
-              loadSong(currentSongIndex);
-            }
-            
-            if (isPlaying) {
-              audio.pause();
-              isPlaying = false;
-              btn.innerHTML = '🎵';
-              btn.classList.remove('playing');
-              hideTooltip();
-            } else {
-              audio.play().then(function() {
-                isPlaying = true;
-                btn.innerHTML = '⏸️';
-                btn.classList.add('playing');
-                showTooltip('正在播放: 周杰伦 - ' + songs[currentSongIndex].name);
-              }).catch(function(err) {
-                console.error('播放失败:', err);
-                alert('⚠️ 播放被阻止\\n\\n请先点击页面任意位置，然后再试');
-              });
-            }
-          });
-          
-          // 监听歌曲结束，自动切换下一首
-          function setupAutoNext() {
-            if (audio) {
-              audio.addEventListener('ended', function() {
-                console.log('🎵 歌曲结束，切换到下一首');
-                playNextSong();
-              });
-            }
-          }
-          
-          // 加载歌曲
-          function loadSong(index) {
-            currentSongIndex = index % songs.length;
-            audio = new Audio(songs[currentSongIndex].url);
-            audio.loop = false; // 不循环单曲，改为轮播
-            audio.volume = 0.4;
-            
-            audio.addEventListener('error', function(e) {
-              console.error('❌ 歌曲加载失败: ' + songs[currentSongIndex].name, e);
-              alert('⚠️ 找不到文件: ' + songs[currentSongIndex].name + '.mp3\\n\\n请检查：\\n1. 文件是否在 docs/public/music/ 目录\\n2. 文件名是否正确');
-            });
-            
-            setupAutoNext();
-          }
-          
-          // 播放下一首
-          function playNextSong() {
-            currentSongIndex = (currentSongIndex + 1) % songs.length;
-            console.log('🎶 切换到: 周杰伦 - ' + songs[currentSongIndex].name);
-            
-            if (isPlaying) {
-              loadSong(currentSongIndex);
-              audio.play().then(function() {
-                showTooltip('正在播放: 周杰伦 - ' + songs[currentSongIndex].name);
-              }).catch(function(err) {
-                console.error('切换失败:', err);
-              });
-            }
-          }
-          
-          // 显示提示
-          function showTooltip(text) {
-            tooltip.textContent = text;
-            tooltip.classList.add('show');
-            setTimeout(hideTooltip, 3000);
-          }
-          
-          function hideTooltip() {
-            tooltip.classList.remove('show');
-          }
-          
-          console.log('✅ 全局音乐播放器已加载 - 周杰伦经典歌曲轮播（本地MP3）');
-        }
-        
-        // 立即执行 + 重试机制（适配 SPA 路由）
-        initMusicPlayer();
-        setTimeout(initMusicPlayer, 100);
-        setTimeout(initMusicPlayer, 500);
-      })();
-    `]
+    ['link', { rel: 'icon', href: '/logo.svg' }]
   ],
   
   themeConfig: {
@@ -912,23 +665,26 @@ export default defineConfig({
       },
       {
         text: '技术体系',
-        activeMatch: '^\\/(open-source|english-speaking)(\\/|$)|^\\/tech-system(\\/|$)',
+        activeMatch: '^\\/(english-speaking)(\\/|$)|^\\/tech-system(\\/|$)',
         items: [
           { text: '后端', link: '/tech-system/backend/' },
           { text: '前端', link: '/tech-system/frontend/vue-stack' },
           { text: '工业数字化', link: '/tech-system/industrial-digitalization/' },
-          { text: '开源拆解', link: '/open-source/' },
-          { text: '英语口语', link: '/english-speaking/' },
-          { text: '其他', link: '/tech-system/backend/flowable-bpmn' }
+          { text: '英语口语', link: '/english-speaking/' }
         ]
       },
       {
-        text: 'AI 应用',
+        text: '开源拆解',
+        link: '/open-source/',
+        activeMatch: '^\\/open-source(\\/|$)'
+      },
+      {
+        text: 'AI',
         activeMatch: '^\\/ai(\\/|$)',
         items: [
           { text: '技术', link: '/ai/dev/' },
           { text: '应用', link: '/ai/app/' },
-          { text: '机会', link: '/ai/intel/opportunity/' }
+          { text: '探索', link: '/ai/intel/opportunity/' }
         ]
       },
       { text: '关于我', link: '/about/' }
@@ -939,14 +695,13 @@ export default defineConfig({
         {
           text: '关于本站',
           items: [
-            { text: '网站介绍', link: '/about/' },
-            { text: '更新日志', link: '/about/changelog' },
-            { text: '联系我们', link: '/about/contact' }
+            { text: '网站介绍', link: '/about/' }
           ]
         }
       ],
       '/guide/': guideSidebar(),
       '/guide/devops/': guideSidebar(),
+      '/guide/agent/': guideSidebar(),
       '/java/': guideSidebar(),
       '/database/': guideSidebar(),
       '/redis/': guideSidebar(),
@@ -962,8 +717,6 @@ export default defineConfig({
       '/tech-system/plc/': industrialSidebar(),
       '/tech-system/integration/': industrialSidebar(),
       '/tech-system/backend/iot-project': industrialSidebar(),
-      '/tech-system/backend/flowable-bpmn': techSystemOtherSidebar(),
-      '/tech-system/backend/flowable-enterprise-extensions': techSystemOtherSidebar(),
       '/tech-system/backend/': techSystemBackendSidebar(),
       '/tech-system/python/': techSystemBackendSidebar(),
       '/tech-system/frontend/': techSystemFrontendSidebar(),
@@ -979,61 +732,12 @@ export default defineConfig({
       '/ai/': aiLegacySidebar(),
       '/open-source/': [
         {
-          text: '概览',
+          text: '我的开源',
           collapsed: false,
-          items: [{ text: '开源项目总览', link: '/open-source/' }]
-        },
-        {
-          text: '后端项目',
-          collapsed: true,
           items: [
-            { text: 'Java / Spring 项目', link: '/open-source/java-projects' },
-            { text: 'Python 项目', link: '/open-source/python-projects' },
-            { text: 'Node.js 项目', link: '/open-source/nodejs-projects' },
-            { text: '企业业务套件（CRM/ERP/WMS/IoT）', link: '/open-source/enterprise-suite' }
-          ]
-        },
-        {
-          text: '后台管理系统',
-          collapsed: true,
-          items: [
-            { text: 'RuoYi（若依）', link: '/open-source/admin-ruoyi' },
-            { text: 'JeecgBoot', link: '/open-source/admin-jeecg' }
-          ]
-        },
-        {
-          text: '前端与企业应用',
-          collapsed: true,
-          items: [
-            { text: 'Vue 项目', link: '/open-source/vue-projects' },
-            { text: 'React 项目', link: '/open-source/react-projects' },
-            { text: '商城系统', link: '/open-source/mall' },
-            { text: '中小企业项目', link: '/open-source/sme-projects' }
-          ]
-        },
-        {
-          text: '数据库与中间件',
-          collapsed: true,
-          items: [
-            { text: '数据库工具', link: '/open-source/database-tools' },
-            { text: '消息队列项目', link: '/open-source/message-queue' }
-          ]
-        },
-        {
-          text: 'AI & 大模型',
-          collapsed: true,
-          items: [
-            { text: 'AI 框架与工具', link: '/open-source/ai-projects' },
-            { text: 'LLM 应用项目', link: '/open-source/llm-projects' }
-          ]
-        },
-        {
-          text: '物联网 / DevOps',
-          collapsed: true,
-          items: [
-            { text: '物联网平台', link: '/open-source/iot' },
-            { text: '开发工具', link: '/open-source/dev-tools' },
-            { text: '部署与运维', link: '/open-source/deployment-tools' }
+            { text: 'OpenBiz', link: '/open-source/mine/openbiz' },
+            { text: '本地漫创（local-creator）', link: '/open-source/mine/local-creator' },
+            { text: 'ModelDesk', link: '/open-source/mine/modeldesk' }
           ]
         }
       ],
@@ -1041,9 +745,7 @@ export default defineConfig({
         {
           text: '关于我',
           items: [
-            { text: '个人介绍', link: '/about/' },
-            { text: '更新日志', link: '/about/changelog' },
-            { text: '联系我', link: '/about/contact' }
+            { text: '个人介绍', link: '/about/' }
           ]
         }
       ],

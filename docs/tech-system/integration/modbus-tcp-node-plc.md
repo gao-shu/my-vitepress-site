@@ -114,5 +114,5 @@ export async function readFlags() {
 - [Siemens S7：Python ↔ PLC](./s7-comm-python-plc.md)
 - [HTTP 跨语言协作：Node.js ↔ Python](./http-node-python.md)
 - [物联网项目学习路线](/tech-system/backend/iot-project)
-- [Node(TS) · 语言与运行时](/tech-system/backend/nodejs/language)
+- [Node(TS)](/tech-system/backend/nodejs/)
 - [常见 PLC 品牌与选型](/tech-system/plc/common-brands.md)

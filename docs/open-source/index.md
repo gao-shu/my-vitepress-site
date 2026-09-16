@@ -1,40 +1,11 @@
-# 开源项目
+# 开源拆解
 
-本模块精选了优质的开源项目，涵盖全栈开发、AI应用、物联网等多个领域。这些项目可以帮助开发者快速搭建系统、学习新技术，并应用于实际项目中。
+以 **我自己维护的开源** 为主，证明会交付什么——中小业务、桌面 AI、模型接入。
 
-## 内容概览
+## 我的开源（暂定三件）
 
-### 后端框架
-- [Java/Spring 项目](./java-projects.md)：Spring Boot、微服务等Java项目
-- [Python 项目](./python-projects.md)：Django、Flask、FastAPI等Python项目
-- [Node.js 项目](./nodejs-projects.md)：Express、NestJS等Node.js项目
-
-### 后台管理系统
-- [RuoYi（若依）：操作与二次开发](./admin-ruoyi.md)
-- [JeecgBoot：操作与二次开发](./admin-jeecg.md)
-
-### 企业业务套件（CRM / ERP / WMS / IoT）
-- [学习研究总结：统一后台 + 业务模块化](./enterprise-suite.md)
-
-### 前端框架
-- [Vue.js 项目](./vue-projects.md)：Vue生态系统项目
-- [React 项目](./react-projects.md)：React生态系统项目
-
-### 数据库与中间件
-- [数据库工具](./database-tools.md)：MySQL、Redis、MongoDB工具
-- [消息队列](./message-queue.md)：RabbitMQ、Kafka等MQ项目
-
-### AI & 机器学习
-- [AI 框架与工具](./ai-projects.md)：机器学习、深度学习框架
-- [大语言模型](./llm-projects.md)：LLM应用和工具
-
-### 企业应用
-- [商城系统](./mall.md)：电商平台项目
-- [物联网平台](./iot.md)：IoT相关项目
-- [中小企业项目](./sme-projects.md)：适合中小企业的通用项目
-
-### DevOps & 工具
-- [开发工具](./dev-tools.md)：IDE插件、开发辅助工具
-- [部署工具](./deployment-tools.md)：Docker、Kubernetes相关
-
-欢迎大家推荐更多优质项目！
+| 项目 | 一句话 | 状态 |
+|------|--------|------|
+| [OpenBiz](./mine/openbiz.md) | 面向中小的业务/后台向开源底座 | 仓库已建，内容持续补 |
+| [本地漫创（local-creator）](./mine/local-creator.md) | 本地桌面端 AI 漫创：创作工坊 + 无限画布 | 试用阶段，建议私有 |
+| [ModelDesk](./mine/modeldesk.md) | 模型接入 / 桌面侧模型工作台 | 仓库已建，内容持续补 |
