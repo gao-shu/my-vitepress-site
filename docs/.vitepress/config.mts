@@ -6,7 +6,7 @@ function guideSidebar() {
   return [
     {
       text: '个人简历',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '个人简历', link: '/guide/my-resume' }
       ]
@@ -159,6 +159,42 @@ function guideSidebar() {
       ]
     },
     {
+      text: 'Python 面试',
+      collapsed: true,
+      items: [
+        { text: 'Python 面试总览', link: '/guide/python/' },
+        { text: '高频快答', link: '/guide/python/quick-qa' },
+        { text: '语言基础', link: '/guide/python/basics-interview' },
+        { text: '并发与性能', link: '/guide/python/concurrency-interview' },
+        { text: '工程与依赖', link: '/guide/python/engineering-interview' },
+        { text: '实战场景题', link: '/guide/python/scenario-interview' },
+        { text: '项目讲述', link: '/guide/python/project-story' }
+      ]
+    },
+    {
+      text: 'Node.js / TS 面试',
+      collapsed: true,
+      items: [
+        { text: 'Node/TS 面试总览', link: '/guide/nodejs/' },
+        { text: '高频快答', link: '/guide/nodejs/quick-qa' },
+        { text: 'Node 基础与事件循环', link: '/guide/nodejs/basics-interview' },
+        { text: 'TypeScript', link: '/guide/nodejs/typescript-interview' },
+        { text: '异步与并发', link: '/guide/nodejs/async-interview' },
+        { text: 'Electron 与上位机', link: '/guide/nodejs/electron-interview' },
+        { text: '实战场景题', link: '/guide/nodejs/scenario-interview' },
+        { text: '项目讲述', link: '/guide/nodejs/project-story' }
+      ]
+    },
+    {
+      text: '英文技术面试',
+      collapsed: true,
+      items: [
+        { text: '英文技术面试', link: '/guide/english-interview/' },
+        { text: '90天计划', link: '/guide/english-interview/90-day-plan' },
+        { text: '自我介绍', link: '/guide/english-interview/self-introduction' }
+      ]
+    },
+    {
       text: 'DevOps',
       collapsed: true,
       items: [
@@ -176,7 +212,7 @@ function resourceAndDevtoolsSidebar() {
   return [
     {
       text: '热门资源',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '学习教程（官网）', link: '/resources/learning' },
         { text: '书籍推荐(免费下载)', link: '/resources/books' }
@@ -184,7 +220,7 @@ function resourceAndDevtoolsSidebar() {
     },
     {
       text: '开发工具与环境配置',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: 'JDK 安装与多版本管理', link: '/devtools/jdk' },
         { text: 'Node.js 安装与版本控制', link: '/devtools/nodejs-install-version' },
@@ -197,7 +233,7 @@ function resourceAndDevtoolsSidebar() {
     },
     {
       text: '开发工具',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: 'IntelliJ IDEA 配置', link: '/devtools/intellij-idea' },
         { text: 'VS Code 安装与配置', link: '/devtools/vscode' },
@@ -218,14 +254,14 @@ function industrialSidebar() {
   return [
     {
       text: '总览',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '工业数字化实验室', link: '/tech-system/industrial-digitalization/' }
       ]
     },
     {
       text: 'Mini MES',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '项目目标', link: '/tech-system/industrial-digitalization/mini-mes/' },
         { text: '架构演进', link: '/tech-system/industrial-digitalization/mini-mes/architecture' },
@@ -235,7 +271,7 @@ function industrialSidebar() {
     },
     {
       text: '判断记录',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '判断索引', link: '/tech-system/industrial-digitalization/decisions/' },
         { text: 'V0 为何 Gateway → HTTP', link: '/tech-system/industrial-digitalization/decisions/01-v0-gateway-http' },
@@ -247,7 +283,7 @@ function industrialSidebar() {
     },
     {
       text: '实验室',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '实验室索引', link: '/tech-system/industrial-digitalization/labs/' },
         { text: 'Lab 001 · 设备采集最小闭环', link: '/tech-system/industrial-digitalization/labs/lab-001' }
@@ -291,7 +327,7 @@ function techSystemOverviewSidebar() {
   return [
     {
       text: '技术体系概览',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: '技术体系概览', link: '/tech-system/' }]
     }
   ]
@@ -351,27 +387,27 @@ function techSystemFrontendSidebar() {
   return [
     {
       text: 'Vue 技术栈',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: 'Vue 技术栈', link: '/tech-system/frontend/vue-stack' }]
     },
     {
       text: 'React 技术栈',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: 'React 技术栈', link: '/tech-system/frontend/react-stack' }]
     },
     {
       text: '移动端',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: '移动端', link: '/tech-system/frontend/mobile' }]
     },
     {
       text: '跨端',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: '跨端', link: '/tech-system/frontend/cross-platform' }]
     },
     {
       text: '工程化',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: '工程化', link: '/tech-system/frontend/engineering' }]
     }
   ]
@@ -381,22 +417,22 @@ function techSystemDatabaseSidebar() {
   return [
     {
       text: '数据库体系与选型',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: '数据库体系与选型', link: '/tech-system/database/database-stack' }]
     },
     {
       text: '关系型数据库',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: '关系型数据库', link: '/tech-system/database/relational' }]
     },
     {
       text: 'NoSQL',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: 'NoSQL', link: '/tech-system/database/nosql' }]
     },
     {
       text: '缓存体系',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: '缓存体系', link: '/tech-system/database/caching' }]
     }
   ]
@@ -406,12 +442,12 @@ function techSystemIntegrationSidebar() {
   return [
     {
       text: '跨语言调用（选型）',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: '跨语言调用（选型）', link: '/tech-system/integration/cross-language-interop' }]
     },
     {
       text: 'HTTP：Node.js ↔ Python',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: 'HTTP：Node.js ↔ Python', link: '/tech-system/integration/http-node-python' }]
     }
   ]
@@ -421,22 +457,22 @@ function techSystemDevopsSidebar() {
   return [
     {
       text: 'CI/CD 流水线',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: 'CI/CD 流水线', link: '/tech-system/devops/ci-cd-pipeline' }]
     },
     {
       text: '监控与可观测',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: '监控与可观测', link: '/tech-system/devops/monitoring-observability' }]
     },
     {
       text: '监控',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: '监控', link: '/tech-system/devops/monitoring' }]
     },
     {
       text: 'Windows Docker Desktop',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: 'Windows Docker Desktop', link: '/tech-system/devops/docker-desktop-windows' }]
     }
   ]
@@ -446,7 +482,7 @@ function englishSpeakingSidebar() {
   return [
     {
       text: '英语口语',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '模块总览', link: '/english-speaking/' },
         { text: '学习路线与使用方式', link: '/english-speaking/' }
@@ -454,14 +490,14 @@ function englishSpeakingSidebar() {
     },
     {
       text: '发音基础',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '48 音标与发音入门', link: '/english-speaking/phonetics-48' }
       ]
     },
     {
       text: '句子模板',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '日常通用口语模板', link: '/english-speaking/templates-daily' },
         { text: '工作沟通口语模板', link: '/english-speaking/templates-work' },
@@ -477,7 +513,7 @@ function aiDevSidebar() {
   return [
     {
       text: '基础认知',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '我怎么选模型', link: '/ai/dev/basics/how-i-choose-models' },
         { text: '主流大模型厂商一览', link: '/ai/dev/basics/model-landscape' },
@@ -490,7 +526,7 @@ function aiDevSidebar() {
     },
     {
       text: 'AI Coding',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '工作流', link: '/ai/dev/coding/cursor-workflow' },
         { text: 'Context & Rules', link: '/ai/dev/coding/context-and-rules' },
@@ -498,7 +534,7 @@ function aiDevSidebar() {
         { text: 'Code Review', link: '/ai/dev/coding/ai-code-review' },
         {
           text: '实战',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: 'Cursor 老项目实战', link: '/ai/ai-programming/cursor-legacy-project' },
             { text: 'Cursor 新项目实战', link: '/ai/ai-programming/cursor-new-project' }
@@ -522,7 +558,7 @@ function aiAppSidebar() {
   return [
     {
       text: 'AI 应用',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '业务系统里的 AI 切口', link: '/ai/app/enterprise/biz-entry' },
         { text: 'MES 里的 AI 切口', link: '/ai/app/manufacturing/mes-assistant' },
@@ -531,7 +567,7 @@ function aiAppSidebar() {
     },
     {
       text: 'Agent 应用',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '开发', link: '/ai/app/agent/development' },
         { text: '问题', link: '/ai/app/agent/problems' },
@@ -540,7 +576,7 @@ function aiAppSidebar() {
     },
     {
       text: 'AI 产品',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: 'AI 产品最小闭环', link: '/ai/app/product/mvp-loop' }
       ]
@@ -552,7 +588,7 @@ function aiOpportunitySidebar() {
   return [
     {
       text: '机会',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '岗位需求在变什么', link: '/ai/intel/opportunity/job-signal' },
         { text: '岗位名在变', link: '/ai/intel/opportunity/job-titles' },
@@ -569,6 +605,7 @@ function aiIntelSidebar() {
   return [
     {
       text: '情报摘录',
+      collapsed: true,
       items: [
         { text: '技术', link: '/ai/intel/technology/' },
         { text: '应用', link: '/ai/intel/application/' },
@@ -582,7 +619,7 @@ function aiLegacySidebar() {
   return [
     {
       text: '旧内容 · 待归档',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: 'AI 总览（旧入口）', link: '/ai/' },
         { text: '热门软件与开源项目地图', link: '/ai/explore/' },
@@ -694,6 +731,7 @@ export default defineConfig({
       '/': [
         {
           text: '关于本站',
+          collapsed: true,
           items: [
             { text: '网站介绍', link: '/about/' }
           ]
@@ -702,6 +740,9 @@ export default defineConfig({
       '/guide/': guideSidebar(),
       '/guide/devops/': guideSidebar(),
       '/guide/agent/': guideSidebar(),
+      '/guide/english-interview/': guideSidebar(),
+      '/guide/python/': guideSidebar(),
+      '/guide/nodejs/': guideSidebar(),
       '/java/': guideSidebar(),
       '/database/': guideSidebar(),
       '/redis/': guideSidebar(),
@@ -733,7 +774,7 @@ export default defineConfig({
       '/open-source/': [
         {
           text: '我的开源',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: 'OpenBiz', link: '/open-source/mine/openbiz' },
             { text: '本地漫创（local-creator）', link: '/open-source/mine/local-creator' },
@@ -744,6 +785,7 @@ export default defineConfig({
       '/about/': [
         {
           text: '关于我',
+          collapsed: true,
           items: [
             { text: '个人介绍', link: '/about/' }
           ]
@@ -754,7 +796,7 @@ export default defineConfig({
       '/springboot/': [
         {
           text: 'Spring Boot 概述',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: 'Spring Boot 概述', link: '/springboot/overview' },
             { text: '前后台管理系统技术栈', link: '/springboot/tech-stack' }

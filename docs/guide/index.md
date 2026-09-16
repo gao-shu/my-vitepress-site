@@ -21,8 +21,10 @@
 - [简历与面试](../resume/resume-analysis.md)：基于个人简历的面试准备指南。
 - **[专业技能面试准备](../resume/skills-interview-prep.md)**：针对专业技能版本的完整面试问题与回答。
 - **[投递平台与投递策略](../resume/job-platform-strategy.md)**：BOSS/51job/智联/拉勾/鱼泡/猎聘的投递打法，提升被约面概率。
-- **[DevOps](./devops/)**：Docker / CI/CD / 监控——按「面试怎么答 + 实战怎么做」准备。
 - **[Agent 面试](./agent/)**：概念 / Tool Calling / 可靠性 / 场景题 / 项目讲述——按「面试怎么答」准备。
+- **[Python 面试](./python/)**：基础 / 并发 / 工程 / 场景题 / 项目讲述。
+- **[Node.js / TS 面试](./nodejs/)**：事件循环 / TS / 异步 / Electron 上位机 / 场景题。
+- **[DevOps](./devops/)**：Docker / CI/CD / 监控——按「面试怎么答 + 实战怎么做」准备。
 
 通过这些模块的系统学习，我将掌握面试必备的专业技能。
 
