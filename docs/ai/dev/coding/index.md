@@ -14,6 +14,8 @@
 | --- | --- |
 | 我要开发一个新项目 | [Cursor 新项目实战](/ai/ai-programming/cursor-new-project) |
 | 我要接手一个老项目 | [Cursor 老项目实战](/ai/ai-programming/cursor-legacy-project) |
+| 我要往仓库丢 Rules / AGENTS | [项目落地包](/ai/dev/coding/project-landing-kit) |
+| 我要不要上外部 Skills | [Skills 与 AI Coding](/ai/dev/coding/skills-in-coding) |
 | 我要让 AI 理解项目 | [Context & Rules](/ai/dev/coding/context-and-rules) |
 | 我要让 AI 写代码 | [Prompt Pattern · 实现](/ai/dev/coding/prompt-pattern#3-实现) |
 | 我要 Review AI 生成的代码 | [Code Review](/ai/dev/coding/ai-code-review) |
@@ -112,11 +114,11 @@ AI Coding = **AI + 软件工程**，不是「会用某个 AI IDE」。
 
 ### [Cursor 老项目实战](/ai/ai-programming/cursor-legacy-project)
 
-已有复杂代码上怎么用 AI：上下文、增量修改、风险控制。
+接手已有仓库：先写 ai-context，再用一个小改动验证，通过后再加功能。模板在落地包。
 
 ### [Cursor 新项目实战](/ai/ai-programming/cursor-new-project)
 
-0→1：架构设计、模块拆分、Cursor 执行与人工决策。
+空仓库：先放落地包，再按「方案 → 后端最小闭环 → 验收」做第一个功能。
 
 ### [AI Code Review](/ai/dev/coding/ai-code-review)
 

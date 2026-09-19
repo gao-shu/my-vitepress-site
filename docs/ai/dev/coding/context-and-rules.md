@@ -22,12 +22,14 @@
 没有 Context，AI 只能猜。  
 没有 Rules，AI 容易用「它喜欢的写法」生成你维护不了的代码。
 
-更深的实操（老项目提取 / 新项目设计）见：
+仓库里的正式文件只维护一份：[项目落地包](/ai/dev/coding/project-landing-kit)。  
+本页模板只用于**单次任务**贴进对话，不要再另写一套 AGENTS。
 
-* [Cursor 老项目实战](/ai/ai-programming/cursor-legacy-project)
-* [Cursor 新项目实战](/ai/ai-programming/cursor-new-project)
+执行顺序：
 
-本页只提供：**最小理解 + 可复制模板**（直接滚到下方模板复制即可）。
+* 新仓：[新项目实战](/ai/ai-programming/cursor-new-project)
+* 老仓：[老项目实战](/ai/ai-programming/cursor-legacy-project)
+* Skill 何时启用：[Skills](/ai/dev/coding/skills-in-coding)
 
 ---
 
@@ -74,70 +76,44 @@ Rules 应尽量来自**现有代码真实习惯**，不要一次写一本理想�
 
 ---
 
-## 最小 Context 模板
+## 单次任务 Context（贴进对话，不进仓库）
 
-复制后按项目填空，发给 AI 或放进项目文档：
+章节标题固定。示例使用落地包中的工单项目，接到别的项目只改名称和路径。
 
 ```text
 # Context（本次任务）
 
 ## 项目
-- 名称：
-- 一句话做什么：
-- 技术栈：
+- 名称：ticket-admin
+- 说明文件：AGENTS.md、docs/ai-context/
 
 ## 相关模块
-- 涉及模块：
-- 关键调用链：
-- 相关表 / API：
+- 模块：ticket
+- 调用链：TicketController → TicketService → TicketMapper
+- 表 / API：biz_ticket；GET /api/tickets
 
 ## 当前任务
-- 目标：
-- 验收标准：
-- 明确不做：
+- 目标：列表增加 status 过滤
+- 验收：status=OPEN 只返回 OPEN；不传参数与改前一致
+- 明确不做：改 URL、改表、加 Redis
 
 ## 约束
-- 必须兼容：
-- 禁止修改：
-- 已知坑 / 历史包袱：
-
-## 材料
-- Diff / 相关文件：
-- 日志 / 报错（如有）：
+- 禁止修改：/api/** 路径、其他模块
+- 已知坑：见 docs/ai-context/99-gotchas.md
 ```
 
 ---
 
-## 最小 Rules 模板
+## Rules 以落地包为准
+
+仓库里只保留 `.cursor/rules/00-core.mdc`，全文在 [项目落地包](./project-landing-kit) 第 2 节。  
+不要在对话里再维护一份「理想规范」。单次任务只在 Prompt 里重复这四条：
 
 ```text
-# Rules（本项目 AI 协作）
-
-## 架构
-- 分层约定：
-- 依赖方向：
-- 新代码应放在：
-
-## 编码
-- 风格跟随现有代码，不引入新风格
-- 命名 / 包结构：
-- 异常与日志：
-
-## 数据与 API
-- 事务：
-- 表结构变更：须先确认
-- 对外 API：默认保持兼容
-
-## 测试与验收
-- 至少验证：
-- 有测试则补测；无测试则写清手工步骤
-
-## AI 操作边界
-- 只改任务相关文件
-- 不擅自重构、不扩 scope
-- 不编造不存在的业务规则或 API
-- 不确定先标「需要确认」，等我确认再改
-- 修改前先给方案（除非我明确说直接改）
+范围：只改本次点名的文件
+禁止：改 URL、改表、加依赖、改其他模块
+顺序：先方案，确认后再改
+验收：写出命令或页面步骤
 ```
 
 ---

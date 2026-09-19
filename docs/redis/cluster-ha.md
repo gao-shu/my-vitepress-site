@@ -1,4 +1,4 @@
-# Redis 集群与高可用架构
+# 5. 高可用：主从 / Sentinel / Cluster
 
 ---
 

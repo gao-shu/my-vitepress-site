@@ -1,42 +1,40 @@
-# Redis 面试总览：高频 8 题（初/中级）
+# Redis 面试总览：高频题速查
 
-> 这篇是 Redis 模块的“总目录”，先把常问的题集中列出来，详细解析放在后面的专题文档里。
+> 刷题入口。完整分区地图见 [Redis 总览](/redis/)。
 
 ---
 
 ## 一、Redis 高频面试题总表
 
 1. **能简单介绍一下 Redis 吗？它为什么这么快？**  
-   - 关键点：基于内存、单线程 + 多路复用、高效数据结构。  
-   - 👉 详细见：[Redis 数据类型与使用场景](/redis/data-types)
+   - 👉 [基础原理](/redis/01-basics)
 
 2. **Redis 和 Memcached 有什么区别？为什么现在基本都用 Redis？**  
-   - 关键点：数据类型更丰富、支持持久化、高可用集群、Lua 脚本等。  
-   - 👉 可结合自己项目聊“为什么选 Redis 而不是 Memcached”。
+   - 关键词：类型更丰富、持久化、高可用、Lua 等。
 
-3. **Redis 的常用数据类型有哪些？分别适合什么场景？**  
-   - 关键点：String、Hash、List、Set、ZSet、HyperLogLog、Bitmap 等。  
-   - 👉 详细见：[数据类型与使用场景](/redis/data-types)
+3. **常用数据类型有哪些？分别适合什么场景？**  
+   - 👉 [数据类型与使用场景](/redis/data-types)
 
-4. **什么是缓存雪崩、缓存击穿、缓存穿透？怎么防护？**【中级】  
-   - 关键点：大面积过期 / 热点 Key 失效 / 查不到的数据反复打到数据库；解决：过期时间随机化、本地 + 分布式限流、布隆过滤器等。  
-   - 👉 详细见：[缓存常见问题](/redis/cache-issues)
+4. **缓存雪崩、击穿、穿透？怎么防护？**  
+   - 👉 [缓存常见问题](/redis/cache-issues)
 
-5. **Redis 有哪些持久化方式？RDB 和 AOF 有什么区别？**  
-   - 关键点：RDB 是快照，AOF 是追加日志；恢复速度 vs 数据安全性的权衡。  
-   - 👉 详细见：[持久化机制](/redis/persistence)
+5. **RDB 和 AOF？混合持久化？**  
+   - 👉 [持久化机制](/redis/persistence)
 
-6. **Redis 单线程执行命令，如果遇到耗时操作会怎样？怎么避免？**【中级】  
-   - 关键点：会阻塞整个实例；避免使用 `KEYS *`、慎用大 Key、用 `SCAN` / `UNLINK` 等。  
-   - 👉 详细见：本页下方“核心高频问答示例”。
+6. **单线程遇到耗时操作会怎样？怎么避免？**  
+   - 👉 [基础原理](/redis/01-basics) · [性能](/redis/09-performance)
 
-7. **怎么用 Redis 实现分布式锁？需要注意什么？**【中级】  
-   - 关键点：`SET key value NX PX`、过期时间、解锁时要校验 value、防止误删锁；最好用 Redisson。  
-   - 👉 详细见：[分布式锁](/redis/distributed-lock)
+7. **分布式锁怎么做？续期与误删？**  
+   - 👉 [分布式锁](/redis/distributed-lock)
 
-8. **Redis 集群是怎么做水平扩展和高可用的？**【中级】  
-   - 关键点：主从复制、哨兵、Redis Cluster 的槽位（16384 槽）机制。  
-   - 👉 详细见：[集群与高可用](/redis/cluster-ha)
+8. **主从 / Sentinel / Cluster？**  
+   - 👉 [集群与高可用](/redis/cluster-ha)
+
+9. **Lua、库存扣减、限流？**  
+   - 👉 [并发](/redis/07-concurrency)
+
+10. **BigKey / HotKey / Pipeline？**  
+    - 👉 [性能](/redis/09-performance)
 
 ---
 

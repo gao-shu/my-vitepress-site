@@ -49,15 +49,81 @@ function guideSidebar() {
       text: 'Redis',
       collapsed: true,
       items: [
-        { text: 'Redis 面试总览：高频 8 题', link: '/redis/overview' },
-        { text: '数据类型与使用场景', link: '/redis/data-types' },
-        { text: '常用命令与过期策略', link: '/redis/commands-expire' },
-        { text: '持久化机制', link: '/redis/persistence' },
-        { text: '事务与发布订阅', link: '/redis/transaction-pubsub' },
-        { text: '缓存常见问题', link: '/redis/cache-issues' },
-        { text: '分布式锁', link: '/redis/distributed-lock' },
-        { text: '集群与高可用', link: '/redis/cluster-ha' },
-        { text: '场景实战：缓存设计', link: '/redis/cache-scenario' }
+        { text: 'Redis 总览', link: '/redis/' },
+        { text: '面试高频速查', link: '/redis/overview' },
+        { text: '面试连环追问（口述链）', link: '/redis/interview-chain' },
+        {
+          text: '1. 基础原理',
+          collapsed: true,
+          items: [
+            { text: '是什么 / 为什么快 / 线程与 IO', link: '/redis/01-basics' }
+          ]
+        },
+        {
+          text: '2. 数据结构',
+          collapsed: true,
+          items: [
+            { text: 'String ~ Stream 与场景', link: '/redis/data-types' },
+            { text: '命令与过期策略', link: '/redis/commands-expire' }
+          ]
+        },
+        {
+          text: '3. 缓存',
+          collapsed: true,
+          items: [
+            { text: '穿透 / 击穿 / 雪崩 / 一致性', link: '/redis/cache-issues' }
+          ]
+        },
+        {
+          text: '4. 持久化',
+          collapsed: true,
+          items: [
+            { text: 'RDB / AOF / 混合与恢复', link: '/redis/persistence' }
+          ]
+        },
+        {
+          text: '5. 高可用',
+          collapsed: true,
+          items: [
+            { text: '主从 / Sentinel / Cluster', link: '/redis/cluster-ha' }
+          ]
+        },
+        {
+          text: '6. 分布式',
+          collapsed: true,
+          items: [
+            { text: '分布式锁 / Redisson / 续期误删', link: '/redis/distributed-lock' }
+          ]
+        },
+        {
+          text: '7. 并发',
+          collapsed: true,
+          items: [
+            { text: '原子 / Lua / 库存 / 限流', link: '/redis/07-concurrency' }
+          ]
+        },
+        {
+          text: '8. 消息',
+          collapsed: true,
+          items: [
+            { text: '事务 / PubSub / Stream / 延迟队列', link: '/redis/transaction-pubsub' }
+          ]
+        },
+        {
+          text: '9. 性能',
+          collapsed: true,
+          items: [
+            { text: 'BigKey / HotKey / Pipeline / 淘汰', link: '/redis/09-performance' }
+          ]
+        },
+        {
+          text: '10. 实战',
+          collapsed: true,
+          items: [
+            { text: '登录 / 秒杀 / 点赞 / 限流等', link: '/redis/10-practice' },
+            { text: '缓存架构设计', link: '/redis/cache-scenario' }
+          ]
+        }
       ]
     },
     {
@@ -80,7 +146,19 @@ function guideSidebar() {
       ]
     },
     {
-      text: '消息队列 (MQ)',
+      text: 'DevOps',
+      collapsed: true,
+      items: [
+        { text: 'DevOps 总览', link: '/guide/devops/' },
+        { text: 'Docker 实战与面试', link: '/guide/devops/docker-interview' },
+        { text: 'Docker Compose 实战与面试', link: '/guide/devops/docker-compose-interview' },
+        { text: 'Kubernetes 实战与面试', link: '/guide/devops/k8s-interview' },
+        { text: 'CI/CD 实战与面试', link: '/guide/devops/cicd-interview' },
+        { text: '线上问题排查实战与面试', link: '/guide/devops/monitoring-interview' }
+      ]
+    },
+    {
+      text: '消息队列',
       collapsed: true,
       items: [
         { text: 'MQ 基础与选型', link: '/mq/overview' },
@@ -192,16 +270,6 @@ function guideSidebar() {
         { text: '英文技术面试', link: '/guide/english-interview/' },
         { text: '90天计划', link: '/guide/english-interview/90-day-plan' },
         { text: '自我介绍', link: '/guide/english-interview/self-introduction' }
-      ]
-    },
-    {
-      text: 'DevOps',
-      collapsed: true,
-      items: [
-        { text: 'DevOps 总览', link: '/guide/devops/' },
-        { text: 'Docker 实战与面试', link: '/guide/devops/docker-interview' },
-        { text: 'CI/CD 实战与面试', link: '/guide/devops/cicd-interview' },
-        { text: '监控排查实战与面试', link: '/guide/devops/monitoring-interview' }
       ]
     }
   ]
@@ -530,6 +598,8 @@ function aiDevSidebar() {
       items: [
         { text: '工作流', link: '/ai/dev/coding/cursor-workflow' },
         { text: 'Context & Rules', link: '/ai/dev/coding/context-and-rules' },
+        { text: '项目落地包（Rules/AGENTS）', link: '/ai/dev/coding/project-landing-kit' },
+        { text: 'Skills 与 AI Coding', link: '/ai/dev/coding/skills-in-coding' },
         { text: 'Prompt Pattern', link: '/ai/dev/coding/prompt-pattern' },
         { text: 'Code Review', link: '/ai/dev/coding/ai-code-review' },
         {

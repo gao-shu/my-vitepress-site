@@ -69,6 +69,8 @@ docker stats
 
 面试可以说：多服务（app + mysql + redis）用 compose 一次拉起，环境一致、减少「我机器能跑」。
 
+完整写法与排障见：[Docker Compose 实战与面试](./docker-compose-interview)。
+
 ---
 
 ## 结合你简历怎么讲

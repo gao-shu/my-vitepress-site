@@ -6,8 +6,10 @@
 ## 建议阅读顺序
 
 1. [Docker 实战与面试](./docker-interview) — 容器、镜像、常见命令、上线相关问题  
-2. [CI/CD 实战与面试](./cicd-interview) — 流水线怎么讲、最小可落地配置  
-3. [监控排查实战与面试](./monitoring-interview) — 指标/日志/告警，线上怎么查  
+2. [Docker Compose 实战与面试](./docker-compose-interview) — 多服务编排、本地联调、面试怎么讲  
+3. [Kubernetes 实战与面试](./k8s-interview) — 集群编排、与 Compose 对比、发布回滚  
+4. [CI/CD 实战与面试](./cicd-interview) — 流水线怎么讲、最小可落地配置  
+5. [线上问题排查实战与面试](./monitoring-interview) — 指标/日志/告警，线上怎么查  
 
 ## 面试官通常想听什么
 
@@ -18,4 +20,4 @@
 ## 和「技术体系」的关系
 
 这里是 **求职口述 + 最小实操**。  
-更深的工具清单若以后需要，再单独补；面试优先把这三篇讲顺。
+更深的工具清单若以后需要，再单独补；面试优先把这几篇讲顺。
