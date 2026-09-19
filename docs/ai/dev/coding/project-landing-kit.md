@@ -11,6 +11,7 @@
 | `docs/ai-context/00-overview.md` | 是 | 一页项目说明 |
 | `docs/ai-context/01-modules.md` | 老项目必放；新项目有模块后补 | 模块与调用链 |
 | `docs/ai-context/99-gotchas.md` | 老项目必放 | 已知坑、不能动的接口 |
+| `docs/ai-context/specs/<短名>.md` | 否。有这次任务再写 | 这一次做什么、验收、不做 |
 | Skills | 否 | 不进业务仓。见 [Skills](./skills-in-coding) |
 
 ---
@@ -28,6 +29,8 @@
 ```
 
 有前端再加 `.cursor/rules/20-frontend.mdc`。Java 项目有分层习惯再加 `10-java-spring.mdc`。没有就不要建空文件。
+
+有具体任务再新增 `docs/ai-context/specs/<短名>.md`。不要预建空目录。`01-modules.md`、`99-gotchas.md` 也一样：没有内容就不建。
 
 ---
 
@@ -68,9 +71,10 @@
 - 后端：backend/src/main/java/com/demo/ticket/
 - 前端：frontend/src/
 - AI 说明：docs/ai-context/
+- 本次 Spec：docs/ai-context/specs/（有任务再写）
 
 ## 必须遵守
-- 先给方案，确认后再改代码
+- 先写 Spec，确认后再改代码
 - 只改当前任务相关文件
 - 分层：Controller 收参，业务在 Service，数据在 Mapper
 - 返回体、异常处理跟随仓库已有写法
@@ -178,6 +182,29 @@ biz_ticket
 
 ---
 
+## 6. Spec（有任务再写）
+
+不放进第一天的目录。确认前不许改代码。用不到的标题省略，不写「无」。不要把下面骨架填成工单示例，填好的例子在两篇实战里。
+
+```markdown
+# <这次任务，一句话>
+
+## 目标
+
+## 范围
+- 做：
+- 模块：
+- 不做：
+
+## 做到什么
+
+## 验收
+```
+
+Rules 仍只在 `.cursor/rules/`。不要把这次任务的验收抄进 `AGENTS.md` 或 `00-core.mdc`。
+
+---
+
 ## 放进去之后怎么验收
 
 用下面这段话测一次。AI 如果开始改登录、加 Redis、改表，说明规则没生效，先改 `00-core.mdc` 再继续。
@@ -185,11 +212,11 @@ biz_ticket
 ```text
 阅读 AGENTS.md 和 docs/ai-context/。
 任务：给工单列表增加按 status 过滤。
-先只输出方案：改哪些类、SQL 条件、怎么验收。
+先写 Spec：做什么、范围、验收、不做。
 不要改代码。
 ```
 
-通过标准：方案只涉及工单查询，并主动提到不能改接口路径。
+通过标准：Spec 只涉及工单查询，并主动提到不能改接口路径。
 
 下一步：
 

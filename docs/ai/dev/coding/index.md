@@ -2,151 +2,50 @@
 
 > AI Coding 能力总览 + 我的实践入口。不是 Cursor 安装教程。
 
-一句话定位：
+**AI Coding 不是让 AI 替代开发，而是把 AI 放进已经确定的工程边界里干活。** 人对需求、架构、质量和最终结果负责。
 
-**AI Coding 不是让 AI 替代开发，而是把 AI 融入软件工程完整交付流程，在保证架构、质量和可维护性的前提下提升效率。**
+本页只负责把你送到该看的那一页。完整开发闭环见 [AI Coding 工作流](/ai/dev/coding/cursor-workflow)。
 
 ---
 
-## 快速开始：我现在要做什么？
+## 从这里开始
+
+| 看什么 | 它负责什么 |
+| --- | --- |
+| [AI Coding 工作流](/ai/dev/coding/cursor-workflow) | 整个开发闭环的唯一阶段地图 |
+| [Context & Rules](/ai/dev/coding/context-and-rules) | 项目事实、长期约束，以及它们和 Spec / Prompt 的边界 |
+| [项目落地包](/ai/dev/coding/project-landing-kit) | 把 Context、Rules、AGENTS、Spec 放进仓库 |
+
+---
+
+## 实战
+
+新项目从需求和架构开始。老项目从理解现有系统开始，不重新设计架构。
 
 | 我现在要做什么 | 直接去这里 |
 | --- | --- |
-| 我要开发一个新项目 | [Cursor 新项目实战](/ai/ai-programming/cursor-new-project) |
-| 我要接手一个老项目 | [Cursor 老项目实战](/ai/ai-programming/cursor-legacy-project) |
-| 我要往仓库丢 Rules / AGENTS | [项目落地包](/ai/dev/coding/project-landing-kit) |
-| 我要不要上外部 Skills | [Skills 与 AI Coding](/ai/dev/coding/skills-in-coding) |
-| 我要让 AI 理解项目 | [Context & Rules](/ai/dev/coding/context-and-rules) |
-| 我要让 AI 写代码 | [Prompt Pattern · 实现](/ai/dev/coding/prompt-pattern#3-实现) |
-| 我要 Review AI 生成的代码 | [Code Review](/ai/dev/coding/ai-code-review) |
-| 我要 Debug | [Prompt Pattern · Debug](/ai/dev/coding/prompt-pattern#5-debug) |
-| 我要写测试 | [Prompt Pattern · 测试](/ai/dev/coding/prompt-pattern#6-测试) |
-| 我要从头走完整流程 | [工作流](/ai/dev/coding/cursor-workflow) |
+| 从空仓库做第一个功能 | [Cursor 新项目实战](/ai/ai-programming/cursor-new-project) |
+| 接手已有代码，做一次小改 | [Cursor 老项目实战](/ai/ai-programming/cursor-legacy-project) |
 
-打开对应页 → 复制模板 → 执行 → 按页内标准验收。
+---
+
+## 配套能力
+
+| 我现在要做什么 | 直接去这里 |
+| --- | --- |
+| 这一轮怎么提问 | [Prompt Pattern](/ai/dev/coding/prompt-pattern) |
+| 让 AI 按 Spec 写代码 | [Prompt Pattern · 实现](/ai/dev/coding/prompt-pattern#3-实现) |
+| 对照验收写测试 | [Prompt Pattern · 测试](/ai/dev/coding/prompt-pattern#6-测试) |
+| 失败了怎么查 | [Prompt Pattern · Debug](/ai/dev/coding/prompt-pattern#5-debug) |
+| 改完怎么审 Diff | [AI Code Review](/ai/dev/coding/ai-code-review) |
+| 要不要把重复动作收成 Skill | [Skills 与 AI Coding](/ai/dev/coding/skills-in-coding) |
 
 ---
 
 ## 适用范围
 
-本套方法主要面向**个人开发者**，以及 **2～5 人**小型研发团队，重点解决：AI 如何真正进入软件开发流程，同时保持开发者对需求、架构、质量和最终结果负责。
+面向个人开发者，以及 2～5 人的小团队。不讲大型企业的 AI 治理，也不讲 Cursor 按钮在哪。
 
-不以大型企业级 AI 治理、复杂权限体系和大规模研发管理为目标。
+这里要看的是：AI 怎样进入真实开发，同时由人控制架构、质量、风险和最终结果。
 
----
-
-## 我的定位
-
-- 10 年 Java / 全栈开发经验
-- Java / Spring / MySQL / Redis / MQ 等后端工程能力
-- 正在强化 AI 应用开发能力
-- 使用 Cursor 等工具参与真实项目开发
-- 重点盯：AI 生成代码的架构判断、Review、Debug、测试和交付
-
-核心组合：
-
-> **工程经验 + AI Coding + AI 应用开发**
-
-AI 负责提速；人对需求、架构、质量与最终结果负责。
-
----
-
-## 什么叫 AI Coding
-
-AI Coding = **AI + 软件工程**，不是「会用某个 AI IDE」。
-
-目标闭环：
-
-```text
-需求理解
- → 任务拆解
- → 上下文准备
- → Prompt / AI 协作
- → 代码生成
- → 人工架构判断
- → Code Review
- → Debug
- → 测试
- → 重构
- → 交付
- → 复盘
-```
-
-工具会换；这条闭环和判断标准才是可迁移的能力。
-
----
-
-## AI Coding 工作方式
-
-```text
-需求 → 拆解 → 上下文 → AI 协作 → 实现
- → Review → 测试 → Debug → 交付 → 复盘
-```
-
-| 角色 | 负责什么 |
-| --- | --- |
-| AI | 扩大实现与检查的速度和覆盖面（生成、扫描、草稿） |
-| 开发者 | 需求理解、架构设计、技术决策、质量控制、最终交付 |
-
-原则：先定验收与边界，再让 AI 动手；先分析再修改；关键路径必须人工确认。
-
----
-
-## 我关注的能力
-
-有内容或真实实践支撑的能力：
-
-- AI 辅助编码
-- Prompt / 上下文组织
-- AI 生成代码 Review
-- AI 辅助 Debug
-- AI 辅助重构
-- AI 辅助测试
-- Java / Spring 后端工程
-- 全栈业务开发
-- AI 应用开发
-
-不为「看起来完整」空挂栏目；Debug / 测试等会随实践再补页面。
-
----
-
-## 实践案例
-
-### [Cursor 老项目实战](/ai/ai-programming/cursor-legacy-project)
-
-接手已有仓库：先写 ai-context，再用一个小改动验证，通过后再加功能。模板在落地包。
-
-### [Cursor 新项目实战](/ai/ai-programming/cursor-new-project)
-
-空仓库：先放落地包，再按「方案 → 后端最小闭环 → 验收」做第一个功能。
-
-### [AI Code Review](/ai/dev/coding/ai-code-review)
-
-AI 先扫一轮，人做最终判断；含可复制 Prompt 与防误报流程。
-
-### [AI Coding 工作流](/ai/dev/coding/cursor-workflow)
-
-需求 → 改代码 → 跑通 → Review 的工作流入口（持续完善）。
-
----
-
-## 与普通 Cursor 教程的区别
-
-这里不讲「按钮在哪」，而讲：
-
-> 如何让 AI 参与真实软件工程，同时由开发者控制架构、质量、风险和最终结果。
-
-招聘者若只看工具名，看到的是「会 Cursor」；看这条闭环与案例，看到的是 **AI-assisted software engineering**。
-
----
-
-## 后续方向
-
-规划说明（尚未单独建页）：
-
-- AI Coding 工程实践沉淀
-- AI 生成代码的质量控制
-- Debug / 测试专项
-- OpenBiz 等项目中的 AI 辅助开发实践
-
-有真实材料再补页，不造空壳。
+有真实材料再补页面。不为了看起来完整去挂空壳。
