@@ -1,0 +1,19 @@
+import { ssrRenderAttrs } from "vue/server-renderer";
+import { useSSRContext } from "vue";
+import { _ as _export_sfc } from "./plugin-vue_export-helper.1tPrXgE0.js";
+const __pageData = JSON.parse('{"title":"判断记录","description":"","frontmatter":{},"headers":[],"relativePath":"tech-system/industrial-digitalization/decisions/index.md","filePath":"tech-system/industrial-digitalization/decisions/index.md"}');
+const _sfc_main = { name: "tech-system/industrial-digitalization/decisions/index.md" };
+function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  _push(`<div${ssrRenderAttrs(_attrs)}><h1 id="判断记录" tabindex="-1">判断记录 <a class="header-anchor" href="#判断记录" aria-label="Permalink to “判断记录”">​</a></h1><p>挂在 <strong>Mini MES</strong> 上的架构决策与否决项。先写清「为什么」，再写代码验证；验证后把状态从 🔵 改为 🟢。</p><h2 id="第一批-写完即停笔去写代码" tabindex="-1">第一批（写完即停笔去写代码） <a class="header-anchor" href="#第一批-写完即停笔去写代码" aria-label="Permalink to “第一批（写完即停笔去写代码）”">​</a></h2><table tabindex="0"><thead><tr><th>#</th><th>标题</th><th>状态</th></tr></thead><tbody><tr><td>01</td><td><a href="./01-v0-gateway-http.html">V0 为何 Gateway → HTTP → Spring Boot</a></td><td>🔵 设计中</td></tr><tr><td>02</td><td><a href="./02-no-mqtt-yet.html">为何暂不用 MQTT / EMQX</a></td><td>🔵 设计中</td></tr><tr><td>03</td><td><a href="./03-redis-vs-mysql.html">Redis 与 MySQL 分别存什么</a></td><td>🔵 设计中</td></tr><tr><td>04</td><td><a href="./04-no-tdengine.html">为何暂不用 TDengine</a></td><td>🔵 设计中</td></tr><tr><td>05</td><td><a href="./05-no-microservice.html">为何第一版不做微服务</a></td><td>🔵 设计中</td></tr></tbody></table><p>模板：背景 → 候选 → 判断 → 适用/不适用 → 验证状态 → 关联 Lab / 代码。</p></div>`);
+}
+const _sfc_setup = _sfc_main.setup;
+_sfc_main.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("tech-system/industrial-digitalization/decisions/index.md");
+  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
+};
+const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
+export {
+  __pageData,
+  index as default
+};

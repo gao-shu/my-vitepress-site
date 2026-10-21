@@ -1,0 +1,19 @@
+import { ssrRenderAttrs } from "vue/server-renderer";
+import { useSSRContext } from "vue";
+import { _ as _export_sfc } from "./plugin-vue_export-helper.1tPrXgE0.js";
+const __pageData = JSON.parse('{"title":"工业与物联网","description":"","frontmatter":{},"headers":[],"relativePath":"apps/industrial/index.md","filePath":"apps/industrial/index.md"}');
+const _sfc_main = { name: "apps/industrial/index.md" };
+function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  _push(`<div${ssrRenderAttrs(_attrs)}><h1 id="工业与物联网" tabindex="-1">工业与物联网 <a class="header-anchor" href="#工业与物联网" aria-label="Permalink to “工业与物联网”">​</a></h1><blockquote><p>MES、PLC、设备监控 —— 现场采集与生产管理类应用。</p></blockquote><h2 id="案例列表" tabindex="-1">案例列表 <a class="header-anchor" href="#案例列表" aria-label="Permalink to “案例列表”">​</a></h2><table tabindex="0"><thead><tr><th>文章</th><th>解决的问题</th></tr></thead><tbody><tr><td><a href="/my-vitepress-site/apps/industrial/mes-lite.html">轻量 MES 落地实践</a></td><td>工单/工序/报工/质检四模块怎么落地，与 ERP 的边界怎么划，现场交付如何从小切口起步</td></tr><tr><td><a href="/my-vitepress-site/apps/industrial/plc-collect.html">PLC 数据采集方案</a></td><td>网口/串口链路与协议选型、采集频率分级、断线重连与边缘缓冲、批量写入业务库</td></tr><tr><td><a href="/my-vitepress-site/apps/industrial/device-monitor.html">设备监控与告警</a></td><td>指标采集与阈值配置、告警分级通知与收敛、看板展示、历史回溯与故障复盘</td></tr><tr><td><a href="/my-vitepress-site/apps/industrial/protocol-bridge.html">Modbus/S7 等协议对接实践</a></td><td>常见工业协议对比、点表配置、网关与脚本对接、调试工具与常见异常排查</td></tr><tr><td><a href="/my-vitepress-site/apps/industrial/iot-platform.html">物联网数据平台搭建</a></td><td>设备接入层、时序与关系存储选型、规则转发、与 MES/BI 的数据消费</td></tr></tbody></table><hr><p>上一级：<a href="/my-vitepress-site/apps/">应用开发</a></p></div>`);
+}
+const _sfc_setup = _sfc_main.setup;
+_sfc_main.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("apps/industrial/index.md");
+  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
+};
+const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
+export {
+  __pageData,
+  index as default
+};

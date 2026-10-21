@@ -714,6 +714,9 @@ export default defineConfig({
   title: "一口三个馍",
   description: "个人技术学习站 · 就业指南 · 技术体系 · AI 赋能",
   base: '/my-vitepress-site/',
+  // 本地安全验证：通过 VITEPRESS_OUT_DIR 把产物输出到独立目录，避免清空 dist。
+  // 未设置时使用 VitePress 默认 docs/.vitepress/dist，CI 部署行为不变。
+  outDir: process.env.VITEPRESS_OUT_DIR || undefined,
   ignoreDeadLinks: true,
   
   // Head 配置 - 用于设置 favicon 等 meta 标签

@@ -1,0 +1,19 @@
+import { ssrRenderAttrs, ssrRenderStyle } from "vue/server-renderer";
+import { useSSRContext } from "vue";
+import { _ as _export_sfc } from "./plugin-vue_export-helper.1tPrXgE0.js";
+const __pageData = JSON.parse('{"title":"Lab 001 · 设备采集最小闭环","description":"","frontmatter":{},"headers":[],"relativePath":"tech-system/industrial-digitalization/labs/lab-001.md","filePath":"tech-system/industrial-digitalization/labs/lab-001.md"}');
+const _sfc_main = { name: "tech-system/industrial-digitalization/labs/lab-001.md" };
+function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
+  _push(`<div${ssrRenderAttrs(_attrs)}><h1 id="lab-001-·-设备采集最小闭环" tabindex="-1">Lab 001 · 设备采集最小闭环 <a class="header-anchor" href="#lab-001-·-设备采集最小闭环" aria-label="Permalink to “Lab 001 · 设备采集最小闭环”">​</a></h1><table tabindex="0"><thead><tr><th>字段</th><th>内容</th></tr></thead><tbody><tr><td>状态</td><td>⚪ 待实现</td></tr><tr><td>类型</td><td><code>[实验]</code></td></tr><tr><td>项目</td><td>Mini MES V0</td></tr><tr><td>GitHub</td><td>暂未开放</td></tr><tr><td>环境</td><td>待定（计划：Docker + Java + MySQL + Redis + Vue）</td></tr></tbody></table><hr><h2 id="目标" tabindex="-1">目标 <a class="header-anchor" href="#目标" aria-label="Permalink to “目标”">​</a></h2><p>跑通并留下可复核证据：</p><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="${ssrRenderStyle({ "--shiki-light": "#24292e", "--shiki-dark": "#e1e4e8", "--shiki-light-bg": "#fff", "--shiki-dark-bg": "#24292e" })}" tabindex="0" dir="ltr"><code><span class="line"><span>模拟设备 → Gateway → HTTP → Spring Boot → MySQL + Redis → Vue 监控页</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br></div></div><p>能力清单（V0）：</p><ul><li>设备注册</li><li>模拟温度 / 压力</li><li>在线状态</li><li>最新值</li><li>短周期历史 + 简单曲线</li></ul><hr><h2 id="计划规模-待实测后改数字" tabindex="-1">计划规模（待实测后改数字） <a class="header-anchor" href="#计划规模-待实测后改数字" aria-label="Permalink to “计划规模（待实测后改数字）”">​</a></h2><table tabindex="0"><thead><tr><th>项</th><th>计划</th></tr></thead><tbody><tr><td>模拟设备数</td><td>100（可先 10 再升）</td></tr><tr><td>采样周期</td><td>5s</td></tr><tr><td>运行时长</td><td>≥ 2h（稳定后再记）</td></tr><tr><td>关注指标</td><td>成功率、丢失/重复、延迟</td></tr></tbody></table><hr><h2 id="过程" tabindex="-1">过程 <a class="header-anchor" href="#过程" aria-label="Permalink to “过程”">​</a></h2><p>（实现后按时间补：步骤、配置要点、关键提交。）</p><h2 id="结果" tabindex="-1">结果 <a class="header-anchor" href="#结果" aria-label="Permalink to “结果”">​</a></h2><table tabindex="0"><thead><tr><th>指标</th><th>结果</th></tr></thead><tbody><tr><td>总消息</td><td>—</td></tr><tr><td>丢失</td><td>—</td></tr><tr><td>重复</td><td>—</td></tr><tr><td>平均延迟</td><td>—</td></tr><tr><td>最大延迟</td><td>—</td></tr></tbody></table><h2 id="问题与处理" tabindex="-1">问题与处理 <a class="header-anchor" href="#问题与处理" aria-label="Permalink to “问题与处理”">​</a></h2><p>（发现 → 原因 → 修改 → 复测。允许失败并保留 ❌。）</p><h2 id="结论" tabindex="-1">结论 <a class="header-anchor" href="#结论" aria-label="Permalink to “结论”">​</a></h2><p>（对照 <a href="./../decisions/01-v0-gateway-http.html">决策 01</a>、<a href="./../decisions/03-redis-vs-mysql.html">03</a>。验证后把相关决策状态改为 🟢。）</p><h2 id="证据" tabindex="-1">证据 <a class="header-anchor" href="#证据" aria-label="Permalink to “证据”">​</a></h2><ul><li>仓库链接：—</li><li>Docker Compose：—</li><li>监控截图：—</li><li>关键日志摘录：—</li></ul></div>`);
+}
+const _sfc_setup = _sfc_main.setup;
+_sfc_main.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("tech-system/industrial-digitalization/labs/lab-001.md");
+  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
+};
+const lab001 = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
+export {
+  __pageData,
+  lab001 as default
+};
