@@ -1,1 +1,0 @@
-import{_ as a,o as e,c as r,ai as i}from"./chunks/framework.ampVZV4B.js";const _=JSON.parse('{"title":"AI 赋能","description":"","frontmatter":{},"headers":[],"relativePath":"ai/index.md","filePath":"ai/index.md"}'),d={name:"ai/index.md"};function s(n,t,o,l,h,c){return e(),r("div",null,[...t[0]||(t[0]=[i("",9)])])}const m=a(d,[["render",s]]);export{_ as __pageData,m as default};
