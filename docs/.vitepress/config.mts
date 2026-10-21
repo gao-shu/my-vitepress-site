@@ -710,6 +710,418 @@ function aiSidebar(category?: string) {
   ]
 }
 
+/* ================= 第 1 天改造：五栏目导航与侧栏 ================= */
+
+/** 应用开发：5 个业务分类（ops 归入技术体系「部署与运维」，文件路径不变） */
+const APP_GROUPS_5 = [
+  {
+    title: '企业业务应用',
+    link: '/apps/business/',
+    items: [
+      ['管理后台设计与开发', '/apps/business/admin-system'],
+      ['CRM 定制改造实践', '/apps/business/crm-custom'],
+      ['ERP 流程与单据设计', '/apps/business/erp-workflow'],
+      ['微信小程序开发实践', '/apps/business/mini-program'],
+      ['多租户 SaaS 架构', '/apps/business/saas-multi-tenant'],
+      ['对外 API 设计与开放平台', '/apps/integration/open-api'],
+      ['Webhook 接入与可靠投递', '/apps/integration/webhook-design'],
+      ['系统间数据同步方案', '/apps/integration/data-sync'],
+      ['单点登录与授权打通', '/apps/integration/sso-oauth'],
+      ['老系统集成改造', '/apps/integration/legacy-integration']
+    ]
+  },
+  {
+    title: '工业数字化应用',
+    link: '/apps/industrial/',
+    items: [
+      ['轻量 MES 落地实践', '/apps/industrial/mes-lite'],
+      ['PLC 数据采集方案', '/apps/industrial/plc-collect'],
+      ['设备监控与告警', '/apps/industrial/device-monitor'],
+      ['Modbus/S7 协议对接', '/apps/industrial/protocol-bridge'],
+      ['物联网数据平台搭建', '/apps/industrial/iot-platform']
+    ]
+  },
+  {
+    title: 'AI 应用',
+    link: '/apps/ai/',
+    items: [
+      ['知识库问答（RAG）', '/apps/ai/rag-knowledge-base'],
+      ['智能体工作流设计与落地', '/apps/ai/agent-workflow'],
+      ['多模型 API 接入与选型', '/apps/ai/multi-model-api'],
+      ['Prompt 编排与流程自动化', '/apps/ai/prompt-pipeline'],
+      ['AI 编程助手在项目落地', '/apps/ai/ai-code-assistant']
+    ]
+  },
+  {
+    title: '办公自动化',
+    link: '/apps/office/',
+    items: [
+      ['飞书机器人开发实践', '/apps/office/feishu-bot'],
+      ['审批与待办自动化', '/apps/office/approval-automation'],
+      ['企微/钉钉消息推送', '/apps/office/im-webhook'],
+      ['日报周报自动生成', '/apps/office/report-auto-generation'],
+      ['日程与会议自动化', '/apps/office/schedule-sync']
+    ]
+  },
+  {
+    title: '个人工具',
+    link: '/apps/terminal/',
+    items: [
+      ['PDA 移动端应用开发', '/apps/terminal/pda-app'],
+      ['Electron 桌面客户端', '/apps/terminal/electron-desktop'],
+      ['C# 上位机界面开发', '/apps/terminal/csharp-hmi'],
+      ['Web 与 PDA 数据协同', '/apps/terminal/web-pda-sync'],
+      ['离线优先的终端应用设计', '/apps/terminal/offline-first']
+    ]
+  }
+]
+
+function appsSidebar5() {
+  return [
+    { text: '应用开发', collapsed: false, items: [{ text: '模块总览', link: '/apps/' }] },
+    ...APP_GROUPS_5.map(g => ({
+      text: g.title,
+      collapsed: false,
+      items: [
+        { text: '分类总览', link: g.link },
+        ...g.items.map(([text, link]) => ({ text, link }))
+      ]
+    }))
+  ]
+}
+
+/** 技术体系：6 个分类，覆盖 tech-system 与 java/database/redis/framework/mq 等原独立目录 */
+function techSidebar5() {
+  return [
+    {
+      text: '技术体系概览',
+      collapsed: false,
+      items: [
+        { text: '技术体系概览', link: '/tech-system/' },
+        { text: '后端技术体系', link: '/tech-system/backend/' },
+        { text: 'Java + Spring 路线', link: '/tech-system/backend/java-spring' },
+        { text: 'TypeScript 后端栈', link: '/tech-system/backend/nodejs-stack' },
+        { text: 'Python 后端栈', link: '/tech-system/backend/python-stack' },
+        { text: 'Go 后端栈', link: '/tech-system/backend/golang' }
+      ]
+    },
+    {
+      text: 'Java 后端',
+      collapsed: false,
+      items: [
+        { text: 'Java 基础总览', link: '/java/base-overview' },
+        { text: '面向对象编程', link: '/java/oop' },
+        { text: '集合框架', link: '/java/collections' },
+        { text: '多线程基础与线程池', link: '/java/thread-basics' },
+        { text: '并发编程核心机制', link: '/java/concurrency-core' },
+        { text: 'JVM 内存模型', link: '/java/jvm' },
+        { text: 'Java 8 新特性', link: '/java/java8-features' },
+        { text: '异常处理与 IO 流', link: '/java/exception-io' },
+        { text: '反射与注解机制', link: '/java/reflection-annotation' },
+        { text: '场景实战：并发调优', link: '/java/concurrency-scenario' },
+        { text: '框架总览', link: '/framework/overview' },
+        { text: 'Spring 核心', link: '/framework/spring-core' },
+        { text: 'Spring MVC', link: '/framework/spring-mvc' },
+        { text: 'Bean 生命周期与循环依赖', link: '/framework/bean-lifecycle' },
+        { text: '事务传播机制', link: '/framework/transaction-propagation' },
+        { text: '事务失效分析', link: '/framework/transaction-scenario' },
+        { text: 'Spring 多线程与高并发', link: '/framework/concurrency-spring' },
+        { text: '本地缓存 Caffeine/Guava', link: '/framework/local-cache' },
+        { text: 'SpringBoot 原理', link: '/framework/springboot-principle' },
+        { text: 'SpringCloud 微服务', link: '/framework/springcloud-microservice' },
+        { text: 'MyBatis / MyBatis-Plus', link: '/framework/mybatis' },
+        { text: 'Flowable 工作流', link: '/framework/flowable-bpmn' },
+        { text: 'Spring 常见问题', link: '/framework/spring-faq' },
+        { text: 'SpringBoot 常见问题', link: '/framework/springboot-faq' },
+        { text: '微服务常见问题', link: '/framework/microservice-faq' },
+        { text: 'SpringBoot 概述', link: '/springboot/overview' },
+        { text: '自动配置原理', link: '/springboot/auto-configuration' },
+        { text: '注解详解', link: '/springboot/annotations' },
+        { text: '数据访问基础', link: '/springboot/data-access' },
+        { text: 'RESTful API 设计', link: '/springboot/restful-api' },
+        { text: 'Spring Security', link: '/springboot/security' },
+        { text: '前后台管理系统技术栈', link: '/springboot/tech-stack' },
+        { text: '单例模式与线程安全', link: '/design-patterns/singleton' },
+        { text: '工厂与策略模式', link: '/design-patterns/factory' },
+        { text: '观察者与装饰器模式', link: '/design-patterns/observer-decorator' },
+        { text: '代理与模板方法', link: '/design-patterns/proxy-template' },
+        { text: '重构烂代码实战', link: '/design-patterns/scenario' },
+        { text: '后端问题总览', link: '/tech-system/backend/problems/' },
+        { text: '并发', link: '/tech-system/backend/problems/concurrency' },
+        { text: '数据库', link: '/tech-system/backend/problems/database' },
+        { text: 'Redis', link: '/tech-system/backend/problems/redis' },
+        { text: 'MQ', link: '/tech-system/backend/problems/mq' },
+        { text: '分布式', link: '/tech-system/backend/problems/distributed' },
+        { text: '网络', link: '/tech-system/backend/problems/network' },
+        { text: '性能', link: '/tech-system/backend/problems/performance' },
+        { text: '安全', link: '/tech-system/backend/problems/security' }
+      ]
+    },
+    {
+      text: '前端工程',
+      collapsed: true,
+      items: [
+        { text: 'Vue 技术栈', link: '/tech-system/frontend/vue-stack' },
+        { text: 'React 技术栈', link: '/tech-system/frontend/react-stack' },
+        { text: '移动端', link: '/tech-system/frontend/mobile' },
+        { text: '跨端', link: '/tech-system/frontend/cross-platform' },
+        { text: '工程化', link: '/tech-system/frontend/engineering' }
+      ]
+    },
+    {
+      text: '数据库与中间件',
+      collapsed: true,
+      items: [
+        { text: '数据库面试总览', link: '/database/overview' },
+        { text: 'MySQL 基础', link: '/database/mysql-basics' },
+        { text: 'SQL 高频题', link: '/database/sql-interview' },
+        { text: 'JOIN 与子查询', link: '/database/join-subquery' },
+        { text: '常用函数与聚合', link: '/database/sql-functions' },
+        { text: 'MySQL 索引原理', link: '/database/mysql-index' },
+        { text: '事务与锁机制', link: '/database/mysql-transaction-lock' },
+        { text: 'SQL 优化与执行计划', link: '/database/sql-optimization' },
+        { text: '连接池调优', link: '/database/connection-pool' },
+        { text: '慢查询排查', link: '/database/slow-query-scenario' },
+        { text: '主从架构与读写分离', link: '/database/master-slave-arch' },
+        { text: '分库分表与全局 ID', link: '/database/sharding' },
+        { text: '本地缓存技术', link: '/database/local-cache' },
+        { text: 'Redis 总览', link: '/redis/' },
+        { text: 'Redis 高频速查', link: '/redis/overview' },
+        { text: 'Redis 面试连环追问', link: '/redis/interview-chain' },
+        { text: '基础原理', link: '/redis/01-basics' },
+        { text: '数据结构', link: '/redis/data-types' },
+        { text: '命令与过期策略', link: '/redis/commands-expire' },
+        { text: '穿透/击穿/雪崩', link: '/redis/cache-issues' },
+        { text: '持久化', link: '/redis/persistence' },
+        { text: '主从/Sentinel/Cluster', link: '/redis/cluster-ha' },
+        { text: '分布式锁', link: '/redis/distributed-lock' },
+        { text: '并发与限流', link: '/redis/07-concurrency' },
+        { text: '消息与延迟队列', link: '/redis/transaction-pubsub' },
+        { text: 'BigKey/HotKey/淘汰', link: '/redis/09-performance' },
+        { text: '实战场景', link: '/redis/10-practice' },
+        { text: '缓存架构设计', link: '/redis/cache-scenario' },
+        { text: 'MQ 基础与选型', link: '/mq/overview' },
+        { text: 'MQ 选型对比', link: '/mq/mq-comparison' },
+        { text: '消息丢失与可靠性', link: '/mq/message-loss' },
+        { text: '重复消费与幂等', link: '/mq/message-duplicate' },
+        { text: '消息顺序性', link: '/mq/message-order' },
+        { text: '消息积压与死信', link: '/mq/message-accumulation' },
+        { text: '数据库体系与选型', link: '/tech-system/database/database-stack' },
+        { text: '关系型数据库', link: '/tech-system/database/relational' },
+        { text: 'NoSQL', link: '/tech-system/database/nosql' },
+        { text: '缓存体系', link: '/tech-system/database/caching' }
+      ]
+    },
+    {
+      text: '系统集成',
+      collapsed: true,
+      items: [
+        { text: '秒杀系统设计', link: '/scenarios/seckill' },
+        { text: '单点登录与 OAuth2', link: '/scenarios/sso' },
+        { text: '接口幂等性设计', link: '/scenarios/api-idempotent' },
+        { text: '大文件分片与断点续传', link: '/scenarios/large-file' },
+        { text: '多租户架构与数据隔离', link: '/scenarios/multi-tenant' },
+        { text: '对外 API 接口开发', link: '/scenarios/open-api' },
+        { text: 'Web 系统架构设计', link: '/scenarios/web-system-design' },
+        { text: '跨语言调用（选型）', link: '/tech-system/integration/cross-language-interop' },
+        { text: 'HTTP：Node.js ↔ Python', link: '/tech-system/integration/http-node-python' },
+        { text: 'Modbus TCP：Node.js ↔ PLC', link: '/tech-system/integration/modbus-tcp-node-plc' },
+        { text: 'Modbus TCP：Python ↔ PLC', link: '/tech-system/integration/modbus-tcp-python-plc' },
+        { text: 'S7：Node.js ↔ PLC', link: '/tech-system/integration/s7-comm-node-plc' },
+        { text: 'S7：Python ↔ PLC', link: '/tech-system/integration/s7-comm-python-plc' },
+        { text: 'Web 安全', link: '/tech-system/security/web-security' },
+        { text: '安全体系', link: '/tech-system/security/security-stack' }
+      ]
+    },
+    {
+      text: '工业与物联网',
+      collapsed: true,
+      items: [
+        { text: '工业数字化实验室', link: '/tech-system/industrial-digitalization/' },
+        { text: 'Mini MES 项目目标', link: '/tech-system/industrial-digitalization/mini-mes/' },
+        { text: 'Mini MES 架构演进', link: '/tech-system/industrial-digitalization/mini-mes/architecture' },
+        { text: 'Mini MES Roadmap', link: '/tech-system/industrial-digitalization/mini-mes/roadmap' },
+        { text: 'Mini MES Domain', link: '/tech-system/industrial-digitalization/mini-mes/domain' },
+        { text: '判断索引', link: '/tech-system/industrial-digitalization/decisions/' },
+        { text: 'V0 为何 Gateway → HTTP', link: '/tech-system/industrial-digitalization/decisions/01-v0-gateway-http' },
+        { text: '为何暂不用 MQTT/EMQX', link: '/tech-system/industrial-digitalization/decisions/02-no-mqtt-yet' },
+        { text: 'Redis 与 MySQL 怎么分', link: '/tech-system/industrial-digitalization/decisions/03-redis-vs-mysql' },
+        { text: '为何暂不用 TDengine', link: '/tech-system/industrial-digitalization/decisions/04-no-tdengine' },
+        { text: '为何第一版不做微服务', link: '/tech-system/industrial-digitalization/decisions/05-no-microservice' },
+        { text: '实验室索引', link: '/tech-system/industrial-digitalization/labs/' },
+        { text: 'Lab 001 · 设备采集最小闭环', link: '/tech-system/industrial-digitalization/labs/lab-001' },
+        { text: '常见 PLC 品牌', link: '/tech-system/plc/common-brands' },
+        { text: 'S7 与 Python 采集', link: '/tech-system/plc/s7-python-data-collection' },
+        { text: 'S7 速查手册', link: '/tech-system/plc/s7-quick-reference' },
+        { text: '物联网项目笔记', link: '/tech-system/backend/iot-project' }
+      ]
+    },
+    {
+      text: '部署与运维',
+      collapsed: true,
+      items: [
+        { text: 'DevOps 总览', link: '/guide/devops/' },
+        { text: 'Docker 实战与面试', link: '/guide/devops/docker-interview' },
+        { text: 'Docker Compose', link: '/guide/devops/docker-compose-interview' },
+        { text: 'Kubernetes', link: '/guide/devops/k8s-interview' },
+        { text: 'CI/CD', link: '/guide/devops/cicd-interview' },
+        { text: '线上问题排查', link: '/guide/devops/monitoring-interview' },
+        { text: 'CI/CD 流水线', link: '/tech-system/devops/ci-cd-pipeline' },
+        { text: '监控与可观测', link: '/tech-system/devops/monitoring-observability' },
+        { text: 'Windows Docker Desktop', link: '/tech-system/devops/docker-desktop-windows' },
+        { text: 'TCP/IP 与网络传输', link: '/network-linux/tcp-ip' },
+        { text: 'HTTP 与 HTTPS', link: '/network-linux/http' },
+        { text: 'Session/Cookie/跨域', link: '/network-linux/session-cors' },
+        { text: '常用 Linux 命令', link: '/network-linux/linux-cmd' },
+        { text: 'Linux 线上排查', link: '/network-linux/linux-troubleshooting' },
+        { text: 'Docker 容器化部署', link: '/apps/ops/docker-deploy' },
+        { text: 'CI/CD 流水线搭建', link: '/apps/ops/ci-cd' },
+        { text: 'NAS 自托管服务', link: '/apps/ops/nas-selfhost' },
+        { text: 'Nginx 反向代理与 HTTPS', link: '/apps/ops/nginx-ops' },
+        { text: '服务监控与告警', link: '/apps/ops/monitor-alert' },
+        { text: '代码质量', link: '/tech-system/practices/code-quality' },
+        { text: '开发实践', link: '/tech-system/practices/development-practices' },
+        { text: '开发工具', link: '/tech-system/tools/development-tools' },
+        { text: '效率工具', link: '/tech-system/tools/productivity-tools' },
+        { text: '资源指南', link: '/tech-system/resources/resource-guide' },
+        { text: '行业趋势', link: '/tech-system/trends/industry-trends' }
+      ]
+    }
+  ]
+}
+
+/** AI 实践：5 个分类（保留 /ai/* 原路径，business 作为案例子组兜底） */
+function aiSidebar5() {
+  return [
+    { text: 'AI 实践', collapsed: false, items: [{ text: '模块总览', link: '/ai/' }] },
+    {
+      text: 'AI 辅助编程',
+      collapsed: false,
+      items: [
+        { text: 'AI 认知总览', link: '/ai/cognition/' },
+        { text: 'AI 辅助编程工作流', link: '/ai/productivity/ai-coding-workflow' },
+        { text: '按任务选 AI 工具', link: '/ai/productivity/tool-selection' },
+        { text: '对话式 AI 的高效用法', link: '/ai/productivity/chat-workflow' },
+        { text: '主流 AI 工具全景', link: '/ai/cognition/tools-landscape' },
+        { text: 'AI 学习路径设计', link: '/ai/cognition/ai-learning-path' },
+        { text: '费曼式输出与复盘', link: '/ai/cognition/learn-by-doing' }
+      ]
+    },
+    {
+      text: 'Agent 与智能体',
+      collapsed: true,
+      items: [
+        { text: '个人智能体搭建入门', link: '/ai/productivity/agent-basics' },
+        { text: 'AI 能做什么、不能做什么', link: '/ai/cognition/tech-boundary' }
+      ]
+    },
+    {
+      text: '知识库与 RAG',
+      collapsed: true,
+      items: [
+        { text: '个人信息管道搭建', link: '/ai/cognition/knowledge-pipeline' },
+        { text: '信息分析与判断框架', link: '/ai/cognition/info-analysis' },
+        { text: '文档、周报与沟通提效', link: '/ai/productivity/docs-and-report' }
+      ]
+    },
+    {
+      text: 'AI 工作流与自动化',
+      collapsed: true,
+      items: [
+        { text: '用 AI 写自动化脚本', link: '/ai/productivity/automation-scripts' },
+        { text: '用 AI 解决一个真实问题', link: '/ai/productivity/problem-solving' },
+        { text: '提效复盘', link: '/ai/productivity/efficiency-review' },
+        { text: '内容生产流水线搭建', link: '/ai/creation/content-pipeline' }
+      ]
+    },
+    {
+      text: 'AI 应用案例',
+      collapsed: true,
+      items: [
+        { text: '创作表达总览', link: '/ai/creation/' },
+        { text: '用 AI 辅助写技术文章', link: '/ai/creation/ai-writing' },
+        { text: '一稿多发与内容复用', link: '/ai/creation/article-repurpose' },
+        { text: 'AI 生图实践', link: '/ai/creation/ai-image' },
+        { text: 'AI 生视频实践', link: '/ai/creation/ai-video' },
+        { text: '平台选择与个人定位', link: '/ai/creation/platform-positioning' },
+        { text: '持续更新与涨粉节奏', link: '/ai/creation/growth-consistency' },
+        { text: '内容资产管理', link: '/ai/creation/asset-management' }
+      ]
+    },
+    {
+      text: 'AI 商业探索（案例）',
+      collapsed: true,
+      items: [
+        { text: '商业探索总览', link: '/ai/business/' },
+        { text: 'AI 内容变现案例', link: '/ai/business/case-ai-content' },
+        { text: '开发者工具变现案例', link: '/ai/business/case-dev-tools' },
+        { text: '从身边挖掘真实需求', link: '/ai/business/demand-mining' },
+        { text: '机会评估框架', link: '/ai/business/opportunity-scan' },
+        { text: '副业方向选择与设计', link: '/ai/business/side-business-design' },
+        { text: '变现路径与定价', link: '/ai/business/monetization-paths' },
+        { text: '低成本 MVP 验证', link: '/ai/business/mvp-validation' },
+        { text: '项目复盘模板', link: '/ai/business/retro-notes' }
+      ]
+    }
+  ]
+}
+
+/** 关于我：4 个分类，全部复用现有页面，不伪造内容 */
+function aboutSidebar5() {
+  return [
+    {
+      text: '个人介绍',
+      collapsed: false,
+      items: [
+        { text: '个人介绍', link: '/about/' },
+        { text: '我的理念', link: '/about/philosophy' }
+      ]
+    },
+    {
+      text: '工作经历',
+      collapsed: false,
+      items: [{ text: '工作与项目经历（详见简历）', link: '/guide/my-resume' }]
+    },
+    {
+      text: '技术能力',
+      collapsed: false,
+      items: [
+        { text: '技术体系总览', link: '/tech-system/' },
+        { text: '应用与项目实践', link: '/apps/' }
+      ]
+    },
+    {
+      text: '简历与联系方式',
+      collapsed: false,
+      items: [
+        { text: '个人简历', link: '/guide/my-resume' },
+        { text: 'GitHub', link: 'https://github.com/gao-shu' }
+      ]
+    }
+  ]
+}
+
+/** 其他内容：暂时未归入五栏目的旧文章，保留原路径并通过低调入口可达 */
+function moreSidebar() {
+  return [
+    {
+      text: '其他内容',
+      collapsed: false,
+      items: [
+        { text: '内容索引', link: '/more/' },
+        { text: '就业与面试', link: '/guide/' },
+        { text: '学习与成长', link: '/growth/' },
+        { text: '知识沉淀', link: '/knowledge/' },
+        { text: '生活记录', link: '/life/' },
+        { text: '开发工具', link: '/devtools/' },
+        { text: '资源收藏', link: '/resources/' },
+        { text: '英语口语', link: '/english-speaking/' },
+        { text: '我的开源', link: '/open-source/' }
+      ]
+    }
+  ]
+}
+
 export default defineConfig({
   title: "一口三个馍",
   description: "个人技术学习站 · 就业指南 · 技术体系 · AI 赋能",
@@ -728,44 +1140,18 @@ export default defineConfig({
     // Logo 配置
     logo: '/logo.svg',
     
-    // https://vitepress.dev/reference/default-theme-config
-    // 注意：下拉父级不要同时写 link + items，否则子项不显示
+    // 第 1 天改造：仅保留五个一级栏目，不再使用顶部下拉
     nav: [
       { text: '首页', link: '/' },
+      { text: '应用开发', link: '/apps/', activeMatch: '^\\/apps(\\/|$)' },
       {
         text: '技术体系',
-        activeMatch: '^\\/(english-speaking)(\\/|$)|^\\/tech-system(\\/|$)',
-        items: [
-          { text: '后端', link: '/tech-system/backend/' },
-          { text: '前端', link: '/tech-system/frontend/vue-stack' },
-          { text: '工业数字化', link: '/tech-system/industrial-digitalization/' },
-          { text: '英语口语', link: '/english-speaking/' }
-        ]
+        link: '/tech-system/',
+        activeMatch:
+          '^\\/tech-system(\\/|$)|^\\/(java|database|redis|framework|mq|network-linux|design-patterns|scenarios|springboot)(\\/|$)'
       },
-      {
-        text: '开源拆解',
-        link: '/open-source/',
-        activeMatch: '^\\/open-source(\\/|$)'
-      },
-      {
-        text: '应用开发',
-        activeMatch: '^\\/apps(\\/|$)',
-        items: [
-          { text: 'AI 应用', link: '/apps/ai/' },
-          { text: '办公自动化', link: '/apps/office/' },
-          { text: '业务应用', link: '/apps/business/' },
-          { text: '终端应用', link: '/apps/terminal/' },
-          { text: '系统集成', link: '/apps/integration/' },
-          { text: '工业与物联网', link: '/apps/industrial/' },
-          { text: '部署与运维', link: '/apps/ops/' }
-        ]
-      },
-      {
-        text: 'AI赋能',
-        link: '/ai/',
-        activeMatch: '^\\/ai(\\/|$)'
-      },
-      { text: '关于我', link: '/about/' }
+      { text: 'AI 实践', link: '/ai/', activeMatch: '^\\/ai(\\/|$)' },
+      { text: '关于我', link: '/about/', activeMatch: '^\\/about(\\/|$)' }
     ],
 
     sidebar: {
@@ -783,114 +1169,42 @@ export default defineConfig({
           text: '建设计划',
           collapsed: false,
           items: [
-            { text: '30 天建设计划', link: '/plan/' }
+            { text: '30 天建设计划', link: '/plan/' },
+            { text: '内容映射表', link: '/plan/mapping' }
           ]
         }
       ],
-      '/guide/': guideSidebar(),
-      '/guide/devops/': guideSidebar(),
-      '/guide/agent/': guideSidebar(),
-      '/guide/english-interview/': guideSidebar(),
-      '/guide/python/': guideSidebar(),
-      '/guide/nodejs/': guideSidebar(),
-      '/java/': guideSidebar(),
-      '/database/': guideSidebar(),
-      '/redis/': guideSidebar(),
-      '/framework/': guideSidebar(),
-      '/mq/': guideSidebar(),
-      '/network-linux/': guideSidebar(),
-      '/design-patterns/': guideSidebar(),
-      '/scenarios/': guideSidebar(),
-      '/resume/': guideSidebar(),
-      '/english-speaking/': englishSpeakingSidebar(),
-      // 技术体系：更具体的路径写在前面，避免被 /tech-system/ 笼统匹配
-      '/tech-system/industrial-digitalization/': industrialSidebar(),
-      '/tech-system/plc/': industrialSidebar(),
-      '/tech-system/integration/': industrialSidebar(),
-      '/tech-system/backend/iot-project': industrialSidebar(),
-      '/tech-system/backend/': techSystemBackendSidebar(),
-      '/tech-system/python/': techSystemBackendSidebar(),
-      '/tech-system/frontend/': techSystemFrontendSidebar(),
-      '/tech-system/database/': techSystemDatabaseSidebar(),
-      '/tech-system/devops/': guideSidebar(),
-      '/tech-system/': techSystemOverviewSidebar(),
-      // 应用开发：每页只显示本分类内容，/apps/ 总览显示全部
-      '/apps/ai/': appsSidebar('ai'),
-      '/apps/office/': appsSidebar('office'),
-      '/apps/business/': appsSidebar('business'),
-      '/apps/terminal/': appsSidebar('terminal'),
-      '/apps/integration/': appsSidebar('integration'),
-      '/apps/industrial/': appsSidebar('industrial'),
-      '/apps/ops/': appsSidebar('ops'),
-      '/apps/': appsSidebar(),
-      // AI 赋能：每页只显示本模块内容，/ai/ 总览显示全部
-      '/ai/cognition/': aiSidebar('cognition'),
-      '/ai/productivity/': aiSidebar('productivity'),
-      '/ai/creation/': aiSidebar('creation'),
-      '/ai/business/': aiSidebar('business'),
-      '/ai/': aiSidebar(),
-      '/open-source/': [
-        {
-          text: '我的开源',
-          collapsed: true,
-          items: [
-            { text: 'OpenBiz', link: '/open-source/mine/openbiz' },
-            { text: '本地漫创（local-creator）', link: '/open-source/mine/local-creator' },
-            { text: 'ModelDesk', link: '/open-source/mine/modeldesk' }
-          ]
-        }
-      ],
-      '/about/': [
-        {
-          text: '关于我',
-          collapsed: true,
-          items: [
-            { text: '我的理念', link: '/about/philosophy' },
-            { text: '个人介绍', link: '/about/' }
-          ]
-        }
-      ],
-      '/resources/': resourceAndDevtoolsSidebar(),
-      '/devtools/': resourceAndDevtoolsSidebar(),
-      '/springboot/': [
-        {
-          text: 'Spring Boot 概述',
-          collapsed: true,
-          items: [
-            { text: 'Spring Boot 概述', link: '/springboot/overview' },
-            { text: '前后台管理系统技术栈', link: '/springboot/tech-stack' }
-          ]
-        },
-        {
-          text: '核心特性',
-          collapsed: true,
-          items: [
-            { text: '自动配置原理', link: '/springboot/auto-configuration' },
-            { text: '注解详解', link: '/springboot/annotations' }
-          ]
-        },
-        {
-          text: '数据访问',
-          collapsed: true,
-          items: [
-            { text: '数据访问基础', link: '/springboot/data-access' }
-          ]
-        },
-        {
-          text: 'Web 开发',
-          collapsed: true,
-          items: [
-            { text: 'RESTful API 设计', link: '/springboot/restful-api' }
-          ]
-        },
-        {
-          text: '安全与认证',
-          collapsed: true,
-          items: [
-            { text: 'Spring Security', link: '/springboot/security' }
-          ]
-        }
-      ]
+      // 应用开发（5 类）；ops 归技术体系，单独挂载以保持侧栏一致
+      '/apps/ops/': techSidebar5(),
+      '/apps/': appsSidebar5(),
+      // 技术体系（6 类）：合并原 java/database/redis/framework/mq 等独立目录
+      '/tech-system/': techSidebar5(),
+      '/java/': techSidebar5(),
+      '/database/': techSidebar5(),
+      '/redis/': techSidebar5(),
+      '/framework/': techSidebar5(),
+      '/mq/': techSidebar5(),
+      '/network-linux/': techSidebar5(),
+      '/design-patterns/': techSidebar5(),
+      '/scenarios/': techSidebar5(),
+      '/springboot/': techSidebar5(),
+      // AI 实践（5 类）
+      '/ai/': aiSidebar5(),
+      // 关于我（4 类）
+      '/about/': aboutSidebar5(),
+      // 其他内容：未归入五栏目的旧文章，保留原路径与 URL
+      '/more/': moreSidebar(),
+      '/guide/': moreSidebar(),
+      '/resume/': moreSidebar(),
+      '/career/': moreSidebar(),
+      '/knowledge/': moreSidebar(),
+      '/life/': moreSidebar(),
+      '/growth/': moreSidebar(),
+      '/devtools/': moreSidebar(),
+      '/resources/': moreSidebar(),
+      '/english-speaking/': moreSidebar(),
+      '/open-source/': moreSidebar(),
+      '/practices/': moreSidebar()
     },
 
     // 启用本地搜索 - 显示永久搜索框

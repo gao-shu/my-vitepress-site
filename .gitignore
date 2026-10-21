@@ -6,7 +6,7 @@ docs/.vitepress/dist/
 docs/.vitepress/cache/
 docs/.vitepress/.temp/
 # 本地安全验证构建产物（不参与部署）
-docs/.vitepress/dist-build/
+docs/.vitepress/dist-*/
 
 # 日志文件
 *.log
