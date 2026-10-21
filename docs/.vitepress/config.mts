@@ -580,6 +580,7 @@ function englishSpeakingSidebar() {
 /** 应用开发：按应用场景分类。category 为 null 时显示全部（仅用于 /apps/ 总览页），否则只显示本分类 */
 const APP_CATEGORIES = [
   { key: 'ai', title: 'AI 应用', link: '/apps/ai/', items: [
+    ['ModelDesk · 本机多模态 AI 配测台', '/apps/ai/modeldesk'],
     ['知识库问答（RAG）搭建实践', '/apps/ai/rag-knowledge-base'],
     ['智能体工作流设计与落地', '/apps/ai/agent-workflow'],
     ['多模型 API 接入与选型', '/apps/ai/multi-model-api'],
@@ -1039,6 +1040,7 @@ function aiSidebar5() {
       collapsed: true,
       items: [
         { text: '创作表达总览', link: '/ai/creation/' },
+        { text: 'ModelDesk 架构与本地网关', link: '/ai/creation/modeldesk-architecture' },
         { text: '用 AI 辅助写技术文章', link: '/ai/creation/ai-writing' },
         { text: '一稿多发与内容复用', link: '/ai/creation/article-repurpose' },
         { text: 'AI 生图实践', link: '/ai/creation/ai-image' },

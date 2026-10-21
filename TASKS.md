@@ -8,7 +8,7 @@
 | ID | 任务 | 优先级 | 状态 | 实际修改文件 | 验证命令与结果 | 审查结论 | 未解决问题 |
 |---|---|---|---|---|---|---|---|
 | S0-1 | 检查 Git 状态/分支/最新提交/远端 | P0 | 已完成 | 无 | `git status` 干净；HEAD `ffb89a5e`；`origin/main` = `884d7cbb` | — | — |
-| S0-2 | 核实此前提交是否已推送 | P0 | 已完成 | 无 | `git ls-remote` 502；本地追踪引用未前移 + reflog 无 push → **未推送** | — | 网络/代理阻断，稍后重试 |
+| S0-2 | 核实此前提交是否已推送 | P0 | 已完成 | 无 | 续推成功：`884d7cbb..7fa6cc83 main->main`，0 未推送；Actions 部署 run `39637597420` in_progress | — | 部署待核验（见 S0-7） |
 | S0-3 | 核查构建失败原因与异常删除文件 | P0 | 已完成 | 无 | 失败于 `vite:prepare-out-dir` → safe-delete shim trash 失败；`dist` 126M→114M，`dist/about`、`dist/ai` 被删 | — | 非代码问题 |
 | S0-4 | 确认工作区无未保护的用户修改 | P0 | 已完成 | 无 | 仅 `.workbuddy/memory/2026-10-21.md` 为本人日志 | — | — |
 | S0-5 | 建立可恢复基线 | P0 | 已完成 | 无 | 基线提交 `ffb89a5e`；改造前再打一次提交 | — | — |
@@ -47,9 +47,18 @@
 | ID | 任务 | 优先级 | 状态 | 实际修改文件 | 验证命令与结果 | 审查结论 | 未解决问题 |
 |---|---|---|---|---|---|---|---|
 | S4-1 | 盘点 GitHub 仓库 | P0 | 已完成 | — | GitHub API 返回 6 个仓库；候选 3 个：`openbiz`（Java 多模块）、`openbiz-workorder-demo`（Java 小示例）、`modeldesk`（TS 全栈 AI 配测台） | — | 待定首个代表项目 |
-| S4-2 | 评估候选并选定第一个代表项目 | P0 | 进行中 | — | 已核对根目录：三者均有 README/LICENSE/构建配置 | — | 需读 README 判断完成度与原创占比 |
-| S4-3 | 完成第一个项目的 README/运行/测试/发布 | P0 | 待办 | — | — | — | 依赖 S4-2 |
-| S4-4 | 项目详情页 + 首篇技术文章 | P0 | 待办 | — | — | — | — |
+| S4-2 | 评估候选并选定第一个代表项目 | P0 | 已完成 | — | 已核查三仓库 README/结构/依赖：选 **modeldesk**（AI 配测台，MIT，已发 v0.2.1；环境 Node22+pnpm9.15 匹配；smoke 与 unit 可离线跑）；openbiz-workorder-demo 核心逻辑在母仓、需 MySQL/Redis，作为独立作品展示力弱，降级为候选二 | — | — |
+| S4-3 | 完成 modeldesk 的安装/运行/测试与证据 | P0 | 已完成 | `E:/_proj_eval/modeldesk/`（独立评估目录，非工作区） | `pnpm install` 619 包/52.8s✅；`test:unit` 4 包 **93 测全过 0 失败**✅；`smoke` **2/2**✅；`build` 生产构建成功✅（含 `/v1/[...path]`、`/models`、`/runs/compare`、`/healthz`） | 待 Agent B | 不假称真实模型 API 已验证（需用户 Key）；证据见本表与 `/e/_proj_eval/unit.log` |
+| S4-4 | modeldesk 项目详情页 + 首篇技术文章 | P0 | 已完成 | `docs/apps/ai/modeldesk.md`、`docs/ai/creation/modeldesk-architecture.md`、`docs/public/projects/*.png`、`config.mts`（侧栏入口） | 项目页含真实截图与验证表；文章基于真实架构与验证过程，如实标注边界；两页已加入侧栏；构建已渲染（文章页在 dist-v9 复测） | 待 Agent B | 截图来自仓库真实产物，非示意图 |
+| S4-5 | 网站集成后整体构建验证 | P0 | 进行中 | `config.mts`、`docs/apps/ai/modeldesk.md`、`docs/ai/creation/modeldesk-architecture.md` | 构建（安全目录 dist-v9）进行中，复测文章页是否生成 | 待 Agent B | 环境 safe-delete 在收尾清理 .temp 时拦截（CI 无此限制），产物渲染正常 |
+| S4-6 | Agent B 独立审查（网站新增页 + modeldesk 证据） | P0 | 待办 | — | — | — | — |
+| S4-7 | 提交并推送（触发部署） | P0 | 待办 | — | — | — | 依赖 S4-5/S4-6 |
+
+## 阶段 0 补充：持续交付条件恢复
+
+| ID | 任务 | 优先级 | 状态 | 实际修改文件 | 验证命令与结果 | 审查结论 | 未解决问题 |
+|---|---|---|---|---|---|---|---|
+| S0-7 | 推送 7 个待推提交并验证部署 | P0 | 已完成 | 无 | `git push` 成功：`884d7cbb..7fa6cc83`；Actions run `39637597420` completed/success；线上复测 `/more/`=200、`/plan/`=200、导航含「AI 实践」、无「开源拆解」 | — | — |
 
 ## 关键事实记录
 
