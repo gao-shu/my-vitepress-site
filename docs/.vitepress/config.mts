@@ -219,7 +219,7 @@ function guideSidebar() {
       text: 'Vue 面试基础',
       collapsed: true,
       items: [
-        { text: 'Vue 面试基础：高频 8 题', link: '/resume/vue-interview' }
+        { text: 'Vue 面试基础：高频题库', link: '/resume/vue-interview' }
       ]
     },
     {
@@ -577,178 +577,142 @@ function englishSpeakingSidebar() {
   ]
 }
 
-function aiDevSidebar() {
+/** 应用开发：按应用场景分类。category 为 null 时显示全部（仅用于 /apps/ 总览页），否则只显示本分类 */
+const APP_CATEGORIES = [
+  { key: 'ai', title: 'AI 应用', link: '/apps/ai/', items: [
+    ['知识库问答（RAG）搭建实践', '/apps/ai/rag-knowledge-base'],
+    ['智能体工作流设计与落地', '/apps/ai/agent-workflow'],
+    ['多模型 API 接入与选型', '/apps/ai/multi-model-api'],
+    ['Prompt 编排与生成流程自动化', '/apps/ai/prompt-pipeline'],
+    ['AI 编程助手在项目中的落地', '/apps/ai/ai-code-assistant']
+  ] },
+  { key: 'office', title: '办公自动化', link: '/apps/office/', items: [
+    ['飞书机器人开发实践', '/apps/office/feishu-bot'],
+    ['审批与待办自动化', '/apps/office/approval-automation'],
+    ['企微/钉钉消息推送与 Webhook', '/apps/office/im-webhook'],
+    ['日报周报自动生成', '/apps/office/report-auto-generation'],
+    ['日程与会议自动化', '/apps/office/schedule-sync']
+  ] },
+  { key: 'business', title: '业务应用', link: '/apps/business/', items: [
+    ['管理后台设计与开发', '/apps/business/admin-system'],
+    ['CRM 定制改造实践', '/apps/business/crm-custom'],
+    ['ERP 流程与单据设计', '/apps/business/erp-workflow'],
+    ['微信小程序开发实践', '/apps/business/mini-program'],
+    ['多租户 SaaS 架构', '/apps/business/saas-multi-tenant']
+  ] },
+  { key: 'terminal', title: '终端应用', link: '/apps/terminal/', items: [
+    ['PDA 移动端应用开发', '/apps/terminal/pda-app'],
+    ['Electron 桌面客户端实践', '/apps/terminal/electron-desktop'],
+    ['C# 上位机界面开发', '/apps/terminal/csharp-hmi'],
+    ['Web 与 PDA 数据协同', '/apps/terminal/web-pda-sync'],
+    ['离线优先的终端应用设计', '/apps/terminal/offline-first']
+  ] },
+  { key: 'integration', title: '系统集成', link: '/apps/integration/', items: [
+    ['对外 API 设计与开放平台', '/apps/integration/open-api'],
+    ['Webhook 接入与可靠投递', '/apps/integration/webhook-design'],
+    ['系统间数据同步方案', '/apps/integration/data-sync'],
+    ['单点登录与授权打通', '/apps/integration/sso-oauth'],
+    ['老系统集成改造', '/apps/integration/legacy-integration']
+  ] },
+  { key: 'industrial', title: '工业与物联网', link: '/apps/industrial/', items: [
+    ['轻量 MES 落地实践', '/apps/industrial/mes-lite'],
+    ['PLC 数据采集方案', '/apps/industrial/plc-collect'],
+    ['设备监控与告警', '/apps/industrial/device-monitor'],
+    ['Modbus/S7 等协议对接实践', '/apps/industrial/protocol-bridge'],
+    ['物联网数据平台搭建', '/apps/industrial/iot-platform']
+  ] },
+  { key: 'ops', title: '部署与运维', link: '/apps/ops/', items: [
+    ['Docker 容器化部署实践', '/apps/ops/docker-deploy'],
+    ['CI/CD 流水线搭建', '/apps/ops/ci-cd'],
+    ['NAS 自托管服务', '/apps/ops/nas-selfhost'],
+    ['Nginx 反向代理与 HTTPS', '/apps/ops/nginx-ops'],
+    ['服务监控与告警', '/apps/ops/monitor-alert']
+  ] }
+]
+
+function appsSidebar(category?: string) {
+  const groups = APP_CATEGORIES.filter(c => !category || c.key === category)
   return [
     {
-      text: '基础认知',
-      collapsed: true,
-      items: [
-        { text: '我怎么选模型', link: '/ai/dev/basics/how-i-choose-models' },
-        { text: '主流大模型厂商一览', link: '/ai/dev/basics/model-landscape' },
-        { text: '主流 Agent 厂商一览', link: '/ai/dev/basics/agent-landscape' },
-        { text: 'Prompt 怎么写才像工程', link: '/ai/dev/basics/prompt-engineering' },
-        { text: 'RAG / Agent / 微调对照', link: '/ai/dev/basics/rag-agent-finetune' },
-        { text: 'AI 应用最小链路', link: '/ai/dev/basics/ai-app-min-loop' },
-        { text: 'RAG 是什么', link: '/ai/dev/basics/what-is-rag' }
-      ]
+      text: '应用开发',
+      collapsed: false,
+      items: [{ text: '模块总览', link: '/apps/' }]
     },
-    {
-      text: 'AI Coding',
-      collapsed: true,
+    ...groups.map(c => ({
+      text: c.title,
+      collapsed: false,
       items: [
-        { text: '工作流', link: '/ai/dev/coding/cursor-workflow' },
-        { text: 'Context & Rules', link: '/ai/dev/coding/context-and-rules' },
-        { text: '项目落地包（Rules/AGENTS）', link: '/ai/dev/coding/project-landing-kit' },
-        { text: 'Skills 与 AI Coding', link: '/ai/dev/coding/skills-in-coding' },
-        { text: 'Prompt Pattern', link: '/ai/dev/coding/prompt-pattern' },
-        { text: 'Code Review', link: '/ai/dev/coding/ai-code-review' },
-        {
-          text: '实战',
-          collapsed: true,
-          items: [
-            { text: 'Cursor 老项目实战', link: '/ai/ai-programming/cursor-legacy-project' },
-            { text: 'Cursor 新项目实战', link: '/ai/ai-programming/cursor-new-project' }
-          ]
-        }
+        { text: '分类总览', link: c.link },
+        ...c.items.map(([text, link]) => ({ text, link }))
       ]
-    },
-    {
-      text: 'Agent',
-      collapsed: true,
-      items: [
-        { text: 'Agent 是什么', link: '/ai/dev/agent/agent-overview' },
-        { text: 'Tool Calling 最小例子', link: '/ai/dev/agent/tool-calling' },
-        { text: 'Agent 不是聊天框', link: '/ai/dev/agent/not-just-chat' }
-      ]
-    }
+    }))
   ]
 }
 
-function aiAppSidebar() {
-  return [
-    {
-      text: 'AI 应用',
-      collapsed: true,
-      items: [
-        { text: '业务系统里的 AI 切口', link: '/ai/app/enterprise/biz-entry' },
-        { text: 'MES 里的 AI 切口', link: '/ai/app/manufacturing/mes-assistant' },
-        { text: '内容生产流水线', link: '/ai/app/content/content-pipeline' }
-      ]
-    },
-    {
-      text: 'Agent 应用',
-      collapsed: true,
-      items: [
-        { text: '开发', link: '/ai/app/agent/development' },
-        { text: '问题', link: '/ai/app/agent/problems' },
-        { text: '场景', link: '/ai/app/agent/scenarios' }
-      ]
-    },
-    {
-      text: 'AI 产品',
-      collapsed: true,
-      items: [
-        { text: 'AI 产品最小闭环', link: '/ai/app/product/mvp-loop' }
-      ]
-    }
-  ]
-}
+/** AI 赋能：四个一级目录 + 各自二级分类。category 为 null 时显示全部（仅用于 /ai/ 总览页），否则只显示本模块 */
+const AI_MODULES = [
+  { key: 'cognition', title: 'AI 认知成长', link: '/ai/cognition/', items: [
+    ['主流 AI 工具全景与选择判断', '/ai/cognition/tools-landscape'],
+    ['AI 能做什么、不能做什么', '/ai/cognition/tech-boundary'],
+    ['AI 学习路径设计', '/ai/cognition/ai-learning-path'],
+    ['费曼式输出与实践复盘', '/ai/cognition/learn-by-doing'],
+    ['个人信息管道搭建', '/ai/cognition/knowledge-pipeline'],
+    ['信息分析与判断框架', '/ai/cognition/info-analysis']
+  ] },
+  { key: 'productivity', title: 'AI 生产力', link: '/ai/productivity/', items: [
+    ['对话式 AI 的高效用法', '/ai/productivity/chat-workflow'],
+    ['按任务选 AI 工具', '/ai/productivity/tool-selection'],
+    ['AI 辅助编程工作流', '/ai/productivity/ai-coding-workflow'],
+    ['文档、周报与沟通提效', '/ai/productivity/docs-and-report'],
+    ['用 AI 写自动化脚本', '/ai/productivity/automation-scripts'],
+    ['个人智能体搭建入门', '/ai/productivity/agent-basics'],
+    ['用 AI 解决一个真实问题', '/ai/productivity/problem-solving'],
+    ['提效复盘：哪些真省了时间', '/ai/productivity/efficiency-review']
+  ] },
+  { key: 'creation', title: 'AI 创作表达', link: '/ai/creation/', items: [
+    ['用 AI 辅助写技术文章', '/ai/creation/ai-writing'],
+    ['一稿多发与内容复用', '/ai/creation/article-repurpose'],
+    ['AI 生图实践', '/ai/creation/ai-image'],
+    ['AI 生视频实践', '/ai/creation/ai-video'],
+    ['平台选择与个人定位', '/ai/creation/platform-positioning'],
+    ['持续更新与涨粉节奏', '/ai/creation/growth-consistency'],
+    ['内容生产流水线搭建', '/ai/creation/content-pipeline'],
+    ['内容资产管理', '/ai/creation/asset-management']
+  ] },
+  { key: 'business', title: 'AI 商业探索', link: '/ai/business/', items: [
+    ['AI 内容变现案例拆解', '/ai/business/case-ai-content'],
+    ['开发者工具与小产品变现案例拆解', '/ai/business/case-dev-tools'],
+    ['从身边挖掘真实需求', '/ai/business/demand-mining'],
+    ['机会评估框架', '/ai/business/opportunity-scan'],
+    ['副业方向选择与设计', '/ai/business/side-business-design'],
+    ['变现路径与定价', '/ai/business/monetization-paths'],
+    ['低成本 MVP 验证', '/ai/business/mvp-validation'],
+    ['项目复盘模板与方法', '/ai/business/retro-notes']
+  ] }
+]
 
-function aiOpportunitySidebar() {
+function aiSidebar(category?: string) {
+  const groups = AI_MODULES.filter(m => !category || m.key === category)
   return [
     {
-      text: '机会',
-      collapsed: true,
-      items: [
-        { text: '岗位需求在变什么', link: '/ai/intel/opportunity/job-signal' },
-        { text: '岗位名在变', link: '/ai/intel/opportunity/job-titles' },
-        { text: '商业模式观察', link: '/ai/intel/opportunity/model-notes' },
-        { text: 'ROI 比模型名更重要', link: '/ai/intel/opportunity/roi-first' },
-        { text: '个人可执行机会', link: '/ai/intel/opportunity/personal-bets' },
-        { text: '个人可做的小切口', link: '/ai/intel/opportunity/small-cut' }
-      ]
-    }
-  ]
-}
-
-function aiIntelSidebar() {
-  return [
-    {
-      text: '情报摘录',
-      collapsed: true,
-      items: [
-        { text: '技术', link: '/ai/intel/technology/' },
-        { text: '应用', link: '/ai/intel/application/' },
-        { text: '机会', link: '/ai/intel/opportunity/' }
-      ]
-    }
-  ]
-}
-
-function aiLegacySidebar() {
-  return [
-    {
-      text: '旧内容 · 待归档',
-      collapsed: true,
-      items: [
-        { text: 'AI 总览（旧入口）', link: '/ai/' },
-        { text: '热门软件与开源项目地图', link: '/ai/explore/' },
-        { text: 'AI 选型概览', link: '/ai/explore/ai-selection/' },
-        { text: 'Java 开发者稳定项目优先版', link: '/ai/explore/java-stable-learning-path' },
-        { text: 'AI 漫剧平台深度解析', link: '/ai/explore/ai-drama-platform-analysis' },
-        { text: '7 天快速入门', link: '/ai/quickstart' },
-        { text: 'LLM 入门与 Prompt 规划', link: '/ai/llm-basics' },
-        { text: 'Agent / 工具型 AI 规划', link: '/ai/agent-basics' },
-        { text: 'MVP Server / 数据中台规划', link: '/ai/mvp-server' },
-        { text: '多模态 & 知识图谱规划', link: '/ai/multimodal-kg' },
-        { text: '部署 & MLOps 规划', link: '/ai/mlops-platform' }
-      ]
+      text: 'AI 赋能',
+      collapsed: false,
+      items: [{ text: '模块总览', link: '/ai/' }]
     },
-    {
-      text: '阶段一：LLM & Prompt',
-      collapsed: true,
+    ...groups.map(m => ({
+      text: m.title,
+      collapsed: false,
       items: [
-        { text: '模块导航', link: '/ai/stage-1-llm/' },
-        { text: '01 环境与账号准备', link: '/ai/stage-1-llm/01-setup' },
-        { text: '02 Prompt 基础', link: '/ai/stage-1-llm/02-prompt-basics' },
-        { text: '03 Prompt 进阶', link: '/ai/stage-1-llm/03-prompt-advanced' },
-        { text: '04 API 入门（Python）', link: '/ai/stage-1-llm/04-api-python-minimal' },
-        { text: '05 小项目：笔记总结器', link: '/ai/stage-1-llm/05-mini-project-notes-summarizer' },
-        { text: 'Checklist', link: '/ai/stage-1-llm/checklist' }
+        { text: '模块总览', link: m.link },
+        ...m.items.map(([text, link]) => ({ text, link }))
       ]
-    },
-    {
-      text: '阶段二：Agent & Tools',
-      collapsed: true,
-      items: [
-        { text: '模块导航', link: '/ai/stage-2-agent/' },
-        { text: '01 Agent 概览', link: '/ai/stage-2-agent/01-agent-overview' },
-        { text: '02 Function Calling', link: '/ai/stage-2-agent/02-function-calling' },
-        { text: '03 工具：读写 Markdown', link: '/ai/stage-2-agent/03-tool-readwrite-markdown' },
-        { text: '04 最小闭环：面试题 Agent', link: '/ai/stage-2-agent/04-mini-agent-interview-qa' },
-        { text: '05 可靠性加固', link: '/ai/stage-2-agent/05-reliability' },
-        { text: 'Checklist', link: '/ai/stage-2-agent/checklist' }
-      ]
-    },
-    {
-      text: '阶段三：MVP Server',
-      collapsed: true,
-      items: [
-        { text: '模块导航', link: '/ai/stage-3-mvp-server/' },
-        { text: '01 为什么需要中台', link: '/ai/stage-3-mvp-server/01-why-mvp-server' },
-        { text: '02 接口设计', link: '/ai/stage-3-mvp-server/02-api-design' },
-        { text: '03 数据接入（docs 扫描）', link: '/ai/stage-3-mvp-server/03-data-ingestion' },
-        { text: '04 存储与缓存选型', link: '/ai/stage-3-mvp-server/04-storage-cache' },
-        { text: '05 串联 Agent', link: '/ai/stage-3-mvp-server/05-integrate-agent' },
-        { text: 'Checklist', link: '/ai/stage-3-mvp-server/checklist' }
-      ]
-    }
+    }))
   ]
 }
 
 export default defineConfig({
   title: "一口三个馍",
-  description: "个人技术学习站 · 就业指南 · 技术体系 · AI",
+  description: "个人技术学习站 · 就业指南 · 技术体系 · AI 赋能",
   base: '/my-vitepress-site/',
   ignoreDeadLinks: true,
   
@@ -766,11 +730,6 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       {
-        text: '就业指南',
-        link: '/guide/',
-        activeMatch: '^\\/(guide|java|database|redis|framework|mq|network-linux|design-patterns|scenarios|resume|springboot)(\\/|$)'
-      },
-      {
         text: '技术体系',
         activeMatch: '^\\/(english-speaking)(\\/|$)|^\\/tech-system(\\/|$)',
         items: [
@@ -786,13 +745,22 @@ export default defineConfig({
         activeMatch: '^\\/open-source(\\/|$)'
       },
       {
-        text: 'AI',
-        activeMatch: '^\\/ai(\\/|$)',
+        text: '应用开发',
+        activeMatch: '^\\/apps(\\/|$)',
         items: [
-          { text: '技术', link: '/ai/dev/' },
-          { text: '应用', link: '/ai/app/' },
-          { text: '探索', link: '/ai/intel/opportunity/' }
+          { text: 'AI 应用', link: '/apps/ai/' },
+          { text: '办公自动化', link: '/apps/office/' },
+          { text: '业务应用', link: '/apps/business/' },
+          { text: '终端应用', link: '/apps/terminal/' },
+          { text: '系统集成', link: '/apps/integration/' },
+          { text: '工业与物联网', link: '/apps/industrial/' },
+          { text: '部署与运维', link: '/apps/ops/' }
         ]
+      },
+      {
+        text: 'AI赋能',
+        link: '/ai/',
+        activeMatch: '^\\/ai(\\/|$)'
       },
       { text: '关于我', link: '/about/' }
     ],
@@ -834,13 +802,21 @@ export default defineConfig({
       '/tech-system/database/': techSystemDatabaseSidebar(),
       '/tech-system/devops/': guideSidebar(),
       '/tech-system/': techSystemOverviewSidebar(),
-      // AI：更具体路径在前，避免被 /ai/ 笼统匹配
-      '/ai/dev/': aiDevSidebar(),
-      '/ai/ai-programming/': aiDevSidebar(),
-      '/ai/app/': aiAppSidebar(),
-      '/ai/intel/opportunity/': aiOpportunitySidebar(),
-      '/ai/intel/': aiIntelSidebar(),
-      '/ai/': aiLegacySidebar(),
+      // 应用开发：每页只显示本分类内容，/apps/ 总览显示全部
+      '/apps/ai/': appsSidebar('ai'),
+      '/apps/office/': appsSidebar('office'),
+      '/apps/business/': appsSidebar('business'),
+      '/apps/terminal/': appsSidebar('terminal'),
+      '/apps/integration/': appsSidebar('integration'),
+      '/apps/industrial/': appsSidebar('industrial'),
+      '/apps/ops/': appsSidebar('ops'),
+      '/apps/': appsSidebar(),
+      // AI 赋能：每页只显示本模块内容，/ai/ 总览显示全部
+      '/ai/cognition/': aiSidebar('cognition'),
+      '/ai/productivity/': aiSidebar('productivity'),
+      '/ai/creation/': aiSidebar('creation'),
+      '/ai/business/': aiSidebar('business'),
+      '/ai/': aiSidebar(),
       '/open-source/': [
         {
           text: '我的开源',
@@ -857,6 +833,7 @@ export default defineConfig({
           text: '关于我',
           collapsed: true,
           items: [
+            { text: '我的理念', link: '/about/philosophy' },
             { text: '个人介绍', link: '/about/' }
           ]
         }

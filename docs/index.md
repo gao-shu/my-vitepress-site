@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "一口三个馍"
   text: "个人技术学习站"
-  tagline: 就业指南 · 技术体系 · AI 应用 · 关于我
+  tagline: 用 AI 提升效率，改善生活，探索创造财富的新可能。
   image:
     src: /logo.svg
     alt: 一口三个馍
@@ -29,10 +29,10 @@ features:
     link: /tech-system/
     linkText: 查看体系
   - icon: 🤖
-    title: AI 应用
-    details: 方法总结、场景总结与情报摘录
-    link: /ai/dev/
-    linkText: 进入 AI
+    title: AI 赋能
+    details: 认知成长、生产力、创作表达与商业探索
+    link: /ai/
+    linkText: 进入 AI 赋能
   - icon: 👤
     title: 关于我
     details: 定位、经历与联系方式
