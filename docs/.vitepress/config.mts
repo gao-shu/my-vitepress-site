@@ -775,6 +775,15 @@ export default defineConfig({
           ]
         }
       ],
+      '/plan/': [
+        {
+          text: '建设计划',
+          collapsed: false,
+          items: [
+            { text: '30 天建设计划', link: '/plan/' }
+          ]
+        }
+      ],
       '/guide/': guideSidebar(),
       '/guide/devops/': guideSidebar(),
       '/guide/agent/': guideSidebar(),
