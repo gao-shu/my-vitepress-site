@@ -1124,7 +1124,7 @@ function moreSidebar() {
 
 export default defineConfig({
   title: "一口三个馍",
-  description: "个人技术学习站 · 就业指南 · 技术体系 · AI 赋能",
+  description: "Java 全栈开发 · AI 应用工程 · 个人技术作品集",
   base: '/my-vitepress-site/',
   // 本地安全验证：通过 VITEPRESS_OUT_DIR 把产物输出到独立目录，避免清空 dist。
   // 未设置时使用 VitePress 默认 docs/.vitepress/dist，CI 部署行为不变。
@@ -1258,7 +1258,7 @@ export default defineConfig({
     lastUpdatedText: '最后更新',
     
     editLink: {
-      pattern: 'https://github.com/yourname/yourrepo/edit/main/docs/:path',
+      pattern: 'https://github.com/gao-shu/my-vitepress-site/edit/main/docs/:path',
       text: '在 GitHub 上编辑此页面'
     }
   },
