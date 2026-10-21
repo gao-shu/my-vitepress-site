@@ -8,7 +8,7 @@
 
 | 分类 | 内容 | 说明 |
 |------|------|------|
-| [企业业务应用](/apps/business/) | 管理后台、CRM、ERP、SaaS、小程序 | 面向业务的管理系统；系统集成（API / Webhook / SSO / 数据同步）也归入此类 |
+| [企业业务应用](/apps/business/) | 管理后台、CRM、ERP、SaaS、小程序 | 面向业务的管理系统；[系统集成总览](/apps/integration/)（API / Webhook / SSO / 数据同步）也归入此类 |
 | [工业数字化应用](/apps/industrial/) | MES、PLC、设备监控 | 现场采集与生产管理类应用 |
 | [AI 应用](/apps/ai/) | 智能体、知识库、工作流 | 用大模型与 Agent 做出来的应用 |
 | [办公自动化](/apps/office/) | 飞书、企微、钉钉 | 围绕办公 IM 的机器人与流程自动化 |

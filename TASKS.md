@@ -22,8 +22,8 @@
 | S1-2 | 五个栏目各自左侧导航 | P0 | 已完成 | `config.mts` | apps 5 类 / tech 6 类 / ai 5 类 + 1 案例子组 / about 4 类，构建产物全部命中 | 待 Agent B | 同时修正栏目首页正文口径（见 S3-2） |
 | S1-3 | 首页求职化重构 | P0 | 已完成 | `docs/index.md` | 定位、能力、代表项目、工业经验、AI 入口、简历、联系方式齐全 | 待 Agent B | — |
 | S1-4 | 「其他内容」低调入口 `/more/` | P0 | 已完成 | `docs/more/index.md` | `/more/` 产物存在，含就业/成长/资源/开源入口 | 待 Agent B | — |
-| S1-5 | 项目详情页模板 | P0 | 已完成 | `docs/templates/project.md` | 产物存在，含背景/状态/职责/架构/测试/仓库/文章九项 | 待 Agent B | — |
-| S1-6 | 技术文章模板 | P0 | 已完成 | `docs/templates/article.md` | 产物存在，含背景/思路/过程/代码/结果/链接六项 | 待 Agent B | — |
+| S1-5 | 项目详情页模板 | P0 | 已完成 | `docs/.vitepress/templates/project.md` | 模板含背景/状态/职责/架构/测试/仓库/文章九项；已移出 `docs/`，不作为公开页面 | 待复查 | — |
+| S1-6 | 技术文章模板 | P0 | 已完成 | `docs/.vitepress/templates/article.md` | 模板含背景/思路/过程/代码/结果/链接六项；已移出 `docs/`，不作为公开页面 | 待复查 | — |
 | S1-7 | 旧内容映射表（按目录聚合，覆盖 445 篇） | P0 | 已完成 | `docs/plan/mapping.md` | 全站目录全覆盖，URL 变更 0 | 待 Agent B | — |
 
 ## 阶段 2：验证与修复
@@ -32,7 +32,7 @@
 |---|---|---|---|---|---|---|---|
 | S2-1 | 生产构建 | P0 | 已完成 | — | `VITEPRESS_OUT_DIR=.vitepress/dist-v3 npm run build` → `✓ building` + `✓ rendering pages`；产物 113M / 37 项 | 待 Agent B | 收尾清理 `.temp` 被环境拦截，不影响产物与 CI |
 | S2-2 | 主要路由/侧栏/内部链接检查 | P0 | 已完成 | — | 5 栏目侧栏全命中；提取 774 个唯一站内目标，22 个死链目标（对应 35 处引用），均来自旧文章正文（历史遗留）；新页面与 config 死链 0 | 待 Agent B | 22 个历史死链列为后续治理 |
-| S2-3 | 页面实际访问检查 | P0 | 已完成 | — | 产物含 index/plan/more/templates/深层页；`404.html` 存在 | 待 Agent B | 浏览器级检查见阶段 3 |
+| S2-3 | 页面实际访问检查 | P0 | 已完成 | — | 产物含 index/plan/more/深层页；`404.html` 存在；模板已移出 `docs/` 不再构建 | 待 Agent B | 浏览器级检查见阶段 3 |
 
 ## 阶段 3：独立审查（Agent B）
 
