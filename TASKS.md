@@ -48,7 +48,7 @@
 |---|---|---|---|---|---|---|---|
 | S4-1 | 盘点 GitHub 仓库 | P0 | 已完成 | — | GitHub API 返回 6 个仓库；候选 3 个：`openbiz`（Java 多模块）、`openbiz-workorder-demo`（Java 小示例）、`modeldesk`（TS 全栈 AI 配测台） | — | 待定首个代表项目 |
 | S4-2 | 评估候选并选定第一个代表项目 | P0 | 已完成 | — | 已核查三仓库 README/结构/依赖：选 **modeldesk**（AI 配测台，MIT，已发 v0.2.1；环境 Node22+pnpm9.15 匹配；smoke 与 unit 可离线跑）；openbiz-workorder-demo 核心逻辑在母仓、需 MySQL/Redis，作为独立作品展示力弱，降级为候选二 | — | — |
-| S4-3 | 完成 modeldesk 的安装/运行/测试与证据 | P0 | 已完成 | `E:/_proj_eval/modeldesk/`（独立评估目录，非工作区） | `pnpm install` 619 包/52.8s✅；`test:unit` 4 包 **93 测全过 0 失败**✅；`smoke` **2/2**✅；`build` 生产构建成功✅（含 `/v1/[...path]`、`/models`、`/runs/compare`、`/healthz`） | 待 Agent B | 不假称真实模型 API 已验证（需用户 Key）；证据见本表与 `/e/_proj_eval/unit.log` |
+| S4-3 | 完成 modeldesk 的安装/运行/测试与证据 | P0 | 已完成 | `E:/_proj_eval/modeldesk/`（独立评估目录，非工作区） | `pnpm install` 619 包/52.8s✅；`test:unit` 4 包 **93 测全过 0 失败**✅（日志留存 `/e/_proj_eval/unit.log`）；`smoke` **2/2**✅；`build` 生产构建成功✅（含 `/v1/[...path]`、`/models`、`/runs/compare`、`/healthz`） | 待 Agent B | 不假称真实模型 API 已验证（需用户 Key）；install/smoke/build 以产物与脚本为证，可复现 |
 | S4-4 | modeldesk 项目详情页 + 首篇技术文章 | P0 | 已完成 | `docs/apps/ai/modeldesk.md`、`docs/ai/creation/modeldesk-architecture.md`、`docs/public/projects/*.png`、`config.mts`（侧栏入口） | 项目页含真实截图与验证表；文章基于真实架构与验证过程，如实标注边界；两页已加入侧栏；构建已渲染（文章页在 dist-v9 复测） | 待 Agent B | 截图来自仓库真实产物，非示意图 |
 | S4-5 | 网站集成后整体构建验证 | P0 | 进行中 | `config.mts`、`docs/apps/ai/modeldesk.md`、`docs/ai/creation/modeldesk-architecture.md` | 构建（安全目录 dist-v9）进行中，复测文章页是否生成 | 待 Agent B | 环境 safe-delete 在收尾清理 .temp 时拦截（CI 无此限制），产物渲染正常 |
 | S4-6 | Agent B 独立审查（网站新增页 + modeldesk 证据） | P0 | 待办 | — | — | — | — |
