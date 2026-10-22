@@ -1,7 +1,7 @@
 # 任务追踪 · 个人技术网站改造
 
 > Agent A（执行）维护本文件。状态：`待办` / `进行中` / `待审查` / `阻塞` / `已完成`
-> 更新于：2026-10-21
+> 更新于：2026-10-23
 
 ## 阶段 0：安全检查
 
@@ -50,11 +50,11 @@
 | S4-2 | 评估候选并选定第一个代表项目 | P0 | 已完成 | — | 已核查三仓库 README/结构/依赖：选 **modeldesk**（AI 配测台，MIT，已发 v0.2.1；环境 Node22+pnpm9.15 匹配；smoke 与 unit 可离线跑）；openbiz-workorder-demo 核心逻辑在母仓、需 MySQL/Redis，作为独立作品展示力弱，降级为候选二 | — | — |
 | S4-3 | 完成 modeldesk 的安装/运行/测试与证据 | P0 | 已完成 | `E:/_proj_eval/modeldesk/`（独立评估目录，非工作区） | `pnpm install` 619 包/52.8s✅；`test:unit` 4 包 **93 测全过 0 失败**✅（日志留存 `/e/_proj_eval/unit.log`）；`smoke` **2/2**✅；`build` 生产构建成功✅（含 `/v1/[...path]`、`/models`、`/runs/compare`、`/healthz`） | 待 Agent B | 不假称真实模型 API 已验证（需用户 Key）；install/smoke/build 以产物与脚本为证，可复现 |
 | S4-4 | modeldesk 项目详情页 + 首篇技术文章 | P0 | 已完成 | `docs/apps/ai/modeldesk.md`、`docs/ai/creation/modeldesk-architecture.md`、`docs/public/projects/*.png`、`config.mts`（侧栏入口） | 项目页含真实截图与验证表；文章基于真实架构与验证过程，如实标注边界；两页已加入侧栏；构建已渲染（文章页在 dist-v9 复测） | 待 Agent B | 截图来自仓库真实产物，非示意图 |
-| S4-5 | 网站集成后整体构建验证 | P0 | 进行中 | `config.mts`、`docs/apps/ai/modeldesk.md`、`docs/ai/creation/modeldesk-architecture.md` | 构建（安全目录 dist-v9）进行中，复测文章页是否生成 | 待 Agent B | 环境 safe-delete 在收尾清理 .temp 时拦截（CI 无此限制），产物渲染正常 |
+| S4-5 | 网站集成后整体构建验证 | P0 | 已完成 | `config.mts`、`docs/apps/ai/modeldesk.md`、`docs/ai/creation/modeldesk-architecture.md` | 安全目录 dist-v13 全量构建：409 个 HTML 全部渲染，新文章页/项目页/首页均生成；仅收尾目录清理被 safe-delete 拦截（CI 无此限制） | 待 Agent B | 环境 safe-delete 间歇超时，非代码问题 |
 | S4-6 | Agent B 独立审查（网站新增页 + modeldesk 证据） | P0 | 已完成 | — | Agent B 结论「通过」：无 P0/P1；独立核实 93 测 0 失败（unit.log）、GitHub v0.2.1 发布、MIT、README 一致性、无虚构真实模型验证；4 项 P2 已修 | 通过 | — |
 | S4-7 | 提交并推送（触发部署） | P0 | 已完成 | 提交 `59b7aa13`、`0708a830`、`be8a4fbe` | `git push` 成功：`7fa6cc83..be8a4fbe`；远端 main=`be8a4fbe`；Actions 部署 completed/success；线上 `/apps/ai/modeldesk` 与 `/ai/creation/modeldesk-architecture` 均 200、内容正确；首页含 ModelDesk 代表项目行；截图 `/projects/*.png` 200 | — | 带尾斜杠 URL 404（GitHub Pages 扁平 .html 表现），侧栏无斜杠链接正常，非阻塞 |
 | S4-8 | 首页突出代表项目 + 简历口径统一 | P0 | 已完成 | `docs/index.md`、`docs/guide/my-resume.md` | 首页代表项目表新增 ModelDesk 首行；简历新增「开源作品 · ModelDesk」小节；线上首页已含「可运行验证」ModelDesk 行 | 随 S4-6 通过 | — |
-| S4-9 | 第二篇技术文章（基于真实工作） | P1 | 待办 | — | — | — | 选题优先：网站五栏重构与死链治理（有真实证据） |
+| S4-9 | 第二篇技术文章（基于真实工作） | P1 | 已完成 | `docs/tech-system/frontend/site-refactor-job-portfolio.md`、`config.mts`（前端工程侧栏入口）、`.gitignore`（补 `docs/dist-*/`） | 文章《把个人网站从「学习站」改造成「求职作品集」》基于真实改造：6→5 栏目、22 个历史死链实证审计（774 个站内目标）、445→449 篇 0 迁移；dist-v13 渲染验证页面生成、侧栏链接命中 | 随 S4-6 口径通过 | 22 个历史死链仍待治理（文章已如实标注） |
 
 ## 阶段 0 补充：持续交付条件恢复
 
@@ -70,8 +70,8 @@
 
 ## 下一步最有价值的任务
 
-1. **第二篇技术文章**（S4-9，P1）：选题「把个人网站从学习站改造成求职作品集：五栏导航/侧栏重构与死链治理」——有真实 diff 与死链审计证据，体现工程严谨度。
+1. ~~**第二篇技术文章**（S4-9，P1）~~ ✅ 已完成：站点重构与死链治理，已入侧栏并构建验证。
 2. **简历/首页/项目页三处口径再核对**（尤其 AI 漫剧状态），保持一致。
 3. **可选**：启动第二个项目（openbiz-workorder-demo 需母仓+MySQL+Redis，成本高；或从 modeldesk 派生一个独立小工具）。
-4. **求职动作**：网站+GitHub+简历三件套已就绪，可开始投递并记录反馈。
-5. 日常维护：代理恢复后无需再推（当前远端=本地 `be8a4fbe`，0 未推送）。
+4. **求职动作**：网站+GitHub+简历三件套已就绪（含 2 篇真实技术文章 + 1 个可验证开源项目），用户决定投递时机后开始并记录反馈。
+5. 日常维护：代理恢复后推送本次提交；远端 main=`3650e05b`。

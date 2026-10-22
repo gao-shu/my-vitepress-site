@@ -866,7 +866,8 @@ function techSidebar5() {
         { text: 'React 技术栈', link: '/tech-system/frontend/react-stack' },
         { text: '移动端', link: '/tech-system/frontend/mobile' },
         { text: '跨端', link: '/tech-system/frontend/cross-platform' },
-        { text: '工程化', link: '/tech-system/frontend/engineering' }
+        { text: '工程化', link: '/tech-system/frontend/engineering' },
+        { text: '站点重构与求职作品集', link: '/tech-system/frontend/site-refactor-job-portfolio' }
       ]
     },
     {
