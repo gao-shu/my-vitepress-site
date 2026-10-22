@@ -51,8 +51,10 @@
 | S4-3 | 完成 modeldesk 的安装/运行/测试与证据 | P0 | 已完成 | `E:/_proj_eval/modeldesk/`（独立评估目录，非工作区） | `pnpm install` 619 包/52.8s✅；`test:unit` 4 包 **93 测全过 0 失败**✅（日志留存 `/e/_proj_eval/unit.log`）；`smoke` **2/2**✅；`build` 生产构建成功✅（含 `/v1/[...path]`、`/models`、`/runs/compare`、`/healthz`） | 待 Agent B | 不假称真实模型 API 已验证（需用户 Key）；install/smoke/build 以产物与脚本为证，可复现 |
 | S4-4 | modeldesk 项目详情页 + 首篇技术文章 | P0 | 已完成 | `docs/apps/ai/modeldesk.md`、`docs/ai/creation/modeldesk-architecture.md`、`docs/public/projects/*.png`、`config.mts`（侧栏入口） | 项目页含真实截图与验证表；文章基于真实架构与验证过程，如实标注边界；两页已加入侧栏；构建已渲染（文章页在 dist-v9 复测） | 待 Agent B | 截图来自仓库真实产物，非示意图 |
 | S4-5 | 网站集成后整体构建验证 | P0 | 进行中 | `config.mts`、`docs/apps/ai/modeldesk.md`、`docs/ai/creation/modeldesk-architecture.md` | 构建（安全目录 dist-v9）进行中，复测文章页是否生成 | 待 Agent B | 环境 safe-delete 在收尾清理 .temp 时拦截（CI 无此限制），产物渲染正常 |
-| S4-6 | Agent B 独立审查（网站新增页 + modeldesk 证据） | P0 | 待办 | — | — | — | — |
-| S4-7 | 提交并推送（触发部署） | P0 | 待办 | — | — | — | 依赖 S4-5/S4-6 |
+| S4-6 | Agent B 独立审查（网站新增页 + modeldesk 证据） | P0 | 已完成 | — | Agent B 结论「通过」：无 P0/P1；独立核实 93 测 0 失败（unit.log）、GitHub v0.2.1 发布、MIT、README 一致性、无虚构真实模型验证；4 项 P2 已修 | 通过 | — |
+| S4-7 | 提交并推送（触发部署） | P0 | 阻塞 | 提交 `59b7aa13`、`0708a830` 已在本地 | 推送 3 次均失败：`CONNECT tunnel failed 502` / `Empty reply`；`ls-remote` 亦 502 → 代理/网络当前不可用 | — | 网络恢复后重试 `git push origin main`（2 个提交待推）；本任务开始时网络曾恢复并成功推过 7 个提交 |
+| S4-8 | 首页突出代表项目 + 简历口径统一 | P0 | 待办 | `docs/index.md`、`docs/guide/my-resume.md` | — | 待 Agent B | 需把 ModelDesk 列为可验证代表项目，保持首页/简历/项目页状态一致 |
+| S4-9 | 第二篇技术文章（基于真实工作） | P1 | 待办 | — | — | 待 Agent B | 选题优先：网站五栏重构与死链治理（有真实证据） |
 
 ## 阶段 0 补充：持续交付条件恢复
 

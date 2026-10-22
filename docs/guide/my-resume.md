@@ -30,6 +30,15 @@
 
 ## 项目经验
 
+### 开源作品 · ModelDesk 本机多模态 AI 配测台
+
+**TypeScript / Next.js / pnpm monorepo / OpenAI-compatible Gateway** · [GitHub](https://github.com/gao-shu/modeldesk) · MIT · [项目详情](/apps/ai/modeldesk)
+
+- 面向开发者的本机工具：一处配置多模型 API，同输入并行对比 2～3 个模型（输出 / 延迟 / TTFT / Token），一键复制 curl / Python / Java，经本机 OpenAI 兼容网关 `:3300/v1` 接入自己的程序
+- 架构：Next.js 界面与 Gateway 同进程；`run-core` 编排 + `adapters` 适配器 + `model-registry` 注册表 + 对象存储；Key 落盘加密、仅监听 localhost
+- 工程化：93 项单元测试全过、冒烟 / 生产构建通过、Docker / GitHub Actions / SECURITY.md
+- **诚实边界**：构建 / 单测 / 冒烟由本人在本地复现；调用真实模型的返回效果需使用者自备 API Key
+
 ### 项目一 · AI 漫剧内容生产平台
 
 **2026.05 - 至今** · Java / Python / Vue / MySQL / Redis / AI API
