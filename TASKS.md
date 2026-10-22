@@ -55,6 +55,7 @@
 | S4-7 | 提交并推送（触发部署） | P0 | 已完成 | 提交 `59b7aa13`、`0708a830`、`be8a4fbe` | `git push` 成功：`7fa6cc83..be8a4fbe`；远端 main=`be8a4fbe`；Actions 部署 completed/success；线上 `/apps/ai/modeldesk` 与 `/ai/creation/modeldesk-architecture` 均 200、内容正确；首页含 ModelDesk 代表项目行；截图 `/projects/*.png` 200 | — | 带尾斜杠 URL 404（GitHub Pages 扁平 .html 表现），侧栏无斜杠链接正常，非阻塞 |
 | S4-8 | 首页突出代表项目 + 简历口径统一 | P0 | 已完成 | `docs/index.md`、`docs/guide/my-resume.md` | 首页代表项目表新增 ModelDesk 首行；简历新增「开源作品 · ModelDesk」小节；线上首页已含「可运行验证」ModelDesk 行 | 随 S4-6 通过 | — |
 | S4-9 | 第二篇技术文章（基于真实工作） | P1 | 已完成 | `docs/tech-system/frontend/site-refactor-job-portfolio.md`、`config.mts`（前端工程侧栏入口）、`.gitignore`（补 `docs/dist-*/`） | 文章《把个人网站从「学习站」改造成「求职作品集」》基于真实改造：6→5 栏目、22 个历史死链实证审计（774 个站内目标）、445→449 篇 0 迁移；本地 dist-v13 渲染 409 页验证通过；提交 `26b6713d` 已推送，Actions 部署 success，线上文章页 200、工程化页侧栏入口可见 | 随 S4-6 口径通过 | 22 个历史死链仍待治理（文章已如实标注） |
+| S4-10 | 修复 ModelDesk 项目页侧栏回归 | P1 | 已完成 | `config.mts`（APP_GROUPS_5 AI 应用组）、`docs/apps/ai/index.md`（分类表首行） | 59b7aa13 当时误将入口加入未挂载的旧数组 `APP_CATEGORIES`，生效侧栏 `appsSidebar5/APP_GROUPS_5` 一直没有 ModelDesk；本次补入侧栏首条 + 分类总览表首行；dist-v14 复测：分类页 2 处、兄弟页 3 处链接命中 | 待推送复验 | `ac7c6828` 与本提交待网络恢复补推（LFS 端点被代理 502） |
 
 ## 阶段 0 补充：持续交付条件恢复
 

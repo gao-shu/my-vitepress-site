@@ -746,6 +746,7 @@ const APP_GROUPS_5 = [
     title: 'AI 应用',
     link: '/apps/ai/',
     items: [
+      ['ModelDesk · 本机多模态 AI 配测台', '/apps/ai/modeldesk'],
       ['知识库问答（RAG）', '/apps/ai/rag-knowledge-base'],
       ['智能体工作流设计与落地', '/apps/ai/agent-workflow'],
       ['多模型 API 接入与选型', '/apps/ai/multi-model-api'],
