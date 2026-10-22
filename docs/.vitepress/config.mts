@@ -577,7 +577,11 @@ function englishSpeakingSidebar() {
   ]
 }
 
-/** 应用开发：按应用场景分类。category 为 null 时显示全部（仅用于 /apps/ 总览页），否则只显示本分类 */
+/**
+ * @deprecated 死代码，勿再编辑：本数组与 appsSidebar() 无任何挂载（生效的是 APP_GROUPS_5 + appsSidebar5）。
+ * 2026-10-23 审计发现：ModelDesk 侧栏入口曾误加入本数组导致项目页长期不在生效侧栏（W1 问题）。
+ * 保留仅为留存历史结构，新条目请一律加到 APP_GROUPS_5。
+ */
 const APP_CATEGORIES = [
   { key: 'ai', title: 'AI 应用', link: '/apps/ai/', items: [
     ['ModelDesk · 本机多模态 AI 配测台', '/apps/ai/modeldesk'],
