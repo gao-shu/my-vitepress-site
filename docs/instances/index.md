@@ -8,11 +8,11 @@
 
 | 模块 | 项目 1 | 项目 2 | 项目 3 |
 |---|---|---|---|
-| [01 企业业务应用](/instances/business) | [CRM 客户关系管理系统](/instances/business/crm) | [ERP 企业资源管理系统](/instances/business/erp) | [项目管理系统](/instances/business/pms) |
-| [02 工业数字化应用](/instances/industrial) | [设备资产管理系统 EAM](/instances/industrial/eam) | [生产执行管理系统 MES](/instances/industrial/mes) | [工业物联网监控系统](/instances/industrial/iiot) |
-| [03 AI 应用](/instances/ai) | [AI 智能助手](/instances/ai/assistant) | [AI 知识库系统](/instances/ai/kb) | [AI 工作流与智能体平台](/instances/ai/agent-platform) |
-| [04 办公自动化](/instances/office) | [OA 办公自动化系统](/instances/office/oa) | [BPM 业务流程管理系统](/instances/office/bpm) | [在线表单与数据收集系统](/instances/office/form) |
-| [05 个人工具](/instances/tools) | [个人任务与时间管理系统](/instances/tools/task-time) | [个人知识库与笔记系统](/instances/tools/notes) | [开发者工具箱](/instances/tools/devtools) |
+| [01 企业业务应用](/instances/business/) | [CRM 客户关系管理系统](/instances/business/crm) | [ERP 企业资源管理系统](/instances/business/erp) | [项目管理系统](/instances/business/pms) |
+| [02 工业数字化应用](/instances/industrial/) | [设备资产管理系统 EAM](/instances/industrial/eam) | [生产执行管理系统 MES](/instances/industrial/mes) | [工业物联网监控系统](/instances/industrial/iiot) |
+| [03 AI 应用](/instances/ai/) | [AI 智能助手](/instances/ai/assistant) | [AI 知识库系统](/instances/ai/kb) | [AI 工作流与智能体平台](/instances/ai/agent-platform) |
+| [04 办公自动化](/instances/office/) | [OA 办公自动化系统](/instances/office/oa) | [BPM 业务流程管理系统](/instances/office/bpm) | [在线表单与数据收集系统](/instances/office/form) |
+| [05 个人工具](/instances/tools/) | [个人任务与时间管理系统](/instances/tools/task-time) | [个人知识库与笔记系统](/instances/tools/notes) | [开发者工具箱](/instances/tools/devtools) |
 
 ## 当前进展
 

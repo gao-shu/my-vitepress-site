@@ -801,7 +801,7 @@ function appsSidebar5() {
 const INSTANCE_GROUPS = [
   {
     title: '01 企业业务应用',
-    link: '/instances/business',
+    link: '/instances/business/',
     projects: [
       { name: 'CRM 客户关系管理系统', link: '/instances/business/crm' },
       { name: 'ERP 企业资源管理系统', link: '/instances/business/erp' },
@@ -810,7 +810,7 @@ const INSTANCE_GROUPS = [
   },
   {
     title: '02 工业数字化应用',
-    link: '/instances/industrial',
+    link: '/instances/industrial/',
     projects: [
       { name: '设备资产管理系统 EAM', link: '/instances/industrial/eam' },
       { name: '生产执行管理系统 MES', link: '/instances/industrial/mes' },
@@ -819,7 +819,7 @@ const INSTANCE_GROUPS = [
   },
   {
     title: '03 AI 应用',
-    link: '/instances/ai',
+    link: '/instances/ai/',
     projects: [
       { name: 'AI 智能助手', link: '/instances/ai/assistant' },
       { name: 'AI 知识库系统', link: '/instances/ai/kb' },
@@ -828,7 +828,7 @@ const INSTANCE_GROUPS = [
   },
   {
     title: '04 办公自动化',
-    link: '/instances/office',
+    link: '/instances/office/',
     projects: [
       { name: 'OA 办公自动化系统', link: '/instances/office/oa' },
       { name: 'BPM 业务流程管理系统', link: '/instances/office/bpm' },
@@ -837,7 +837,7 @@ const INSTANCE_GROUPS = [
   },
   {
     title: '05 个人工具',
-    link: '/instances/tools',
+    link: '/instances/tools/',
     projects: [
       { name: '个人任务与时间管理系统', link: '/instances/tools/task-time' },
       { name: '个人知识库与笔记系统', link: '/instances/tools/notes' },
