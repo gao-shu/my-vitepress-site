@@ -639,7 +639,7 @@ function appsSidebar(category?: string) {
   const groups = APP_CATEGORIES.filter(c => !category || c.key === category)
   return [
     {
-      text: '应用开发',
+      text: '功能开发',
       collapsed: false,
       items: [{ text: '模块总览', link: '/apps/' }]
     },
@@ -717,7 +717,7 @@ function aiSidebar(category?: string) {
 
 /* ================= 第 1 天改造：五栏目导航与侧栏 ================= */
 
-/** 应用开发：5 个业务分类（ops 归入技术体系「部署与运维」，文件路径不变） */
+/** 功能开发：5 个业务分类（ops 归入技术体系「部署与运维」，文件路径不变） */
 const APP_GROUPS_5 = [
   {
     title: '企业业务应用',
@@ -784,13 +784,77 @@ const APP_GROUPS_5 = [
 
 function appsSidebar5() {
   return [
-    { text: '应用开发', collapsed: false, items: [{ text: '模块总览', link: '/apps/' }] },
+    { text: '功能开发', collapsed: false, items: [{ text: '模块总览', link: '/apps/' }] },
     ...APP_GROUPS_5.map(g => ({
       text: g.title,
       collapsed: false,
       items: [
         { text: '分类总览', link: g.link },
         ...g.items.map(([text, link]) => ({ text, link }))
+      ]
+    }))
+  ]
+}
+
+/** 应用实例：5 大模块 × 3 个项目。每个项目均有独立规划页（如实标注状态），
+ *  侧栏直接链接到项目页。 */
+const INSTANCE_GROUPS = [
+  {
+    title: '01 企业业务应用',
+    link: '/instances/business',
+    projects: [
+      { name: 'CRM 客户关系管理系统', link: '/instances/business/crm' },
+      { name: 'ERP 企业资源管理系统', link: '/instances/business/erp' },
+      { name: '项目管理系统', link: '/instances/business/pms' }
+    ]
+  },
+  {
+    title: '02 工业数字化应用',
+    link: '/instances/industrial',
+    projects: [
+      { name: '设备资产管理系统 EAM', link: '/instances/industrial/eam' },
+      { name: '生产执行管理系统 MES', link: '/instances/industrial/mes' },
+      { name: '工业物联网监控系统', link: '/instances/industrial/iiot' }
+    ]
+  },
+  {
+    title: '03 AI 应用',
+    link: '/instances/ai',
+    projects: [
+      { name: 'AI 智能助手', link: '/instances/ai/assistant' },
+      { name: 'AI 知识库系统', link: '/instances/ai/kb' },
+      { name: 'AI 工作流与智能体平台', link: '/instances/ai/agent-platform' }
+    ]
+  },
+  {
+    title: '04 办公自动化',
+    link: '/instances/office',
+    projects: [
+      { name: 'OA 办公自动化系统', link: '/instances/office/oa' },
+      { name: 'BPM 业务流程管理系统', link: '/instances/office/bpm' },
+      { name: '在线表单与数据收集系统', link: '/instances/office/form' }
+    ]
+  },
+  {
+    title: '05 个人工具',
+    link: '/instances/tools',
+    projects: [
+      { name: '个人任务与时间管理系统', link: '/instances/tools/task-time' },
+      { name: '个人知识库与笔记系统', link: '/instances/tools/notes' },
+      { name: '开发者工具箱', link: '/instances/tools/devtools' }
+    ]
+  }
+]
+
+function instancesSidebar() {
+  return [
+    { text: '应用实例', collapsed: false, items: [{ text: '实例总览', link: '/instances/' }] },
+    ...INSTANCE_GROUPS.map(g => ({
+      text: g.title,
+      collapsed: false,
+      items: [
+        { text: '模块总览', link: g.link },
+        ...g.projects.map(p => ({ text: p.name, link: p.link }))
       ]
     }))
   ]
@@ -1148,10 +1212,11 @@ export default defineConfig({
     // Logo 配置
     logo: '/logo.svg',
     
-    // 第 1 天改造：仅保留五个一级栏目，不再使用顶部下拉
+    // 一级栏目：首页 / 应用实例 / 功能开发 / 技术体系 / AI 实践 / 关于我（应用实例为规划项目矩阵，功能开发为技术实践）
     nav: [
       { text: '首页', link: '/' },
-      { text: '应用开发', link: '/apps/', activeMatch: '^\\/apps(\\/|$)' },
+      { text: '应用实例', link: '/instances/', activeMatch: '^\\/instances(\\/|$)' },
+      { text: '功能开发', link: '/apps/', activeMatch: '^\\/apps(\\/|$)' },
       {
         text: '技术体系',
         link: '/tech-system/',
@@ -1182,9 +1247,10 @@ export default defineConfig({
           ]
         }
       ],
-      // 应用开发（5 类）；ops 归技术体系，单独挂载以保持侧栏一致
+      // 功能开发（5 类）；ops 归技术体系，单独挂载以保持侧栏一致
       '/apps/ops/': techSidebar5(),
       '/apps/': appsSidebar5(),
+      '/instances/': instancesSidebar(),
       // 技术体系（6 类）：合并原 java/database/redis/framework/mq 等独立目录
       '/tech-system/': techSidebar5(),
       '/java/': techSidebar5(),

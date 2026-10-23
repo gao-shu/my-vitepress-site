@@ -63,7 +63,7 @@ features:
 
 > [ModelDesk](/apps/ai/modeldesk) 是当前最完整、可公开检查的开源作品（GitHub 发布、有测试与截图）；下方为公司内部项目，仅作说明、不提供源码。
 
-更完整的项目讲述见 [应用开发](/apps/) 与 [个人简历](/guide/my-resume)。
+更完整的项目讲述见 [功能开发](/apps/) 与 [个人简历](/guide/my-resume)。
 
 ## 技术能力
 
