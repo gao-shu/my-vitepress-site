@@ -58,6 +58,8 @@
 | S4-10 | 修复 ModelDesk 项目页侧栏回归 | P1 | 已完成 | `config.mts`（APP_GROUPS_5 AI 应用组）、`docs/apps/ai/index.md`（分类表首行） | 59b7aa13 当时误将入口加入未挂载的旧数组 `APP_CATEGORIES`，生效侧栏 `appsSidebar5/APP_GROUPS_5` 一直没有 ModelDesk；本次补入侧栏首条 + 分类总览表首行；dist-v14 复测：分类页 2 处、兄弟页 3 处链接命中 | 已上线（10f0f27a 部署 success，线上侧栏/表格/页脚三处核验通过） | `ac7c6828` 与本提交待网络恢复补推（LFS 端点被代理 502） |
 | S4-11 | 阶段一：项目资产统一审计 | P0 | 已完成 | `PROJECT-AUDIT.md`（新增）、`.workbuddy/memory/2026-10-23.md` | 7 个候选项目逐一实测：ModelDesk（已验证部分）/openbiz 母仓（未克隆）/workorder-demo（不可构建、0 测试）/java-langchain4j-lab（54 文件但 git 0 提交）/java-agent-demo（13 测试未实跑）/text-manager（本地空）/python-langchain-lab（仅设计）；网站侧确认生效侧栏结构与 29 个主题页性质；环境 Java21/Maven/MySQL 齐备 | 提交 `10f0f27a` 已推送 | openbiz 克隆被代理 502 拦截，待网络恢复 |
 | S4-12 | 阶段二：应用开发栏目按状态分层 | P0 | 已完成 | `docs/apps/index.md` + 5 个分类页 `index.md`、`config.mts`（@deprecated 标记） | 五分类统一「图例 → 已验证 → 验证中/在建 → 技术实践 → 规划中」结构；ModelDesk 项目卡片置顶；在建/规划条目如实标注无链接；死代码加废弃标记；dist-v15 构建渲染全部通过 | 提交 `3385a5ea` 待推送（代理瞬断） | 推送待网络恢复 |
+| S4-13 | 应用实例栏目落地：5 模块 × 3 项目菜单全可点击 | P0 | 已完成 | `docs/instances/` 21 页（1 总览 + 5 模块 + 15 项目）、`config.mts`（INSTANCE_GROUPS 挂链接）、全站「应用开发」更名「功能开发」 | 15 个项目页含核心功能规划表（用户原文）+ 技术路线 + 与现有资产关系 + 模块内优先级，统一如实标「规划中」；侧栏 15 条目从纯文本改为链接；dist-v17：466 页、实例 21 页齐全 | 提交 `459b9a93` 已推送并部署（一次补推 4 个滞留提交），Actions 双 run success | 部署后实测发现模块总览链接 404，见 S4-14 |
+| S4-14 | 修复应用实例模块总览链接 404 | P0 | 修复待推送 | `config.mts`（5 个 link 补尾斜杠）、`docs/instances/index.md`（矩阵 5 个链接） | 线上实测：不带斜杠的 `/instances/business` 被渲染成 `instances/business.html`，而模块页实为 `business/index.html` → 404；全站既有规范为索引页带尾斜杠（`/apps/ai/`）。dist-v18 复测：模块链接 `/instances/business/`、项目链接 `.html`（均实测 200） | 提交 `59ed09a2` 滞留本地 | **推送被代理拦截（Empty reply from server），按「只试一次」约束待网络恢复补推；线上暂存 10 个 404 链接（5 侧栏 + 5 矩阵），15 个项目页均正常** |
 
 ## 阶段 0 补充：持续交付条件恢复
 
@@ -67,8 +69,9 @@
 
 ## 关键事实记录
 
-- **远端同步**：`ffb89a5e` 未推送。`git push` 持续报 `CONNECT tunnel failed 502` / `schannel: server closed abruptly`。属网络/代理阻断，非权限问题。
+- **远端同步**：`59ed09a2`（S4-14 链接修复）未推送，`git push` 报 `Empty reply from server`。属网络/代理阻断，非权限问题。`459b9a93` 已部署上线。
 - **构建环境**：VitePress 默认 `outDir = docs/.vitepress/dist`；`dist` 内仍有 15 个文件被 Git 跟踪（历史遗留），失败构建会逐渐删除 `dist`。
+- **链接规范（2026-10-23 实测固化）**：VitePress 索引页（`xxx/index.md`）的链接必须带尾斜杠，否则渲染成 `xxx.html` 在 GitHub Pages 上 404；普通页（`xxx.md`）不带斜杠渲染成 `xxx.html` 恰好命中。部署后必须逐链接实测。
 - **安全策略**：第 1 天不改动任何 `.md` 路径；未归类内容经 `/more/` 可达；不执行 `reset --hard` / 强制清理。
 
 ## 下一步最有价值的任务
@@ -77,4 +80,4 @@
 2. **简历/首页/项目页三处口径再核对**（尤其 AI 漫剧状态），保持一致。
 3. **可选**：启动第二个项目（openbiz-workorder-demo 需母仓+MySQL+Redis，成本高；或从 modeldesk 派生一个独立小工具）。
 4. **求职动作**：网站+GitHub+简历三件套已就绪（含 2 篇真实技术文章 + 1 个可验证开源项目），用户决定投递时机后开始并记录反馈。
-5. 日常维护：代理恢复后推送本次提交；远端 main=`3650e05b`。
+5. 日常维护：代理恢复后补推 `59ed09a2`（S4-14 链接修复，线上 10 个 404 链接待修）；远端 main=`459b9a93`。
