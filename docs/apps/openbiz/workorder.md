@@ -14,7 +14,7 @@
 
 ## 工程位置
 
-`E:/_proj_eval/openbiz-workorder-demo`（含 `E2E-VERIFICATION.md` 固化证据：`biz21/service18/agent14[1 skip 缺 key]/shop11/iot52` 全量测试通过）
+`E:/8.cangku/for-job/openbiz-workorder-app`（含 `backend/E2E-RESULT.txt` 固化证据：登录→建单→派单→受理→完工全链路通过，非法流转被状态机拦截）
 
 ## 价值
 

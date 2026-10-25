@@ -1,6 +1,6 @@
 # OpenBiz 试水脚手架与坑位
 
-> 把三个 demo（工单 / MES / PMS）的复现经验沉淀为可复制脚手架。照此流程，第 N 个 A 类系统可在数小时内从零跑通 E2E。
+> 由工单 / MES / PMS 等早期 demo 原型复现经验沉淀而来的可复制脚手架（2026-10-25 起 9 个应用统一交付于 `E:/8.cangku/for-job/openbiz-{名称}-app/`）。照此流程，第 N 个 A 类系统可在数小时内从零跑通 E2E。
 
 ## 0. 前置（一次性）
 
@@ -38,7 +38,7 @@ mysql -u root -p ry-vue < sql/openbiz_<模块>_1_1.sql
 # 关验证码（sys_config 表，已关可跳过）
 mysql -u root -p ry-vue -e "UPDATE sys_config SET config_value='false' WHERE config_key='sys.account.captchaEnabled';"
 mvn -o clean package spring-boot:repackage -DskipTests
-java -jar target/openbiz-<模块>-demo.jar --server.port=<端口> --ruoyi.captchaEnabled=false
+java -jar target/openbiz-<模块>-app.jar --server.port=<端口> --ruoyi.captchaEnabled=false
 # 另开终端
 bash run_<模块>_e2e.sh
 ```

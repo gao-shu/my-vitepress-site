@@ -209,7 +209,7 @@ openbiz-saas-core（Tenant / Member / TenantResolver / Interceptor）
 
 ### 5.11 阶段二：单体化整合 + Vue/TS 前端 ⛔ 已废弃（2026-10-25）
 
-> **废弃原因**：合并单体偏离「100 套独立商用应用」的交付目标——100 套应用注定独立交付、独立部署、独立仓库，单体只有「演示好看」一个好处。`openbiz-platform` / `openbiz-web` 已删除（隔离于 `E:/8.cangku/.trashed-merged/`），由阶段三的 9 个独立应用取代。本段保留为决策记录。
+> **废弃原因**：合并单体偏离「100 套独立商用应用」的交付目标——100 套应用注定独立交付、独立部署、独立仓库，单体只有「演示好看」一个好处。`openbiz-platform` / `openbiz-web` 已直接删除（2026-10-25 清理，隔离区 `.trashed-merged/` 亦已移除），由阶段三的 9 个独立应用取代。本段保留为决策记录。
 
 从「9 个分散 consumer（端口 18081–18089）」演进为「1 个统一平台 + 1 个前端」的可演示产品形态：
 
@@ -223,12 +223,13 @@ openbiz-saas-core（Tenant / Member / TenantResolver / Interceptor）
 
 用户拍板：「一个项目一个数据库，9 个项目都要有各自的前端和后端，将来进 9 个 git 仓库」。落地成果：
 
-- **目录**：`E:/8.cangku/openbiz-{名称}-app/`，每应用四件套 `backend/`（独立 Spring Boot）+ `frontend/`（独立 Vue3/TS）+ `sql/` + `README.md`；端口沿用 18081–18089。
+- **目录**：`E:/8.cangku/for-job/openbiz-{名称}-app/`，每应用四件套 `backend/`（独立 Spring Boot）+ `frontend/`（独立 Vue3/TS）+ `sql/` + `README.md`；端口沿用 18081–18089。
 - **数据库一应用一库**：`split-databases.sh` 从共享 `ry-vue` 拆出 9 个独立库（`openbiz_workorder/mes/pms/crm/erp/eam/oa/bpm/iiot`），每库 = RuoYi 系统表（含 admin 账号）+ quartz + openbiz 平台基础表（tenant/member）+ **仅本系统 2 张业务表**，干净结构无历史数据；各库账号体系独立，租户物理隔离。
 - **前端模板化**：`openbiz-app-template` 为唯一母版，复制后只改 3 处（`modules.ts` 元数据、`vite.config.ts` 的 `BACKEND_PORT`、`index.html` 标题）。9 个前端 `vue-tsc` + `npm run build` 全通过。
 - **标准契约兼容层**：每个后端新增 `StandardApiController`，把域特定端点（`/activate`、`/submit` 等）补齐为统一契约（内存分页 `list`→`{rows,total}`、`transition?to=` 状态机映射、`stats` 计数含 0 值态、`PUT`/`DELETE`），非法流转统一 `{code:500,msg:"ILLEGAL_TRANSITION"}`；域端点全部保留，旧 E2E 回归通过。
 - **E2E**：9 应用各跑「域特定 E2E（旧）+ 统一契约 E2E（新）」双线全绿，证据在各 `backend/E2E-RESULT.txt`。
 - **前后端联调**：CRM 应用（18084 + 5184）经 Vite 代理完整链路 **7/7 通过**（登录→列表→新增→NEW→ACTIVE 流转→非法流转被拒→统计→商机列表）。
+- **目录清理（2026-10-25）**：9 个早期 demo 原型目录已删除；9 个独立应用统一移至 `E:/8.cangku/for-job/`（求职作品集交付目录），后端 Maven artifactId 与 jar 名由 `-demo` 更名为 `-app`。
 - **结论：交付形态与「100 套独立商用应用」目标对齐——第 N 个应用 = 建库脚本 + 复制 backend 改数据源 + 复制前端模板改元数据 + 跑双线 E2E，「百套流水线」以独立应用为单位运转。**
 
-本文取代并细化审计表中 openbiz 母仓条目（2.2）：审计时母仓未克隆，仅有技术栈推测；本文基于 master 全量目录树 + 各模块 README + 封板审计报告实测修正。截至 2026-10-25，A 类 9 系统最终以 **9 个独立应用**（独立后端 18081–18089 + 独立 Vue3/TS 前端 + 独立数据库 `openbiz_*`）形态交付，前后端联调实测通过；阶段二的合并单体已废弃删除。
+本文取代并细化审计表中 openbiz 母仓条目（2.2）：审计时母仓未克隆，仅有技术栈推测；本文基于 master 全量目录树 + 各模块 README + 封板审计报告实测修正。截至 2026-10-25，A 类 9 系统最终以 **9 个独立应用**（独立后端 18081–18089 + 独立 Vue3/TS 前端 + 独立数据库 `openbiz_*`，统一位于 `E:/8.cangku/for-job/`）形态交付，前后端联调实测通过；9 个早期 demo 原型已删除，阶段二的合并单体已废弃删除。

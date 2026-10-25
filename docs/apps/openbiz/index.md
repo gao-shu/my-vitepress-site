@@ -12,7 +12,7 @@
 
 ## 9 个独立应用总览
 
-统一命名 `E:/8.cangku/openbiz-{名称}-app/`，每个应用一套四件套：
+统一命名 `E:/8.cangku/for-job/openbiz-{名称}-app/`，每个应用一套四件套：
 
 | # | 应用 | 目录 | 后端端口 | 独立数据库 | 关键状态机 | 实证页 |
 |---|---|---|---|---|---|---|
@@ -60,11 +60,11 @@ openbiz-{名称}-app/
 
 ```bash
 # 1) 后端（另开终端）
-cd E:/8.cangku/openbiz-crm-app/backend
-java -jar target/openbiz-crm-demo.jar --server.port=18084
+cd E:/8.cangku/for-job/openbiz-crm-app/backend
+java -jar target/openbiz-crm-app.jar --server.port=18084
 
 # 2) 前端（另开终端，自动代理到 18084）
-cd E:/8.cangku/openbiz-crm-app/frontend
+cd E:/8.cangku/for-job/openbiz-crm-app/frontend
 npm install     # 首次
 npm run dev     # http://localhost:5184
 ```
