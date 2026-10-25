@@ -1,6 +1,6 @@
 # 项目管理系统
 
-> 状态：📋 规划中（尚未开始实现） · 所属模块：[01 企业业务应用](/instances/business/) · 模块内优先级：第 1 位
+> 状态：✅ 已基于 OpenBiz 试水验证（最小可运行闭环 + E2E 全链路通过） · 所属模块：[01 企业业务应用](/instances/business/) · 模块内优先级：第 1 位
 
 ## 核心功能
 
@@ -23,7 +23,12 @@
 
 ## 建设状态
 
-尚未开始实现。达到「最小可运行闭环」后状态更新为 🔧 验证中/在建，测试与运行证据齐备后更新为 ✅ 已验证。
+✅ **已试水验证**：作为 OpenBiz 的**第三个独立消费者**，在 `openbiz-saas-core` 多租户基座上自建项目 + 任务/里程碑 + 看板闭环，HTTP E2E 全链路通过（含状态机非法跳转拦截）。
+
+- 实证页：[OpenBiz 试水 › 项目管理系统](/apps/openbiz/pms)
+- 工程位置：`E:/8.cangku/for-job/openbiz-pms-app`（含 README 与 E2E 脚本）
+- 复用的 OpenBiz 能力：`openbiz-saas-core` 多租户（TenantContext / TenantService / 自动装配）、RuoYi 登录外壳
+- 自建：项目状态机（PLANNING→ACTIVE→COMPLETED，ACTIVE⇄ON_HOLD，活动态→CANCELLED）、任务状态机（TODO→IN_PROGRESS→DONE，含重开）、看板分组
 
 ---
 

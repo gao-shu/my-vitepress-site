@@ -55,16 +55,16 @@
 
 | 字段 | 内容 |
 |---|---|
-| 当前代码位置 | **仅 GitHub `gao-shu/openbiz`（公开）**，本地未克隆 |
-| 当前状态 | 部分完成——**未在本地验证**（未克隆、未构建） |
-| 技术栈 | Java · Spring Boot · RuoYi 3.9.2 多模块（openbiz-service/business/saas-core/agent/iot/shop/foundation + ruoyi-* + sql/） |
-| 已实现功能 | 业务能力组件集合；工单服务 `com.openbiz:openbiz-service:3.9.2` 是 workorder-demo 的唯一业务来源 |
-| 测试与运行 | **未执行**（代码不在本地） |
-| 公开状态 | GitHub 公开 |
+| 当前代码位置 | **仅 GitHub `gao-shu/openbiz`（公开，master，2026-09-17 推送）**，本地未克隆 |
+| 当前状态 | 部分完成——**未在本地验证**（未克隆、未构建）；远程结构已实测（2026-10-23，详见 OPENBIZ-GAP-ANALYSIS.md） |
+| 技术栈 | Java 21 · Spring Boot 3 · MyBatis · MySQL · Maven；RuoYi-Vue 3.9.2 运行时外壳 + 6 大能力域 |
+| 已实现功能 | 五母域 + 4 个 IoT 行业插件：saas-core（Tenant/Member）· service（工单状态机：CREATED→ASSIGNED→ACCEPTED→COMPLETED/CANCELLED，幂等+租户隔离）· business（Customer/Account/流水/Order）· shop（Product/Inventory CAS/Order）· agent（最小核心：PromptTemplate→AgentInvoker→ModelPort→OpenAI 兼容，ToolPort 空边界）· iot（Device/Product/ThingModel/Command + ProtocolPort SPI + MQTT 适配 + MockDoor；插件：access 门禁/locker 储物柜/charging 充电桩/mes 验证桩）· foundation（空骨架） |
+| 测试与运行 | 远程自评（2026-09-15 封板审计）：IoT 52 测试、`mvn clean test` PASS（1 skip=Agent 无 key）、`mvn package` PASS、并发扣款/库存均为真实 MySQL 测试；CI 存在；**本地未执行** |
+| 公开状态 | GitHub 公开；Release `v0.1.0`；Maven 产物 `com.openbiz:openbiz-service:3.9.2`（workorder-demo 唯一业务来源） |
 | 对应网站页面 | `/open-source/mine/openbiz`（开源拆解页） |
-| 主要缺口 | 未克隆、未构建、未安装到本地 Maven 仓库（`~/.m2/repository/com/openbiz/` 不存在） |
-| 下一步行动 | 克隆到 `E:/8.cangku/openbiz` → `mvn install` 产出构件 → 作为工单 demo 的前置 |
-| 优先级 | **P0**（工单项目的硬前置） |
+| 主要缺口 | ① 本地零验证（未克隆/未构建/`~/.m2` 无构件）② IoT v1.0 FROZEN 与扩 MES/IIoT 存在冲突，需按真实需求解冻 ③ 文档状态漂移（自述 P1）④ Agent 真实模型 E2E 无 key ⑤ 独立消费者仅 1 个 |
+| 下一步行动 | 克隆到 `E:/8.cangku/openbiz` → `mvn install` 产出构件 → 作为工单 demo 的前置；适配分析与缺口清单见 OPENBIZ-GAP-ANALYSIS.md |
+| 优先级 | **P0**（工单项目的硬前置；同时是 9 个企业/工业/办公系统的底座） |
 
 ### 2.3 openbiz-workorder-demo（工单系统）
 

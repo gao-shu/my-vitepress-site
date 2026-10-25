@@ -779,8 +779,25 @@ const APP_GROUPS_5 = [
       ['Web 与 PDA 数据协同', '/apps/terminal/web-pda-sync'],
       ['离线优先的终端应用设计', '/apps/terminal/offline-first']
     ]
+  },
+  {
+    title: 'OpenBiz 实战（试水实证）',
+    link: '/apps/openbiz/',
+    items: [
+      ['OpenBiz 试水总览', '/apps/openbiz/'],
+      ['工单系统（首个 consumer）', '/apps/openbiz/workorder'],
+      ['MES 生产执行（基于 OpenBiz）', '/apps/openbiz/mes'],
+      ['项目管理系统（第三个 consumer）', '/apps/openbiz/pms'],
+      ['CRM 客户关系管理（第四个 consumer）', '/apps/openbiz/crm'],
+      ['ERP 企业资源计划（第五个 consumer）', '/apps/openbiz/erp'],
+      ['EAM 企业资产管理（第六个 consumer）', '/apps/openbiz/eam'],
+      ['OA 办公自动化（第七个 consumer）', '/apps/openbiz/oa'],
+      ['BPM 业务流程管理（第八个 consumer）', '/apps/openbiz/bpm'],
+      ['IIoT 工业物联网（第九个 consumer）', '/apps/openbiz/iiot'],
+      ['脚手架与坑位', '/apps/openbiz/scaffold']
+    ]
   }
-]
+    ]
 
 function appsSidebar5() {
   return [
