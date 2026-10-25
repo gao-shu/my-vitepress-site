@@ -226,10 +226,23 @@ openbiz-saas-core（Tenant / Member / TenantResolver / Interceptor）
 - **目录**：`E:/8.cangku/for-job/openbiz-{名称}-app/`，每应用四件套 `backend/`（独立 Spring Boot）+ `frontend/`（独立 Vue3/TS）+ `sql/` + `README.md`；端口沿用 18081–18089。
 - **数据库一应用一库**：`split-databases.sh` 从共享 `ry-vue` 拆出 9 个独立库（`openbiz_workorder/mes/pms/crm/erp/eam/oa/bpm/iiot`），每库 = RuoYi 系统表（含 admin 账号）+ quartz + openbiz 平台基础表（tenant/member）+ **仅本系统 2 张业务表**，干净结构无历史数据；各库账号体系独立，租户物理隔离。
 - **前端模板化**：`openbiz-app-template` 为唯一母版，复制后只改 3 处（`modules.ts` 元数据、`vite.config.ts` 的 `BACKEND_PORT`、`index.html` 标题）。9 个前端 `vue-tsc` + `npm run build` 全通过。
-- **标准契约兼容层**：每个后端新增 `StandardApiController`，把域特定端点（`/activate`、`/submit` 等）补齐为统一契约（内存分页 `list`→`{rows,total}`、`transition?to=` 状态机映射、`stats` 计数含 0 值态、`PUT`/`DELETE`），非法流转统一 `{code:500,msg:"ILLEGAL_TRANSITION"}`；域端点全部保留，旧 E2E 回归通过。
+- **标准契约兼容层**：每个后端新增 `StandardApiController`，把域特定端点（`/activate`、`/submit` 等）补齐为统一契约（内存分页 `list`→`{rows,total}`、`transition?to=` 状态机映射、`stats` 计数含 0 值态、`PUT`/`DELETE`）；错误契约由 `ApiExceptionHandler` 全局统一：非法流转 **HTTP 409** `{code:500,msg:"ILLEGAL_TRANSITION"}`、记录不存在 HTTP 400、业务异常 HTTP 200+code（RuoYi 约定）、其余异常由 RuoYi 全局处理器兜底不泄露堆栈；域端点全部保留，旧 E2E 回归通过。
 - **E2E**：9 应用各跑「域特定 E2E（旧）+ 统一契约 E2E（新）」双线全绿，证据在各 `backend/E2E-RESULT.txt`。
-- **前后端联调**：CRM 应用（18084 + 5184）经 Vite 代理完整链路 **7/7 通过**（登录→列表→新增→NEW→ACTIVE 流转→非法流转被拒→统计→商机列表）。
+- **前后端联调**：CRM 应用（18084 + 5184）经 Vite 代理完整链路 **8/8 通过**（登录→列表→新增→NEW→ACTIVE 流转→非法流转被拒 409→不存在记录 400→统计→商机列表）。
 - **目录清理（2026-10-25）**：9 个早期 demo 原型目录已删除；9 个独立应用统一移至 `E:/8.cangku/for-job/`（求职作品集交付目录），后端 Maven artifactId 与 jar 名由 `-demo` 更名为 `-app`。
 - **结论：交付形态与「100 套独立商用应用」目标对齐——第 N 个应用 = 建库脚本 + 复制 backend 改数据源 + 复制前端模板改元数据 + 跑双线 E2E，「百套流水线」以独立应用为单位运转。**
+
+### 5.13 阶段四：工程化加固（命名 / 契约 / 配置 / 版本 / Lint）✅（2026-10-25）
+
+以「求职作品集 + 中小企业/个人开发者可用」为标准做的规范化（用户明确不需要单套测试体系，故不补 JUnit/Vitest）：
+
+- **命名去 demo 化**：9 个后端包名 `com.openbiz.{x}demo`→`com.openbiz.{x}`、主类 `{X}DemoApplication`→`{X}Application`、`ruoyi.name`、pom `groupId`/`mainClass` 全部同步；源码/配置/文档/脚本 260+ 处引用一并清扫。
+- **统一错误契约**：新增 `ApiExceptionHandler`（`@RestControllerAdvice`）——`IllegalStateException`→409、`IllegalArgumentException`→400、`ServiceException`→200+code（RuoYi 约定），其余异常交由 RuoYi 全局处理器兜底不泄露堆栈（`@Order` 最高优先级解决与 RuoYi 自带处理器的匹配顺序问题）；移除 9 个控制器里风格互异的本地 try/catch（原 crm/erp/eam 返回 HTTP 500、bpm/iiot/oa 与 workorder/mes/pms 返回 200+code，前端拿不到错误详情）；前端 `request.ts` 错误分支补全 `response.data.msg` 展示。
+- **配置外置**：`application-druid.yml` 的 MySQL 密码、Druid 控制台账号、`token.secret`、上传目录全部改为 `${ENV:默认值}` 形式（开箱即用 + 生产可覆盖）；Druid 控制台加 `allow=127.0.0.1` 白名单；wall 过滤器关闭 `multi-statement-allow`。
+- **依赖升级**：前端 Vite 5.4→**8.3**、`@vitejs/plugin-vue` 6、Vue 3.5.44、Element Plus 2.14.7、TypeScript 5.9.3、vue-tsc 3、axios 1.20、pinia 4.1、vue-router 5.4；9 个前端 `npm run lint` + `npm run build`（vue-tsc 严格模式）全绿。
+- **工程化文件**：9 应用补齐 `.gitignore`×3（根/backend/frontend）、ESLint 10 flat 配置（typescript-eslint + eslint-plugin-vue + eslint-config-prettier 消冲突）+ Prettier 配置 + `lint/format/typecheck` 脚本；模板 `openbiz-app-template` 同步升级。
+- **验证**：9 后端 `mvn clean package` 全过、9 应用 E2E 重跑全绿、CRM 前后端联调探针 8/8（含新增 409/400 错误契约断言）。
+- **按用户定位取舍**：面向中小企业/个人开发者，**不引入** JUnit/Vitest 单套体系（已有 HTTP E2E 兜底）、不引入 Docker/compose、DTO+JSR-303 校验留作后续增强。
+
 
 本文取代并细化审计表中 openbiz 母仓条目（2.2）：审计时母仓未克隆，仅有技术栈推测；本文基于 master 全量目录树 + 各模块 README + 封板审计报告实测修正。截至 2026-10-25，A 类 9 系统最终以 **9 个独立应用**（独立后端 18081–18089 + 独立 Vue3/TS 前端 + 独立数据库 `openbiz_*`，统一位于 `E:/8.cangku/for-job/`）形态交付，前后端联调实测通过；9 个早期 demo 原型已删除，阶段二的合并单体已废弃删除。

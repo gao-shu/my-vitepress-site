@@ -58,7 +58,16 @@ bash run_<模块>_e2e.sh
 | 9 | **拼写 / 字段错位** | 接口报 400 / 字段为 null | 注意 `idempotentKey` 非 `idempotencyKey`；请求体需带 `title/content/contactName/contactPhone` 等必填；`assigneeUserId` 须存在（如 `1`） |
 | 10 | **token 提取路径错** | 取不到 token 导致后续 401 | 登录返回结构为 `resp["token"]`（非 `resp["data"]["token"]`），依实际响应调整 |
 
-## 5. 证据纪律
+## 5. 现行标准流水线（2026-10-25 工程化加固后）
+
+1. **建库**：`split-databases.sh` 同款套路拆出独立库 `openbiz_<模块>`（RuoYi 系统表 + quartz + saas 基础表 + 本系统业务表，导后关验证码）
+2. **复制 backend**：以任一现有应用为母本（如 `openbiz-crm-app/backend`），改 `application-druid.yml` 数据源与端口；包名 `com.openbiz.<模块>`、主类 `<模块>Application`；`ApiExceptionHandler` 随复制天然获得——错误契约（409 非法流转 / 400 不存在 / 200+code 业务错 / 500 不泄露堆栈）无需重写
+3. **复制 frontend**：以 `openbiz-app-template` 为母本，只改 `src/config/modules.ts` 元数据、`vite.config.ts` 的 `BACKEND_PORT`、`index.html` 标题；ESLint/Prettier 配置随模板自带
+4. **双线验证**：`mvn -o clean package spring-boot:repackage -DskipTests` → `bash run_standard_e2e.sh`（契约 E2E）→ 前端 `npm run lint && npm run build`
+
+密钥全部走环境变量（`MYSQL_PASSWORD` / `TOKEN_SECRET` / `DRUID_*`，默认值开箱即用）；`.gitignore` 已备好，可直接入 git。
+
+## 6. 证据纪律
 
 表述不得超过实测边界：协议 = mock、MQTT = stub、Agent = L2、本地 Maven 构件 ≠ Maven Central、单一消费者 ≠ SDK 产品化。作品集与简历一律按此口径。
 

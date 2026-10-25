@@ -50,11 +50,11 @@ openbiz-{名称}-app/
 
 9 个前端均由统一模板 `E:/8.cangku/openbiz-app-template` 复制生成，复制后**只需改 3 处**：`src/config/modules.ts`（本系统元数据）、`vite.config.ts` 的 `BACKEND_PORT`、`index.html` 标题。
 
-- 技术栈：Vite + Vue3 + TypeScript + Element Plus + Vue Router + Pinia + axios
+- 技术栈：Vite 8 + Vue 3.5 + TypeScript 5.9 + Element Plus 2.14 + Vue Router 5 + Pinia 4 + axios 1.20
 - 元数据驱动：菜单 / 路由 / 表格列 / 表单 / 状态流转 / 统计卡片全部由 `modules.ts` 生成
 - 契约统一：`/login` 拿 token → `Authorization: Bearer`；实体 REST 为 `/api/{module}/{entity}` 的 `list / {id} / POST / PUT / DELETE / {id}/transition?to= / stats`
 
-**标准契约兼容层**：每个后端都新增 `StandardApiController`，把域特定端点（`/activate`、`/submit` 等）补齐为统一契约（内存分页 `list`、`transition?to=` 状态机映射、`stats` 计数、`PUT`/`DELETE`），非法流转统一返回 `{code:500,msg:"ILLEGAL_TRANSITION"}`。前端零特判，9 个应用一套前端代码模式。
+**标准契约兼容层**：每个后端都新增 `StandardApiController`，把域特定端点（`/activate`、`/submit` 等）补齐为统一契约（内存分页 `list`、`transition?to=` 状态机映射、`stats` 计数、`PUT`/`DELETE`）。错误由 `ApiExceptionHandler` 全局统一处理：非法流转返回 **HTTP 409** `{code:500,msg:"ILLEGAL_TRANSITION"}`，记录不存在返回 HTTP 400，控制器不再各自 try/catch。前端零特判，9 个应用一套前端代码模式。
 
 ## 运行方式（以 CRM 为例）
 
@@ -71,7 +71,7 @@ npm run dev     # http://localhost:5184
 
 登录：`admin / admin123`（各应用独立库，账号互不影响）。
 
-**已实测联调**：CRM 应用经 Vite 代理完整链路 7/7 通过（登录→列表→新增→NEW→ACTIVE 流转→非法流转被拒→统计→商机列表）。
+**已实测联调**：CRM 应用经 Vite 代理完整链路 **8/8 通过**（登录→列表→新增→NEW→ACTIVE 流转→非法流转被拒(409)→不存在记录(400)→统计→商机列表）。
 
 ## 复用模式（百套流水线脚手架）
 
