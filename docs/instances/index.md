@@ -4,19 +4,20 @@
 
 **项目状态图例**：✅ 已验证（有运行/测试证据） · 🔧 验证中/在建（代码存在，证据整理中） · 📋 规划中（尚未开始实现）
 
-## 项目矩阵（5 大模块 × 3 个项目）
+## 项目矩阵（覆盖 01–04，05 暂无实例）
 
-| 模块 | 项目 1 | 项目 2 | 项目 3 |
-|---|---|---|---|
-| [01 企业业务应用](/instances/business/) | [CRM 客户关系管理系统](/instances/business/crm) | [ERP 企业资源管理系统](/instances/business/erp) | [项目管理系统](/instances/business/pms) |
-| [02 工业数字化应用](/instances/industrial/) | [设备资产管理系统 EAM](/instances/industrial/eam) | [生产执行管理系统 MES](/instances/industrial/mes) | [工业物联网监控系统](/instances/industrial/iiot) |
-| [03 AI 应用](/instances/ai/) | [AI 智能助手](/instances/ai/assistant) | [AI 知识库系统](/instances/ai/kb) | [AI 工作流与智能体平台](/instances/ai/agent-platform) |
-| [04 办公自动化](/instances/office/) | [OA 办公自动化系统](/instances/office/oa) | [BPM 业务流程管理系统](/instances/office/bpm) | [在线表单与数据收集系统](/instances/office/form) |
-| [05 个人工具](/instances/tools/) | [个人任务与时间管理系统](/instances/tools/task-time) | [个人知识库与笔记系统](/instances/tools/notes) | [开发者工具箱](/instances/tools/devtools) |
+| 分类 | 实例 |
+|---|---|
+| [01 AI 智能应用](/instances/ai/) | [AI 智能助手](/instances/ai/assistant) · [AI 知识库系统](/instances/ai/kb) · [AI 工作流与智能体平台](/instances/ai/agent-platform) |
+| [02 工业数字化应用](/instances/industrial/) | [设备资产管理系统 EAM](/instances/industrial/eam) · [生产执行管理系统 MES](/instances/industrial/mes) · [工业物联网监控系统](/instances/industrial/iiot) |
+| [03 企业业务应用](/instances/business/) | [CRM](/instances/business/crm) · [ERP](/instances/business/erp) · [项目管理系统](/instances/business/pms) · [OA](/instances/office/oa) · [BPM](/instances/office/bpm) · [在线表单](/instances/office/form) |
+| [04 效率与自动化工具](/instances/tools/) | [个人任务与时间管理](/instances/tools/task-time) · [个人知识库与笔记](/instances/tools/notes) · [开发者工具箱](/instances/tools/devtools) |
 
 ## 当前进展
 
-- **✅ 已验证**：[ModelDesk · 本机多模态 AI 配测台](/apps/ai/modeldesk)（AI 应用方向，93 项单测通过 · v0.2.1 已发布）—— 是上表「AI 智能助手」方向第一个交付的实例
+- **✅ 已验证**：
+  - [ModelDesk · 本机多模态 AI 配测台](/apps/ai/modeldesk)（AI 应用方向，93 项单测通过 · v0.2.1 已发布）—— 是上表「AI 智能助手」方向第一个交付的实例
+  - **01 AI 应用模块三个项目全部交付**（`E:\8.cangku\for-job\` 下 `ai-assistant` / `ai-knowledge-base` / `ai-agent-platform`）：共 630 个单元测试 + 39 项 E2E 检查全部通过，各含可执行 jar、前端工程与完整文档，详见各项目页
 - **🔧 验证中/在建**：OpenBiz 工单系统（企业级 Java 全栈，见[功能开发 › 企业业务应用](/apps/business/)）；个人知识库与 Java Agent 示例（见[功能开发 › AI 应用](/apps/ai/)）
 - **📋 规划中**：上表其余项目，各模块页内有功能规划与优先级说明
 
