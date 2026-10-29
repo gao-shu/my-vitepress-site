@@ -578,9 +578,10 @@ function englishSpeakingSidebar() {
 }
 
 /**
- * @deprecated 死代码，勿再编辑：本数组与 appsSidebar() 无任何挂载（生效的是 APP_GROUPS_5 + appsSidebar5）。
+ * @deprecated 死代码，勿再编辑：本数组与 appsSidebar() 无任何挂载（生效的是 MATRIX_GROUPS + matrixSidebar()）。
  * 2026-10-23 审计发现：ModelDesk 侧栏入口曾误加入本数组导致项目页长期不在生效侧栏（W1 问题）。
- * 保留仅为留存历史结构，新条目请一律加到 APP_GROUPS_5。
+ * 2026-10-26 起 /apps/ 与 /instances/ 侧栏统一为「分类 → 项目」两级，实践文章不再进侧栏，
+ * 新项目请加到 MATRIX_GROUPS，新文章请写进对应 /apps/xx/ 分类总览页的表格。
  */
 const APP_CATEGORIES = [
   { key: 'ai', title: 'AI 应用', link: '/apps/ai/', items: [
@@ -640,12 +641,12 @@ function appsSidebar(category?: string) {
   return [
     {
       text: '功能开发',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: '模块总览', link: '/apps/' }]
     },
     ...groups.map(c => ({
       text: c.title,
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '分类总览', link: c.link },
         ...c.items.map(([text, link]) => ({ text, link }))
@@ -701,12 +702,12 @@ function aiSidebar(category?: string) {
   return [
     {
       text: 'AI 赋能',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: '模块总览', link: '/ai/' }]
     },
     ...groups.map(m => ({
       text: m.title,
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '模块总览', link: m.link },
         ...m.items.map(([text, link]) => ({ text, link }))
@@ -718,125 +719,16 @@ function aiSidebar(category?: string) {
 /* ================= 第 1 天改造：五栏目导航与侧栏 ================= */
 
 /** 功能开发：5 个业务分类（ops 归入技术体系「部署与运维」，文件路径不变） */
-const APP_GROUPS_5 = [
-  {
-    title: '企业业务应用',
-    link: '/apps/business/',
-    items: [
-      ['管理后台设计与开发', '/apps/business/admin-system'],
-      ['CRM 定制改造实践', '/apps/business/crm-custom'],
-      ['ERP 流程与单据设计', '/apps/business/erp-workflow'],
-      ['微信小程序开发实践', '/apps/business/mini-program'],
-      ['多租户 SaaS 架构', '/apps/business/saas-multi-tenant'],
-      ['对外 API 设计与开放平台', '/apps/integration/open-api'],
-      ['Webhook 接入与可靠投递', '/apps/integration/webhook-design'],
-      ['系统间数据同步方案', '/apps/integration/data-sync'],
-      ['单点登录与授权打通', '/apps/integration/sso-oauth'],
-      ['老系统集成改造', '/apps/integration/legacy-integration']
-    ]
-  },
-  {
-    title: '工业数字化应用',
-    link: '/apps/industrial/',
-    items: [
-      ['轻量 MES 落地实践', '/apps/industrial/mes-lite'],
-      ['PLC 数据采集方案', '/apps/industrial/plc-collect'],
-      ['设备监控与告警', '/apps/industrial/device-monitor'],
-      ['Modbus/S7 协议对接', '/apps/industrial/protocol-bridge'],
-      ['物联网数据平台搭建', '/apps/industrial/iot-platform']
-    ]
-  },
-  {
-    title: 'AI 应用',
-    link: '/apps/ai/',
-    items: [
-      ['ModelDesk · 本机多模态 AI 配测台', '/apps/ai/modeldesk'],
-      ['知识库问答（RAG）', '/apps/ai/rag-knowledge-base'],
-      ['智能体工作流设计与落地', '/apps/ai/agent-workflow'],
-      ['多模型 API 接入与选型', '/apps/ai/multi-model-api'],
-      ['Prompt 编排与流程自动化', '/apps/ai/prompt-pipeline'],
-      ['AI 编程助手在项目落地', '/apps/ai/ai-code-assistant']
-    ]
-  },
-  {
-    title: '办公自动化',
-    link: '/apps/office/',
-    items: [
-      ['飞书机器人开发实践', '/apps/office/feishu-bot'],
-      ['审批与待办自动化', '/apps/office/approval-automation'],
-      ['企微/钉钉消息推送', '/apps/office/im-webhook'],
-      ['日报周报自动生成', '/apps/office/report-auto-generation'],
-      ['日程与会议自动化', '/apps/office/schedule-sync']
-    ]
-  },
-  {
-    title: '个人工具',
-    link: '/apps/terminal/',
-    items: [
-      ['PDA 移动端应用开发', '/apps/terminal/pda-app'],
-      ['Electron 桌面客户端', '/apps/terminal/electron-desktop'],
-      ['C# 上位机界面开发', '/apps/terminal/csharp-hmi'],
-      ['Web 与 PDA 数据协同', '/apps/terminal/web-pda-sync'],
-      ['离线优先的终端应用设计', '/apps/terminal/offline-first']
-    ]
-  },
-  {
-    title: 'OpenBiz 实战（试水实证）',
-    link: '/apps/openbiz/',
-    items: [
-      ['OpenBiz 试水总览', '/apps/openbiz/'],
-      ['工单系统（首个 consumer）', '/apps/openbiz/workorder'],
-      ['MES 生产执行（基于 OpenBiz）', '/apps/openbiz/mes'],
-      ['项目管理系统（第三个 consumer）', '/apps/openbiz/pms'],
-      ['CRM 客户关系管理（第四个 consumer）', '/apps/openbiz/crm'],
-      ['ERP 企业资源计划（第五个 consumer）', '/apps/openbiz/erp'],
-      ['EAM 企业资产管理（第六个 consumer）', '/apps/openbiz/eam'],
-      ['OA 办公自动化（第七个 consumer）', '/apps/openbiz/oa'],
-      ['BPM 业务流程管理（第八个 consumer）', '/apps/openbiz/bpm'],
-      ['IIoT 工业物联网（第九个 consumer）', '/apps/openbiz/iiot'],
-      ['脚手架与坑位', '/apps/openbiz/scaffold']
-    ]
-  }
-    ]
+/* ================= 应用矩阵：五类 · 项目矩阵侧栏 ================= */
 
-function appsSidebar5() {
-  return [
-    { text: '功能开发', collapsed: false, items: [{ text: '模块总览', link: '/apps/' }] },
-    ...APP_GROUPS_5.map(g => ({
-      text: g.title,
-      collapsed: false,
-      items: [
-        { text: '分类总览', link: g.link },
-        ...g.items.map(([text, link]) => ({ text, link }))
-      ]
-    }))
-  ]
-}
-
-/** 应用实例：5 大模块 × 3 个项目。每个项目均有独立规划页（如实标注状态），
- *  侧栏直接链接到项目页。 */
-const INSTANCE_GROUPS = [
+/** 侧栏只到二级：分类 → 已开发项目。实践文章不再进侧栏，统一收进各分类总览页（/apps/xx/）。
+ *  05 暂无项目实例，只展示分类总览 + 一行「暂无实例」。
+ *  折叠：分组 collapsed: true，进入栏目只展开当前页所在链路（VitePress 自动展开活动项）。 */
+const MATRIX_GROUPS = [
   {
-    title: '01 企业业务应用',
-    link: '/instances/business/',
-    projects: [
-      { name: 'CRM 客户关系管理系统', link: '/instances/business/crm' },
-      { name: 'ERP 企业资源管理系统', link: '/instances/business/erp' },
-      { name: '项目管理系统', link: '/instances/business/pms' }
-    ]
-  },
-  {
-    title: '02 工业数字化应用',
-    link: '/instances/industrial/',
-    projects: [
-      { name: '设备资产管理系统 EAM', link: '/instances/industrial/eam' },
-      { name: '生产执行管理系统 MES', link: '/instances/industrial/mes' },
-      { name: '工业物联网监控系统', link: '/instances/industrial/iiot' }
-    ]
-  },
-  {
-    title: '03 AI 应用',
-    link: '/instances/ai/',
+    title: '01 AI 智能应用',
+    appsOverview: '/apps/ai/',
+    instancesOverview: '/instances/ai/',
     projects: [
       { name: 'AI 智能助手', link: '/instances/ai/assistant' },
       { name: 'AI 知识库系统', link: '/instances/ai/kb' },
@@ -844,45 +736,120 @@ const INSTANCE_GROUPS = [
     ]
   },
   {
-    title: '04 办公自动化',
-    link: '/instances/office/',
+    title: '02 工业数字化应用',
+    appsOverview: '/apps/industrial/',
+    instancesOverview: '/instances/industrial/',
     projects: [
+      { name: '设备资产管理系统 EAM', link: '/instances/industrial/eam' },
+      { name: '生产执行管理系统 MES', link: '/instances/industrial/mes' },
+      { name: '工业物联网监控系统', link: '/instances/industrial/iiot' }
+    ]
+  },
+  {
+    title: '03 企业业务应用',
+    appsOverview: '/apps/business/',
+    instancesOverview: '/instances/business/',
+    projects: [
+      { name: 'CRM 客户关系管理系统', link: '/instances/business/crm' },
+      { name: 'ERP 企业资源管理系统', link: '/instances/business/erp' },
+      { name: '项目管理系统', link: '/instances/business/pms' },
       { name: 'OA 办公自动化系统', link: '/instances/office/oa' },
       { name: 'BPM 业务流程管理系统', link: '/instances/office/bpm' },
       { name: '在线表单与数据收集系统', link: '/instances/office/form' }
     ]
   },
   {
-    title: '05 个人工具',
-    link: '/instances/tools/',
+    title: '04 效率与自动化工具',
+    appsOverview: '/apps/office/',
+    instancesOverview: '/instances/tools/',
     projects: [
       { name: '个人任务与时间管理系统', link: '/instances/tools/task-time' },
       { name: '个人知识库与笔记系统', link: '/instances/tools/notes' },
       { name: '开发者工具箱', link: '/instances/tools/devtools' }
     ]
+  },
+  {
+    title: '05 多端应用与现场交付',
+    appsOverview: '/apps/terminal/',
+    instancesOverview: '/apps/terminal/',
+    projects: []
   }
 ]
 
-function instancesSidebar() {
+/** kind=apps 时「分类总览」指向 /apps/xx/（文章索引），kind=instances 时指向 /instances/xx/（模块总览）。 */
+function matrixSidebar(kind: 'apps' | 'instances' = 'apps') {
+  const isApps = kind === 'apps'
   return [
-    { text: '应用实例', collapsed: false, items: [{ text: '实例总览', link: '/instances/' }] },
-    ...INSTANCE_GROUPS.map(g => ({
-      text: g.title,
-      collapsed: false,
+    {
+      text: isApps ? '应用矩阵 · 五类' : '项目实例 · 五类',
+      collapsed: true,
       items: [
-        { text: '模块总览', link: g.link },
-        ...g.projects.map(p => ({ text: p.name, link: p.link }))
+        { text: '应用总览', link: '/apps/' },
+        { text: '项目实例总表', link: '/instances/' }
+      ]
+    },
+    ...MATRIX_GROUPS.map(g => ({
+      text: g.title,
+      collapsed: true,
+      items: [
+        {
+          text: isApps ? '分类总览' : '模块总览',
+          link: isApps ? g.appsOverview : g.instancesOverview
+        },
+        ...(g.projects.length
+          ? g.projects.map(p => ({ text: p.name, link: p.link }))
+          : [{ text: '暂无实例' }])
       ]
     }))
   ]
 }
+
+
+/**
+ * 解决方案：站内已有的 7 篇方案文章，按主题分三组。
+ * 只做归类与汇总，不改动任何文章正文；原 techSidebar5 不再覆盖 /scenarios/，
+ * 否则进入「解决方案」栏目会看到整份技术体系菜单，与栏目不符。
+ */
+function scenarioSidebar() {
+  return [
+    {
+      text: '解决方案',
+      collapsed: true,
+      items: [{ text: '方案总览', link: '/scenarios/' }]
+    },
+    {
+      text: '系统架构',
+      collapsed: true,
+      items: [
+        { text: 'Web 系统架构设计', link: '/scenarios/web-system-design' },
+        { text: '秒杀系统架构', link: '/scenarios/seckill' },
+        { text: '多租户与数据隔离', link: '/scenarios/multi-tenant' }
+      ]
+    },
+    {
+      text: '认证与接口',
+      collapsed: true,
+      items: [
+        { text: 'SSO 与 OAuth2 授权', link: '/scenarios/sso' },
+        { text: '对外 API 设计与认证', link: '/scenarios/open-api' },
+        { text: '接口幂等性设计', link: '/scenarios/api-idempotent' }
+      ]
+    },
+    {
+      text: '数据处理',
+      collapsed: true,
+      items: [{ text: '大文件分片与断点续传', link: '/scenarios/large-file' }]
+    }
+  ]
+}
+
 
 /** 技术体系：6 个分类，覆盖 tech-system 与 java/database/redis/framework/mq 等原独立目录 */
 function techSidebar5() {
   return [
     {
       text: '技术体系概览',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '技术体系概览', link: '/tech-system/' },
         { text: '后端技术体系', link: '/tech-system/backend/' },
@@ -894,7 +861,7 @@ function techSidebar5() {
     },
     {
       text: 'Java 后端',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: 'Java 基础总览', link: '/java/base-overview' },
         { text: '面向对象编程', link: '/java/oop' },
@@ -1081,10 +1048,10 @@ function techSidebar5() {
 /** AI 实践：5 个分类（保留 /ai/* 原路径，business 作为案例子组兜底） */
 function aiSidebar5() {
   return [
-    { text: 'AI 实践', collapsed: false, items: [{ text: '模块总览', link: '/ai/' }] },
+    { text: 'AI 实践', collapsed: true, items: [{ text: '模块总览', link: '/ai/' }] },
     {
       text: 'AI 辅助编程',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: 'AI 认知总览', link: '/ai/cognition/' },
         { text: 'AI 辅助编程工作流', link: '/ai/productivity/ai-coding-workflow' },
@@ -1160,7 +1127,7 @@ function aboutSidebar5() {
   return [
     {
       text: '个人介绍',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '个人介绍', link: '/about/' },
         { text: '我的理念', link: '/about/philosophy' }
@@ -1168,12 +1135,12 @@ function aboutSidebar5() {
     },
     {
       text: '工作经历',
-      collapsed: false,
+      collapsed: true,
       items: [{ text: '工作与项目经历（详见简历）', link: '/guide/my-resume' }]
     },
     {
       text: '技术能力',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '技术体系总览', link: '/tech-system/' },
         { text: '应用与项目实践', link: '/apps/' }
@@ -1181,7 +1148,7 @@ function aboutSidebar5() {
     },
     {
       text: '简历与联系方式',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '个人简历', link: '/guide/my-resume' },
         { text: 'GitHub', link: 'https://github.com/gao-shu' }
@@ -1195,7 +1162,7 @@ function moreSidebar() {
   return [
     {
       text: '其他内容',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '内容索引', link: '/more/' },
         { text: '就业与面试', link: '/guide/' },
@@ -1229,18 +1196,21 @@ export default defineConfig({
     // Logo 配置
     logo: '/logo.svg',
     
-    // 一级栏目：首页 / 应用实例 / 功能开发 / 技术体系 / AI 实践 / 关于我（应用实例为规划项目矩阵，功能开发为技术实践）
+    // 一级栏目：首页 / 产品实例 / 解决方案 / AI 赋能与个人提效 / 关于我
+    // 五项顺序固定，一级导航不设下拉菜单，各栏目的分类统一放在左侧 sidebar。
     nav: [
       { text: '首页', link: '/' },
-      { text: '应用实例', link: '/instances/', activeMatch: '^\\/instances(\\/|$)' },
-      { text: '功能开发', link: '/apps/', activeMatch: '^\\/apps(\\/|$)' },
       {
-        text: '技术体系',
-        link: '/tech-system/',
-        activeMatch:
-          '^\\/tech-system(\\/|$)|^\\/(java|database|redis|framework|mq|network-linux|design-patterns|scenarios|springboot)(\\/|$)'
+        text: '产品实例',
+        link: '/instances/',
+        activeMatch: '^\\/(instances|apps)(\\/|$)'
       },
-      { text: 'AI 实践', link: '/ai/', activeMatch: '^\\/ai(\\/|$)' },
+      {
+        text: '解决方案',
+        link: '/scenarios/',
+        activeMatch: '^\\/scenarios(\\/|$)'
+      },
+      { text: 'AI 赋能与个人提效', link: '/ai/', activeMatch: '^\\/ai(\\/|$)' },
       { text: '关于我', link: '/about/', activeMatch: '^\\/about(\\/|$)' }
     ],
 
@@ -1257,7 +1227,7 @@ export default defineConfig({
       '/plan/': [
         {
           text: '建设计划',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: '30 天建设计划', link: '/plan/' },
             { text: '内容映射表', link: '/plan/mapping' }
@@ -1266,8 +1236,8 @@ export default defineConfig({
       ],
       // 功能开发（5 类）；ops 归技术体系，单独挂载以保持侧栏一致
       '/apps/ops/': techSidebar5(),
-      '/apps/': appsSidebar5(),
-      '/instances/': instancesSidebar(),
+      '/apps/': matrixSidebar('apps'),
+      '/instances/': matrixSidebar('instances'),
       // 技术体系（6 类）：合并原 java/database/redis/framework/mq 等独立目录
       '/tech-system/': techSidebar5(),
       '/java/': techSidebar5(),
@@ -1277,8 +1247,9 @@ export default defineConfig({
       '/mq/': techSidebar5(),
       '/network-linux/': techSidebar5(),
       '/design-patterns/': techSidebar5(),
-      '/scenarios/': techSidebar5(),
       '/springboot/': techSidebar5(),
+      // 解决方案（独立一级栏目）：7 篇文章按主题分三组，与顶部导航对应
+      '/scenarios/': scenarioSidebar(),
       // AI 实践（5 类）
       '/ai/': aiSidebar5(),
       // 关于我（4 类）

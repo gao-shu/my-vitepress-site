@@ -1,31 +1,34 @@
 # CRM 客户关系管理系统
 
-> 状态：✅ 已试水验证（OpenBiz 独立消费者） · 所属模块：[01 企业业务应用](/instances/business/) · 模块内优先级：第 2 位
+> OpenBiz 第 4 个独立消费者：客户主数据 + 商机状态机 + 销售漏斗统计的最小闭环。
+> ✅ 已验证 · 所属 [03 企业业务应用](/instances/business/) · 模块内优先级 2 · 代码 `E:/8.cangku/for-job/openbiz-crm-app`
 
-## 核心功能
+## 功能清单
 
-| 功能 | 规划说明 |
-|---|---|
-| 客户档案 | 客户主数据管理：基本信息、联系人、标签分类、查重合并 |
-| 销售线索 | 线索录入、来源追踪、分配与回收、转化跟进 |
-| 商机管理 | 商机阶段推进、预计金额、赢单/输单分析与复盘 |
-| 客户跟进 | 跟进记录、下次联系提醒、沟通历史时间线 |
+| 功能 | 状态 | 能做什么 | 证据 |
+|---|---|---|---|
+| 客户档案 | ✅ | 建客户(NEW) → 激活(ACTIVE) → 流失(CHURNED)；活动态可转 INVALID 做逻辑删除 | 客户状态机 E2E 通过 |
+| 商机管理 | ✅ | `DRAFT → NEGOTIATING → WON`；`DRAFT/NEGOTIATING → CANCELLED`；`DRAFT → NEGOTIATING → LOST`；WON/LOST/CANCELLED 为终态 | 商机状态机 E2E 通过 |
+| 销售漏斗统计 | ✅ | `GET /api/crm/opportunities/stats` 按阶段聚合商机数与金额 | E2E 校验阶段数字正确 |
+| 非法流转拦截 | ✅ | WON 再谈判、NEW 直接流失均被拒 | 返回 `ILLEGAL_TRANSITION` |
+| 多租户 | ✅ | 复用 `openbiz-saas-core` 多租户 + RuoYi 登录外壳 | 端口 18084 + 独立库 `openbiz_crm` |
+| 销售线索 | 📋 | 原规划有，实际未建表 —— 客户与商机之间缺线索层 | 待补充 |
+| 客户跟进 | 📋 | 跟进记录、下次联系提醒、沟通时间线均未实现 | 待补充 |
 
-## 规划要点
+## 待完善
 
-- 技术路线：Java 21 + Spring Boot 3 + Vue 3 + TypeScript + MySQL，与在建 OpenBiz 工单系统同栈，验证后复用其多租户、权限与状态机能力
-- 数据模型：客户主数据 / 线索 / 商机 / 跟进记录四张核心表，商机阶段流转用状态机表达
-- 展示价值：线索-商机-跟进链路完整，适合展示业务流程设计与销售漏斗分析
+- **线索层缺失**：客户直接跳商机，没有线索录入 / 来源追踪 / 分配回收，销售漏斗上游是断的
+- **客户主数据偏薄**：只有基础字段，联系人、标签分类、查重合并都还在规划里
+- **权限只到登录级**：复用 RuoYi 外壳，没有销售团队 / 角色的行级数据隔离
+- **统计只有当前快照**：没有时间维度，看不出赢单率趋势与阶段停留时长
 
-## 与现有资产的关系
+## 验证证据
 
-- 底座复用在建 [OpenBiz 工单系统](/apps/business/)（工单全生命周期 API，🔧 验证中/在建）的组织、权限、状态机设计
-- 管理后台与 CRM 定制的实践经验已沉淀在[功能开发 › 企业业务应用](/apps/business/)
-
-## 建设状态
-
-✅ 已基于 OpenBiz 完成最小可运行闭环（独立消费者 `openbiz-crm-app`，真实 MySQL + 状态机 E2E 全通）。实证、领域模型与复现步骤见 [OpenBiz 实战 › CRM](/apps/openbiz/crm/)。
+- 闭环：登录 → 建客户(NEW) → 激活(ACTIVE) → 建商机(DRAFT) → 谈判(NEGOTIATING) → 赢单(WON) → 阶段统计 → 非法流转拦截 → 重拉数据
+- 复用与自建：复用 `openbiz-saas-core`（TenantContext / 自动装配）；自建 `openbiz_crm_customer`、`openbiz_crm_opportunity` 表与 Mapper / Service / Controller
+- 实证记录：[OpenBiz 实战 › CRM](/apps/openbiz/crm/)
+- 工程位置：`E:/8.cangku/for-job/openbiz-crm-app`（端口 18084，含 README 与 E2E 脚本）
 
 ---
 
-上一级：[01 企业业务应用](/instances/business/) · [实例总览](/instances/)
+上一级：[03 企业业务应用](/instances/business/) · [实例总览](/instances/)

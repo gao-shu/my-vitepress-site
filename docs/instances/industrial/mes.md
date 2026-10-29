@@ -1,35 +1,34 @@
 # 生产执行管理系统 MES
 
-> 状态：✅ 已基于 OpenBiz 试水验证（最小可运行闭环 + E2E 全链路通过） · 所属模块：[02 工业数字化应用](/instances/industrial/) · 模块内优先级：第 1 位
+> 在 OpenBiz 之上自建的轻量 MES：工单下发 → 报工 → 质检 → 完工，跑通真实生产闭环。
+> ✅ 已验证 · 所属 [02 工业数字化应用](/instances/industrial/) · 模块内优先级 1 · 代码 `E:/8.cangku/for-job/openbiz-mes-app`
 
-## 核心功能
+## 功能清单
 
-| 功能 | 规划说明 |
-|---|---|
-| 生产工单 | 工单下发、执行状态跟踪、完工入库登记 |
-| 工序管理 | 工艺路线定义、工序流转、工序交接与扫码报工 |
-| 生产报工 | 产量上报、工时统计、良品/不良品记录 |
-| 质量追溯 | 批次追溯、质检记录、不良品分析与处置 |
+| 功能 | 状态 | 能做什么 | 证据 |
+|---|---|---|---|
+| 生产工单 | ✅ | 建单 → 开工 → 报工 → 质检 → 完工全链路，六态状态机 | E2E `create→start→report→qc→complete` 通过 |
+| 报工记录 | ✅ | 报工时写入生产记录，复用母仓已定义的报工表 | E2E 校验落库可查 |
+| 状态机约束 | ✅ | `CREATED→STARTED→REPORTED→QC_PASSED→COMPLETED`，含 `QC_FAILED` 返工与 `CANCELLED` 分支 | 非法流转返回 `ILLEGAL_TRANSITION` |
+| 多租户 | ✅ | 复用 `openbiz-saas-core` 的 TenantContext / TenantService / 自动装配 | 后端 18082 + 独立库 `openbiz_mes` |
+| 工序流转 | 🔧 | 工艺路线表母仓已定义，工序交接与工序级流转业务层未实现 | 在建 |
+| 质检单据 | 🔧 | 目前只有 QC_PASSED / QC_FAILED 两个状态位，没有独立检验单 | 在建 |
+| 批次追溯 | 📋 | 计划中，尚无表与接口 | — |
 
-## 规划要点
+## 待完善
 
-- 技术路线：**走扩展路线**——以在建 OpenBiz 工单系统为底座扩展工序流转、报工与质检，而不是另起炉灶；Java 21 + Spring Boot 3 + Vue 3 + TypeScript + MySQL
-- 数据模型：工单-工序-状态机与 MES 的生产工单、工序管理天然同构，扩展工艺路线、报工记录、质检单据三块即可覆盖核心场景
-- 展示价值：复用工单系统底座，投入产出比最高；且与本人制造业信息化（工艺模块）工作背景直接对应
+- **报工只到整单级**：不支持按工序分段报工、按人/班次汇总产量与工时
+- **质检缺实体**：没有检验单、抽样规则、不良代码与返工处置流程，只有状态位
+- **设备侧未打通**：母仓 `iot` 域的 `mes` 插件 `startProduction` 仍复用 mock 设备指令，未接真实 PLC / 产线
+- **前端只有列表页**：缺产线看板、工单甘特图与异常预警视图
 
-## 与现有资产的关系
+## 验证证据
 
-- 底座为在建 [OpenBiz 工单系统](/apps/business/)（🔧 验证中/在建），计划在其之上扩展工序流转与报工
-- 轻量 MES 落地、PLC 采集、协议对接的实践经验已沉淀在[功能开发 › 工业数字化应用](/apps/industrial/)
-
-## 建设状态
-
-✅ **已试水验证**：作为 OpenBiz 的**第二个试水应用**，在 OpenBiz 定义的 `openbiz_mes_*` 表（母仓仅验证桩）之上自建 MES 业务层，跑通真实生产工单闭环，HTTP E2E 全链路通过。
-
-- 实证页：[OpenBiz 试水 › MES 生产执行](/apps/openbiz/mes)
+- 业务闭环：`create → start → report(写生产记录) → qc(pass) → complete`，HTTP E2E 全链路通过
+- 反向校验：`COMPLETED -> CANCELLED` 被拦截，返回 `ILLEGAL_TRANSITION`
+- 复用边界：母仓 `openbiz_mes_*` 表（物料 / BOM / 工艺 / 生产工单 / 报工记录）+ `openbiz-saas-core`；业务层自建工单、报工 Mapper / Service / Controller 与状态机
+- 实证记录：[OpenBiz 试水 › MES 生产执行](/apps/openbiz/mes)
 - 工程位置：`E:/8.cangku/for-job/openbiz-mes-app`（含 README 与 E2E 脚本）
-- 复用的 OpenBiz 能力：`openbiz_mes_*` 表（物料/BOM/工艺/生产工单/报工记录）、`openbiz-saas-core` 多租户
-- 自建：生产工单状态机（CREATED→STARTED→REPORTED→QC_PASSED→COMPLETED，含 QC_FAILED 返工、CANCELLED）、报工记录
 
 ---
 

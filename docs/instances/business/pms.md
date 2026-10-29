@@ -1,6 +1,6 @@
 # 项目管理系统
 
-> 状态：✅ 已基于 OpenBiz 试水验证（最小可运行闭环 + E2E 全链路通过） · 所属模块：[01 企业业务应用](/instances/business/) · 模块内优先级：第 1 位
+> 状态：✅ 已基于 OpenBiz 试水验证（最小可运行闭环 + E2E 全链路通过） · 所属模块：[03 企业业务应用](/instances/business/) · 模块内优先级：第 1 位
 
 ## 核心功能
 
@@ -32,4 +32,4 @@
 
 ---
 
-上一级：[01 企业业务应用](/instances/business/) · [实例总览](/instances/)
+上一级：[03 企业业务应用](/instances/business/) · [实例总览](/instances/)
