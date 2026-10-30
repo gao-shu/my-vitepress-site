@@ -1,4 +1,4 @@
-# 01 AI 应用
+# 03 AI 应用
 
 > 智能助手、知识库、工作流与智能体 —— 用大模型与 Agent 构建的应用。
 
@@ -6,14 +6,28 @@
 
 ## 项目规划
 
+### Java 版（已交付）
+
 | 序号 | 软件项目 | 核心功能 | 状态 |
 |---|---|---|---|
 | 1 | [AI 智能助手](/instances/ai/assistant) | 多模型接入、智能对话、文件分析、工具调用 | ✅ 已验证 |
 | 2 | [AI 知识库系统](/instances/ai/kb) | 文档管理、知识检索、智能问答、来源引用 | ✅ 已验证 |
 | 3 | [AI 工作流与智能体平台](/instances/ai/agent-platform) | 工作流编排、智能体配置、工具调用、任务自动化 | ✅ 已验证 |
 
-> 三个项目已全部交付至 `E:\8.cangku\for-job\` 目录（`ai-assistant` / `ai-knowledge-base` / `ai-agent-platform`），
-> 共 **630 个单元测试**（187 + 199 + 244）与 **39 项 E2E 检查**全部通过，均具备可执行 jar 包、前端工程与完整文档。
+> Java 版三项目位于 `E:\8.cangku\for-job\`（`ai-assistant` / `ai-knowledge-base` / `ai-agent-platform`），
+> 共 **630 个单元测试**（187 + 199 + 244）与 **39 项 E2E 检查**全部通过，均具备可执行 jar、前端工程与完整文档。
+
+### Python 版（已交付，对齐岗位 LangGraph / Python 要求）
+
+| 序号 | 软件项目 | 核心功能 | 状态 |
+|---|---|---|---|
+| 1 | AI 智能助手 (Python) | 多模型接入、LangGraph 对话 Agent、工具调用、SSE | ✅ 已验证 |
+| 2 | AI 知识库系统 (Python) | 文档管理、混合检索、RAG 问答、引用、自动评测 | ✅ 已验证 |
+| 3 | AI 工作流与智能体平台 (Python) | LangGraph 工作流编排、checkpointer、失败重试、结果校验门 | ✅ 已验证 |
+
+> Python 版三项目位于 `E:\8.cangku\for-job\`（`ai-assistant-py` / `ai-knowledge-base-py` / `ai-agent-platform-py`），
+> 共 **24 个测试**（9 + 5 + 10）全部通过，均含 FastAPI + pytest + Docker Compose（MySQL + Redis）与完整文档。
+> 这套 Python 版专门补齐岗位要求的 **Python + LangGraph + 状态管理 + 失败重试 + 自动化评测** 证据。
 
 ## 与现有内容的关系
 
@@ -25,9 +39,9 @@
 
 ## 优先级建议
 
-1. ~~**AI 知识库系统**~~（✅ 已完成）
-2. ~~**AI 智能助手**~~（✅ 已完成）
-3. ~~**AI 工作流与智能体平台**~~（✅ 已完成）
+1. ~~**AI 知识库系统**~~（✅ Java + Python 双版本已完成）
+2. ~~**AI 智能助手**~~（✅ Java + Python 双版本已完成）
+3. ~~**AI 工作流与智能体平台**~~（✅ Java + Python 双版本已完成）
 
 ---
 
