@@ -1,7 +1,7 @@
 # AI 知识库系统
 
 > `✅ Java 已验证` · `✅ Python 已验证` · `🧪 204 测试` · `🛡️ 无答案红线` · `🔑 无密钥可跑`
-> 所属模块：[03 AI 应用](/instances/ai/) · 模块优先级：第 1 位 · 交付位置：`E:\8.cangku\for-job\ai-knowledge-base`、`ai-knowledge-base-py`
+> 所属模块：[01 AI 智能应用](/instances/ai/) · 模块优先级：第 1 位 · 交付位置：`E:\8.cangku\for-job\ai-knowledge-base`、`ai-knowledge-base-py`
 
 ## 📌 项目简介
 
@@ -130,10 +130,10 @@ ai-knowledge-base-py/      # Python 版
 
 ## 🔗 相关资源
 
-- 模块总览：[03 AI 应用](/instances/ai/)
+- 模块总览：[01 AI 智能应用](/instances/ai/)
 - 兄弟项目：[AI 智能助手](/instances/ai/assistant) · [AI 工作流与智能体平台](/instances/ai/agent-platform)
 - 技术实践：[功能开发 › AI 应用](/apps/ai/)
 
 ---
 
-上一级：[03 AI 应用](/instances/ai/) · [实例总览](/instances/)
+上一级：[01 AI 智能应用](/instances/ai/) · [实例总览](/instances/)

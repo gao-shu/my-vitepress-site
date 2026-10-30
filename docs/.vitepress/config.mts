@@ -730,9 +730,11 @@ const MATRIX_GROUPS = [
     appsOverview: '/apps/ai/',
     instancesOverview: '/instances/ai/',
     projects: [
+      { name: '通用 AI 应用脚手架', link: '/instances/ai/scaffold' },
       { name: 'AI 智能助手', link: '/instances/ai/assistant' },
       { name: 'AI 知识库系统', link: '/instances/ai/kb' },
-      { name: 'AI 工作流与智能体平台', link: '/instances/ai/agent-platform' }
+      { name: 'AI 工作流与智能体平台', link: '/instances/ai/agent-platform' },
+      { name: 'Python AI 应用套件', link: '/instances/ai/suite-py' }
     ]
   },
   {
@@ -740,9 +742,9 @@ const MATRIX_GROUPS = [
     appsOverview: '/apps/industrial/',
     instancesOverview: '/instances/industrial/',
     projects: [
-      { name: '设备资产管理系统 EAM', link: '/instances/industrial/eam' },
-      { name: '生产执行管理系统 MES', link: '/instances/industrial/mes' },
-      { name: '工业物联网监控系统', link: '/instances/industrial/iiot' }
+      { name: 'WMS 仓储管理系统', link: '/instances/industrial/wms' },
+      { name: 'MES 生产执行管理系统', link: '/instances/industrial/mes' },
+      { name: 'IIoT 工业物联网监控系统', link: '/instances/industrial/iiot' }
     ]
   },
   {
@@ -750,12 +752,13 @@ const MATRIX_GROUPS = [
     appsOverview: '/apps/business/',
     instancesOverview: '/instances/business/',
     projects: [
+      { name: '平台内核 · OpenBiz', link: '/instances/platform' },
       { name: 'CRM 客户关系管理系统', link: '/instances/business/crm' },
       { name: 'ERP 企业资源管理系统', link: '/instances/business/erp' },
-      { name: '项目管理系统', link: '/instances/business/pms' },
+      { name: 'PMS 项目管理系统', link: '/instances/business/pms' },
       { name: 'OA 办公自动化系统', link: '/instances/office/oa' },
       { name: 'BPM 业务流程管理系统', link: '/instances/office/bpm' },
-      { name: '在线表单与数据收集系统', link: '/instances/office/form' }
+      { name: 'HRM 人力资源管理系统', link: '/instances/office/hrm' }
     ]
   },
   {
@@ -782,7 +785,7 @@ function matrixSidebar(kind: 'apps' | 'instances' = 'apps') {
   return [
     {
       text: isApps ? '应用矩阵 · 五类' : '项目实例 · 五类',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: '应用总览', link: '/apps/' },
         { text: '项目实例总表', link: '/instances/' }
@@ -790,7 +793,7 @@ function matrixSidebar(kind: 'apps' | 'instances' = 'apps') {
     },
     ...MATRIX_GROUPS.map(g => ({
       text: g.title,
-      collapsed: true,
+      collapsed: false,
       items: [
         {
           text: isApps ? '分类总览' : '模块总览',

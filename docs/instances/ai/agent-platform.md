@@ -1,7 +1,7 @@
 # AI 工作流与智能体平台
 
 > `✅ Java 已验证` · `✅ Python 已验证` · `🧪 254 测试` · `🧭 LangGraph 编排` · `🔁 失败重试 + 结果校验`
-> 所属模块：[03 AI 应用](/instances/ai/) · 模块优先级：第 3 位 · 交付位置：`E:\8.cangku\for-job\ai-agent-platform`、`ai-agent-platform-py`
+> 所属模块：[01 AI 智能应用](/instances/ai/) · 模块优先级：第 3 位 · 交付位置：`E:\8.cangku\for-job\ai-agent-platform`、`ai-agent-platform-py`
 
 ## 📌 项目简介
 
@@ -133,10 +133,10 @@ ai-agent-platform-py/      # Python 版
 
 ## 🔗 相关资源
 
-- 模块总览：[03 AI 应用](/instances/ai/)
+- 模块总览：[01 AI 智能应用](/instances/ai/)
 - 兄弟项目：[AI 智能助手](/instances/ai/assistant) · [AI 知识库系统](/instances/ai/kb)
 - 技术实践：[功能开发 › AI 应用](/apps/ai/)
 
 ---
 
-上一级：[03 AI 应用](/instances/ai/) · [实例总览](/instances/)
+上一级：[01 AI 智能应用](/instances/ai/) · [实例总览](/instances/)

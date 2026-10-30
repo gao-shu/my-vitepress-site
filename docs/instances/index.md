@@ -8,7 +8,7 @@
 
 | 分类 | 实例 |
 |---|---|
-| [01 AI 智能应用](/instances/ai/) | [AI 智能助手](/instances/ai/assistant) · [AI 知识库系统](/instances/ai/kb) · [AI 工作流与智能体平台](/instances/ai/agent-platform) |
+| [01 AI 智能应用](/instances/ai/) | [通用脚手架](/instances/ai/scaffold) · [AI 智能助手](/instances/ai/assistant) · [AI 知识库系统](/instances/ai/kb) · [AI 工作流与智能体平台](/instances/ai/agent-platform) · [Python AI 套件](/instances/ai/suite-py) |
 | [02 工业数字化应用](/instances/industrial/) | [WMS 仓储管理系统](/instances/industrial/wms) · [MES 生产执行管理系统](/instances/industrial/mes) · [IIoT 工业物联网监控系统](/instances/industrial/iiot) |
 | [03 企业业务应用](/instances/business/) | [平台内核](/instances/platform) · [CRM](/instances/business/crm) · [ERP](/instances/business/erp) · [PMS](/instances/business/pms) · [OA](/instances/office/oa) · [BPM](/instances/office/bpm) · [HRM](/instances/office/hrm) |
 | [04 效率与自动化工具](/instances/tools/) | [个人任务与时间管理](/instances/tools/task-time) · [个人知识库与笔记](/instances/tools/notes) · [开发者工具箱](/instances/tools/devtools) |
