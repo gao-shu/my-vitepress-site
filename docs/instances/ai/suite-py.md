@@ -79,6 +79,23 @@ ai-suite-py/
 └── docker-compose.yml
 ```
 
+## 🚀 快速开始
+
+> 前置：PostgreSQL 16 + pgvector（或 `docker compose up -d` 一键起）。不填模型 Key 时全程 Mock，仍可按 3 个 E2E 套件跑通。
+
+```bash
+cd ai-suite-py
+uv sync                          # 安装依赖（uv）
+cp .env.example .env             # 配置数据库连接
+alembic upgrade head             # 建表
+uv run apps/worker &             # 启动异步解析 worker（文档类产品必须，否则停在「排队中」）
+uv run apps/server               # 启动 API（默认 :8000）
+# API 文档：http://localhost:8000/docs
+# 跑 E2E：pytest 或 scripts/e2e_*
+```
+
+> 真模型：在 `.env` 填 `CHAT_API_KEY`；不填则全程 Mock，结果在 API/界面/导出三处明确标注，不伪装成真实输出。
+
 ## ✅ 验证证据
 
 | E2E | 结果 |

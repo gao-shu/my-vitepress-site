@@ -27,6 +27,18 @@
 | [Prompt 编排与生成流程自动化](/apps/ai/prompt-pipeline) | 多步内容生产（剧本→分镜→生图/生视频）：模板版本、人工审核与异步编排 |
 | [AI 编程助手在项目中的落地](/apps/ai/ai-code-assistant) | Cursor/Claude 在老项目与新项目的用法：上下文规则、Code Review 与安全边界 |
 
+## 🗂️ 相关实例项目（for-job 交付）
+
+> 上面是技术实践与外部项目；以下是本仓库 `for-job` 中**已落地、可运行、有测试**的 AI 应用实例（Java + Python 双语言）：
+
+| 实例 | 形态 | 语言 | 验证证据 |
+|---|---|---|---|
+| [通用 AI 应用脚手架](/instances/ai/scaffold) | kit 六子包基座（网关/工具/RAG/SSE/鉴权） | Java | 142 单测 + 26 E2E |
+| [AI 智能助手](/instances/ai/assistant) | 多轮对话 + 工具调用（Agent Loop / LangGraph） | Java + Python | 187+9 / 13+— |
+| [AI 知识库系统](/instances/ai/kb) | RAG 检索问答 + 可定位引用 + 无答案红线 | Java + Python | 199+5 / 14+— |
+| [AI 工作流与智能体平台](/instances/ai/agent-platform) | 工作流 / LangGraph 编排 + 失败重试 | Java + Python | 244+10 / 12+— |
+| [Python AI 应用套件](/instances/ai/suite-py) | 7 个产品 MVP（知识库/文档/工作流/Agent/分析/客服/创作） | Python | 65 E2E |
+
 ---
 
 上一级：[功能开发](/apps/)

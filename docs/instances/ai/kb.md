@@ -112,6 +112,29 @@ ai-knowledge-base-py/      # Python 版
 └── docker-compose.yml     # MySQL + Redis + backend
 ```
 
+## 🚀 快速开始（无需任何 API Key）
+
+> 默认 `mock / echo` 网关，无需密钥即可跑通「上传 → 检索 → 问答 → 引用」全链路。
+
+### Java 版
+```bash
+cd ai-knowledge-base
+cd backend && mvn -o spring-boot:run      # 后端 :8082
+cd ../frontend && npm i && npm run dev    # 前端 :5172
+# 打开 http://localhost:5172  登录 demo / demo123
+# 体验：新建知识库 → 上传 TXT/MD → 提问 → 看可定位引用
+```
+
+### Python 版
+```bash
+cd ai-knowledge-base-py/backend
+python -m venv .venv && .venv/Scripts/activate
+pip install -r requirements.txt
+uvicorn app.main:app --port 8082 --reload
+# 上传文档：POST /api/documents（multipart）  问答：POST /api/qa/stream
+# 跑测试：pytest tests -q
+```
+
 ## ✅ 验证证据
 
 | 版本 | 单元测试 | E2E | 关键断言 |

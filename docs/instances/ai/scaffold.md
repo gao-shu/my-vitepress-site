@@ -88,6 +88,18 @@ ai-app-scaffold/
 └── docs/                      # 新建应用 5 步清单
 ```
 
+## 🚀 快速开始
+
+```bash
+cd ai-app-scaffold
+cd backend && mvn -o spring-boot:run     # 后端 :8090（H2 文件库）
+cd ../frontend && npm i && npm run dev    # 前端 :5190
+# 打开 http://localhost:5190  体验 demo/notes · demo/chat · demo/rag
+# 写接口用 HMAC 鉴权：demo / demo123
+# 复制 kit 到新项目：bash scripts/sync-kit.sh
+# 单测：mvn test   |   E2E：见 docs/ 下的「新建应用 5 步清单」
+```
+
 ## ✅ 验证证据
 
 | 项目 | 结果 |

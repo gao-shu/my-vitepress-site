@@ -115,6 +115,29 @@ ai-agent-platform-py/      # Python 版
 └── docker-compose.yml     # MySQL + Redis + backend
 ```
 
+## 🚀 快速开始（无需任何 API Key）
+
+> 默认 `mock / echo` 网关，工作流引擎与工具调用（calculator/summarize/get_weather）本地可跑。
+
+### Java 版
+```bash
+cd ai-agent-platform
+cd backend && mvn -o spring-boot:run      # 后端 :8083
+cd ../frontend && npm i && npm run dev    # 前端 :5173（@vue-flow 流程画布）
+# 打开 http://localhost:5173  导入模板 doc-summary 或 conditional-branch
+```
+
+### Python 版
+```bash
+cd ai-agent-platform-py/backend
+python -m venv .venv && .venv/Scripts/activate
+pip install -r requirements.txt
+uvicorn app.main:app --port 8083 --reload
+# 校验工作流：POST /api/workflows/validate
+# 运行（同步）：POST /api/runs/sync  body: {"workflow": <json>, "inputs": {...}, "run_id": "r1"}
+# 跑测试：pytest tests -q
+```
+
 ## ✅ 验证证据
 
 | 版本 | 单元测试 | E2E | 关键断言 |

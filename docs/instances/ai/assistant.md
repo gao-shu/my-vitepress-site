@@ -107,6 +107,28 @@ ai-assistant-py/         # Python 版
 └── docker-compose.yml    # MySQL + Redis + backend
 ```
 
+## 🚀 快速开始（无需任何 API Key）
+
+> 两套实现默认都走 `mock / echo` Provider：**不配置任何密钥也能启动、对话、跑通测试**。
+
+### Java 版
+```bash
+cd ai-assistant
+cd backend && mvn -o spring-boot:run      # 后端 :8081（H2 文件库，自动建表）
+cd ../frontend && npm i && npm run dev    # 前端 :5171
+# 浏览器打开 http://localhost:5171  登录 demo / demo123
+```
+
+### Python 版
+```bash
+cd ai-assistant-py/backend
+python -m venv .venv && .venv/Scripts/activate   # Windows；mac/Linux 用 source .venv/bin/activate
+pip install -r requirements.txt
+uvicorn app.main:app --port 8081 --reload
+# 接口根：http://localhost:8081/api ｜ SSE 流式：POST /api/chat/stream
+# 跑测试：pytest tests -q
+```
+
 ## ✅ 验证证据
 
 | 版本 | 单元测试 | E2E | 交付物 |
