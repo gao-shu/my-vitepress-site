@@ -1,15 +1,53 @@
 # AI 智能助手
 
-> `✅ Java 已验证` · `✅ Python 已验证` · `🧪 196 测试` · `🔑 无密钥可跑`
-> 所属模块：[01 AI 智能应用](/instances/ai/) · 模块优先级：第 2 位 · 交付位置：`E:\8.cangku\for-job\ai-assistant`、`ai-assistant-py`
+<div class="sys-hero">
+  <div class="sys-hero__eyebrow">01 AI 智能应用 · 优先级 2 / 3</div>
+  <div class="sys-hero__badges">
+    <span class="sys-badge sys-badge--ok">✅ Java 已验证</span>
+    <span class="sys-badge sys-badge--ok">✅ Python 已验证</span>
+    <span class="sys-badge">🧪 196 项测试</span>
+    <span class="sys-badge">🔑 无密钥可跑</span>
+    <span class="sys-badge">:8081 / :5171</span>
+  </div>
+  <p class="sys-hero__pitch">把「多模型接入 → 多轮对话 → 工具调用 → 流式输出」做成一条可复用的产品化链路</p>
+</div>
+
+<div class="sys-grid">
+  <div class="sys-card">
+    <div class="sys-card__icon">🔌</div>
+    <div class="sys-card__title">多模型网关 + 降级</div>
+    <div class="sys-card__desc">OpenAI 兼容网关，mock / echo / openai-compatible 三 Provider 可插拔；无 key 自动跳过并告警</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">🔁</div>
+    <div class="sys-card__title">Agent Loop</div>
+    <div class="sys-card__desc">llm ↔ tool 循环：Java 自研 AgentLoop，Python 用 LangGraph StateGraph，原生支持多轮工具调用</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">💬</div>
+    <div class="sys-card__title">流式输出</div>
+    <div class="sys-card__desc">SSE 事件契约 delta / tool / done，前端逐字渲染，工具调用过程全程可见</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">🛠</div>
+    <div class="sys-card__title">工具调用</div>
+    <div class="sys-card__desc">Function Calling 工具注册中心 + 循环，计算器 / 时间 / 文本统计开箱即用</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">📁</div>
+    <div class="sys-card__title">文件分析</div>
+    <div class="sys-card__desc">TXT / MD / CSV / JSON 上传，内容摘要与关键信息抽取</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">🔐</div>
+    <div class="sys-card__title">鉴权与限流</div>
+    <div class="sys-card__desc">JWT 登录鉴权；Redis 限流，无 Redis 自动降级内存版，启动不阻塞</div>
+  </div>
+</div>
 
 ## 📌 项目简介
 
-AI 智能助手是一个**可独立部署的多模型对话应用**。它不绑定单一供应商：通过 OpenAI 兼容网关接入任意兼容模型，并在无密钥时自动降级到 mock/echo，保证任何环境都能启动、能测试、能演示。
-
-- **面向用户**：需要 AI 对话能力的终端用户；需要二次集成的开发者（REST + SSE）
-- **核心价值**：把「多模型接入 → 多轮对话 → 工具调用 → 流式输出」做成一条可复用的产品化链路
-- **双语言实现**：Java 版用 Spring Boot + 自研 AgentLoop；Python 版用 FastAPI + **LangGraph**，接口语义完全对齐
+AI 智能助手是一个**可独立部署的多模型对话应用**。它不绑定单一供应商：通过 OpenAI 兼容网关接入任意兼容模型，并在无密钥时自动降级到 mock/echo，保证任何环境都能启动、能测试、能演示。Java 版用 Spring Boot + 自研 AgentLoop，Python 版用 FastAPI + **LangGraph**，接口语义完全对齐——同一套能力，两种栈。
 
 ## 🗺️ 功能规划
 
@@ -85,6 +123,18 @@ AI 智能助手是一个**可独立部署的多模型对话应用**。它不绑�
 | 前端 | Vue 3 + Element Plus | — |
 | 测试 | 187 单测 + 13 E2E | 9 测试（pytest） |
 
+<div class="sys-chips">
+  <span class="sys-chip">Java 21</span>
+  <span class="sys-chip">Spring Boot 3.3</span>
+  <span class="sys-chip">FastAPI</span>
+  <span class="sys-chip">LangGraph</span>
+  <span class="sys-chip">Vue 3</span>
+  <span class="sys-chip">H2 / SQLite</span>
+  <span class="sys-chip">MySQL</span>
+  <span class="sys-chip">Redis</span>
+  <span class="sys-chip">JWT</span>
+</div>
+
 ## 📂 目录结构
 
 ```
@@ -135,6 +185,13 @@ uvicorn app.main:app --port 8081 --reload
 |---|---|---|---|
 | Java | 187 通过（28 类） | 13 / 13 | jar、Vue 前端、README/API/TEST-REPORT、schema.sql |
 | Python | 9 通过 | — | FastAPI、pytest、Docker Compose、README/API/TEST-REPORT |
+
+<div class="sys-stats">
+  <div class="sys-stat"><span class="sys-stat__num">196</span><span class="sys-stat__label">单元测试（Java 187 + Py 9）</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">13</span><span class="sys-stat__label">端到端 E2E</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">:8081</span><span class="sys-stat__label">默认后端端口</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">2 栈</span><span class="sys-stat__label">Java + Python 同构</span></div>
+</div>
 
 ## 🚀 开发路线
 

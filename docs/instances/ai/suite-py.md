@@ -1,16 +1,55 @@
 # Python AI 应用套件（多产品）
 
-> `✅ 已验证（7 个 MVP）` · `🐘 PostgreSQL 16 + pgvector` · `🎭 Mock 可离线演示` · `🧪 60+ E2E`
-> 所属模块：[01 AI 智能应用](/instances/ai/) · 交付：`E:\8.cangku\for-job\ai-suite-py`
-> ⚠️ 与 Java 项目是**两套独立交付**：技术栈不同、代码不共享、数据库不共享。
+<div class="sys-hero">
+  <div class="sys-hero__eyebrow">01 AI 智能应用 · 多产品套件</div>
+  <div class="sys-hero__badges">
+    <span class="sys-badge sys-badge--ok">✅ 已验证（7 个 MVP）</span>
+    <span class="sys-badge">🐘 PG16 + pgvector</span>
+    <span class="sys-badge">🎭 Mock 可离线演示</span>
+    <span class="sys-badge">🧪 65 E2E</span>
+    <span class="sys-badge">:8000</span>
+  </div>
+  <p class="sys-hero__pitch">一套工程骨架（鉴权 / workspace 隔离 / 异步任务 / 流式 / 引用）承载 7 个 AI 产品形态</p>
+</div>
+
+<div class="sys-grid">
+  <div class="sys-card">
+    <div class="sys-card__icon">🧩</div>
+    <div class="sys-card__title">模块化单体</div>
+    <div class="sys-card__desc">packages/* 共享机制，products/* 业务之间禁止互相 import，边界清晰</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">🐘</div>
+    <div class="sys-card__title">PG16 + pgvector</div>
+    <div class="sys-card__desc">余弦相似度检索，迁移由 Alembic 管理，可上生产</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">⚙️</div>
+    <div class="sys-card__title">独立 worker</div>
+    <div class="sys-card__desc">异步解析：租约 + 心跳 + 过期回收 + 退避重试，失败可观测</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">🔒</div>
+    <div class="sys-card__title">workspace 隔离</div>
+    <div class="sys-card__desc">强制带 workspace 查询，越权一律 404，不泄露存在性</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">🎭</div>
+    <div class="sys-card__title">诚实 Mock</div>
+    <div class="sys-card__desc">API（is_mock）/ 界面（徽标+横幅）/ 导出（页首声明）三处明确标注</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">📦</div>
+    <div class="sys-card__title">7 个 MVP</div>
+    <div class="sys-card__desc">知识库 / 文档 / 工作流 / Agent / 数据分析 / 客服 / 内容创作</div>
+  </div>
+</div>
 
 ## 📌 项目简介
 
 `ai-suite-py` 是一个**模块化单体 + 多产品**的演示仓库：共享机制在 `packages/*`，业务在 `products/*`（产品之间禁止互相 import）。它用一套 Python 技术栈，把 7 个典型 AI 应用形态各做了一个可运行的 MVP。
 
-- **面向用户**：需要快速验证多种 AI 产品形态的团队
-- **核心价值**：一套工程骨架（鉴权 / workspace 隔离 / 异步任务 / 流式 / 引用）承载 7 个产品
-- **诚实标注**：Mock 结果在 API（`is_mock`）、界面（徽标 + 横幅）、导出文档（页首声明）三处明确标注，不伪装成真实模型输出
+> ⚠️ 与 Java 项目是**两套独立交付**：技术栈不同、代码不共享、数据库不共享。
 
 ## 📊 产品矩阵（7 个 MVP）
 
@@ -63,6 +102,18 @@
 | 模型 | Chat 真实验证（qwen-plus）；Embedding 默认 mock，可切 `openai_compatible` |
 | 测试 | pytest + 多个 E2E 脚本 |
 
+<div class="sys-chips">
+  <span class="sys-chip">Python 3.12</span>
+  <span class="sys-chip">FastAPI</span>
+  <span class="sys-chip">SQLAlchemy</span>
+  <span class="sys-chip">Alembic</span>
+  <span class="sys-chip">PostgreSQL</span>
+  <span class="sys-chip">pgvector</span>
+  <span class="sys-chip">Vue 3</span>
+  <span class="sys-chip">uv</span>
+  <span class="sys-chip">worker</span>
+</div>
+
 ## 📂 目录结构
 
 ```
@@ -105,6 +156,13 @@ uv run apps/server               # 启动 API（默认 :8000）
 | `e2e_workflows`（产品 3） | **26 / 26 通过** |
 
 > 真实模型评估另有一套：`scripts/evaluate_models`（无 Key 时安全退出，Mock 基线仅作流程对照）。
+
+<div class="sys-stats">
+  <div class="sys-stat"><span class="sys-stat__num">7</span><span class="sys-stat__label">产品 MVP</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">65</span><span class="sys-stat__label">端到端 E2E</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">:8000</span><span class="sys-stat__label">默认后端端口</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">🐘</span><span class="sys-stat__label">PG + pgvector</span></div>
+</div>
 
 ## 🚀 开发路线
 

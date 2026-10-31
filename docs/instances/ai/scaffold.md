@@ -1,16 +1,54 @@
 # 通用 AI 应用脚手架
 
-> `✅ 已验证` · `🧪 142 单测 + 26 E2E` · `🔑 零 Key 可完整演示` · `♻️ kit 可逐字节复制`
-> 所属模块：[01 AI 智能应用](/instances/ai/) · 定位：Java 三件套的**公共基座** · 交付：`E:\8.cangku\for-job\ai-app-scaffold`
+<div class="sys-hero">
+  <div class="sys-hero__eyebrow">01 AI 智能应用 · 定位：Java 三件套公共基座</div>
+  <div class="sys-hero__badges">
+    <span class="sys-badge sys-badge--ok">✅ 已验证</span>
+    <span class="sys-badge">🧪 142 单测 + 26 E2E</span>
+    <span class="sys-badge">🔑 零 Key 可完整演示</span>
+    <span class="sys-badge sys-badge--brand">♻ kit 可逐字节复制</span>
+    <span class="sys-badge">:8090 / :5190</span>
+  </div>
+  <p class="sys-hero__pitch">一次建深，三件套复用——把「模型接入 / 流式 / 工具 / RAG / 鉴权 / 响应」收敛成六个可复制子包</p>
+</div>
+
+<div class="sys-grid">
+  <div class="sys-card">
+    <div class="sys-card__icon">♻</div>
+    <div class="sys-card__title">六子包 kit</div>
+    <div class="sys-card__desc">网关 / 工具 / RAG / SSE / 鉴权 / 统一响应，业务侧只剩「表 + 控制器」</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">📋</div>
+    <div class="sys-card__title">新建应用 5 步清单</div>
+    <div class="sys-card__desc">从 kit 到一个可运行应用的标准路径，复制即起步</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">🧪</div>
+    <div class="sys-card__title">142 单测 + 26 E2E</div>
+    <div class="sys-card__desc">20 个测试类覆盖六子包，端到端走通三条示例链路</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">📦</div>
+    <div class="sys-card__title">可逐字节复制</div>
+    <div class="sys-card__desc">kit 不依赖任何业务类，scripts/sync-kit.sh 一键同步到其他项目</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">🔑</div>
+    <div class="sys-card__title">零 Key 演示</div>
+    <div class="sys-card__desc">含 demo/notes · demo/chat · demo/rag 三个可点击示例模块</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">🧱</div>
+    <div class="sys-card__title">四层单向依赖</div>
+    <div class="sys-card__desc">L4 应用 → L3 编排 → L2 能力 → L1 基础设施，依赖严格单向</div>
+  </div>
+</div>
 
 ## 📌 项目简介
 
 每个 AI 应用都要重写一遍同样六件事：**模型接入与降级、流式输出、工具调用编排、检索增强、鉴权、统一响应**。
 本工程把这六件事收敛成 `com.forjob.ai.kit` 六个子包，业务侧只剩「表 + 控制器」——它是 [AI 智能助手](/instances/ai/assistant)、[AI 知识库系统](/instances/ai/kb)、[AI 工作流与智能体平台](/instances/ai/agent-platform) 的共同起点。
-
-- **面向用户**：需要快速起一个 AI 应用的开发者
-- **核心价值**：一次建深，三件套复用；kit 不依赖任何业务类，可**逐字节复制**到新项目
-- **可运行**：不是空壳——含 `demo/notes`、`demo/chat`、`demo/rag` 三个可点击的示例模块 + 一份「新建应用 5 步清单」
 
 ## 🗺️ 能力矩阵（都能点一下就跑）
 
@@ -73,6 +111,16 @@ sse（SseStreamer）
 | 鉴权 | HMAC Token（只保护写接口） |
 | 测试 | 142 单测（20 类）+ 26 项 E2E |
 
+<div class="sys-chips">
+  <span class="sys-chip">Java 21</span>
+  <span class="sys-chip">Spring Boot 3.3</span>
+  <span class="sys-chip">Vue 3.5</span>
+  <span class="sys-chip">Pinia</span>
+  <span class="sys-chip">markdown-it</span>
+  <span class="sys-chip">H2</span>
+  <span class="sys-chip">HMAC</span>
+</div>
+
 ## 📂 目录结构
 
 ```
@@ -107,6 +155,13 @@ cd ../frontend && npm i && npm run dev    # 前端 :5190
 | `mvn test` | **142 用例全绿**（20 个测试类） |
 | E2E | **26 项全通过** |
 | `npm run build` | 成功 |
+
+<div class="sys-stats">
+  <div class="sys-stat"><span class="sys-stat__num">142</span><span class="sys-stat__label">单元测试</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">26</span><span class="sys-stat__label">端到端 E2E</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">:8090</span><span class="sys-stat__label">默认后端端口</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">6</span><span class="sys-stat__label">kit 子包</span></div>
+</div>
 
 ## 🚀 开发路线
 

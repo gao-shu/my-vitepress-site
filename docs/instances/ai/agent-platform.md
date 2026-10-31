@@ -1,15 +1,53 @@
 # AI 工作流与智能体平台
 
-> `✅ Java 已验证` · `✅ Python 已验证` · `🧪 254 测试` · `🧭 LangGraph 编排` · `🔁 失败重试 + 结果校验`
-> 所属模块：[01 AI 智能应用](/instances/ai/) · 模块优先级：第 3 位 · 交付位置：`E:\8.cangku\for-job\ai-agent-platform`、`ai-agent-platform-py`
+<div class="sys-hero">
+  <div class="sys-hero__eyebrow">01 AI 智能应用 · 优先级 3 / 3</div>
+  <div class="sys-hero__badges">
+    <span class="sys-badge sys-badge--ok">✅ Java 已验证</span>
+    <span class="sys-badge sys-badge--ok">✅ Python 已验证</span>
+    <span class="sys-badge">🧪 254 项测试</span>
+    <span class="sys-badge sys-badge--brand">🧭 LangGraph 编排</span>
+    <span class="sys-badge">:8083 / :5173</span>
+  </div>
+  <p class="sys-hero__pitch">把 AI 从「一问一答」升级为「可编排、可追踪、可重试、可校验」的自动化流程</p>
+</div>
+
+<div class="sys-grid">
+  <div class="sys-card">
+    <div class="sys-card__icon">🧭</div>
+    <div class="sys-card__title">LangGraph 编排</div>
+    <div class="sys-card__desc">工作流 JSON 动态建图，Python 用 MemorySaver checkpointer 做状态持久化</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">🔀</div>
+    <div class="sys-card__title">六种节点</div>
+    <div class="sys-card__desc">start / end / llm / tool / condition / loop，覆盖常见编排形态</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">🔁</div>
+    <div class="sys-card__title">失败重试</div>
+    <div class="sys-card__desc">节点级策略 abort / continue / retry1，单点失败不拖垮整条流</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">✅</div>
+    <div class="sys-card__title">结果校验门</div>
+    <div class="sys-card__desc">运行结束校验输出非空，空则判 FAILED，杜绝「静默成功」</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">🪢</div>
+    <div class="sys-card__title">条件分支</div>
+    <div class="sys-card__desc">表达式求值 + 条件边，把业务规则路由到不同节点</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">🧾</div>
+    <div class="sys-card__title">运行追踪</div>
+    <div class="sys-card__desc">每次运行持久化 trace（逐节点），可回溯、可审计</div>
+  </div>
+</div>
 
 ## 📌 项目简介
 
 AI 工作流与智能体平台是三个项目里**技术展示度最高**的一个：它把「智能体配置 + 工作流编排 + 工具调用 + 状态管理 + 失败重试」做成了一个可运行的引擎。Java 版用自研 DAG 引擎，Python 版用 **LangGraph StateGraph** —— 两条路线实现同一套编排语义。
-
-- **面向用户**：需要把 LLM 能力编排成业务流程的开发者 / 业务方
-- **核心价值**：让 AI 从「一问一答」升级为「可编排、可追踪、可重试、可校验」的自动化流程
-- **双语言实现**：Java 自研 `WorkflowEngine` + `NodeExecutor` 注册表；Python 动态建图 + `MemorySaver` checkpointer
 
 ## 🗺️ 功能规划
 
@@ -96,6 +134,18 @@ AI 工作流与智能体平台是三个项目里**技术展示度最高**的一�
 | 前端 | Vue 3 + @vue-flow/core | — |
 | 测试 | 244 单测 + 12 E2E | 10 测试（pytest） |
 
+<div class="sys-chips">
+  <span class="sys-chip">Java 21</span>
+  <span class="sys-chip">Spring Boot 3.3</span>
+  <span class="sys-chip">FastAPI</span>
+  <span class="sys-chip">LangGraph</span>
+  <span class="sys-chip">@vue-flow</span>
+  <span class="sys-chip">H2 / SQLite</span>
+  <span class="sys-chip">MySQL</span>
+  <span class="sys-chip">Redis</span>
+  <span class="sys-chip">JWT</span>
+</div>
+
 ## 📂 目录结构
 
 ```
@@ -144,6 +194,13 @@ uvicorn app.main:app --port 8083 --reload
 |---|---|---|---|
 | Java | 244 通过（33 类） | 12 / 12 | `doc-summary` 全节点 SUCCESS |
 | Python | 10 通过 | — | `doc-summary` SUCCESS、条件分支输出 14、缺 end 校验失败 |
+
+<div class="sys-stats">
+  <div class="sys-stat"><span class="sys-stat__num">254</span><span class="sys-stat__label">单元测试（Java 244 + Py 10）</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">12</span><span class="sys-stat__label">端到端 E2E</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">:8083</span><span class="sys-stat__label">默认后端端口</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">🧭</span><span class="sys-stat__label">LangGraph 已落地</span></div>
+</div>
 
 ## 🚀 开发路线
 

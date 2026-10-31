@@ -1,21 +1,55 @@
 # 01 AI 智能应用
 
-> 智能助手、知识库、工作流与智能体 —— 用大模型与 Agent 构建的应用。
-> 本模块是 **Java + Python 双语言实现**：同一套 LLM 应用能力，用两种主流技术栈各落地一遍。
+<div class="sys-hero">
+  <div class="sys-hero__eyebrow">模块总览 · Java + Python 双语言同构</div>
+  <div class="sys-hero__badges">
+    <span class="sys-badge sys-badge--ok">✅ Java 已验证</span>
+    <span class="sys-badge sys-badge--ok">✅ Python 已验证</span>
+    <span class="sys-badge">🧪 800+ 项测试</span>
+    <span class="sys-badge">🐳 Docker Compose</span>
+    <span class="sys-badge">🔑 无密钥可跑</span>
+  </div>
+  <p class="sys-hero__pitch">用大模型与 Agent 构建的应用——同一套 LLM 应用能力，用 Java 与 Python 两种主流技术栈各落地一遍</p>
+</div>
 
-**状态徽章**：`✅ Java 已验证` · `✅ Python 已验证` · `🧪 800+ 项测试全绿` · `🐳 Docker Compose` · `🔑 无密钥可跑`
+<div class="sys-grid">
+  <a class="sys-card" href="/instances/ai/scaffold">
+    <div class="sys-card__icon">🧱</div>
+    <div class="sys-card__title">通用 AI 应用脚手架</div>
+    <div class="sys-card__desc">kit 六子包基座：网关 / 工具 / RAG / SSE / 鉴权 / 统一响应 · ✅ 142 单测 + 26 E2E</div>
+  </a>
+  <a class="sys-card" href="/instances/ai/assistant">
+    <div class="sys-card__icon">💬</div>
+    <div class="sys-card__title">AI 智能助手</div>
+    <div class="sys-card__desc">多模型接入 + 多轮对话 + 工具调用（Agent Loop）+ 流式输出 · ✅ 196 测试</div>
+  </a>
+  <a class="sys-card" href="/instances/ai/kb">
+    <div class="sys-card__icon">📚</div>
+    <div class="sys-card__title">AI 知识库系统</div>
+    <div class="sys-card__desc">RAG 检索问答 + 可定位引用 + 无答案红线 · ✅ 204 测试</div>
+  </a>
+  <a class="sys-card" href="/instances/ai/agent-platform">
+    <div class="sys-card__icon">🧭</div>
+    <div class="sys-card__title">AI 工作流与智能体平台</div>
+    <div class="sys-card__desc">工作流 / LangGraph 编排 + 失败重试 + 结果校验门 · ✅ 254 测试</div>
+  </a>
+  <a class="sys-card" href="/instances/ai/suite-py">
+    <div class="sys-card__icon">🐍</div>
+    <div class="sys-card__title">Python AI 应用套件</div>
+    <div class="sys-card__desc">模块化单体承载 7 个产品 MVP（知识库/文档/工作流/Agent/分析/客服/创作）· ✅ 65 E2E</div>
+  </a>
+</div>
 
-**项目状态图例**：✅ 已验证 · 🔧 验证中 / 在建 · 📋 规划中（尚未开始实现）
+<div class="sys-stats">
+  <div class="sys-stat"><span class="sys-stat__num">8</span><span class="sys-stat__label">代码目录（for-job）</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">6</span><span class="sys-stat__label">项目文档页</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">861</span><span class="sys-stat__label">项测试（含 E2E）</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">2</span><span class="sys-stat__label">语言栈（Java + Python）</span></div>
+</div>
 
 ## 📌 模块简介
 
 本模块由 **1 个基座 + 3 个产品形态 + 1 个多产品套件** 组成，全部可运行、可测试、有文档：
-
-- **通用 AI 应用脚手架**：Java 三件套的公共基座 —— `kit` 六子包（网关 / 工具 / RAG / SSE / 鉴权 / 统一响应）
-- **AI 智能助手**：对话型应用 —— 多轮对话 + 工具调用（Agent Loop）+ 流式输出
-- **AI 知识库系统**：RAG 应用 —— 文档解析 → 分块 → 检索 → 生成 → 引用溯源
-- **AI 工作流与智能体平台**：Agent 编排应用 —— 工作流 DAG / LangGraph 编排 + 状态管理
-- **Python AI 应用套件**：模块化单体 + 7 个产品 MVP（知识库 / 文档 / 工作流 / Agent / 数据分析 / 客服销售 / 内容创作）
 
 前三者共享一套**通用 AI 套件（kit）**：模型网关、工具调用、RAG 管道、SSE 流式、JWT 鉴权、限流。
 Java 版用 `com.forjob.ai.kit`，Python 版用 `app/kit_*`，接口语义完全对齐 —— 这就是「一套能力，两种栈」。
@@ -76,6 +110,21 @@ Java 版用 `com.forjob.ai.kit`，Python 版用 `app/kit_*`，接口语义完全
 | 鉴权 / 限流 | JWT + Redis | PyJWT + Redis |
 | 前端 | Vue 3 + Vite + TS + Element Plus | Vue 3 + Vite + TS + Element Plus |
 | 部署 | jar + Docker | Docker Compose（MySQL + Redis + backend） |
+
+<div class="sys-chips">
+  <span class="sys-chip">Java 21</span>
+  <span class="sys-chip">Spring Boot 3.3</span>
+  <span class="sys-chip">Python 3.12</span>
+  <span class="sys-chip">FastAPI</span>
+  <span class="sys-chip">LangGraph</span>
+  <span class="sys-chip">Vue 3</span>
+  <span class="sys-chip">H2 / SQLite</span>
+  <span class="sys-chip">MySQL</span>
+  <span class="sys-chip">PostgreSQL + pgvector</span>
+  <span class="sys-chip">Redis</span>
+  <span class="sys-chip">JWT</span>
+  <span class="sys-chip">Docker</span>
+</div>
 
 ## 🎯 核心优势
 

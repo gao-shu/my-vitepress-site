@@ -1,15 +1,53 @@
 # AI 知识库系统
 
-> `✅ Java 已验证` · `✅ Python 已验证` · `🧪 204 测试` · `🛡️ 无答案红线` · `🔑 无密钥可跑`
-> 所属模块：[01 AI 智能应用](/instances/ai/) · 模块优先级：第 1 位 · 交付位置：`E:\8.cangku\for-job\ai-knowledge-base`、`ai-knowledge-base-py`
+<div class="sys-hero">
+  <div class="sys-hero__eyebrow">01 AI 智能应用 · 优先级 1 / 3</div>
+  <div class="sys-hero__badges">
+    <span class="sys-badge sys-badge--ok">✅ Java 已验证</span>
+    <span class="sys-badge sys-badge--ok">✅ Python 已验证</span>
+    <span class="sys-badge">🧪 204 项测试</span>
+    <span class="sys-badge sys-badge--brand">🛡 无答案红线</span>
+    <span class="sys-badge">:8082 / :5172</span>
+  </div>
+  <p class="sys-hero__pitch">让答案「有出处、可核对、不胡编」——企业级 RAG 与玩具 demo 的分水岭</p>
+</div>
+
+<div class="sys-grid">
+  <div class="sys-card">
+    <div class="sys-card__icon">🛡</div>
+    <div class="sys-card__title">无答案红线</div>
+    <div class="sys-card__desc">检索相关性不足直接拒答，绝不编造——比较原始余弦分，不用会虚高的融合分</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">🔍</div>
+    <div class="sys-card__title">混合检索</div>
+    <div class="sys-card__desc">256 维哈希向量（中文 unigram + bigram）+ 关键词，RRF 融合排序</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">📎</div>
+    <div class="sys-card__title">来源引用</div>
+    <div class="sys-card__desc">答案溯源到原文片段与文档，返回可定位的引用分数</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">🧩</div>
+    <div class="sys-card__title">自包含 RAG</div>
+    <div class="sys-card__desc">Python 版零重型依赖，哈希向量本地可跑，无需外部向量库</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">📊</div>
+    <div class="sys-card__title">自动评测</div>
+    <div class="sys-card__desc">命中率 + 引用准确率自动评测，可回归、可放进 CI</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">📥</div>
+    <div class="sys-card__title">文档 ingestion</div>
+    <div class="sys-card__desc">上传 → 解析 → 分块 → 索引，知识库级联删除</div>
+  </div>
+</div>
 
 ## 📌 项目简介
 
-AI 知识库系统是一个**完整的 RAG（检索增强生成）应用**：上传文档 → 解析分块 → 向量索引 → 混合检索 → 生成回答 → 溯源引用。它最大的工程亮点是**「无答案红线」**：当检索相关性不足时直接拒答，而不是让大模型编造。
-
-- **面向用户**：需要基于私有文档问答的团队；需要可溯源答案的业务场景
-- **核心价值**：让答案「有出处、可核对、不胡编」—— 这是企业级 RAG 与玩具 demo 的分水岭
-- **双语言实现**：Java 版 Spring Boot + 自研检索；Python 版 FastAPI + 自包含哈希向量，接口语义对齐
+AI 知识库系统是一个**完整的 RAG（检索增强生成）应用**：上传文档 → 解析分块 → 向量索引 → 混合检索 → 生成回答 → 溯源引用。它最大的工程亮点是**「无答案红线」**：当检索相关性不足时直接拒答，而不是让大模型编造。Java 版 Spring Boot + 自研检索，Python 版 FastAPI + 自包含哈希向量，接口语义对齐——同一套能力，两种栈。
 
 ## 🗺️ 功能规划
 
@@ -93,6 +131,19 @@ AI 知识库系统是一个**完整的 RAG（检索增强生成）应用**：上
 | 前端 | Vue 3 + Element Plus（4 个 Tab） | — |
 | 测试 | 199 单测 + 14 E2E | 5 测试（pytest） |
 
+<div class="sys-chips">
+  <span class="sys-chip">Java 21</span>
+  <span class="sys-chip">Spring Boot 3.3</span>
+  <span class="sys-chip">FastAPI</span>
+  <span class="sys-chip">哈希向量</span>
+  <span class="sys-chip">RRF 融合</span>
+  <span class="sys-chip">Vue 3</span>
+  <span class="sys-chip">H2 / SQLite</span>
+  <span class="sys-chip">MySQL</span>
+  <span class="sys-chip">Redis</span>
+  <span class="sys-chip">JWT</span>
+</div>
+
 ## 📂 目录结构
 
 ```
@@ -141,6 +192,13 @@ uvicorn app.main:app --port 8082 --reload
 |---|---|---|---|
 | Java | 199 通过（33 类） | 14 / 14 | 引用定位、无答案拒答、评测指标 |
 | Python | 5 通过 | — | 上传→检索→问答(引用)→拒答→评测全链路 |
+
+<div class="sys-stats">
+  <div class="sys-stat"><span class="sys-stat__num">204</span><span class="sys-stat__label">单元测试（Java 199 + Py 5）</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">14</span><span class="sys-stat__label">端到端 E2E</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">:8082</span><span class="sys-stat__label">默认后端端口</span></div>
+  <div class="sys-stat"><span class="sys-stat__num">🛡</span><span class="sys-stat__label">无答案红线已落地</span></div>
+</div>
 
 ## 🚀 开发路线
 
