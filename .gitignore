@@ -7,7 +7,17 @@ docs/.vitepress/cache/
 docs/.vitepress/.temp/
 # 本地安全验证构建产物（不参与部署）
 docs/.vitepress/dist-*/
+docs/.vitepress/dist_*/
 docs/dist-*/
+docs/dist_*/
+docs/.vitepress/.temp-*/
+docs/.verify-*/
+.verify*/
+.vitepress/dist_check/
+
+# WorkBuddy 本地数据（工作日志与脚本，不属于站点源码）
+.workbuddy/
+.workbuddy-ai/
 
 # 日志文件
 *.log
