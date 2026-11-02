@@ -148,15 +148,22 @@
 | 报工 | 整单报工老路径保留 | ✅ | `routing_id IS NULL` 走原链路，9 项回归全绿 |
 | 质量 | 质检门禁（PASS / FAIL 分支） | ✅ | `QC_PASSED` / `QC_FAILED` 两态，FAIL 可返工回 STARTED |
 | 质量 | 不良明细（缺陷码 + 不良数） | ✅ | `mes_qc_record.defect_code`；明细合计 ≠ 不良数 → 400 `DEFECT_QTY_MISMATCH`（断言 12） |
-| 物料 | 物料消耗（理论 / 实际） | ✅ | `mes_material_consumption` |
+| 质量 | 整单质检留痕 | ✅ | 整单质检也写 `mes_qc_record`（`item_code=ORDER`），不再只改状态不留证据（断言 19b） |
+| 物料 | 物料消耗（理论 / 实际） | ✅ | `mes_material_consumption`；理论按**计划**、实际按**实绩**（含报废），两列口径解耦 |
 | 追溯 | 单工单正 / 反向追溯 | ✅ | `GET /{id}/trace` · `/consumptions` · `/qc-records` |
 | 集成 | 完工 → WMS 生产入库（outbox 解耦） | ✅ | `mes_integration_outbox`；跨系统 13 项全绿 |
 | 集成 | IIoT 遥测 → 工序报工 | ✅ | `mes_device_cursor` 增量游标；10 项全绿 |
 | 集成 | 集成运维（状态 / 重试 / 手动派发） | ✅ | `GET/POST /api/mes/integration/*` |
-| 契约 | 统一 REST 契约（list / stats / transition / CRUD） | ✅ | 48 项断言全绿 |
+| 契约 | 统一 REST 契约（list / stats / transition / CRUD） | ✅ | 63 项断言全绿 |
 | 统计 | 七态计数 `/stats` | ✅ | 返回 CREATED…CANCELLED 全量键，完工后计数 +1 |
+| 统计 | 排产维度统计 `/stats/dimension` | ✅ | 优先级 / 班次 / 车间 / 产线分布 + 逾期 + 7 天临期 |
 | 隔离 | 租户隔离 | ✅ | 查询/更新/删除均带 `tenant_id`，租户 2 有独立 `WO-002` |
-| 前端 | 元数据驱动两实体 | ✅ | `modules.ts` · `npm run build`（含 vue-tsc）通过 |
+| 排产维度 | 交期 / 优先级 / 产线 / 车间 / 班次 | ✅ | `mes_1_11.sql` 加列；建单即落库，非法枚举 → 400 `INVALID_PRIORITY` / `INVALID_SHIFT` |
+| 主数据 | 物料 / BOM 下拉接口 | ✅ | `GET /api/mes/materials/list` · `/boms/list`，建工单表单不用手填 ID |
+| 前端 | 元数据驱动通用表格（状态机 / 表单 / 分页） | ✅ | `modules.ts` · `npm run build`（含 vue-tsc）通过 |
+| 前端 | 工序报工台 | ✅ | 工单选择 → 工序链进度 → 报工提交（幂等键 + 不良明细 + 上游余量提示） |
+| 前端 | 工单追溯页 | ✅ | 工序流水 / 质检明细 + 不良汇总 / 物料消耗（理论 vs 实际 + 差异率）/ 集成投递 四类证据 |
+| 前端 | 集成运维页 | ✅ | 联调开关 + 待发队列 + 失败重投 + 手动 dispatch / poll |
 
 ### P0 收尾（并发 CAS · 报工词汇 · 删除门禁）
 
@@ -174,22 +181,22 @@
 |---|---|---|
 | 工序实例 | ✅ | `mes_routing_operation`（路线 + 序号 + 标准工时） |
 | 按工序报工 | ✅ | 工序级接口 + 良品/不良双列 |
-| 按人报工 | ✅ | `operation_record.operator` |
-| 按班次报工 | 📋 | `operation_record` 无 `shift` 字段，班次维度整条链都没有 |
+| 按人报工 | ✅ | `operation_record.operator`；整单路径补 `production_record.operator`（MES 1.12） |
+| 按班次报工 | ✅ | 工单带 `shift`（DAY/MIDDLE/NIGHT），报工挂在哪张单就知道哪个班；`operation_record` 本身仍无 `shift` 列 |
 | WIP 在制 | ✅ | 下游工序产出超上游 → 409，WIP 流转不变量由后端守 |
 | 不良代码 | ✅ | `qc_record.defect_code` + 不良数 |
 | IQC / IPQC / FQC 检验单 | 📋 | 现有质检明细挂在工单上，无检验类型与检验批 |
 | 返工单 | 📋 | 有 `QC_FAILED → STARTED` 状态回路，但没有独立返工单据 |
-| 物料消耗 | ✅ | 理论 / 实际双列，随追溯一起返回 |
-| 领料 / 退料 / 补料、线边库 | 📋 | 未做（消耗只记账，不产生领料单） |
+| 物料消耗 | ✅ | 理论 / 实际双列，随追溯一起返回；理论按计划、实际按实绩（含报废），差额即损耗 |
+| 领料 / 退料 / 补料、线边库 | 📋 | 未做（消耗只记账，不产生领料单；实际用量是**产出折算**不是仓库实领） |
 | 齐套检查 | 📋 | 未做（`mes_bom_item` 有 BOM，但开工前不校验齐套） |
-| 工厂 / 车间 / 产线 / 工位 | 📋 | 未做，工单上没有工厂维度字段 |
-| 班次 / 日历 | 📋 | 未做 |
+| 工厂 / 车间 / 产线 / 工位 | ✅ | 工单带 `workshop` / `production_line`（MES 1.11）；**工厂**与**工位**仍无维度 |
+| 班次 / 日历 | 🔧 | 工单有 `shift`，日历排班未做 |
 | 生产订单接入、拆分合并、派工 | 📋 | 未做，工单只能手建 |
 | PDA / 工位扫码 | 📋 | 未做 |
-| 生产看板 | 📋 | 未做，只有后端 `/progress` 进度视图 |
+| 生产看板 | 🔧 | 后端 `/progress` 进度视图 + 前端工序报工台的工序链进度条；车间级看板未做 |
 
-**一句话**：MES 的「工单内核」已经是完整的（状态机 + 工序 + 追溯 + 集成），但「工厂现场」那层（主数据、班次、领料、扫码、看板）还是空的。这也是下面路线图的起点。
+**一句话**：MES 的「工单内核」已经是完整的（状态机 + 工序 + 追溯 + 集成 + 排产维度），「现场那层」补上了工序报工台、追溯页、集成运维页三张前端页面，但领料、扫码、齐套、看板这些现场动作仍然是空的。
 
 ### P1 / P2 待做
 
