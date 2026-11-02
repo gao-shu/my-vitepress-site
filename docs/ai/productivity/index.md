@@ -15,14 +15,13 @@
 
 | 文章 | 一句话说明 |
 |------|-----------|
-| [对话式 AI 的高效用法](/ai/productivity/chat-workflow) | 用「背景-目标-约束-输出格式」四段式提问，配合多轮迭代与自检，让 AI 第一轮就接近可用 |
-| [按任务选 AI 工具](/ai/productivity/tool-selection) | 写代码、写文档、查资料、生图各用什么工具，用组合而非单选，按时间占比决定付费 |
+| [AI 工具与选型](/ai/productivity/tool-selection) | 五类工具全景 + 四条判断标准 + 按任务与时间占比选型；末尾附「起步：先用后学」的练习法 |
 
 ### 编程与工作提效
 
 | 文章 | 一句话说明 |
 |------|-----------|
-| [AI 辅助编程工作流](/ai/productivity/ai-coding-workflow) | Cursor / Claude Code 的正确打开方式：Spec 先行、上下文管理、人审 AI 写的分工 |
+| [AI 辅助编程工作流](/ai/productivity/ai-coding-workflow) | Spec 先行、四段式交代任务、上下文管理、人审 AI 写；含单人开发没有 review 兜底时怎么补 |
 | [文档、周报与沟通提效](/ai/productivity/docs-and-report) | 用模板固定结构、只喂事实并逐条核对、用样本文档保持个人风格 |
 
 ### 自动化与智能体
@@ -30,7 +29,7 @@
 | 文章 | 一句话说明 |
 |------|-----------|
 | [用 AI 写自动化脚本](/ai/productivity/automation-scripts) | 从生成到上线的安全流程：先方案后代码、危险操作 dry-run、cron、日志与告警 |
-| [个人智能体搭建入门](/ai/productivity/agent-basics) | Agent = 模型 + 工具 + 循环，最小可用 Agent 怎么搭，何时用工作流何时用 Agent |
+| [个人智能体搭建入门](/growth/ai-cognition/agent-basics) | Agent = 模型 + 工具 + 循环，最小可用 Agent 怎么搭，何时用工作流何时用 Agent |
 
 ### 实际问题解决
 

@@ -125,7 +125,7 @@ pnpm dev              # http://127.0.0.1:3300
 
 ## 九、相关技术文章
 
-- [ModelDesk 架构解析：把多个模型 API 收敛成本地一个 /v1 网关](/ai/creation/modeldesk-architecture)
+- [ModelDesk 架构解析：把多个模型 API 收敛成本地一个 /v1 网关](/instances/ai-creation/modeldesk-architecture)
 
 ---
 

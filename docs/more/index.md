@@ -11,14 +11,11 @@
 - [专业技能面试准备](/resume/skills-interview-prep)
 - [简历分析与面试准备](/resume/resume-analysis)
 - [投递平台与投递策略](/resume/job-platform-strategy)
-- [职业发展与定位](/career/)
 
 ## 学习与成长
 
 - [成长与目标](/growth/)
-- [知识沉淀](/knowledge/)
 - [生活与个人管理](/life/)
-- [工程实践](/practices/)
 
 ## 资源与工具
 

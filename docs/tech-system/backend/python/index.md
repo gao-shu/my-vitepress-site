@@ -10,4 +10,4 @@
 | 04 工程实践 | [04-engineering](./04-engineering.md) | 暂不扩写 |
 | 05 常见问题 | [05-faq](./05-faq.md) | 暂不扩写 |
 
-学习节奏另见：[Python 技能速成](/tech-system/python/python-skill)（3–5 天清单，与 01 互补，不替代）。
+学习节奏另见：[Python 技能速成](/tech-system/backend/python/python-skill)（3–5 天清单，与 01 互补，不替代）。

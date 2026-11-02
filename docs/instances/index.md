@@ -18,6 +18,7 @@
 - **✅ 已验证**：
   - [ModelDesk · 本机多模态 AI 配测台](/apps/ai/modeldesk)（AI 应用方向，93 项单测通过 · v0.2.1 已发布）—— 是上表「AI 智能助手」方向第一个交付的实例
   - **01 AI 应用模块三个项目全部交付**（`E:\8.cangku\for-job\` 下 `ai-assistant` / `ai-knowledge-base` / `ai-agent-platform`）：共 630 个单元测试 + 39 项 E2E 检查全部通过，各含可执行 jar、前端工程与完整文档，详见各项目页
+  - **02 工业数字化模块三个系统跑通**（`openbiz-mes-app` / `openbiz-wms-app` / `openbiz-iiot-app`）：MES 七态工单 + 工序链 + 跨系统集成 115 项断言、WMS 主链 297 项断言 + 100 并发零超卖、IIoT 设备 + 告警双状态机 16 步 E2E，均基于 OpenBiz `saas-core` 底座，详见各项目页
 - **🔧 验证中/在建**：OpenBiz 工单系统（企业级 Java 全栈，见[功能开发 › 企业业务应用](/apps/business/)）；个人知识库与 Java Agent 示例（见[功能开发 › AI 应用](/apps/ai/)）
 - **📋 规划中**：上表其余项目，各模块页内有功能规划与优先级说明
 

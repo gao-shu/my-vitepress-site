@@ -32,6 +32,7 @@ Status 取值：`pending` · `linked` · `migrated` · `canonical` · `duplicate
 | `docs/guide/*` | 求职总纲 | 职业 / 定位·保障 | pending | pending | |
 | `docs/tech-system/industrial-*` 等 | 工业数字化 | 知识 / 其他 / 工业 | pending | pending | |
 | `docs/about/*` | 关于 | 页脚 | linked | linked | A1 已移出一级导航 |
+| `docs/growth/ai-cognition/learn-by-doing.md` | **`docs/about/learn-by-doing.md`** | 关于 / 学习与输出 | migrated | migrated | 2026-11-02：正文迁入 about，AI 认知侧留 legacy stub；侧栏与 AI 索引已改指新地址 |
 | `docs/growth/**` | 成长空壳 | 成长 | linked | linked | A1 建立 |
 | `docs/career/**` | 职业空壳 + 兼容链 | 职业 | linked | linked | A1；正文仍在 guide/resume/java… |
 | `docs/knowledge/**` | 知识空壳 + 兼容链 | 知识 | linked | linked | A1/A2 |

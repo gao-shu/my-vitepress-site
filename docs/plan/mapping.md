@@ -37,7 +37,7 @@
 | `ai/index.md` + `ai/cognition/` | 7 | AI 赋能 › 认知成长 | AI 实践 › AI 辅助编程（含认知总览） | 否 | 无 |
 | `ai/productivity/` | 9 | AI 赋能 › 生产力 | AI 实践 › 辅助编程 / Agent / 知识库 / 工作流 | 否 | 无 |
 | `ai/creation/` | 9 | AI 赋能 › 创作表达 | AI 实践 › AI 应用案例 | 否 | 无 |
-| `ai/business/` | 9 | AI 赋能 › 商业探索 | AI 实践 › AI 商业探索（案例子组） | 否 | 无 |
+| `ai/business/` | 9 | AI 赋能与个人提效 › AI 商业探索（搞钱） | 同左（2026-11-02 从 `instances/ai-business/` 搬回，旧路径留迁移页） | 是（仅 URL 变化） | 低 |
 
 ## 四、关于我（`/about/`）
 

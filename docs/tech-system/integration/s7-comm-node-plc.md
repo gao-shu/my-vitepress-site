@@ -334,5 +334,5 @@ telnet 192.168.1.101 102
 
 - [Siemens S7：Python ↔ PLC](./s7-comm-python-plc.md)
 - [Modbus TCP：Node.js ↔ PLC](./modbus-tcp-node-plc.md)
-- [西门子 S7 详解与 Python 采集](../../plc/s7-python-data-collection.md)
-- [常见 PLC 品牌与选型](../../plc/common-brands.md)
+- [西门子 S7 详解与 Python 采集]](../plc/s7-python-data-collection.md)
+- [常见 PLC 品牌与选型]](../plc/common-brands.md)

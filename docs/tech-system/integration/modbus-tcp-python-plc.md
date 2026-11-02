@@ -252,5 +252,5 @@ print(f"解码温度: {temperature:.2f}")
 
 - [Modbus TCP：Node.js ↔ PLC](./modbus-tcp-node-plc.md)
 - [Siemens S7：Python ↔ PLC](./s7-comm-python-plc.md)
-- [HTTP 跨语言协作：Node.js ↔ Python](../http-node-python.md)
-- [西门子 S7 详解与 Python 采集](../../plc/s7-python-data-collection.md)
+- [HTTP 跨语言协作：Node.js ↔ Python](./http-node-python.md)
+- [西门子 S7 详解与 Python 采集]](../plc/s7-python-data-collection.md)

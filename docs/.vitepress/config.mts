@@ -2,317 +2,289 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 
+/* ─────────────────────────────────────────────────────────────
+ * 栏目侧栏（2026-10-31 重建）
+ * 原状况：/guide/ /resume/ /career/ /knowledge/ /life/ /growth/
+ *         /devtools/ /resources/ /english-speaking/ 共 11 个路径
+ *         全部挂 moreSidebar()（只有 9 条一级链接），
+ *         导致 230 篇文章无法从导航到达。
+ * 现按栏目各自成栏，栏目内文章全部可达。
+ * ───────────────────────────────────────────────────────────── */
+
+/** 就业与面试 /guide/ —— 36 篇，按方向分组 */
 function guideSidebar() {
   return [
     {
-      text: '个人简历',
-      collapsed: true,
+      text: '求职材料',
+      collapsed: false,
       items: [
+        { text: '面试准备指南', link: '/guide/' },
         { text: '个人简历', link: '/guide/my-resume' }
-      ]
-    },
-    {
-      text: 'Java 基础',
-      collapsed: true,
-      items: [
-        { text: 'Java 基础概述', link: '/java/base-overview' },
-        { text: '面向对象编程', link: '/java/oop' },
-        { text: '集合框架', link: '/java/collections' },
-        { text: '多线程基础与线程池', link: '/java/thread-basics' },
-        { text: '并发编程核心机制', link: '/java/concurrency-core' },
-        { text: 'JVM 内存模型', link: '/java/jvm' },
-        { text: 'Java 8 新特性', link: '/java/java8-features' },
-        { text: '异常处理与 IO 流', link: '/java/exception-io' },
-        { text: '反射与注解机制', link: '/java/reflection-annotation' },
-        { text: '场景实战：并发问题调优', link: '/java/concurrency-scenario' }
-      ]
-    },
-    {
-      text: '数据库',
-      collapsed: true,
-      items: [
-        { text: '数据库面试总览：高频 8 题', link: '/database/overview' },
-        { text: 'MySQL 基础速览（低频，可选）', link: '/database/mysql-basics' },
-        { text: 'SQL 高频题（会写会讲即可，可选）', link: '/database/sql-interview' },
-        { text: 'JOIN 查询与子查询详解', link: '/database/join-subquery' },
-        { text: '常用函数与分组聚合', link: '/database/sql-functions' },
-        { text: 'MySQL 索引底层原理', link: '/database/mysql-index' },
-        { text: 'MySQL 事务与锁机制', link: '/database/mysql-transaction-lock' },
-        { text: 'SQL 优化与执行计划', link: '/database/sql-optimization' },
-        { text: '数据库连接池调优', link: '/database/connection-pool' },
-        { text: '场景实战：慢查询排查', link: '/database/slow-query-scenario' },
-        { text: '主从架构与读写分离【中级】', link: '/database/master-slave-arch' },
-        { text: '分库分表与全局 ID【中级】', link: '/database/sharding' }
-      ]
-    },
-    {
-      text: 'Redis',
-      collapsed: true,
-      items: [
-        { text: 'Redis 总览', link: '/redis/' },
-        { text: '面试高频速查', link: '/redis/overview' },
-        { text: '面试连环追问（口述链）', link: '/redis/interview-chain' },
-        {
-          text: '1. 基础原理',
-          collapsed: true,
-          items: [
-            { text: '是什么 / 为什么快 / 线程与 IO', link: '/redis/01-basics' }
-          ]
-        },
-        {
-          text: '2. 数据结构',
-          collapsed: true,
-          items: [
-            { text: 'String ~ Stream 与场景', link: '/redis/data-types' },
-            { text: '命令与过期策略', link: '/redis/commands-expire' }
-          ]
-        },
-        {
-          text: '3. 缓存',
-          collapsed: true,
-          items: [
-            { text: '穿透 / 击穿 / 雪崩 / 一致性', link: '/redis/cache-issues' }
-          ]
-        },
-        {
-          text: '4. 持久化',
-          collapsed: true,
-          items: [
-            { text: 'RDB / AOF / 混合与恢复', link: '/redis/persistence' }
-          ]
-        },
-        {
-          text: '5. 高可用',
-          collapsed: true,
-          items: [
-            { text: '主从 / Sentinel / Cluster', link: '/redis/cluster-ha' }
-          ]
-        },
-        {
-          text: '6. 分布式',
-          collapsed: true,
-          items: [
-            { text: '分布式锁 / Redisson / 续期误删', link: '/redis/distributed-lock' }
-          ]
-        },
-        {
-          text: '7. 并发',
-          collapsed: true,
-          items: [
-            { text: '原子 / Lua / 库存 / 限流', link: '/redis/07-concurrency' }
-          ]
-        },
-        {
-          text: '8. 消息',
-          collapsed: true,
-          items: [
-            { text: '事务 / PubSub / Stream / 延迟队列', link: '/redis/transaction-pubsub' }
-          ]
-        },
-        {
-          text: '9. 性能',
-          collapsed: true,
-          items: [
-            { text: 'BigKey / HotKey / Pipeline / 淘汰', link: '/redis/09-performance' }
-          ]
-        },
-        {
-          text: '10. 实战',
-          collapsed: true,
-          items: [
-            { text: '登录 / 秒杀 / 点赞 / 限流等', link: '/redis/10-practice' },
-            { text: '缓存架构设计', link: '/redis/cache-scenario' }
-          ]
-        }
-      ]
-    },
-    {
-      text: '框架',
-      collapsed: true,
-      items: [
-        { text: '框架面试总览：Spring / SpringBoot / MyBatis', link: '/framework/overview' },
-        { text: 'Spring 核心', link: '/framework/spring-core' },
-        { text: 'Bean 生命周期与循环依赖', link: '/framework/bean-lifecycle' },
-        { text: '事务传播机制详解', link: '/framework/transaction-propagation' },
-        { text: 'Spring 中的多线程与高并发实战', link: '/framework/concurrency-spring' },
-        { text: '本地缓存技术：Caffeine/Guava/Ehcache', link: '/framework/local-cache' },
-        { text: 'SpringBoot 原理', link: '/framework/springboot-principle' },
-        { text: 'SpringCloud 微服务', link: '/framework/springcloud-microservice' },
-        { text: 'MyBatis/MyBatis-Plus', link: '/framework/mybatis' },
-        { text: 'Spring 常见问题', link: '/framework/spring-faq' },
-        { text: 'SpringBoot 常见问题', link: '/framework/springboot-faq' },
-        { text: '微服务常见问题', link: '/framework/microservice-faq' },
-        { text: '场景实战：事务失效分析', link: '/framework/transaction-scenario' }
-      ]
-    },
-    {
-      text: 'DevOps',
-      collapsed: true,
-      items: [
-        { text: 'DevOps 总览', link: '/guide/devops/' },
-        { text: 'Docker 实战与面试', link: '/guide/devops/docker-interview' },
-        { text: 'Docker Compose 实战与面试', link: '/guide/devops/docker-compose-interview' },
-        { text: 'Kubernetes 实战与面试', link: '/guide/devops/k8s-interview' },
-        { text: 'CI/CD 实战与面试', link: '/guide/devops/cicd-interview' },
-        { text: '线上问题排查实战与面试', link: '/guide/devops/monitoring-interview' }
-      ]
-    },
-    {
-      text: '消息队列',
-      collapsed: true,
-      items: [
-        { text: 'MQ 基础与选型', link: '/mq/overview' },
-        { text: 'MQ 选型对比与常见问题', link: '/mq/mq-comparison' },
-        { text: '消息丢失与可靠性保证【中级】', link: '/mq/message-loss' },
-        { text: '重复消费与幂等性【中级】', link: '/mq/message-duplicate' },
-        { text: '消息顺序性保证【中级】', link: '/mq/message-order' },
-        { text: '消息积压与死信队列【中级】', link: '/mq/message-accumulation' }
-      ]
-    },
-    {
-      text: '计算机网络与 Linux',
-      collapsed: true,
-      items: [
-        { text: 'TCP/IP 与网络传输', link: '/network-linux/tcp-ip' },
-        { text: 'HTTP 与 HTTPS 协议', link: '/network-linux/http' },
-        { text: 'Session、Cookie 与跨域问题', link: '/network-linux/session-cors' },
-        { text: '常用 Linux 命令', link: '/network-linux/linux-cmd' },
-        { text: '线上排查实战【中级】', link: '/network-linux/linux-troubleshooting' }
-      ]
-    },
-    {
-      text: '设计模式',
-      collapsed: true,
-      items: [
-        { text: '单例模式与线程安全', link: '/design-patterns/singleton' },
-        { text: '工厂与策略模式实战', link: '/design-patterns/factory' },
-        { text: '观察者与装饰器模式', link: '/design-patterns/observer-decorator' },
-        { text: '代理与模板方法【中级】', link: '/design-patterns/proxy-template' },
-        { text: '实战：重构烂代码【中高级】', link: '/design-patterns/scenario' }
-      ]
-    },
-    {
-      text: '经典业务场景设计',
-      collapsed: true,
-      items: [
-        { text: '秒杀系统抗高并发设计【中高级】', link: '/scenarios/seckill' },
-        { text: '单点登录与 OAuth2 授权', link: '/scenarios/sso' },
-        { text: '接口幂等性设计实战【中级】', link: '/scenarios/api-idempotent' },
-        { text: '大文件分片与断点续传【中高级】', link: '/scenarios/large-file' },
-        { text: '多租户架构设计与数据隔离【中高级】', link: '/scenarios/multi-tenant' },
-        { text: '对外 API 接口开发实战【中高级】', link: '/scenarios/open-api' },
-        { text: 'Web 系统架构设计与开发实战【中高级】', link: '/scenarios/web-system-design' }
-      ]
-    },
-    {
-      text: '简历与面试技巧',
-      collapsed: true,
-      items: [
-        { text: '简历排版与编写避坑', link: '/resume/resume-guide' },
-        { text: '技术面试：自我介绍与项目讲述', link: '/resume/interview-skills' },
-        { text: '专业技能面试准备（问题与回答）', link: '/resume/skills-interview-prep' },
-        { text: '简历分析与面试准备', link: '/resume/resume-analysis' },
-        { text: '投递平台与投递策略', link: '/resume/job-platform-strategy' }
-      ]
-    },
-    {
-      text: 'Vue 面试基础',
-      collapsed: true,
-      items: [
-        { text: 'Vue 面试基础：高频题库', link: '/resume/vue-interview' }
-      ]
-    },
-    {
-      text: 'Agent 面试',
-      collapsed: true,
-      items: [
-        { text: 'Agent 面试总览', link: '/guide/agent/' },
-        { text: '高频快答', link: '/guide/agent/quick-qa' },
-        { text: '概念与边界', link: '/guide/agent/concepts-interview' },
-        { text: 'Tool Calling', link: '/guide/agent/tool-calling-interview' },
-        { text: '可靠性与安全', link: '/guide/agent/reliability-interview' },
-        { text: '场景设计题', link: '/guide/agent/scenario-interview' },
-        { text: '对比与选型口述', link: '/guide/agent/compare-interview' },
-        { text: '项目讲述模板', link: '/guide/agent/project-story' }
       ]
     },
     {
       text: 'Python 面试',
       collapsed: true,
       items: [
-        { text: 'Python 面试总览', link: '/guide/python/' },
-        { text: '高频快答', link: '/guide/python/quick-qa' },
+        { text: '总览', link: '/guide/python/' },
         { text: '语言基础', link: '/guide/python/basics-interview' },
+        { text: '进阶特性', link: '/guide/python/advanced-interview' },
+        { text: '并发与 IO', link: '/guide/python/async-io-interview' },
         { text: '并发与性能', link: '/guide/python/concurrency-interview' },
         { text: '工程与依赖', link: '/guide/python/engineering-interview' },
         { text: '实战场景题', link: '/guide/python/scenario-interview' },
-        { text: '项目讲述', link: '/guide/python/project-story' }
+        { text: '项目讲述', link: '/guide/python/project-story' },
+        { text: '高频快答', link: '/guide/python/quick-qa' }
       ]
     },
     {
-      text: 'Node.js / TS 面试',
+      text: 'Node.js / TypeScript 面试',
       collapsed: true,
       items: [
-        { text: 'Node/TS 面试总览', link: '/guide/nodejs/' },
-        { text: '高频快答', link: '/guide/nodejs/quick-qa' },
-        { text: 'Node 基础与事件循环', link: '/guide/nodejs/basics-interview' },
+        { text: '总览', link: '/guide/nodejs/' },
+        { text: '基础与事件循环', link: '/guide/nodejs/basics-interview' },
         { text: 'TypeScript', link: '/guide/nodejs/typescript-interview' },
         { text: '异步与并发', link: '/guide/nodejs/async-interview' },
         { text: 'Electron 与上位机', link: '/guide/nodejs/electron-interview' },
         { text: '实战场景题', link: '/guide/nodejs/scenario-interview' },
-        { text: '项目讲述', link: '/guide/nodejs/project-story' }
+        { text: '项目讲述', link: '/guide/nodejs/project-story' },
+        { text: '高频快答', link: '/guide/nodejs/quick-qa' }
+      ]
+    },
+    {
+      text: 'Agent 面试',
+      collapsed: true,
+      items: [
+        { text: '总览', link: '/guide/agent/' },
+        { text: '概念与边界', link: '/guide/agent/concepts-interview' },
+        { text: 'Tool Calling', link: '/guide/agent/tool-calling-interview' },
+        { text: '对比与选型', link: '/guide/agent/compare-interview' },
+        { text: '场景设计题', link: '/guide/agent/scenario-interview' },
+        { text: '可靠性与安全', link: '/guide/agent/reliability-interview' },
+        { text: '项目讲述', link: '/guide/agent/project-story' },
+        { text: '高频快答', link: '/guide/agent/quick-qa' }
+      ]
+    },
+    {
+      text: 'DevOps 面试',
+      collapsed: true,
+      items: [
+        { text: '总览', link: '/guide/devops/' },
+        { text: 'Docker', link: '/guide/devops/docker-interview' },
+        { text: 'Docker Compose', link: '/guide/devops/docker-compose-interview' },
+        { text: 'Kubernetes', link: '/guide/devops/k8s-interview' },
+        { text: 'CI/CD', link: '/guide/devops/cicd-interview' },
+        { text: '线上问题排查', link: '/guide/devops/monitoring-interview' }
       ]
     },
     {
       text: '英文技术面试',
       collapsed: true,
       items: [
-        { text: '英文技术面试', link: '/guide/english-interview/' },
-        { text: '90天计划', link: '/guide/english-interview/90-day-plan' },
-        { text: '自我介绍', link: '/guide/english-interview/self-introduction' }
+        { text: '总览', link: '/guide/english-interview/' },
+        { text: '自我介绍', link: '/guide/english-interview/self-introduction' },
+        { text: '90 天计划', link: '/guide/english-interview/90-day-plan' }
       ]
     }
   ]
 }
 
-/** 资源库 + 开发工具：左侧两个平级分组，/resources 与 /devtools 共用，避免环境专题「藏」在折叠里找不到 */
-function resourceAndDevtoolsSidebar() {
+/** 简历与投递 /resume/ —— 7 篇 */
+function resumeSidebar() {
   return [
     {
-      text: '热门资源',
-      collapsed: true,
+      text: '简历',
+      collapsed: false,
       items: [
-        { text: '学习教程（官网）', link: '/resources/learning' },
-        { text: '书籍推荐(免费下载)', link: '/resources/books' }
+        { text: '排版与编写避坑', link: '/resume/resume-guide' },
+        { text: '简历分析', link: '/resume/resume-analysis' },
+        { text: '专业技能（多版本）', link: '/resume/skills-versions' }
       ]
     },
     {
-      text: '开发工具与环境配置',
+      text: '面试',
+      collapsed: false,
+      items: [
+        { text: '自我介绍与项目讲述', link: '/resume/interview-skills' },
+        { text: '专业技能问答', link: '/resume/skills-interview-prep' },
+        { text: 'Vue 高频题库', link: '/resume/vue-interview' }
+      ]
+    },
+    {
+      text: '投递',
+      collapsed: false,
+      items: [{ text: '投递平台与策略', link: '/resume/job-platform-strategy' }]
+    }
+  ]
+}
+
+/** 成长与学习计划 /growth/ —— 7 篇 */
+function growthSidebar() {
+  return [
+    {
+      text: '成长',
+      collapsed: false,
+      items: [{ text: '总览', link: '/growth/' }]
+    },
+    {
+      text: 'AI 认知',
       collapsed: true,
+      items: [
+        { text: 'AI 能做什么、不能做什么', link: '/growth/ai-cognition/tech-boundary' },
+        { text: '个人智能体搭建入门', link: '/growth/ai-cognition/agent-basics' },
+        { text: '个人信息管道搭建', link: '/growth/ai-cognition/knowledge-pipeline' },
+        { text: '信息分析与判断框架', link: '/growth/ai-cognition/info-analysis' },
+        { text: 'AI 学习方法（费曼式）', link: '/growth/ai-cognition/learn-by-doing' },
+        { text: '主流 AI 工具全景', link: '/growth/ai-cognition/tools-landscape' },
+        { text: 'AI 学习路径设计', link: '/growth/ai-cognition/ai-learning-path' }
+      ]
+    },
+    {
+      text: '学习计划',
+      collapsed: false,
+      items: [
+        { text: '学习计划', link: '/growth/learning-plan/' },
+        { text: 'AI 学习计划', link: '/growth/learning-plan/ai/' },
+        { text: '阶段一：LLM 与 Agent 入门', link: '/growth/learning-plan/ai/phase1-llm-agent' },
+        { text: '阶段二：MVP Server 与数据中台', link: '/growth/learning-plan/ai/phase2-mvp-server' },
+        { text: '阶段三：多模态 / 向量 / 知识图谱', link: '/growth/learning-plan/ai/phase3-multimodal-kg' },
+        { text: '阶段四：部署与 MLOps', link: '/growth/learning-plan/ai/phase4-mlops-platform' }
+      ]
+    }
+  ]
+}
+
+/** 生活 /life/ —— 10 篇 */
+function lifeSidebar() {
+  return [
+    {
+      text: '生活',
+      collapsed: false,
+      items: [{ text: '总览', link: '/life/' }]
+    },
+    {
+      text: '财务',
+      collapsed: false,
+      items: [
+        { text: '财务总览', link: '/life/finance/' },
+        { text: '理财认知入门', link: '/life/finance/money-mindset' },
+        { text: '记账与月度复盘', link: '/life/finance/budget-basics' },
+        { text: '应急金', link: '/life/finance/emergency-fund' }
+      ]
+    },
+    {
+      text: '健康',
+      collapsed: false,
+      items: [
+        { text: '健康总览', link: '/life/health/' },
+        { text: '久坐与肩颈', link: '/life/health/desk-posture' },
+        { text: '运动起步', link: '/life/health/exercise-start' },
+        { text: '睡眠与作息', link: '/life/health/sleep-basics' },
+        { text: '运动健身（兼容入口）', link: '/life/fitness/' }
+      ]
+    }
+  ]
+}
+
+/** 开发工具与环境 /devtools/ —— 23 篇，按「运行时 → 数据库 → 容器 → 编辑器 → 其他」分组 */
+function devtoolsSidebar() {
+  return [
+    {
+      text: '开发工具与环境',
+      collapsed: false,
+      items: [{ text: '总览', link: '/devtools/' }]
+    },
+    {
+      text: '工具生态（体系）',
+      collapsed: true,
+      items: [
+        { text: '开发工具生态', link: '/devtools/development-tools' },
+        { text: '生产力工具', link: '/devtools/productivity-tools' }
+      ]
+    },
+    {
+      text: '语言运行时',
+      collapsed: false,
       items: [
         { text: 'JDK 安装与多版本管理', link: '/devtools/jdk' },
         { text: 'Node.js 安装与版本控制', link: '/devtools/nodejs-install-version' },
-        { text: 'Python 安装与版本控制', link: '/devtools/python-install-version' },
-        { text: '本地 MySQL 安装配置', link: '/devtools/mysql-local' },
-        { text: 'Redis 安装配置', link: '/devtools/redis-local' },
-        { text: 'Docker 快速上手', link: '/devtools/docker' },
-        { text: '环境常见问题排查', link: '/devtools/troubleshooting' }
+        { text: 'Python 安装与版本控制', link: '/devtools/python-install-version' }
       ]
     },
     {
-      text: '开发工具',
-      collapsed: true,
+      text: '本地数据库',
+      collapsed: false,
       items: [
-        { text: 'IntelliJ IDEA 配置', link: '/devtools/intellij-idea' },
-        { text: 'VS Code 安装与配置', link: '/devtools/vscode' },
-        { text: 'Cursor 安装与配置', link: '/devtools/cursor' },
-        { text: 'Maven 配置与最佳实践', link: '/devtools/maven' },
-        { text: 'Git 版本控制实战', link: '/devtools/git' },
+        { text: 'MySQL', link: '/devtools/mysql-local' },
+        { text: 'PostgreSQL', link: '/devtools/postgresql-local' },
+        { text: 'MongoDB', link: '/devtools/mongodb-local' },
+        { text: 'Redis', link: '/devtools/redis-local' },
+        { text: 'Oracle', link: '/devtools/oracle-local' }
+      ]
+    },
+    {
+      text: '容器与排障',
+      collapsed: false,
+      items: [
+        { text: 'Docker 快速上手', link: '/devtools/docker' },
+        { text: '环境常见问题排查', link: '/devtools/troubleshooting' },
+        { text: '一键配置脚本', link: '/devtools/setup-scripts' }
+      ]
+    },
+    {
+      text: '编辑器与构建',
+      collapsed: false,
+      items: [
+        { text: 'IntelliJ IDEA', link: '/devtools/intellij-idea' },
+        { text: 'VS Code', link: '/devtools/vscode' },
+        { text: 'Cursor', link: '/devtools/cursor' },
+        { text: 'Maven', link: '/devtools/maven' },
+        { text: 'Git 版本控制', link: '/devtools/git' }
+      ]
+    },
+    {
+      text: '云端与设计',
+      collapsed: false,
+      items: [
+        { text: 'GitHub Codespaces', link: '/devtools/github-codespaces' },
+        { text: 'Figma', link: '/devtools/figma' }
+      ]
+    },
+    {
+      text: '客户端与其他',
+      collapsed: false,
+      items: [
         { text: '数据库客户端工具', link: '/devtools/database-tools' },
         { text: 'API 测试工具', link: '/devtools/api-testing' },
         { text: '其他实用工具', link: '/devtools/misc-tools' },
-        { text: '工具选型建议', link: '/devtools/tool-selection' },
-        { text: '一键配置脚本', link: '/devtools/setup-scripts' }
+        { text: '工具选型建议', link: '/devtools/tool-selection' }
+      ]
+    }
+  ]
+}
+
+/** 资源库 /resources/ —— 8 篇 */
+function resourcesSidebar() {
+  return [
+    {
+      text: '资源库',
+      collapsed: false,
+      items: [
+        { text: '总览', link: '/resources/' },
+        { text: '学习教程', link: '/resources/learning' },
+        { text: '书籍推荐', link: '/resources/books' },
+        { text: '官方链接与生态', link: '/resources/official-links' },
+        { text: '资源指南', link: '/resources/resource-guide' }
+      ]
+    },
+    {
+      text: '分类收藏',
+      collapsed: false,
+      items: [
+        { text: '收藏', link: '/resources/collections/' },
+        { text: '课程', link: '/resources/courses/' },
+        { text: '工具', link: '/resources/tools/' },
+        { text: '网站', link: '/resources/websites/' }
       ]
     }
   ]
@@ -332,9 +304,7 @@ function industrialSidebar() {
       collapsed: true,
       items: [
         { text: '项目目标', link: '/tech-system/industrial-digitalization/mini-mes/' },
-        { text: '架构演进', link: '/tech-system/industrial-digitalization/mini-mes/architecture' },
-        { text: 'Roadmap', link: '/tech-system/industrial-digitalization/mini-mes/roadmap' },
-        { text: 'Domain / 问题', link: '/tech-system/industrial-digitalization/mini-mes/domain' }
+        { text: '架构演进', link: '/tech-system/industrial-digitalization/mini-mes/architecture' }
       ]
     },
     {
@@ -345,7 +315,6 @@ function industrialSidebar() {
         { text: 'V0 为何 Gateway → HTTP', link: '/tech-system/industrial-digitalization/decisions/01-v0-gateway-http' },
         { text: '为何暂不用 MQTT / EMQX', link: '/tech-system/industrial-digitalization/decisions/02-no-mqtt-yet' },
         { text: 'Redis 与 MySQL 怎么分', link: '/tech-system/industrial-digitalization/decisions/03-redis-vs-mysql' },
-        { text: '为何暂不用 TDengine', link: '/tech-system/industrial-digitalization/decisions/04-no-tdengine' },
         { text: '为何第一版不做微服务', link: '/tech-system/industrial-digitalization/decisions/05-no-microservice' }
       ]
     },
@@ -428,7 +397,7 @@ function techSystemBackendSidebar() {
     },
     languageFiveArticles('/tech-system/backend/java', 'Java'),
     languageFiveArticles('/tech-system/backend/python', 'Python', [
-      { text: 'Python 技能速成', link: '/tech-system/python/python-skill' }
+      { text: 'Python 技能速成', link: '/tech-system/backend/python/python-skill' }
     ]),
     languageFiveArticles('/tech-system/backend/nodejs', 'TypeScript'),
     languageFiveArticles('/tech-system/backend/go', 'Go'),
@@ -486,22 +455,22 @@ function techSystemDatabaseSidebar() {
     {
       text: '数据库体系与选型',
       collapsed: true,
-      items: [{ text: '数据库体系与选型', link: '/tech-system/database/database-stack' }]
+      items: [{ text: '数据库体系与选型', link: '/database/database-stack' }]
     },
     {
       text: '关系型数据库',
       collapsed: true,
-      items: [{ text: '关系型数据库', link: '/tech-system/database/relational' }]
+      items: [{ text: '关系型数据库', link: '/database/relational' }]
     },
     {
       text: 'NoSQL',
       collapsed: true,
-      items: [{ text: 'NoSQL', link: '/tech-system/database/nosql' }]
+      items: [{ text: 'NoSQL', link: '/database/nosql' }]
     },
     {
       text: '缓存体系',
       collapsed: true,
-      items: [{ text: '缓存体系', link: '/tech-system/database/caching' }]
+      items: [{ text: '缓存体系', link: '/database/caching' }]
     }
   ]
 }
@@ -550,22 +519,22 @@ function englishSpeakingSidebar() {
   return [
     {
       text: '英语口语',
-      collapsed: true,
+      collapsed: false,
       items: [
-        { text: '模块总览', link: '/english-speaking/' },
-        { text: '学习路线与使用方式', link: '/english-speaking/' }
+        { text: '模块总览与学习路线', link: '/english-speaking/' },
+        { text: '发音功能说明', link: '/english-speaking/SPEAK_FEATURE_GUIDE' }
       ]
     },
     {
       text: '发音基础',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: '48 音标与发音入门', link: '/english-speaking/phonetics-48' }
       ]
     },
     {
       text: '句子模板',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: '日常通用口语模板', link: '/english-speaking/templates-daily' },
         { text: '工作沟通口语模板', link: '/english-speaking/templates-work' },
@@ -625,7 +594,8 @@ const APP_CATEGORIES = [
     ['PLC 数据采集方案', '/apps/industrial/plc-collect'],
     ['设备监控与告警', '/apps/industrial/device-monitor'],
     ['Modbus/S7 等协议对接实践', '/apps/industrial/protocol-bridge'],
-    ['物联网数据平台搭建', '/apps/industrial/iot-platform']
+    ['物联网数据平台搭建', '/apps/industrial/iot-platform'],
+    ['大型制造企业架构设计（云边端 + MES/WMS/IIoT）', '/apps/industrial/enterprise-architecture']
   ] },
   { key: 'ops', title: '部署与运维', link: '/apps/ops/', items: [
     ['Docker 容器化部署实践', '/apps/ops/docker-deploy'],
@@ -650,67 +620,6 @@ function appsSidebar(category?: string) {
       items: [
         { text: '分类总览', link: c.link },
         ...c.items.map(([text, link]) => ({ text, link }))
-      ]
-    }))
-  ]
-}
-
-/** AI 赋能：四个一级目录 + 各自二级分类。category 为 null 时显示全部（仅用于 /ai/ 总览页），否则只显示本模块 */
-const AI_MODULES = [
-  { key: 'cognition', title: 'AI 认知成长', link: '/ai/cognition/', items: [
-    ['主流 AI 工具全景与选择判断', '/ai/cognition/tools-landscape'],
-    ['AI 能做什么、不能做什么', '/ai/cognition/tech-boundary'],
-    ['AI 学习路径设计', '/ai/cognition/ai-learning-path'],
-    ['费曼式输出与实践复盘', '/ai/cognition/learn-by-doing'],
-    ['个人信息管道搭建', '/ai/cognition/knowledge-pipeline'],
-    ['信息分析与判断框架', '/ai/cognition/info-analysis']
-  ] },
-  { key: 'productivity', title: 'AI 生产力', link: '/ai/productivity/', items: [
-    ['对话式 AI 的高效用法', '/ai/productivity/chat-workflow'],
-    ['按任务选 AI 工具', '/ai/productivity/tool-selection'],
-    ['AI 辅助编程工作流', '/ai/productivity/ai-coding-workflow'],
-    ['文档、周报与沟通提效', '/ai/productivity/docs-and-report'],
-    ['用 AI 写自动化脚本', '/ai/productivity/automation-scripts'],
-    ['个人智能体搭建入门', '/ai/productivity/agent-basics'],
-    ['用 AI 解决一个真实问题', '/ai/productivity/problem-solving'],
-    ['提效复盘：哪些真省了时间', '/ai/productivity/efficiency-review']
-  ] },
-  { key: 'creation', title: 'AI 创作表达', link: '/ai/creation/', items: [
-    ['用 AI 辅助写技术文章', '/ai/creation/ai-writing'],
-    ['一稿多发与内容复用', '/ai/creation/article-repurpose'],
-    ['AI 生图实践', '/ai/creation/ai-image'],
-    ['AI 生视频实践', '/ai/creation/ai-video'],
-    ['平台选择与个人定位', '/ai/creation/platform-positioning'],
-    ['持续更新与涨粉节奏', '/ai/creation/growth-consistency'],
-    ['内容生产流水线搭建', '/ai/creation/content-pipeline'],
-    ['内容资产管理', '/ai/creation/asset-management']
-  ] },
-  { key: 'business', title: 'AI 商业探索', link: '/ai/business/', items: [
-    ['AI 内容变现案例拆解', '/ai/business/case-ai-content'],
-    ['开发者工具与小产品变现案例拆解', '/ai/business/case-dev-tools'],
-    ['从身边挖掘真实需求', '/ai/business/demand-mining'],
-    ['机会评估框架', '/ai/business/opportunity-scan'],
-    ['副业方向选择与设计', '/ai/business/side-business-design'],
-    ['变现路径与定价', '/ai/business/monetization-paths'],
-    ['低成本 MVP 验证', '/ai/business/mvp-validation'],
-    ['项目复盘模板与方法', '/ai/business/retro-notes']
-  ] }
-]
-
-function aiSidebar(category?: string) {
-  const groups = AI_MODULES.filter(m => !category || m.key === category)
-  return [
-    {
-      text: 'AI 赋能',
-      collapsed: true,
-      items: [{ text: '模块总览', link: '/ai/' }]
-    },
-    ...groups.map(m => ({
-      text: m.title,
-      collapsed: true,
-      items: [
-        { text: '模块总览', link: m.link },
-        ...m.items.map(([text, link]) => ({ text, link }))
       ]
     }))
   ]
@@ -742,9 +651,10 @@ const MATRIX_GROUPS = [
     appsOverview: '/apps/industrial/',
     instancesOverview: '/instances/industrial/',
     projects: [
-      { name: 'WMS 仓储管理系统', link: '/instances/industrial/wms' },
       { name: 'MES 生产执行管理系统', link: '/instances/industrial/mes' },
-      { name: 'IIoT 工业物联网监控系统', link: '/instances/industrial/iiot' }
+      { name: 'IIoT 工业物联网监控系统', link: '/instances/industrial/iiot' },
+      { name: 'WMS 仓储管理系统', link: '/instances/industrial/wms' },
+      { name: '大型制造企业架构设计（云边端 + MES/WMS/IIoT）', link: '/apps/industrial/enterprise-architecture' }
     ]
   },
   {
@@ -779,6 +689,40 @@ const MATRIX_GROUPS = [
   }
 ]
 
+/**
+ * 平台内核 · OpenBiz（2026-11-02 调整）：
+ *  它是 03 企业业务应用里 CRM / ERP / PMS / OA / BPM / HRM 共用的底座，
+ *  但塞在 03 分组里、分组默认折叠，进站根本找不到。
+ *  故在「项目实例 · 五类」侧栏把它提到顶层（与「项目实例总表」并列），
+ *  03 分组内不再重复；应用矩阵侧栏不变（仍留在 03 下）。
+ */
+const PLATFORM_KERNEL_ITEM = { text: '平台内核 · OpenBiz', link: '/instances/platform' }
+
+/**
+ * 01 AI 智能应用下的两个二级目录（2026-11-02 调整）：
+ *  「AI 内容创作」「AI 商业探索（搞钱）」原先是项目实例侧栏的两个顶层分组，
+ *  但它们本质是 01 这条线的实践分支，故下沉为 01 分组内的二级目录，不再与 01–05 平级。
+ *  正文位置不变（/instances/ai-creation/、/instances/ai-business/），只改导航层级。
+ */
+const AI_SUB_GROUPS = [
+  {
+    text: 'AI 内容创作',
+    collapsed: true,
+    items: [
+      { text: '创作表达总览', link: '/instances/ai-creation/' },
+      { text: 'ModelDesk 架构与本地网关', link: '/instances/ai-creation/modeldesk-architecture' },
+      { text: '用 AI 辅助写技术文章', link: '/instances/ai-creation/ai-writing' },
+      { text: '一稿多发与内容复用', link: '/instances/ai-creation/article-repurpose' },
+      { text: 'AI 生图实践', link: '/instances/ai-creation/ai-image' },
+      { text: 'AI 生视频实践', link: '/instances/ai-creation/ai-video' },
+      { text: '平台选择与个人定位', link: '/instances/ai-creation/platform-positioning' },
+      { text: '持续更新与涨粉节奏', link: '/instances/ai-creation/growth-consistency' },
+      { text: '内容资产管理', link: '/instances/ai-creation/asset-management' },
+      { text: '内容生产流水线搭建', link: '/instances/ai-creation/content-pipeline' }
+    ]
+  }
+]
+
 /** kind=apps 时「分类总览」指向 /apps/xx/（文章索引），kind=instances 时指向 /instances/xx/（模块总览）。 */
 function matrixSidebar(kind: 'apps' | 'instances' = 'apps') {
   const isApps = kind === 'apps'
@@ -788,20 +732,25 @@ function matrixSidebar(kind: 'apps' | 'instances' = 'apps') {
       collapsed: false,
       items: [
         { text: '应用总览', link: '/apps/' },
-        { text: '项目实例总表', link: '/instances/' }
+        { text: '项目实例总表', link: '/instances/' },
+        ...(isApps ? [] : [PLATFORM_KERNEL_ITEM])
       ]
     },
     ...MATRIX_GROUPS.map(g => ({
       text: g.title,
-      collapsed: false,
+      collapsed: true,
       items: [
         {
           text: isApps ? '分类总览' : '模块总览',
           link: isApps ? g.appsOverview : g.instancesOverview
         },
         ...(g.projects.length
-          ? g.projects.map(p => ({ text: p.name, link: p.link }))
-          : [{ text: '暂无实例' }])
+          ? g.projects
+              .filter(p => isApps || p.link !== PLATFORM_KERNEL_ITEM.link)
+              .map(p => ({ text: p.name, link: p.link }))
+          : [{ text: '暂无实例' }]),
+        // 仅项目实例侧栏、仅 01 分组，追加两个二级目录
+        ...(!isApps && g.title.startsWith('01') ? AI_SUB_GROUPS : [])
       ]
     }))
   ]
@@ -842,6 +791,15 @@ function scenarioSidebar() {
       text: '数据处理',
       collapsed: true,
       items: [{ text: '大文件分片与断点续传', link: '/scenarios/large-file' }]
+    },
+    {
+      text: '库存与仓储',
+      collapsed: true,
+      items: [
+        { text: '库存并发扣减与防超卖', link: '/scenarios/inventory-deduction' },
+        { text: '批次效期与 FIFO / FEFO 追溯', link: '/scenarios/batch-fefo' },
+        { text: '库位分配与上架策略', link: '/scenarios/location-allocation' }
+      ]
     }
   ]
 }
@@ -855,11 +813,20 @@ function techSidebar5() {
       collapsed: true,
       items: [
         { text: '技术体系概览', link: '/tech-system/' },
-        { text: '后端技术体系', link: '/tech-system/backend/' },
-        { text: 'Java + Spring 路线', link: '/tech-system/backend/java-spring' },
-        { text: 'TypeScript 后端栈', link: '/tech-system/backend/nodejs-stack' },
-        { text: 'Python 后端栈', link: '/tech-system/backend/python-stack' },
-        { text: 'Go 后端栈', link: '/tech-system/backend/golang' }
+        { text: '后端技术体系', link: '/tech-system/backend/' }
+      ]
+    },
+    {
+      text: '后端五语言速览',
+      collapsed: true,
+      items: [
+        languageFiveArticles('/tech-system/backend/java', 'Java'),
+        languageFiveArticles('/tech-system/backend/python', 'Python', [
+          { text: 'Python 技能清单', link: '/tech-system/backend/python/python-skill' }
+        ]),
+        languageFiveArticles('/tech-system/backend/nodejs', 'Node.js / TypeScript'),
+        languageFiveArticles('/tech-system/backend/go', 'Go'),
+        languageFiveArticles('/tech-system/backend/csharp', 'C#')
       ]
     },
     {
@@ -887,16 +854,12 @@ function techSidebar5() {
         { text: 'SpringBoot 原理', link: '/framework/springboot-principle' },
         { text: 'SpringCloud 微服务', link: '/framework/springcloud-microservice' },
         { text: 'MyBatis / MyBatis-Plus', link: '/framework/mybatis' },
-        { text: 'Flowable 工作流', link: '/framework/flowable-bpmn' },
+        { text: 'Flowable 工作流', link: '/tech-system/backend/flowable-bpmn' },
+        { text: 'Flowable 企业级扩展', link: '/tech-system/backend/flowable-enterprise-extensions' },
         { text: 'Spring 常见问题', link: '/framework/spring-faq' },
         { text: 'SpringBoot 常见问题', link: '/framework/springboot-faq' },
         { text: '微服务常见问题', link: '/framework/microservice-faq' },
         { text: 'SpringBoot 概述', link: '/springboot/overview' },
-        { text: '自动配置原理', link: '/springboot/auto-configuration' },
-        { text: '注解详解', link: '/springboot/annotations' },
-        { text: '数据访问基础', link: '/springboot/data-access' },
-        { text: 'RESTful API 设计', link: '/springboot/restful-api' },
-        { text: 'Spring Security', link: '/springboot/security' },
         { text: '前后台管理系统技术栈', link: '/springboot/tech-stack' },
         { text: '单例模式与线程安全', link: '/design-patterns/singleton' },
         { text: '工厂与策略模式', link: '/design-patterns/factory' },
@@ -964,10 +927,10 @@ function techSidebar5() {
         { text: '重复消费与幂等', link: '/mq/message-duplicate' },
         { text: '消息顺序性', link: '/mq/message-order' },
         { text: '消息积压与死信', link: '/mq/message-accumulation' },
-        { text: '数据库体系与选型', link: '/tech-system/database/database-stack' },
-        { text: '关系型数据库', link: '/tech-system/database/relational' },
-        { text: 'NoSQL', link: '/tech-system/database/nosql' },
-        { text: '缓存体系', link: '/tech-system/database/caching' }
+        { text: '数据库体系与选型', link: '/database/database-stack' },
+        { text: '关系型数据库', link: '/database/relational' },
+        { text: 'NoSQL', link: '/database/nosql' },
+        { text: '缓存体系', link: '/database/caching' }
       ]
     },
     {
@@ -996,15 +959,20 @@ function techSidebar5() {
       collapsed: true,
       items: [
         { text: '工业数字化实验室', link: '/tech-system/industrial-digitalization/' },
+        { text: '00 架构总览', link: '/tech-system/industrial-digitalization/00-architecture-overview' },
+        { text: '01 设备接入', link: '/tech-system/industrial-digitalization/01-device-access' },
+        { text: '02 数据平台', link: '/tech-system/industrial-digitalization/02-data-platform' },
+        { text: '03 实时系统', link: '/tech-system/industrial-digitalization/03-realtime-system' },
+        { text: '04 SCADA 可视化', link: '/tech-system/industrial-digitalization/04-scada-visualization' },
+        { text: '05 业务抽象', link: '/tech-system/industrial-digitalization/05-business-abstract' },
+        { text: '06 MES Lite', link: '/tech-system/industrial-digitalization/06-mes-lite' },
+        { text: '07 完整系统', link: '/tech-system/industrial-digitalization/07-full-system' },
         { text: 'Mini MES 项目目标', link: '/tech-system/industrial-digitalization/mini-mes/' },
         { text: 'Mini MES 架构演进', link: '/tech-system/industrial-digitalization/mini-mes/architecture' },
-        { text: 'Mini MES Roadmap', link: '/tech-system/industrial-digitalization/mini-mes/roadmap' },
-        { text: 'Mini MES Domain', link: '/tech-system/industrial-digitalization/mini-mes/domain' },
         { text: '判断索引', link: '/tech-system/industrial-digitalization/decisions/' },
         { text: 'V0 为何 Gateway → HTTP', link: '/tech-system/industrial-digitalization/decisions/01-v0-gateway-http' },
         { text: '为何暂不用 MQTT/EMQX', link: '/tech-system/industrial-digitalization/decisions/02-no-mqtt-yet' },
         { text: 'Redis 与 MySQL 怎么分', link: '/tech-system/industrial-digitalization/decisions/03-redis-vs-mysql' },
-        { text: '为何暂不用 TDengine', link: '/tech-system/industrial-digitalization/decisions/04-no-tdengine' },
         { text: '为何第一版不做微服务', link: '/tech-system/industrial-digitalization/decisions/05-no-microservice' },
         { text: '实验室索引', link: '/tech-system/industrial-digitalization/labs/' },
         { text: 'Lab 001 · 设备采集最小闭环', link: '/tech-system/industrial-digitalization/labs/lab-001' },
@@ -1025,6 +993,8 @@ function techSidebar5() {
         { text: 'CI/CD', link: '/guide/devops/cicd-interview' },
         { text: '线上问题排查', link: '/guide/devops/monitoring-interview' },
         { text: 'CI/CD 流水线', link: '/tech-system/devops/ci-cd-pipeline' },
+        { text: 'Docker 容器化（体系）', link: '/tech-system/devops/docker' },
+        { text: '监控与告警（体系）', link: '/tech-system/devops/monitoring' },
         { text: '监控与可观测', link: '/tech-system/devops/monitoring-observability' },
         { text: 'Windows Docker Desktop', link: '/tech-system/devops/docker-desktop-windows' },
         { text: 'TCP/IP 与网络传输', link: '/network-linux/tcp-ip' },
@@ -1039,9 +1009,9 @@ function techSidebar5() {
         { text: '服务监控与告警', link: '/apps/ops/monitor-alert' },
         { text: '代码质量', link: '/tech-system/practices/code-quality' },
         { text: '开发实践', link: '/tech-system/practices/development-practices' },
-        { text: '开发工具', link: '/tech-system/tools/development-tools' },
-        { text: '效率工具', link: '/tech-system/tools/productivity-tools' },
-        { text: '资源指南', link: '/tech-system/resources/resource-guide' },
+        { text: '开发工具', link: '/devtools/development-tools' },
+        { text: '效率工具', link: '/devtools/productivity-tools' },
+        { text: '资源指南', link: '/resources/resource-guide' },
         { text: '行业趋势', link: '/tech-system/trends/industry-trends' }
       ]
     }
@@ -1051,35 +1021,26 @@ function techSidebar5() {
 /** AI 实践：5 个分类（保留 /ai/* 原路径，business 作为案例子组兜底） */
 function aiSidebar5() {
   return [
-    { text: 'AI 实践', collapsed: true, items: [{ text: '模块总览', link: '/ai/' }] },
+    { text: 'AI 赋能与个人提效', collapsed: false, items: [{ text: '模块总览', link: '/ai/' }] },
+    {
+      text: '提示词工程 · 六类',
+      collapsed: true,
+      items: [
+        { text: '提示词库总览', link: '/ai/prompts/' },
+        { text: '编程开发', link: '/ai/prompts/coding' },
+        { text: '写作与表达', link: '/ai/prompts/writing' },
+        { text: '分析与决策', link: '/ai/prompts/analysis' },
+        { text: '学习与理解', link: '/ai/prompts/learning' },
+        { text: '创意与内容', link: '/ai/prompts/creation' },
+        { text: '角色与系统提示词', link: '/ai/prompts/agent' }
+      ]
+    },
     {
       text: 'AI 辅助编程',
       collapsed: true,
       items: [
-        { text: 'AI 认知总览', link: '/ai/cognition/' },
         { text: 'AI 辅助编程工作流', link: '/ai/productivity/ai-coding-workflow' },
-        { text: '按任务选 AI 工具', link: '/ai/productivity/tool-selection' },
-        { text: '对话式 AI 的高效用法', link: '/ai/productivity/chat-workflow' },
-        { text: '主流 AI 工具全景', link: '/ai/cognition/tools-landscape' },
-        { text: 'AI 学习路径设计', link: '/ai/cognition/ai-learning-path' },
-        { text: '费曼式输出与复盘', link: '/ai/cognition/learn-by-doing' }
-      ]
-    },
-    {
-      text: 'Agent 与智能体',
-      collapsed: true,
-      items: [
-        { text: '个人智能体搭建入门', link: '/ai/productivity/agent-basics' },
-        { text: 'AI 能做什么、不能做什么', link: '/ai/cognition/tech-boundary' }
-      ]
-    },
-    {
-      text: '知识库与 RAG',
-      collapsed: true,
-      items: [
-        { text: '个人信息管道搭建', link: '/ai/cognition/knowledge-pipeline' },
-        { text: '信息分析与判断框架', link: '/ai/cognition/info-analysis' },
-        { text: '文档、周报与沟通提效', link: '/ai/productivity/docs-and-report' }
+        { text: 'AI 工具与选型', link: '/ai/productivity/tool-selection' }
       ]
     },
     {
@@ -1088,44 +1049,30 @@ function aiSidebar5() {
       items: [
         { text: '用 AI 写自动化脚本', link: '/ai/productivity/automation-scripts' },
         { text: '用 AI 解决一个真实问题', link: '/ai/productivity/problem-solving' },
-        { text: '提效复盘', link: '/ai/productivity/efficiency-review' },
-        { text: '内容生产流水线搭建', link: '/ai/creation/content-pipeline' }
+        { text: '文档、周报与沟通提效', link: '/ai/productivity/docs-and-report' },
+        { text: '提效复盘', link: '/ai/productivity/efficiency-review' }
       ]
     },
     {
-      text: 'AI 应用案例',
-      collapsed: true,
-      items: [
-        { text: '创作表达总览', link: '/ai/creation/' },
-        { text: 'ModelDesk 架构与本地网关', link: '/ai/creation/modeldesk-architecture' },
-        { text: '用 AI 辅助写技术文章', link: '/ai/creation/ai-writing' },
-        { text: '一稿多发与内容复用', link: '/ai/creation/article-repurpose' },
-        { text: 'AI 生图实践', link: '/ai/creation/ai-image' },
-        { text: 'AI 生视频实践', link: '/ai/creation/ai-video' },
-        { text: '平台选择与个人定位', link: '/ai/creation/platform-positioning' },
-        { text: '持续更新与涨粉节奏', link: '/ai/creation/growth-consistency' },
-        { text: '内容资产管理', link: '/ai/creation/asset-management' }
-      ]
-    },
-    {
-      text: 'AI 商业探索（案例）',
+      // 商业探索属于个人 AI 提效，不是交付型项目实例，故正文已搬回 /ai/business/。
+      text: 'AI 商业探索（搞钱）',
       collapsed: true,
       items: [
         { text: '商业探索总览', link: '/ai/business/' },
-        { text: 'AI 内容变现案例', link: '/ai/business/case-ai-content' },
-        { text: '开发者工具变现案例', link: '/ai/business/case-dev-tools' },
         { text: '从身边挖掘真实需求', link: '/ai/business/demand-mining' },
         { text: '机会评估框架', link: '/ai/business/opportunity-scan' },
         { text: '副业方向选择与设计', link: '/ai/business/side-business-design' },
         { text: '变现路径与定价', link: '/ai/business/monetization-paths' },
         { text: '低成本 MVP 验证', link: '/ai/business/mvp-validation' },
+        { text: 'AI 内容变现案例', link: '/ai/business/case-ai-content' },
+        { text: '开发者工具变现案例', link: '/ai/business/case-dev-tools' },
         { text: '项目复盘模板', link: '/ai/business/retro-notes' }
       ]
     }
   ]
 }
 
-/** 关于我：4 个分类，全部复用现有页面，不伪造内容 */
+/** 关于我：个人介绍 / 学习与输出 / 工作经历 / 技术能力 / 简历 */
 function aboutSidebar5() {
   return [
     {
@@ -1134,6 +1081,13 @@ function aboutSidebar5() {
       items: [
         { text: '个人介绍', link: '/about/' },
         { text: '我的理念', link: '/about/philosophy' }
+      ]
+    },
+    {
+      text: '学习与输出',
+      collapsed: true,
+      items: [
+        { text: '费曼式输出与复盘', link: '/about/learn-by-doing' }
       ]
     },
     {
@@ -1170,7 +1124,6 @@ function moreSidebar() {
         { text: '内容索引', link: '/more/' },
         { text: '就业与面试', link: '/guide/' },
         { text: '学习与成长', link: '/growth/' },
-        { text: '知识沉淀', link: '/knowledge/' },
         { text: '生活记录', link: '/life/' },
         { text: '开发工具', link: '/devtools/' },
         { text: '资源收藏', link: '/resources/' },
@@ -1233,7 +1186,8 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: '30 天建设计划', link: '/plan/' },
-            { text: '内容映射表', link: '/plan/mapping' }
+            { text: '内容映射表', link: '/plan/mapping' },
+            { text: 'P0 审计报告（2026-10-30）', link: '/plan/job-portfolio-p0-audit-2026-10-30' }
           ]
         }
       ],
@@ -1255,21 +1209,18 @@ export default defineConfig({
       '/scenarios/': scenarioSidebar(),
       // AI 实践（5 类）
       '/ai/': aiSidebar5(),
-      // 关于我（4 类）
+      // 关于我（5 类）
       '/about/': aboutSidebar5(),
-      // 其他内容：未归入五栏目的旧文章，保留原路径与 URL
+      // 其他栏目：各自独立侧栏（2026-10-31 修复 —— 原 11 个路径共用 moreSidebar，230 篇无导航入口）
       '/more/': moreSidebar(),
-      '/guide/': moreSidebar(),
-      '/resume/': moreSidebar(),
-      '/career/': moreSidebar(),
-      '/knowledge/': moreSidebar(),
-      '/life/': moreSidebar(),
-      '/growth/': moreSidebar(),
-      '/devtools/': moreSidebar(),
-      '/resources/': moreSidebar(),
-      '/english-speaking/': moreSidebar(),
-      '/open-source/': moreSidebar(),
-      '/practices/': moreSidebar()
+      '/guide/': guideSidebar(),
+      '/resume/': resumeSidebar(),
+      '/life/': lifeSidebar(),
+      '/growth/': growthSidebar(),
+      '/devtools/': devtoolsSidebar(),
+      '/resources/': resourcesSidebar(),
+      '/english-speaking/': englishSpeakingSidebar(),
+      '/open-source/': moreSidebar()
     },
 
     // 启用本地搜索 - 显示永久搜索框

@@ -1,97 +1,109 @@
 # 技术体系
 
-本站“技术体系”仅面向 **初级 / 中级开发**，用来梳理学习路线与知识地图。偏 **中高级/高级** 的内容（如分布式一致性、云原生、LLM 微调、数仓/大数据、系统架构模式专题等）会暂时下线；同时会结合**当前趋势分析**与**个人学习方向把控**，动态调整保留内容与学习优先级。
+本站「技术体系」面向 **初级 / 中级开发**，用来梳理学习路线与知识地图。偏中高级的内容（分布式一致性、云原生、LLM 微调、数仓 / 大数据等）暂不下线，只在对应章节标注为选修。
 
 ## 🏗️ 核心技术栈
 
 ### 后端技术栈
 
-沉淀判断，不是教程：[后端技术体系](./backend/)。每种语言统一五篇：基础 → 核心 → 框架 → 工程 → 常见问题。
+沉淀判断，不是教程：[后端技术体系](/tech-system/backend/)。每种语言统一五篇：基础 → 核心 → 框架 → 工程 → 常见问题。
 
-- **Java**：[总览](./backend/java/)（含 Spring，不再拆两组）  
-- **Python**：[总览](./backend/python/) · [技能速成](./python/python-skill.md)  
-- **TypeScript**：[总览](./backend/nodejs/)（Node 运行时）  
-- **Go**：[总览](./backend/go/)  
-- **C#**：[总览](./backend/csharp/)  
-- **后端问题**：[并发 / 库 / Redis / MQ / 分布式…](./backend/problems/)  
+- **Java**：[五篇速览](/tech-system/backend/java/)（含 Spring，不拆两组）
+- **Python**：[五篇速览](/tech-system/backend/python/) · [技能速成](/tech-system/backend/python/python-skill)
+- **TypeScript**：[五篇速览](/tech-system/backend/nodejs/)（Node 运行时）
+- **Go**：[五篇速览](/tech-system/backend/go/)
+- **C#**：[五篇速览](/tech-system/backend/csharp/)
+- **后端问题**：[并发 / 库 / Redis / MQ / 分布式…](/tech-system/backend/problems/)
 
-> 工业自动化、设备通信、IoT/SCADA/MES 等内容见 **[工业数字化](/tech-system/industrial-digitalization/)**。
+Java 主线的深度专题另在技术体系之外维护：
+
+- [Java 语言与并发](/java/base-overview) — 集合、JVM、线程池、并发核心机制
+- [框架与中间件](/framework/overview) — Spring 核心、事务、MyBatis、SpringCloud
+- [SpringBoot 实践](/springboot/overview) — 概述与前后台管理系统技术栈
 
 ### 前端技术栈
-- [Vue.js 生态](./frontend/vue-stack.md) - Vue 3、组合式API、Vuex/Pinia
-- [React 生态](./frontend/react-stack.md) - React 18、Hooks、Redux、Next.js
-- [前端工程化](./frontend/engineering.md) - Webpack、Vite、TypeScript、测试
-- [移动端开发](./frontend/mobile.md) - React Native、Flutter、PWA
-- [跨平台方案](./frontend/cross-platform.md) - Electron、Tauri、WebAssembly
+
+- [Vue 技术栈](/tech-system/frontend/vue-stack) — Vue 3、组合式 API、Pinia
+- [React 技术栈](/tech-system/frontend/react-stack) — React 18、Hooks、Redux、Next.js
+- [前端工程化](/tech-system/frontend/engineering) — Vite、TypeScript、测试
+- [移动端开发](/tech-system/frontend/mobile) — React Native、Flutter、PWA
+- [跨平台方案](/tech-system/frontend/cross-platform) — Electron、Tauri、WebAssembly
+- [站点重构与求职作品集](/tech-system/frontend/site-refactor-job-portfolio) — 本站自身的重构复盘
 
 ### 数据库与存储
-- [关系型数据库](./database/relational.md) - MySQL、PostgreSQL优化
-- [NoSQL 数据库](./database/nosql.md) - MongoDB、Redis、Elasticsearch
-- [缓存系统](./database/caching.md) - Redis集群、缓存策略、性能优化
-> 数仓/大数据、分布式存储等偏中高级内容，暂时下线。
 
-## 🔌 系统集成与通信（HTTP / 服务）
+- [数据库体系与选型](/database/database-stack) — 关系型 / NoSQL / NewSQL 全景
+- [关系型数据库](/database/relational) — MySQL、PostgreSQL 优化
+- [NoSQL 数据库](/database/nosql) — MongoDB、Redis、Elasticsearch
+- [缓存系统](/database/caching) — 缓存策略、集群与性能
+- 深入专题：[索引原理](/database/mysql-index) · [事务与锁](/database/mysql-transaction-lock) · [SQL 优化](/database/sql-optimization) · [分库分表](/database/sharding) · [主从架构](/database/master-slave-arch)
+- 中间件：[Redis](/redis/) · [消息队列](/mq/overview)
 
-面向 **多语言服务对接** 场景：侧重应用层 API 与服务间协作。
+> 数仓 / 大数据、分布式存储等偏中高级内容，暂时下线。
 
-- [跨语言调用：方式选型与常见实现](./integration/cross-language-interop.md) — HTTP/gRPC/MQ/FFI/子进程等是否可行、怎么选
-- [HTTP 跨语言协作：Node.js ↔ Python](./integration/http-node-python.md) — REST/JSON、网关与算法服务拆分、常见 Express/axios 踩坑
+## 🔌 系统集成与通信
+
+面向 **多语言服务对接** 与 **设备通信** 场景。
+
+- [跨语言调用：方式选型](/tech-system/integration/cross-language-interop) — HTTP / gRPC / MQ / FFI / 子进程怎么选
+- [HTTP：Node.js ↔ Python](/tech-system/integration/http-node-python) — REST/JSON、网关与算法服务拆分
+- [Modbus TCP：Node.js ↔ PLC](/tech-system/integration/modbus-tcp-node-plc)
+- [Modbus TCP：Python ↔ PLC](/tech-system/integration/modbus-tcp-python-plc)
+- [S7：Node.js ↔ PLC](/tech-system/integration/s7-comm-node-plc)
+- [S7：Python ↔ PLC](/tech-system/integration/s7-comm-python-plc)
+
+## 🏭 工业数字化
+
+完整方法论 + 真实项目，见 [工业数字化实验室](/tech-system/industrial-digitalization/)：
+
+- [00 架构总览](/tech-system/industrial-digitalization/00-architecture-overview)
+- [01 设备接入](/tech-system/industrial-digitalization/01-device-access)
+- [02 数据平台](/tech-system/industrial-digitalization/02-data-platform)
+- [03 实时系统](/tech-system/industrial-digitalization/03-realtime-system)
+- [04 SCADA 可视化](/tech-system/industrial-digitalization/04-scada-visualization)
+- [05 业务抽象](/tech-system/industrial-digitalization/05-business-abstract)
+- [06 MES Lite](/tech-system/industrial-digitalization/06-mes-lite)
+- [07 完整系统](/tech-system/industrial-digitalization/07-full-system)
+
+配套：
+
+- PLC 与采集：[常见品牌](/tech-system/plc/common-brands) · [S7 与 Python 采集](/tech-system/plc/s7-python-data-collection) · [S7 速查](/tech-system/plc/s7-quick-reference)
+- 判断记录：[判断索引](/tech-system/industrial-digitalization/decisions/)（为何不用 MQTT、为何不做微服务…）
+- 动手实验：[实验室索引](/tech-system/industrial-digitalization/labs/) · [Lab 001 设备采集最小闭环](/tech-system/industrial-digitalization/labs/lab-001)
+- 项目推演：[Mini MES](/tech-system/industrial-digitalization/mini-mes/) · [架构演进](/tech-system/industrial-digitalization/mini-mes/architecture)
 
 ## 🚀 DevOps 与运维
 
-### 容器化技术
-- [Docker 实战](./devops/docker.md) - 镜像构建、多阶段构建、容器编排
-- [Docker Desktop Windows 配置](./devops/docker-desktop-windows.md) - 开机自启、容器自启、Docker Compose
-- [Kubernetes](./devops/kubernetes.md) - Pod管理、服务发现、配置管理
-- [容器安全](./devops/container-security.md) - 镜像扫描、运行时安全
+- [Docker 实战](/tech-system/devops/docker) — 镜像构建、多阶段构建、容器编排
+- [Docker Desktop（Windows）](/tech-system/devops/docker-desktop-windows) — 开机自启、容器自启、Compose
+- [CI/CD 流水线](/tech-system/devops/ci-cd-pipeline)
+- [监控与告警](/tech-system/devops/monitoring)
+- [监控与可观测性](/tech-system/devops/monitoring-observability) — Prometheus、Grafana、日志、链路追踪
+- 面试向复盘：[DevOps 面试](/guide/devops/)
 
-### CI/CD 流水线
-- [Jenkins](./devops/jenkins.md) - 流水线设计、插件开发
-- [GitLab CI](./devops/gitlab-ci.md) - .gitlab-ci.yml、流水线优化
-- [GitHub Actions](./devops/github-actions.md) - 工作流设计、自托管Runner
+> 云原生 / Service Mesh / IaC 等偏中高级内容，暂时下线。
 
-### 监控与可观测性
-- [应用监控](./devops/monitoring.md) - Prometheus、Grafana、告警规则
-- [日志管理](./devops/logging.md) - ELK Stack、日志聚合、分析
-- [链路追踪](./devops/tracing.md) - Jaeger、Zipkin、分布式追踪
+## 🔐 安全
 
-> 云原生/Service Mesh/IaC 等偏中高级内容，暂时下线。
+- [安全体系](/tech-system/security/security-stack)
+- [Web 安全](/tech-system/security/web-security)
 
-## 🛠️ 开发工具与环境
+## 🧪 工程实践
 
-### IDE 与编辑器
-- [VS Code 配置](./tools/vscode.md) - 插件推荐、设置优化、远程开发
-- [IntelliJ IDEA](./tools/intellij.md) - Java开发、插件生态
-- [PyCharm](./tools/pycharm.md) - Python开发、科学计算
+- [代码质量](/tech-system/practices/code-quality)
+- [开发实践](/tech-system/practices/development-practices)
 
-### 版本控制
-- [Git 工作流](./tools/git-workflow.md) - 分支策略、代码审查、冲突解决
-- [GitHub 协作](./tools/github-collaboration.md) - PR流程、Issue管理、项目管理
-- [GitLab 企业应用](./tools/gitlab-enterprise.md) - CI/CD、容器注册表
+## 🛠️ 开发工具与资源
 
-### 构建与包管理
-- [Maven/Gradle](./tools/build-tools.md) - 项目构建、依赖管理、多模块
-- [npm/yarn/pnpm](./tools/package-managers.md) - 包管理、工作区、性能优化
-- [Webpack/Vite](./tools/bundlers.md) - 模块打包、优化配置
+- [开发工具与环境](/devtools/) — IDE、本地数据库、容器、版本控制
+- [资源库](/resources/) — 教程、书籍、官方链接、课程与网站
 
-### 测试工具
-- [单元测试](./tools/unit-testing.md) - JUnit、pytest、Jest
-- [集成测试](./tools/integration-testing.md) - TestContainers、WireMock
-- [性能测试](./tools/performance-testing.md) - JMeter、k6、负载测试
+## 📈 行业趋势
 
-## 📊 数据与分析
-
-### 数据工程
-> 数据工程/大数据方向偏中高级，暂时下线。
-- [数据湖](./data/data-lake.md) - 架构设计、数据治理、成本优化
-- [实时数据处理](./data/stream-processing.md) - Kafka Streams、Flink、Spark Streaming
-
-### 商业智能
-- [数据可视化](./data/visualization.md) - Tableau、Power BI、开源替代
-- [报表系统](./data/reporting.md) - 动态报表、仪表板设计
-- [数据分析](./data/analytics.md) - SQL分析、Python分析、统计建模
+- [行业趋势观察](/tech-system/trends/industry-trends)
 
 ---
+
 ## 开源拆解
 
 以我维护的项目为主（OpenBiz、本地漫创、ModelDesk）：
@@ -99,4 +111,5 @@
 - [开源拆解](/open-source/)
 
 ---
-💡 **更新计划**: 每个技术领域会持续更新最新内容，涵盖新版本特性、最佳实践和行业趋势。欢迎关注和投稿！
+
+💡 每个技术领域会持续更新，涵盖新版本特性、最佳实践和行业趋势。

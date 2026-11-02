@@ -15,29 +15,29 @@
 
 | 文章 | 一句话说明 |
 |------|-----------|
-| [用 AI 辅助写技术文章](/ai/creation/ai-writing) | 选题、大纲、初稿、润色的分工方法，事实核查与去 AI 味的实操。 |
-| [一稿多发与内容复用](/ai/creation/article-repurpose) | 把一篇长文拆成多平台短内容，按节奏排期放大生命周期。 |
+| [用 AI 辅助写技术文章](/instances/ai-creation/ai-writing) | 选题、大纲、初稿、润色的分工方法，事实核查与去 AI 味的实操。 |
+| [一稿多发与内容复用](/instances/ai-creation/article-repurpose) | 把一篇长文拆成多平台短内容，按节奏排期放大生命周期。 |
 
 ### 图片与视频
 
 | 文章 | 一句话说明 |
 |------|-----------|
-| [AI 生图实践](/ai/creation/ai-image) | 提示词结构、风格一致性、封面与配图生产流程及版权注意事项。 |
-| [AI 生视频实践](/ai/creation/ai-video) | 分镜脚本、文生图转图生视频流程、素材管理与成本控制。 |
+| [AI 生图实践](/instances/ai-creation/ai-image) | 提示词结构、风格一致性、封面与配图生产流程及版权注意事项。 |
+| [AI 生视频实践](/instances/ai-creation/ai-video) | 分镜脚本、文生图转图生视频流程、素材管理与成本控制。 |
 
 ### 自媒体与个人品牌
 
 | 文章 | 一句话说明 |
 |------|-----------|
-| [平台选择与个人定位](/ai/creation/platform-positioning) | 选主平台、一句话定位、内容栏目化，与本职工作互补。 |
-| [持续更新与涨粉节奏](/ai/creation/growth-consistency) | 更新频率与产能平衡、数据复盘方法、冷启动与心态管理。 |
+| [平台选择与个人定位](/instances/ai-creation/platform-positioning) | 选主平台、一句话定位、内容栏目化，与本职工作互补。 |
+| [持续更新与涨粉节奏](/instances/ai-creation/growth-consistency) | 更新频率与产能平衡、数据复盘方法、冷启动与心态管理。 |
 
 ### 内容生产流程
 
 | 文章 | 一句话说明 |
 |------|-----------|
-| [内容生产流水线搭建](/ai/creation/content-pipeline) | 选题库到分发的五段流程，模板与 Checklist，AI 各环节角色。 |
-| [内容资产管理](/ai/creation/asset-management) | 素材、成稿、数据的归档结构、版本管理与复用标记。 |
+| [内容生产流水线搭建](/instances/ai-creation/content-pipeline) | 选题库到分发的五段流程，模板与 Checklist，AI 各环节角色。 |
+| [内容资产管理](/instances/ai-creation/asset-management) | 素材、成稿、数据的归档结构、版本管理与复用标记。 |
 
 ---
 

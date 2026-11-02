@@ -370,9 +370,3 @@ public class DataSourceAutoConfiguration {
 4. **使用 profiles**：区分不同环境配置
 5. **健康检查**：集成 Actuator 监控应用状态
 6. **异常处理**：使用 `@ControllerAdvice` 统一异常处理
-
-## 下一步
-
-- [自动配置原理](/springboot/auto-configuration) - 深入理解自动配置
-- [常用注解](/springboot/annotations) - 掌握 SpringBoot 常用注解
-- [RESTful API 开发](/springboot/restful-api) - 学习 RESTful 接口开发

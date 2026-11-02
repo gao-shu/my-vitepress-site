@@ -47,4 +47,4 @@
 ## 相关
 
 - [01](./01-basics.md) · [02](./02-core.md) · [03](./03-frameworks.md) · [04](./04-engineering.md)  
-- [Python 技能速成](/tech-system/python/python-skill) · [后端问题](../problems/)
+- [Python 技能速成](/tech-system/backend/python/python-skill) · [后端问题](../problems/)

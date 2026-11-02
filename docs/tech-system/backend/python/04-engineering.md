@@ -76,4 +76,4 @@ Dockerfile
 - 与 Java 联调：先约定 OpenAPI，再用示例 curl/httpie 固化  
 
 下一篇：[05 常见问题](./05-faq.md)  
-速成路线：[Python 技能速成](/tech-system/python/python-skill)
+速成路线：[Python 技能速成](/tech-system/backend/python/python-skill)

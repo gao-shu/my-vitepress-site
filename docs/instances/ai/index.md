@@ -67,6 +67,15 @@ Java 版用 `com.forjob.ai.kit`，Python 版用 `app/kit_*`，接口语义完全
 > **合计**：Java 三件套 **630 单测 + 39 E2E**、Python 三件套 **24 测试**、脚手架 **142 单测 + 26 E2E**、Python 套件 **7 MVP + 65 E2E**。
 > 交付位置：`E:\8.cangku\for-job\`（`ai-app-scaffold` / `ai-assistant` / `ai-knowledge-base` / `ai-agent-platform` / 对应 `-py` / `ai-suite-py`）。
 
+## 🗂️ 二级目录
+
+与上面 5 个交付项目并列，本模块下还有两条实践线，侧栏里作为二级目录展开：
+
+| 目录 | 内容 | 入口 |
+|---|---|---|
+| AI 内容创作 | 技术文章写作、一稿多发、生图生视频、内容流水线与资产管理 | [创作表达总览](/instances/ai-creation/) |
+| AI 商业探索（搞钱） | 需求挖掘、机会评估、副业设计、变现定价、MVP 验证与复盘 | 已归入 [AI 赋能与个人提效 › 商业探索总览](/ai/business/) |
+
 ## 🏗️ 模块架构
 
 ```

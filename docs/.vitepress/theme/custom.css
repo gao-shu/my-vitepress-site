@@ -1,0 +1,164 @@
+/* === 应用实例 · 系统详情页增强样式（前缀 sys-，仅用于 instances 详情页） === */
+
+.sys-hero {
+  margin: 20px 0 24px;
+  padding: 26px 28px 22px;
+  border: 1px solid var(--vp-c-divider);
+  border-top: 3px solid var(--vp-c-brand-1);
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--vp-c-bg-soft), var(--vp-c-bg));
+}
+
+.sys-hero__eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-3);
+  margin-bottom: 12px;
+}
+
+.sys-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.sys-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 11px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.6;
+  border-radius: 999px;
+  border: 1px solid var(--vp-c-divider);
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg);
+  white-space: nowrap;
+}
+
+.sys-badge--brand {
+  border-color: transparent;
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+}
+
+.sys-badge--plan {
+  border-color: transparent;
+  color: var(--vp-c-warning-1);
+  background: var(--vp-c-warning-soft);
+}
+
+.sys-badge--ok {
+  border-color: transparent;
+  color: var(--vp-c-tip-1);
+  background: var(--vp-c-tip-soft);
+}
+
+.sys-hero__pitch {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: var(--vp-c-text-1);
+}
+
+.sys-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.sys-stat {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg);
+}
+
+.sys-stat__num {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--vp-c-text-1);
+}
+
+.sys-stat__label {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+}
+
+.sys-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 6px 0 10px;
+}
+
+.sys-chip {
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-2);
+}
+
+.sys-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.sys-card {
+  padding: 16px 16px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.sys-card:hover {
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-2px);
+}
+
+.sys-card__icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.sys-card__title {
+  margin: 8px 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+
+.sys-card__desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--vp-c-text-2);
+}
+
+@media (max-width: 720px) {
+  .sys-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sys-grid {
+    grid-template-columns: 1fr;
+  }
+  .sys-hero {
+    padding: 20px;
+  }
+  .sys-hero__pitch {
+    font-size: 15px;
+  }
+}
