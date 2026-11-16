@@ -1051,7 +1051,8 @@ function aiSidebar5() {
           collapsed: true,
           items: [
             { text: '专题总览', link: '/ai/productivity/coding-sop/' },
-            { text: '01 项目初始化与 AI 接入', link: '/ai/productivity/coding-sop/01-project-init' }
+            { text: '01 项目初始化与 AI 接入', link: '/ai/productivity/coding-sop/01-project-init' },
+            { text: '02 开发任务输入规范', link: '/ai/productivity/coding-sop/02-task-brief' }
           ]
         }
       ]
