@@ -1052,7 +1052,13 @@ function aiSidebar5() {
           items: [
             { text: '专题总览', link: '/ai/productivity/coding-sop/' },
             { text: '01 项目初始化与 AI 接入', link: '/ai/productivity/coding-sop/01-project-init' },
-            { text: '02 开发任务输入规范', link: '/ai/productivity/coding-sop/02-task-brief' }
+            { text: '02 开发任务输入规范', link: '/ai/productivity/coding-sop/02-task-brief' },
+            { text: '03 项目分析与上下文准备', link: '/ai/productivity/coding-sop/03-context-prep' },
+            { text: '04 技术方案与任务拆解', link: '/ai/productivity/coding-sop/04-plan-decompose' },
+            { text: '05 Rules / Agent / Skills 配置', link: '/ai/productivity/coding-sop/05-rules-agents-skills' },
+            { text: '06 AI 连续开发与任务执行', link: '/ai/productivity/coding-sop/06-continuous-execution' },
+            { text: '07 报错排查、测试与自动修复', link: '/ai/productivity/coding-sop/07-debug-test-fix' },
+            { text: '08 交付验收与经验复用', link: '/ai/productivity/coding-sop/08-delivery-reuse' }
           ]
         }
       ]
