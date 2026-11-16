@@ -10,7 +10,7 @@
 |------|------|
 | [提示词工程](/ai/prompts/) | 编程 / 写作 / 分析 / 学习 / 创意 / 系统提示词，78 条可复制模板 |
 | [AI 辅助编程](/ai/productivity/ai-coding-workflow) | 用 AI 写代码、调试、选型与提示词 |
-| [AI 编程效率 SOP](/ai/productivity/coding-sop/) | 8 章实战操作手册：项目接入、任务输入、上下文准备、方案拆解、Rules / Agent / Skills、连续执行、测试修复、交付复用 |
+| [AI 编程效率 SOP](/ai/productivity/coding-sop/01-project-prep) | 四页个人操作手册：项目准备 → 任务执行 → 问题解决 → 交付验收 |
 | [AI 工作流与自动化](/ai/productivity/automation-scripts) | 自动化脚本、真实问题解决、文档与沟通提效、复盘 |
 | [AI 商业探索（搞钱）](/ai/business/) | 需求挖掘、机会评估、副业设计、变现定价、MVP 验证、复盘 |
 

@@ -22,7 +22,7 @@
 | 文章 | 一句话说明 |
 |------|-----------|
 | [AI 辅助编程工作流](/ai/productivity/ai-coding-workflow) | Spec 先行、四段式交代任务、上下文管理、人审 AI 写；含单人开发没有 review 兜底时怎么补 |
-| [AI 编程效率 SOP](/ai/productivity/coding-sop/) | 8 章可执行手册：项目接入 → 任务交代 → 上下文准备 → 方案拆解 → 协作配置 → 连续执行 → 测试修复 → 交付沉淀 |
+| [AI 编程效率 SOP](/ai/productivity/coding-sop/01-project-prep) | 四页可执行手册：项目准备 → 任务执行 → 问题解决 → 交付验收 |
 | [文档、周报与沟通提效](/ai/productivity/docs-and-report) | 用模板固定结构、只喂事实并逐条核对、用样本文档保持个人风格 |
 
 ### 自动化与智能体
