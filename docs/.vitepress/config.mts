@@ -793,9 +793,14 @@ function scenarioSidebar() {
       items: [{ text: '大文件分片与断点续传', link: '/scenarios/large-file' }]
     },
     {
-      text: '库存与仓储',
+      text: '企业数字化',
       collapsed: true,
       items: [
+        { text: '四大系统边界与问题全景', link: '/scenarios/enterprise-digital/' },
+        { text: 'ERP 核心问题清单', link: '/scenarios/enterprise-digital/erp' },
+        { text: 'WMS 核心问题清单', link: '/scenarios/enterprise-digital/wms' },
+        { text: 'MES 核心问题清单', link: '/scenarios/enterprise-digital/mes' },
+        { text: 'IIoT 核心问题清单', link: '/scenarios/enterprise-digital/iiot' },
         { text: '库存并发扣减与防超卖', link: '/scenarios/inventory-deduction' },
         { text: '批次效期与 FIFO / FEFO 追溯', link: '/scenarios/batch-fefo' },
         { text: '库位分配与上架策略', link: '/scenarios/location-allocation' }

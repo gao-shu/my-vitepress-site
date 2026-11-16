@@ -6,8 +6,8 @@
     <span class="sys-badge sys-badge--ok">✅ 已跑通（工单 → 工序报工 → 质检 → 完工 → WMS 入库）</span>
     <span class="sys-badge">Java 21 · Spring Boot 3.5</span>
     <span class="sys-badge">:18082 · openbiz_mes</span>
-    <span class="sys-badge">13 表 · 36 端点 · 25 权限点</span>
-    <span class="sys-badge">验收 115 项断言</span>
+    <span class="sys-badge">13 表 · 37 端点 · 25 权限点</span>
+    <span class="sys-badge">验收 149 项断言</span>
   </div>
   <p class="sys-hero__pitch">多品种小批量的离散装配厂：一张工单从下达到完工走七态、按道序报工，进度和质量不用再靠电话问、靠微信群报</p>
 </div>
@@ -120,6 +120,16 @@
     <div class="sys-card__icon">🧩</div>
     <div class="sys-card__title">元数据驱动前端</div>
     <div class="sys-card__desc">modules.ts 一份配置出菜单、表格、表单与流转按钮</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">🖥️</div>
+    <div class="sys-card__title">三张车间专用页</div>
+    <div class="sys-card__desc">工序报工台（幂等键 + 上游余量提示）· 工单追溯（四类证据）· 集成运维（待发队列 + 重投）</div>
+  </div>
+  <div class="sys-card">
+    <div class="sys-card__icon">📐</div>
+    <div class="sys-card__title">工单带排产维度</div>
+    <div class="sys-card__desc">交期 / 优先级 / 产线 / 车间 / 班次随单落库，出四组分布 + 逾期临期</div>
   </div>
 </div>
 
@@ -307,15 +317,15 @@ private static final Map<String, Set<String>> TRANSITIONS = Map.of(
 | 后端 | JDK 21 · Spring Boot 3.5 · RuoYi 3.9.2 | REST、事务、状态机 |
 | 底座 | openbiz-saas-core · RuoYi 3.9.2 | saas-core 只负责租户上下文与拦截器（15 个类）；权限与审计来自 RuoYi 外壳 |
 | 持久 | MyBatis · Druid | 全语句带 `tenant_id` |
-| 前端 | Vite · Vue 3.5 · TypeScript · Element Plus | 元数据驱动 `modules.ts`（目前 2 个实体页） |
+| 前端 | Vite · Vue 3.5 · TypeScript · Element Plus | 元数据驱动 `modules.ts`（2 个实体页 + 3 张专用业务页） |
 | 存储 | MySQL 8（`openbiz_mes`） | 13 张业务表 + RuoYi 系统表 |
 | 缓存 | Redis | token / 会话 |
 | 集成 | outbox + 轮询，无 MQ 中间件 | 完工投递 WMS、设备遥测入库 |
-| 验证 | 6 套验收脚本 | 契约 48 + 工序 25 + 收尾 11 + 跨 WMS 13 + 跨 IIoT 10 = 115 项断言，另 8 步整单流程 |
+| 验证 | 7 套验收脚本 | 契约 63 + 工序 27 + 收尾 11 + 跨 WMS 13 + 跨 IIoT 10 + 前端冒烟 25 = 149 项断言，另 8 步整单流程 |
 
 ```
 [ Vue3/TS 前端 :5180 ] ──代理──▶ [ Spring Boot :18082 ]
-                                      ├── web/controller      # 7 个 Controller · 36 个端点
+                                      ├── web/controller      # 8 个 Controller · 37 个端点
                                       ├── service             # 状态机 + 事务边界
                                       ├── domain + 状态机      # TRANSITIONS Map
                                       ├── mapper              # MyBatis，全语句带 tenant_id
@@ -328,13 +338,19 @@ private static final Map<String, Set<String>> TRANSITIONS = Map.of(
 ```
 openbiz-mes-app/
 ├── backend/          # 端口 18082 · fat jar
-│   ├── e2e_mes.py            # 老基线：整单报工链路（9 项）
-│   └── e2e_standard.py       # 统一 REST 契约（48 项）
-├── frontend/         # modules.ts 元数据（目前 2 个实体页）
-├── scripts/          # e2e_mes_p0.py（25）· e2e_cross_system.py（13）· e2e_iiot_telemetry.py（10）
-│                     # verify_mes_p0_hardening.py（11）+ 3 个 run_*.sh 一键脚本
-├── docs/             # 8 篇：00 范围 → 07 P0 收尾
+│   ├── e2e_mes.py            # 老基线：整单报工链路（8 步流程）
+│   └── e2e_standard.py       # 统一 REST 契约（63 项）
+├── frontend/         # modules.ts 元数据 + 3 张专用页
+│                     #   views/OperationReportView.vue（工序报工台）
+│                     #   views/TraceView.vue（工单追溯）
+│                     #   views/IntegrationView.vue（集成运维）
+│                     #   api/mes.ts（领域 API，通用工厂之外）
+├── scripts/          # e2e_mes_p0.py（27）· e2e_cross_system.py（13）· e2e_iiot_telemetry.py（10）
+│                     # verify_mes_p0_hardening.py（11）· smoke_frontend_pages.py（25）
+│                     # + 3 个 run_*.sh 一键脚本
+├── docs/             # 9 篇：00 范围 → 08 面试问答准备
 └── sql/              # openbiz_mes_1_8.sql（6 张）+ 1_9.sql（7 张新表）
+                      # 1_10 消耗口径订正 · 1_11 排产维度 · 1_12 报工操作人
                       # rbac_mes_1_0.sql（25 权限点 / 4 岗位角色）
 ```
 
@@ -369,6 +385,14 @@ openbiz-mes-app/
 | GET | `/api/mes/integration/outbox/list` | 投递队列（可查状态） |
 | POST | `/api/mes/integration/outbox/{id}/retry` | 手动重投 |
 | POST | `/api/mes/integration/dispatch` · `/poll` | 手动派发 / 手动拉遥测 |
+
+**排产维度与主数据接口**（MES 1.11 起）：
+
+| 方法 | 路径 | 说明 |
+|---|---|---|
+| GET | `/api/mes/work-orders/stats/dimension` | 优先级 / 班次 / 车间 / 产线分布 + 逾期 + 7 天临期 |
+| GET | `/api/mes/materials/list` | 物料下拉（`id` · `materialCode` · `materialName`） |
+| GET | `/api/mes/boms/list` | BOM 下拉（`id` · `bomCode` · 成品物料名） |
 
 **统一契约接口**（`StandardApiController`，与前端模板 API 工厂对齐）：
 
@@ -422,6 +446,7 @@ POST 同上但下游工序先报 → 409 UPSTREAM_QTY_INSUFFICIENT
 | 成功 | 200 | `{code:200, data:…}` |
 | 业务提示（登录失败等 `ServiceException`） | 200 | `{code:500, msg:"…"}` |
 | 记录不存在 / 参数非法 | 400 | `{code:500, msg:"WORK_ORDER_NOT_FOUND: 12"}` |
+| 非法优先级 / 班次 | 400 | `{code:500, msg:"INVALID_PRIORITY: SUPER_URGENT（可选 [URGENT, HIGH, NORMAL, LOW]）"}` |
 | 状态机非法流转 | 409 | `{code:500, msg:"ILLEGAL_TRANSITION: A -> B"}` |
 | 并发状态迁移 | 409 | `{code:500, msg:"CONCURRENT_TRANSITION: …"}` |
 | 工序超计划 / WIP 越界 | 409 | `{code:500, msg:"OPERATION_QTY_EXCEEDED / UPSTREAM_QTY_INSUFFICIENT"}` |
@@ -431,6 +456,8 @@ POST 同上但下游工序先报 → 409 UPSTREAM_QTY_INSUFFICIENT
 | 未捕获异常 | RuoYi 全局兜底 | 只回通用错误，不泄露堆栈 |
 
 > 演进记录：非法流转最初返回 500，与「客户端错误」语义不符；改为 409 后由 `@Order(HIGHEST_PRECEDENCE)` 的 `ApiExceptionHandler` 抢在 RuoYi 全局处理器之前接管，清空业务表重跑契约断言仍全绿。
+
+> **读错误响应的口径**：语义在 **HTTP 状态码**上（400 / 409），不在 `body.code` 上——`body.code` 沿用 RuoYi `AjaxResult.error(msg)` 的默认值 500，只是兼容字段。所以「HTTP 409 + body.code 500」是同一件事的两种编码，不是两个 bug。前端 `request.ts` 按 HTTP 4xx 走 error 分支取 `data.msg` 提示用户；验收脚本断言必须看 HTTP 状态码，只看 `body.code` 会把 409 误读成 500。
 
 ## 核心数据模型
 
@@ -444,8 +471,8 @@ POST 同上但下游工序先报 → 409 UPSTREAM_QTY_INSUFFICIENT
 | 工艺 | `openbiz_mes_process` | `process_code` · `sequence_no` · `device_id` | `uk(tenant_id, process_code)` |
 | 路线 | `openbiz_mes_routing` | `routing_code` · `material_id` · `version` · `status` | `uk(tenant_id, routing_code)` |
 | 路线 | `openbiz_mes_routing_operation` | `routing_id` · `process_id` · `seq_no` · `std_time_sec` | `uk(tenant_id, routing_id, seq_no)` |
-| 执行 | `openbiz_mes_work_order` | `work_order_no` · `material_id` · `bom_id` · `routing_id` · `quantity` · `status` · `device_id` · `device_code` | `uk(tenant_id, work_order_no)` |
-| 报工 | `openbiz_mes_production_record` | `work_order_id` · `device_id` · `quantity` · `result` · `command_id` | `idx(work_order_id)` · `idx(command_id)` |
+| 执行 | `openbiz_mes_work_order` | `work_order_no` · `material_id` · `bom_id` · `routing_id` · `quantity` · `due_date` · `priority` · `production_line` · `workshop` · `shift` · `status` · `device_id` · `device_code` | `uk(tenant_id, work_order_no)` · `idx(tenant_id, status, priority, due_date)` |
+| 报工 | `openbiz_mes_production_record` | `work_order_id` · `device_id` · `quantity` · `result` · `operator` · `command_id` | `idx(work_order_id)` · `idx(command_id)` |
 | 工序流水 | `openbiz_mes_operation_record` | `work_order_id` · `routing_operation_id` · `good_qty` · `ng_qty` · `event_id` · `operator` | `uk(tenant_id, event_id)` · `idx(work_order_id, routing_operation_id)` |
 | 质量 | `openbiz_mes_qc_record` | `work_order_id` · `operation_record_id` · `defect_code` · `qty` · `result` · `inspector` | `idx(work_order_id)` · `idx(defect_code)` |
 | 物料消耗 | `openbiz_mes_material_consumption` | `work_order_id` · `material_id` · `theory_qty` · `actual_qty` | `uk(tenant_id, work_order_id, material_id)` |
@@ -458,6 +485,19 @@ POST 同上但下游工序先报 → 409 UPSTREAM_QTY_INSUFFICIENT
 - `material.wms_sku_code` 是 MES ↔ WMS 的物料映射：MES 不该知道 WMS 的自增主键，完工入库时按业务编码让 WMS 反查 `skuId`，查不到直接 409 而不是静默降级。
 - `operation_record` 只追加不更新，`event_id` 唯一索引让「终端重发」不会凭空多出一批货。
 
+### 迁移脚本序号（按顺序执行）
+
+| 脚本 | 内容 |
+|---|---|
+| `openbiz_mes_1_8.sql` | 6 张基础表 + 演示数据 |
+| `openbiz_mes_1_9.sql` | 7 张工序链 / 集成表 + `work_order.routing_id` · `device_code` 加列 |
+| `rbac_mes_1_0.sql` | 25 个权限点 · 4 个岗位角色 |
+| `openbiz_mes_1_10.sql` | 物料消耗口径订正：理论按计划、实际按实绩（回填历史行） |
+| `openbiz_mes_1_11.sql` | 工单排产维度加列（交期 / 优先级 / 产线 / 车间 / 班次）+ 维度索引 + 历史行补维度 |
+| `openbiz_mes_1_12.sql` | 整单报工补记操作人 `production_record.operator` |
+
+三份增量脚本都是幂等的（`CREATE TABLE IF NOT EXISTS` + `ALTER` 前先查 `information_schema`），可重复执行。
+
 ## 已知边界与风险
 
 写清楚比藏起来有用——这几条都是能落到具体代码行的：
@@ -468,28 +508,32 @@ POST 同上但下游工序先报 → 409 UPSTREAM_QTY_INSUFFICIENT
 | 无乐观锁 | `work_order` 仍无 `version` 字段 | 字段级并发靠状态 CAS 兜主路径；通用乐观锁未上 | P1 |
 | 报工词汇分叉 | ~~已修~~ 落库 OK/NG，兼容 PASS/FAIL 入参 | — | ✅ |
 | 报工不累计 | 工序路径已有 `sumGoodQty`；整单路径仍只看计划量 | 整单路径超产判定弱 | 已有工序级路径 |
-| 质检只有状态位 | 已有 `mes_qc_record`（P0 工序链） | 整单路径仍偏状态位 | 见 `docs/06` |
+| 质检只有状态位 | ~~已修~~ 整单质检也写 `mes_qc_record` | — | ✅ MES 1.12 |
 | 删除无门禁 | ~~已修~~ CREATED/CANCELLED 可删 + 清挂靠 | — | ✅ |
-| 工厂维度缺失 | 工单上没有工厂/车间/产线/工位字段 | 多工厂、跨车间统计做不了 | P1 |
-| 班次维度缺失 | 工序流水无 `shift` 字段 | 工时/班次产出统计做不了 | P1 |
-| 前端只覆盖两实体 | 工序报工、追溯、集成运维只有后端接口 | 界面演示不到工序链 | P1 |
+| 消耗两列同源 | ~~已修~~ 理论按计划、实际按实绩（含报废） | — | ✅ MES 1.10 |
+| 工厂 / 工位维度缺失 | 工单有车间 / 产线 / 班次，**无工厂与工位** | 多工厂、工位级统计做不了 | P1 |
+| 班次挂载在工单上 | `shift` 在工单上，不在工序流水上 | 同一工单跨班次续产时只能记单班 | P1 |
+| 前端只覆盖两实体 | ~~已修~~ 工序报工台 / 追溯 / 集成运维三页已上 | — | ✅ MES 1.11 之后 |
+| 实际用量非实领 | 实际用量 = 单耗 ×（末道良品 + 累计报废），是**产出折算** | 真实领料要 WMS 领料单回写 | P1 |
 | 追溯只到单工单 | 跨工单的批次正/反追溯未做 | 原料批次串查要多步人工 | P1 |
 
-### 实测数据快照（2026-11-02 21:55 · 本机库 `openbiz_mes`）
+### 实测数据快照（2026-11-02 23:35 · 本机库 `openbiz_mes`，七套验收实跑后）
 
 被追问「你们数据真跑过吗」时，可以直接报这张表——不是设计文档里的目标值，是库里查出来的：
 
 | 表 | 行数 | 说明 |
 |---|---|---|
-| `work_order` | 25 | COMPLETED 19 / STARTED 4 / REPORTED 2 |
-| `operation_record` | 33 | 工序级报工，append-only |
-| `production_record` | 12 | 整单报工 |
-| `qc_record` | 12 | 不良明细（缺陷码 + 不良数） |
-| `routing` / `routing_operation` | 11 / 23 | 工艺路线与工序定义 |
-| `material_consumption` | 22 | ⚠️ `actual_qty` 22/22 行等于 `theory_qty`，是 BOM 倒推值不是实领 |
-| `integration_outbox` | 23 | SENT 10（真投递 WMS）/ PENDING 13（均为验收造的 `WO-E2E-*` 单，跑验收时按设计关掉了 job 开关） |
+| `work_order` | 78 | COMPLETED 49 / QC_PASSED 11 / STARTED 12 / REPORTED 6；历史行全部带交期 / 优先级 / 车间 / 产线 / 班次 |
+| `operation_record` | 84 | 工序级报工，append-only |
+| `production_record` | 38 | 整单报工，全部带操作人 |
+| `qc_record` | 63 | FAIL 28（工序不良明细）/ PASS 35（整单质检留痕） |
+| `routing` / `routing_operation` | 30 / 58 | 工艺路线与工序定义 |
+| `material_consumption` | 60 | 其中 28 行 `actual_qty ≠ theory_qty`（报废 5 件 → 超耗 5%），两列口径已解耦 |
+| `integration_outbox` | 68 | SENT 30（真投递 WMS）/ FAILED 31 / PENDING 7 |
 | `device_cursor` | 1 | IIoT 回写 `output_count=1050`，遥测链路真通 |
-| `sys_oper_log` | 271 | 7 类操作留痕：工序报工 103、工单开工 43、工艺路线 37、完工 35、质检 29、报工 14、取消 10 |
+| `sys_oper_log` | 516 | RuoYi 审计留痕：报工、开工、路线、完工、质检等动作逐条可查 |
+
+> 读这张表的一个坑：78 条工单里有 37 条 `shift` / `due_date` 为 NULL，**这不是迁移漏了**。历史行在 `openbiz_mes_1_11.sql` 里全部补齐了维度，这 37 条是本轮七套验收脚本临时建的单子——脚本按最简入参建单，不带排产维度，验完即留库。库里带维度的 41 条（URGENT 10 / HIGH 10 / NORMAL 3 / LOW 3，班次三班倒齐备）才是迁移后的真实分布。
 
 跨系统落地证据：WMS 库 `openbiz_wms_inbound` 里存在 `source_doc_no = WO-*` 且 `inbound_type = PRODUCTION` 的入库单——MES 完工指令确实推动了下游库存。
 
@@ -512,9 +556,9 @@ POST 同上但下游工序先报 → 409 UPSTREAM_QTY_INSUFFICIENT
 
 ## 实施路线与验收
 
-1. **阶段一（已达成）**：工单状态机 + 整单报工 + 多租户，域链路 9 项 + 统一契约 48 项断言全绿
+1. **阶段一（已达成）**：工单状态机 + 整单报工 + 多租户，域链路 8 步流程 + 统一契约 63 项断言全绿
 2. **阶段二（已达成）**：P0 三链 —— 工序链 / 追溯链 / 集成链（`docs/00`~`06`）；收尾三硬伤（CAS / OK·NG / 禁删，`docs/07`）
-3. **阶段三（下一步）**：工厂主数据、班次、领料齐套、PDA、看板，以及前端补工序报工与追溯页
+3. **阶段三（已达成大半）**：前端三页（工序报工台 / 工单追溯 / 集成运维）+ 工单排产维度（交期 / 优先级 / 产线 / 车间 / 班次）+ 主数据下拉；**未做**：领料齐套、PDA 扫码、车间看板
 4. **阶段四**：排产、批次追溯、OEE、ERP 接入
 
 阶段一验收基线（证据：`backend/E2E-RESULT.txt`）：
@@ -526,25 +570,28 @@ POST 同上但下游工序先报 → 409 UPSTREAM_QTY_INSUFFICIENT
 | 3 | 开工 → 报工 | 状态依次 STARTED / REPORTED，`records` 条数 +1 | ✅ |
 | 4 | 质检 → 完工 | QC_PASSED → COMPLETED | ✅ |
 | 5 | 非法流转 | 完工后取消返回 409 `ILLEGAL_TRANSITION` | ✅ |
-| 6 | 统一契约 | list / stats / transition / CRUD 48 项断言全过 | ✅ |
+| 6 | 统一契约 | list / stats / transition / CRUD 63 项断言全过 | ✅ |
 | 7 | 统计口径 | `/stats` 七态键齐全，状态变化后计数同步 | ✅ |
 | 8 | 前端构建 | `npm run build`（含 vue-tsc 类型检查）通过 | ✅ |
 
-### 当前验收总账（6 套脚本 · 115 项断言 + 8 步流程）
+### 当前验收总账（7 套脚本 · 149 项断言 + 8 步流程）
 
 下表数字全部来自本机实跑（Windows 11 / JDK 21 / MySQL 8.0.44），不是估算：
 
 | 脚本 | 断言 | 覆盖什么 |
 |---|---|---|
 | `backend/e2e_mes.py` | 8 步流程 | 老基线：整单报工链路（`routing_id IS NULL` 语义未变）。**这套用原生 `assert` 而非 `check()` 计数，故按步骤数记** |
-| `backend/e2e_standard.py` | 48 | 统一 REST 契约：list / stats / transition / CRUD / 禁删门禁 |
-| `scripts/e2e_mes_p0.py` | 25 | 工序级报工、WIP 门禁、事件幂等、追溯、outbox、权限分级、分页 |
+| `backend/e2e_standard.py` | 63 | 统一 REST 契约：list / stats / transition / CRUD / 禁删门禁 / 排产维度 / 主数据下拉 |
+| `scripts/e2e_mes_p0.py` | 27 | 工序级报工、WIP 门禁、事件幂等、追溯、outbox、权限分级、分页、消耗口径、质检留痕 |
 | `scripts/verify_mes_p0_hardening.py` | 11 | CAS / OK·NG 归一 / 完工禁删三项硬伤 |
 | `scripts/e2e_cross_system.py` | 13 | MES 完工 → WMS 生产入库：门禁、幂等、对账 |
 | `scripts/e2e_iiot_telemetry.py` | 10 | IIoT 计数增量 → MES 工序报工：基线、去重、截断 |
-| **合计** | **115 断言 + 8 步流程** | 前 3 套由 `run_mes_e2e.sh` 一条命令跑完；跨系统两套各自拉起 MES + 另一个系统 |
+| `scripts/smoke_frontend_pages.py` | 25 | 前端三页取数路径 + 新增工单表单报文（页面结构对不上时是"表格空白"，不报错，所以要单独固化） |
+| **合计** | **149 断言 + 8 步流程** | 前 3 套由 `run_mes_e2e.sh` 一条命令跑完；收尾硬伤对着已起的 MES 跑；跨系统两套各自拉起 MES + 另一个系统；前端冒烟对着已起的 MES 跑 |
 
-> **2026-11-02 复跑校准**：域链路那套是 8 步原生 `assert` 的流程脚本，此前按 9 项计入总数属于计法错误。实际为 48 + 25 + 11 + 13 + 10 = **115 项断言**，另加 8 步端到端流程。
+> **2026-11-02 二次校准**：统一契约 48 → 63（P0 收尾新增维度/主数据/操作人断言），P0 25 → 27（新增消耗口径与质检留痕断言），另加前端冒烟 25 项，合计 149 项断言 + 8 步流程。
+
+> **复现时的实例形态要求（踩过坑）**：域链路那 3 套要在**集成开关默认关闭**的实例上跑（`MES_WMS_ENABLED` / `MES_IIOT_ENABLED` 默认就是 `false`）。开关打开后，完工会被 `WMS_INBOUND_NOT_CONFIRMED` 门禁拦下（409）——因为完工指令要先经 outbox 投给 WMS、WMS 回执确认后才放行，而部分演示物料没维护 `wms_sku_code`，投递会一直失败。这不是缺陷，是「WMS 未确认不放行完工」的设计在生效。跨系统那 2 套反过来，必须开对应开关（`run_cross_e2e.sh` 会自己以 `MES_WMS_ENABLED=true` 拉起 MES）。
 
 几个值得单独说的断言（都是踩过坑才写的）：
 
@@ -554,6 +601,10 @@ POST 同上但下游工序先报 → 409 UPSTREAM_QTY_INSUFFICIENT
 | 同一 `eventId` 重发不重复计产 | 终端网络抖动重发，不会凭空多出一批货 |
 | 下游工序不能超过上游产出 | WIP 流转不变量：不会出现「成品 100 件但只走到测试 60 件」 |
 | 不良明细合计 ≠ 不良数被拒 | 质检数据自身要自洽，否则追溯时对不上 |
+| 消耗两列口径解耦（断言 17b） | 理论按计划、实际按实绩；两列同源时损耗无处可查 |
+| 整单质检写留痕（断言 19b） | 判过检必须查得到判检依据；合格记录也不能混进不良汇总 |
+| 非法优先级 / 班次被拒 | 枚举拼写错误要当场报出来，不能悄悄存进去 |
+| 只改数量时维度不丢 | 编辑弹窗没带的字段不能被抹成 NULL |
 | 首次采集不产生产量（只落基线） | 设备计数器从 0 到 50000，一联网就报 5 万件 |
 | WMS 未确认前完工被拦下 | 否则仓库账上少一批货、MES 上却显示已完工 |
 | 重复投递不产生第二张入库单 | 幂等靠 `uk(tenant_id, biz_type, biz_no, target)`，不是靠运气 |
@@ -562,10 +613,10 @@ POST 同上但下游工序先报 → 409 UPSTREAM_QTY_INSUFFICIENT
 
 ```bash
 cd E:/8.cangku/for-job/openbiz-mes-app
-bash scripts/run_mes_e2e.sh        # 单系统三套：8 步流程 + 48 + 25
+bash scripts/run_mes_e2e.sh        # 单系统四套：8 步流程 + 63 + 27 + 11
 bash scripts/run_cross_e2e.sh      # 跨 WMS：13（需 MES 以 MES_WMS_ENABLED=true 起）
 bash scripts/run_iiot_e2e.sh       # 跨 IIoT：10
-python scripts/verify_mes_p0_hardening.py   # 收尾三硬伤：11
+python scripts/smoke_frontend_pages.py http://127.0.0.1:18082   # 前端三页冒烟：25
 ```
 
 > 踩过的坑：验收脚本原来把端口写死 18082，用 `run_mes_e2e.sh 19082` 起服务时，前两套脚本其实打到了 18082 上常驻的旧实例，结论不可信。现已改为 `MES_BASE` 环境变量贯穿，端口参数真正生效——**验收脚本打错实例，比断言写错更隐蔽**。

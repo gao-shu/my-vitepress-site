@@ -24,7 +24,21 @@
 |---|---|
 | [大文件分片上传与断点续传](/scenarios/large-file) | 超大文件不超时、不撑爆内存：分片、并发、合并与秒传 |
 
-## 库存与仓储
+## 企业数字化
+
+四套系统的边界、主链路与核心问题清单。每篇都按「问题 → 为什么难 → 解法 → 面试口径」写，可直接当面试稿用。
+
+| 方案 | 解决的问题 |
+|---|---|
+| [四大系统边界与问题全景](/scenarios/enterprise-digital/) | ERP/WMS/MES/IIoT 怎么分工、一条链路怎么串、跨系统四道坎 |
+| [ERP 核心问题清单](/scenarios/enterprise-digital/erp) | MRP 算不准、BOM 变更失控、成本核算失真、账实不符 |
+| [WMS 核心问题清单](/scenarios/enterprise-digital/wms) | 库存四维模型、波次拣货、批次效期、弱网离线作业 |
+| [MES 核心问题清单](/scenarios/enterprise-digital/mes) | 工单状态机、报工倒冲、WIP 对不上、质量追溯断链 |
+| [IIoT 核心问题清单](/scenarios/enterprise-digital/iiot) | 协议碎片、点表字节序、写放大、断线丢数、告警风暴 |
+
+### 库存作业技术专题
+
+企业数字化下的库存子专题，从技术实现角度讲清库存准确性背后的三个硬骨头。
 
 | 方案 | 解决的问题 |
 |---|---|

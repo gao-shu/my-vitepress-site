@@ -9,7 +9,7 @@
 - **自建**：工单 / 报工 Mapper / Service / Controller + 状态机
   - `CREATED → STARTED → REPORTED → QC_PASSED → COMPLETED`
   - 含 `QC_FAILED` 返工、`CANCELLED` 分支
-  - 13 张业务表 · 36 个 REST 端点 · 25 个权限点（4 个岗位角色）
+  - 13 张业务表 · 37 个 REST 端点 · 25 个权限点（4 个岗位角色）· 37 处 `@PreAuthorize`
 
 ## 业务闭环（E2E 已验证）
 
@@ -23,21 +23,28 @@
 - MES 完工 → `mes_integration_outbox` → WMS 生产入库单（`source_doc_no` = 工单号，自动收货，重投幂等）
 - IIoT 设备计数增量 → MES 工序报工（`mes_device_cursor` 游标去重，超计划截断）
 
+**排产维度链**：工单建单即带交期 / 优先级 / 产线 / 车间 / 班次，`GET /api/mes/work-orders/stats/dimension` 出四组分布 + 逾期 + 7 天临期；非法枚举当场 400。
+
+## 前端
+
+三张专用业务页（不是通用表格套壳）：**工序报工台**（工序链进度 + 幂等键报工 + 上游余量提示）、**工单追溯**（四类证据分页签 + 消耗理论/实际差异率）、**集成运维**（联调开关 + 待发队列 + 失败重投）。通用表格页仍是元数据驱动，新增字段只改 `config/modules.ts`。
+
 ## 验收总账
 
-6 套脚本 · 115 项断言 + 8 步整单流程，全部本机实跑：
+7 套脚本 · 149 项断言 + 8 步整单流程，全部本机实跑：
 
 | 脚本 | 断言 |
 |---|---|
-| `e2e_mes.py` / `e2e_standard.py` | 8 步流程 / 48（整单老基线 + 统一 REST 契约） |
-| `scripts/e2e_mes_p0.py` | 25（工序 / 追溯 / 集成 / 权限 / 分页） |
+| `e2e_mes.py` / `e2e_standard.py` | 8 步流程 / 63（整单老基线 + 统一 REST 契约 + 排产维度 + 主数据下拉） |
+| `scripts/e2e_mes_p0.py` | 27（工序 / 追溯 / 集成 / 权限 / 分页 + 消耗口径 + 质检留痕） |
 | `scripts/verify_mes_p0_hardening.py` | 11（CAS · OK·NG 归一 · 完工禁删） |
 | `scripts/e2e_cross_system.py` | 13（MES → WMS 完工入库） |
 | `scripts/e2e_iiot_telemetry.py` | 10（IIoT → MES 遥测报工） |
+| `scripts/smoke_frontend_pages.py` | 25（前端三页取数路径 + 新增工单表单报文） |
 
 ## 工程位置
 
-`E:/8.cangku/for-job/openbiz-mes-app`（README + `docs/` 9 篇 · 含面试问答准备包 + `scripts/` 6 套验收）
+`E:/8.cangku/for-job/openbiz-mes-app`（README + `docs/` 9 篇 · 含面试问答准备包 + `scripts/` 7 套验收）
 
 ## 价值
 
