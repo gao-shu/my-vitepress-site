@@ -99,7 +99,7 @@ AI 连续执行开发
 - 项目规则文件准备。
 - AI 接入验收。
 
-进入第 01 章
+[进入第 01 章](/ai/productivity/coding-sop/01-project-init)
 
 ### 02 开发任务输入规范
 
