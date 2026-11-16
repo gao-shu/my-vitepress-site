@@ -1045,7 +1045,15 @@ function aiSidebar5() {
       collapsed: true,
       items: [
         { text: 'AI 辅助编程工作流', link: '/ai/productivity/ai-coding-workflow' },
-        { text: 'AI 工具与选型', link: '/ai/productivity/tool-selection' }
+        { text: 'AI 工具与选型', link: '/ai/productivity/tool-selection' },
+        {
+          text: 'AI 编程效率 SOP',
+          collapsed: true,
+          items: [
+            { text: '专题总览', link: '/ai/productivity/coding-sop/' },
+            { text: '01 项目初始化与 AI 接入', link: '/ai/productivity/coding-sop/01-project-init' }
+          ]
+        }
       ]
     },
     {
