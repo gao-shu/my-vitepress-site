@@ -42,41 +42,61 @@ import{_ as n,o as a,c as p,ai as l}from"./chunks/framework.Ba-VnP44.js";const h
 <span class="line"><span></span></span>
 <span class="line"><span>输出：</span></span>
 <span class="line"><span>调用链 → 数据表 → 事务/异常 → 可能风险。</span></span>
-<span class="line"><span>找不到的环节明确标记「未找到」。</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p><strong>得到：</strong> 一条从入口到数据落点、带文件行号的完整调用链。</p><blockquote><p><strong>知道改哪里、影响谁、数据走到哪里；无法确认的内容已经明确标出。</strong></p></blockquote><hr><h2 id="_02-·-rules" tabindex="-1">02 · Rules <a class="header-anchor" href="#_02-·-rules" aria-label="Permalink to “02 · Rules”">​</a></h2><p><strong>把长期有效的项目约束交给 AI，不再依赖每次对话重复说明。</strong></p><h3 id="什么时候使用-1" tabindex="-1">什么时候使用 <a class="header-anchor" href="#什么时候使用-1" aria-label="Permalink to “什么时候使用”">​</a></h3><ul><li>新项目建立 AI 开发规则</li><li>发现 AI 经常违反相同规范</li><li>需要检查已有规则是否有效</li></ul><h3 id="操作-1" tabindex="-1">操作 <a class="header-anchor" href="#操作-1" aria-label="Permalink to “操作”">​</a></h3><h4 id="_1-检查现有-rules" tabindex="-1">① 检查现有 Rules <a class="header-anchor" href="#_1-检查现有-rules" aria-label="Permalink to “① 检查现有 Rules”">​</a></h4><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>请只读检查当前项目已有的 AI 规则文件，不要修改。</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>检查：</span></span>
-<span class="line"><span>1. 有哪些规则文件及生效范围</span></span>
-<span class="line"><span>2. 是否存在重复或冲突</span></span>
-<span class="line"><span>3. 是否包含一次性任务</span></span>
-<span class="line"><span>4. 是否存在无法验证的规则</span></span>
-<span class="line"><span>5. 是否缺少关键约束</span></span>
-<span class="line"><span>6. 当前规则是否与项目实际情况一致</span></span>
-<span class="line"><span></span></span>
+<span class="line"><span>找不到的环节明确标记「未找到」。</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p><strong>得到：</strong> 一条从入口到数据落点、带文件行号的完整调用链。</p><blockquote><p><strong>知道改哪里、影响谁、数据走到哪里；无法确认的内容已经明确标出。</strong></p></blockquote><hr><h2 id="_02-·-rules" tabindex="-1">02 · Rules <a class="header-anchor" href="#_02-·-rules" aria-label="Permalink to “02 · Rules”">​</a></h2><p><strong>将项目中必须遵守的约束固化为 Rules，确保 Agent 按照项目要求执行。</strong></p><h3 id="什么时候使用-1" tabindex="-1">什么时候使用 <a class="header-anchor" href="#什么时候使用-1" aria-label="Permalink to “什么时候使用”">​</a></h3><ul><li>新项目初始化，需要建立核心规则。</li><li>项目技术规范、架构或业务约束发生变化。</li><li>开发过程中发现 Agent 反复违反某项约定。</li><li>现有 Rules 需要补充、调整或验证。</li></ul><h3 id="操作-1" tabindex="-1">操作 <a class="header-anchor" href="#操作-1" aria-label="Permalink to “操作”">​</a></h3><h4 id="_1-创建与完善-rules" tabindex="-1">① 创建与完善 Rules <a class="header-anchor" href="#_1-创建与完善-rules" aria-label="Permalink to “① 创建与完善 Rules”">​</a></h4><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>请分析当前项目，识别需要建立或完善的项目级 Rules，并完成规则整理。</span></span>
+<span class="line"><span>重点检查：</span></span>
+<span class="line"><span>1. 技术栈及技术选型约束</span></span>
+<span class="line"><span>2. 项目架构与模块边界</span></span>
+<span class="line"><span>3. 编码规范与实现约束</span></span>
+<span class="line"><span>4. 数据库及数据操作约束</span></span>
+<span class="line"><span>5. 接口规范与数据交互约束</span></span>
+<span class="line"><span>6. 安全要求与禁止操作</span></span>
+<span class="line"><span>7. 项目特有的业务约束</span></span>
+<span class="line"><span>处理要求：</span></span>
+<span class="line"><span>1. 只提炼必须长期遵守的约束。</span></span>
+<span class="line"><span>2. 区分通用规则与项目特有规则。</span></span>
+<span class="line"><span>3. 不将操作教程、开发流程和一次性任务写入 Rules。</span></span>
+<span class="line"><span>4. 优先参考现有项目文档、代码和已确认的业务要求。</span></span>
+<span class="line"><span>5. 检查现有 Rules，避免重复、冲突或相互矛盾。</span></span>
+<span class="line"><span>6. 不确定的约束标记为待确认，不得自行编造。</span></span>
+<span class="line"><span>7. 每条规则必须明确适用范围、约束对象和具体要求。</span></span>
+<span class="line"><span>8. 根据当前 AI 工具支持的规则格式和加载机制创建或完善规则文件。</span></span>
+<span class="line"><span>9. 必要时更新 AGENTS.md 中的 Rules 索引。</span></span>
+<span class="line"><span>执行要求：</span></span>
+<span class="line"><span>- 对有明确依据的规则，可以直接创建或完善。</span></span>
+<span class="line"><span>- 对存在歧义或需要用户确认的规则，先列出问题，不要擅自固化。</span></span>
+<span class="line"><span>- 不得为了追求规则数量而增加无实际价值的内容。</span></span>
+<span class="line"><span>完成后输出：</span></span>
+<span class="line"><span>- 新增及修改的 Rules</span></span>
+<span class="line"><span>- 规则存放位置</span></span>
+<span class="line"><span>- 适用范围</span></span>
+<span class="line"><span>- 规则来源及依据</span></span>
+<span class="line"><span>- 待确认事项</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><hr><h4 id="_2-检查与验证-rules" tabindex="-1">② 检查与验证 Rules <a class="header-anchor" href="#_2-检查与验证-rules" aria-label="Permalink to “② 检查与验证 Rules”">​</a></h4><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>请检查当前项目的 Rules 是否合理、完整，并验证其加载和执行情况。</span></span>
+<span class="line"><span>重点检查：</span></span>
+<span class="line"><span>一、规则质量</span></span>
+<span class="line"><span>1. 是否存在重复、冲突或相互矛盾的规则。</span></span>
+<span class="line"><span>2. 是否存在模糊、宽泛或无法执行的规则。</span></span>
+<span class="line"><span>3. 是否混入操作教程、开发流程或临时任务要求。</span></span>
+<span class="line"><span>4. 是否存在项目无关或已经过时的规则。</span></span>
+<span class="line"><span>5. 规则适用范围是否明确。</span></span>
+<span class="line"><span>二、加载情况</span></span>
+<span class="line"><span>1. 当前 AI 工具是否能够正确发现和加载 Rules。</span></span>
+<span class="line"><span>2. 规则文件的路径、格式和作用范围是否正确。</span></span>
+<span class="line"><span>3. 是否存在规则未加载、加载范围不正确或被其他配置覆盖的情况。</span></span>
+<span class="line"><span>三、执行验证</span></span>
+<span class="line"><span>1. 选择具有代表性的规则设计最小验证场景。</span></span>
+<span class="line"><span>2. 检查 Agent 是否能够识别并遵守相应规则。</span></span>
+<span class="line"><span>3. 对无法实际验证的规则，明确标记验证状态。</span></span>
 <span class="line"><span>输出：</span></span>
-<span class="line"><span>问题 → 依据 → 修改建议。</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>不要直接修改规则。</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><hr><h4 id="_2-生成项目-rules" tabindex="-1">② 生成项目 Rules <a class="header-anchor" href="#_2-生成项目-rules" aria-label="Permalink to “② 生成项目 Rules”">​</a></h4><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>请根据当前项目实际情况生成 AI 开发规则草稿。</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>先读取项目结构、技术栈和现有规范。</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>要求：</span></span>
-<span class="line"><span>1. 只保留跨任务长期有效的规则</span></span>
-<span class="line"><span>2. 明确「必须 / 禁止」</span></span>
-<span class="line"><span>3. 每条规则尽可能可验证</span></span>
-<span class="line"><span>4. 写清适用范围</span></span>
-<span class="line"><span>5. 写清必要的例外情况</span></span>
-<span class="line"><span>6. 不要编造项目不存在的技术约束</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>本轮只输出草稿，不写入文件。</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><hr><h4 id="_3-验证-rules-是否生效" tabindex="-1">③ 验证 Rules 是否生效 <a class="header-anchor" href="#_3-验证-rules-是否生效" aria-label="Permalink to “③ 验证 Rules 是否生效”">​</a></h4><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>请检查当前项目的 AI Rules 是否真正生效。</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>检查：</span></span>
-<span class="line"><span>1. 工具是否会读取这些规则</span></span>
-<span class="line"><span>2. 文件位置和配置是否正确</span></span>
-<span class="line"><span>3. 是否存在冲突或重复</span></span>
-<span class="line"><span>4. 规则能否实际约束 AI 行为</span></span>
-<span class="line"><span>5. 是否存在工具差异</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>只检查，不修改。</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><hr><h2 id="_03-·-skills" tabindex="-1">03 · Skills <a class="header-anchor" href="#_03-·-skills" aria-label="Permalink to “03 · Skills”">​</a></h2><p><strong>把开发过程中经过验证、可以重复使用的方法沉淀成 Skill。</strong></p><h3 id="什么时候使用-2" tabindex="-1">什么时候使用 <a class="header-anchor" href="#什么时候使用-2" aria-label="Permalink to “什么时候使用”">​</a></h3><ul><li>开发过程中发现某种问题反复出现</li><li>某套操作方法已经验证有效</li><li>现有 Skill 需要补充、优化或修正</li><li>希望将项目经验转化为可复用能力</li></ul><h3 id="操作-2" tabindex="-1">操作 <a class="header-anchor" href="#操作-2" aria-label="Permalink to “操作”">​</a></h3><h4 id="_1-开发经验提炼与-skill-沉淀" tabindex="-1">① 开发经验提炼与 Skill 沉淀 <a class="header-anchor" href="#_1-开发经验提炼与-skill-沉淀" aria-label="Permalink to “① 开发经验提炼与 Skill 沉淀”">​</a></h4><p>一次提交经验来源，自动完成「判断价值 → 提炼 → 检查完善 → 形成 Skill → 验证」的完整流程。</p><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>请结合当前开发任务，识别是否存在值得沉淀或完善为 Skill 的经验。</span></span>
+<span class="line"><span>- 检查结果</span></span>
+<span class="line"><span>- 加载验证结果</span></span>
+<span class="line"><span>- 执行验证结果</span></span>
+<span class="line"><span>- 发现的问题及风险</span></span>
+<span class="line"><span>- 修改建议</span></span>
+<span class="line"><span>- 尚未验证的事项</span></span>
+<span class="line"><span>注意：</span></span>
+<span class="line"><span>1. 不要仅凭文件存在或 Agent 自述，就认定 Rules 已经生效。</span></span>
+<span class="line"><span>2. 不得将未实际验证的内容标记为通过。</span></span>
+<span class="line"><span>3. 本次只输出检查报告和修改建议，不直接修改文件。</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><hr><h2 id="_03-·-skills" tabindex="-1">03 · Skills <a class="header-anchor" href="#_03-·-skills" aria-label="Permalink to “03 · Skills”">​</a></h2><p><strong>把开发过程中经过验证、可以重复使用的方法沉淀成 Skill。</strong></p><h3 id="什么时候使用-2" tabindex="-1">什么时候使用 <a class="header-anchor" href="#什么时候使用-2" aria-label="Permalink to “什么时候使用”">​</a></h3><ul><li>开发过程中发现某种问题反复出现</li><li>某套操作方法已经验证有效</li><li>现有 Skill 需要补充、优化或修正</li><li>希望将项目经验转化为可复用能力</li></ul><h3 id="操作-2" tabindex="-1">操作 <a class="header-anchor" href="#操作-2" aria-label="Permalink to “操作”">​</a></h3><h4 id="_1-开发经验提炼与-skill-沉淀" tabindex="-1">① 开发经验提炼与 Skill 沉淀 <a class="header-anchor" href="#_1-开发经验提炼与-skill-沉淀" aria-label="Permalink to “① 开发经验提炼与 Skill 沉淀”">​</a></h4><p>一次提交经验来源，自动完成「判断价值 → 提炼 → 检查完善 → 形成 Skill → 验证」的完整流程。</p><div class="language-text line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;" tabindex="0" dir="ltr"><code><span class="line"><span>请结合当前开发任务，识别是否存在值得沉淀或完善为 Skill 的经验。</span></span>
 <span class="line"><span>经验来源：</span></span>
 <span class="line"><span>&lt;开发过程中遇到的问题、解决方案、操作流程或已有 Skill&gt;</span></span>
 <span class="line"><span></span></span>
@@ -253,4 +273,4 @@ import{_ as n,o as a,c as p,ai as l}from"./chunks/framework.Ba-VnP44.js";const h
 <span class="line"><span>输出：</span></span>
 <span class="line"><span>保留 / 修改 / 删除 / 新增。</span></span>
 <span class="line"><span></span></span>
-<span class="line"><span>不要直接修改配置。</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div>`,80)])])}const d=n(e,[["render",i]]);export{h as __pageData,d as default};
+<span class="line"><span>不要直接修改配置。</span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div>`,77)])])}const d=n(e,[["render",i]]);export{h as __pageData,d as default};
