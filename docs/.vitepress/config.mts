@@ -1047,13 +1047,12 @@ function aiSidebar5() {
         { text: 'AI 辅助编程工作流', link: '/ai/productivity/ai-coding-workflow' },
         { text: 'AI 工具与选型', link: '/ai/productivity/tool-selection' },
         {
-          text: 'AI 辅助软件开发规范',
+          text: 'AI编程提示词',
           collapsed: true,
           items: [
-            { text: '总览', link: '/ai/productivity/dev-spec/' },
-            { text: '第一层 · AI 工程基础', link: '/ai/productivity/dev-spec/01-foundation' },
-            { text: '第二层 · 软件开发生命周期', link: '/ai/productivity/dev-spec/02-lifecycle' },
-            { text: '第三层 · 质量与安全保障', link: '/ai/productivity/dev-spec/03-quality' }
+            { text: '开发前', link: '/ai/productivity/dev-spec/01-foundation' },
+            { text: '开发中', link: '/ai/productivity/dev-spec/02-lifecycle' },
+            { text: '开发后', link: '/ai/productivity/dev-spec/03-quality' }
           ]
         }
       ]

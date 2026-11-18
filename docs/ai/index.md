@@ -10,7 +10,7 @@
 |------|------|
 | [提示词工程](/ai/prompts/) | 编程 / 写作 / 分析 / 学习 / 创意 / 系统提示词，78 条可复制模板 |
 | [AI 辅助编程](/ai/productivity/ai-coding-workflow) | 用 AI 写代码、调试、选型与提示词 |
-| [AI 辅助软件开发规范](/ai/productivity/dev-spec/) | 完整工程规范：AI 工程基础 · 软件开发生命周期 · 质量与安全保障（三层） |
+| [AI编程提示词](/ai/productivity/dev-spec/01-foundation) | 可复制的实操命令：开发前 · 开发中 · 开发后 |
 | [AI 工作流与自动化](/ai/productivity/automation-scripts) | 自动化脚本、真实问题解决、文档与沟通提效、复盘 |
 | [AI 商业探索（搞钱）](/ai/business/) | 需求挖掘、机会评估、副业设计、变现定价、MVP 验证、复盘 |
 

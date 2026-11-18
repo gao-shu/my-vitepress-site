@@ -1,4 +1,4 @@
-# 第二层 · 软件开发生命周期
+# 开发中
 
 > 一项开发任务从准备到交付的九个阶段。每个阶段给可直接复制的命令，介绍只讲用途。简单任务可跳过部分阶段，复杂任务完整走。
 
@@ -528,4 +528,4 @@
 
 ---
 
-九阶段走完，全程的硬约束由第三层把关。返回 [总览](/ai/productivity/dev-spec/) · 上一层 [第一层 · AI 工程基础](/ai/productivity/dev-spec/01-foundation) · 下一层 → [第三层 · 质量与安全保障](/ai/productivity/dev-spec/03-quality)。
+九阶段走完，全程的硬约束由「开发后」的检查把关。返回 [开发前](/ai/productivity/dev-spec/01-foundation) · 下一步 → [开发后](/ai/productivity/dev-spec/03-quality)。
