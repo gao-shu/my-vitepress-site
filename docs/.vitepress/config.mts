@@ -1050,46 +1050,10 @@ function aiSidebar5() {
           text: 'AI 辅助软件开发规范',
           collapsed: true,
           items: [
-            { text: '总览与使用指南', link: '/ai/productivity/dev-spec/' },
-            {
-              text: '第一层 · AI 工程基础',
-              collapsed: true,
-              items: [
-                { text: 'Project Context · 项目上下文', link: '/ai/productivity/dev-spec/01-foundation/project-context' },
-                { text: 'Rules · 项目规则', link: '/ai/productivity/dev-spec/01-foundation/rules' },
-                { text: 'Skills · 专业技能', link: '/ai/productivity/dev-spec/01-foundation/skills' },
-                { text: 'Agents · 智能体协作', link: '/ai/productivity/dev-spec/01-foundation/agents' },
-                { text: 'MCP / Tools · 工具与外部能力', link: '/ai/productivity/dev-spec/01-foundation/mcp-tools' },
-                { text: 'Hooks / Scripts · 自动化执行', link: '/ai/productivity/dev-spec/01-foundation/hooks-scripts' }
-              ]
-            },
-            {
-              text: '第二层 · 软件开发生命周期',
-              collapsed: true,
-              items: [
-                { text: '01 项目准备', link: '/ai/productivity/dev-spec/02-lifecycle/project-prep' },
-                { text: '02 需求分析', link: '/ai/productivity/dev-spec/02-lifecycle/requirement-analysis' },
-                { text: '03 技术架构设计', link: '/ai/productivity/dev-spec/02-lifecycle/architecture-design' },
-                { text: '04 功能开发', link: '/ai/productivity/dev-spec/02-lifecycle/development' },
-                { text: '05 功能审查与完善', link: '/ai/productivity/dev-spec/02-lifecycle/review' },
-                { text: '06 逻辑与 BUG 修复', link: '/ai/productivity/dev-spec/02-lifecycle/bugfix' },
-                { text: '07 代码优化与重构', link: '/ai/productivity/dev-spec/02-lifecycle/refactor' },
-                { text: '08 代码测试', link: '/ai/productivity/dev-spec/02-lifecycle/testing' },
-                { text: '09 交付与复用', link: '/ai/productivity/dev-spec/02-lifecycle/delivery' }
-              ]
-            },
-            {
-              text: '第三层 · 质量与安全保障',
-              collapsed: true,
-              items: [
-                { text: '代码质量规范', link: '/ai/productivity/dev-spec/03-quality/code-quality' },
-                { text: '测试与验证规范', link: '/ai/productivity/dev-spec/03-quality/test-verification' },
-                { text: '数据与安全规范', link: '/ai/productivity/dev-spec/03-quality/data-security' },
-                { text: 'Git 与版本管理', link: '/ai/productivity/dev-spec/03-quality/git-version' },
-                { text: '变更控制', link: '/ai/productivity/dev-spec/03-quality/change-control' },
-                { text: '交付追踪与回滚', link: '/ai/productivity/dev-spec/03-quality/delivery-rollback' }
-              ]
-            }
+            { text: '总览', link: '/ai/productivity/dev-spec/' },
+            { text: '第一层 · AI 工程基础', link: '/ai/productivity/dev-spec/01-foundation' },
+            { text: '第二层 · 软件开发生命周期', link: '/ai/productivity/dev-spec/02-lifecycle' },
+            { text: '第三层 · 质量与安全保障', link: '/ai/productivity/dev-spec/03-quality' }
           ]
         }
       ]
