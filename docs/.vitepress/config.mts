@@ -1054,7 +1054,8 @@ function aiSidebar5() {
             { text: '开发中', link: '/ai/productivity/dev-spec/02-lifecycle' },
             { text: '开发后', link: '/ai/productivity/dev-spec/03-quality' },
             { text: 'Agents', link: '/ai/productivity/dev-spec/agents' },
-            { text: 'Skills', link: '/ai/productivity/dev-spec/skills' }
+            { text: 'Skills', link: '/ai/productivity/dev-spec/skills' },
+            { text: 'Rules', link: '/ai/productivity/dev-spec/rules' }
           ]
         }
       ]
