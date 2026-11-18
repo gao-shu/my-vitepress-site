@@ -1,15 +1,6 @@
 # 开发 Skill 示例库
 
-> 可直接复用的开发 Skill 示例。每个 Skill 是一个独立、可调用的能力单元；这里统一展示和管理，按需取用。
-
-## 快速定位
-
-| 我现在要做什么 | 找哪个 Skill |
-|---|---|
-| 分析项目、建立项目上下文 | project-analysis-skill · project-context-skill |
-| 多 Agent 协作、代码审查、调试 | agents-skill · code-review-skill · debugging-skill |
-| 测试、发布交付 | testing-skill · release-skill |
-| RAG / Agent / MCP 应用开发 | rag-development-skill · agent-development-skill · mcp-development-skill |
+> 可复用的开发 Skill 分类索引与命令范本。
 
 ## 01 · 项目管理类
 
