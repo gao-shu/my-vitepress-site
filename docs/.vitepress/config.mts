@@ -1053,6 +1053,7 @@ function aiSidebar5() {
             { text: '开发前', link: '/ai/productivity/dev-spec/01-foundation' },
             { text: '开发中', link: '/ai/productivity/dev-spec/02-lifecycle' },
             { text: '开发后', link: '/ai/productivity/dev-spec/03-quality' },
+            { text: 'Agents', link: '/ai/productivity/dev-spec/agents' },
             { text: 'Skills', link: '/ai/productivity/dev-spec/skills' }
           ]
         }
