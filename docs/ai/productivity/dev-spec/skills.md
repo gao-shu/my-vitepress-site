@@ -11,69 +11,37 @@
 | 测试、发布交付 | testing-skill · release-skill |
 | RAG / Agent / MCP 应用开发 | rag-development-skill · agent-development-skill · mcp-development-skill |
 
-> **说明**：下面的分类只是示例，不代表全部已开发。当前先落地 `agents-skill` 作为第一个完整样板，其余按同一规范逐步补充。
-
----
-
-## 三个概念
-
-| 概念 | 作用 |
-|---|---|
-| Skill 示例库 | 展示、管理和复用各种 Skill（本页） |
-| 独立 Skill | 解决某一类具体问题，独立可调用 |
-| Skill 调用机制 | 判断何时调用、如何执行 |
-
-> **原则**：不让一个总 Skill 包办所有事情，否则容易变成庞大、难以维护的提示词。
-
----
-
 ## 01 · 项目管理类
 
-| Skill | 用途 | 状态 |
-|---|---|---|
-| `project-analysis-skill` | 分析项目现状，产出项目认知报告 | 规划中 |
-| `project-context-skill` | 建立和维护项目上下文 | 规划中 |
+| Skill | 用途 |
+|---|---|
+| `project-analysis-skill` | 分析项目现状，产出项目认知报告 |
+| `project-context-skill` | 建立和维护项目上下文 |
 
 ## 02 · 开发协作类
 
-| Skill | 用途 | 状态 |
-|---|---|---|
-| `agents-skill` | 多 Agent 协作开发：评估分工 → 协同执行 → 统一验收 | **样板可用 ↓** |
-| `code-review-skill` | 代码规范审查与问题清单 | 规划中 |
-| `debugging-skill` | 报错定位与修复 | 规划中 |
+| Skill | 用途 |
+|---|---|
+| `agents-skill` | 多 Agent 协作开发：评估分工 → 协同执行 → 统一验收 |
+| `code-review-skill` | 代码规范审查与问题清单 |
+| `debugging-skill` | 报错定位与修复 |
 
 ## 03 · 测试与交付类
 
-| Skill | 用途 | 状态 |
-|---|---|---|
-| `testing-skill` | 测试用例设计、执行与结果核对 | 规划中 |
-| `release-skill` | 交付检查、报告与回滚方案 | 规划中 |
+| Skill | 用途 |
+|---|---|
+| `testing-skill` | 测试用例设计、执行与结果核对 |
+| `release-skill` | 交付检查、报告与回滚方案 |
 
 ## 04 · AI 应用开发类
 
-| Skill | 用途 | 状态 |
-|---|---|---|
-| `rag-development-skill` | RAG 检索增强应用开发 | 规划中 |
-| `agent-development-skill` | Agent 应用开发 | 规划中 |
-| `mcp-development-skill` | MCP 服务开发 | 规划中 |
+| Skill | 用途 |
+|---|---|
+| `rag-development-skill` | RAG 检索增强应用开发 |
+| `agent-development-skill` | Agent 应用开发 |
+| `mcp-development-skill` | MCP 服务开发 |
 
----
-
-## 样板 · agents-skill
-
-**多 Agent 协作开发。** 把「任务评估与分工 → 协同执行 → 汇总验收」三个阶段封装成独立 Skill。你只需提出开发任务，主 Agent 根据任务情况决定是否调用它。
-
-### 什么时候使用
-
-- 任务可拆分、可并行
-- 需要独立审查
-- 任务复杂，需要多个专业角色
-
-### 操作
-
-#### ① 多 Agent 协作开发
-
-一次提交完整任务，自动完成「评估分工 → 执行 → 统一验收」三个阶段。你只需发起一次任务，三个阶段是主 Agent 内部的工作流程，不需要手动分三次输入提示词。
+## agents-skill · 多 Agent 协作开发
 
 ```text
 请评估下面的任务是否适合使用多 Agent 协作。如果适合，请自动完成任务拆分、分工、执行和最终验收；如果不适合，请说明原因，并建议使用单 Agent 完成。
@@ -140,13 +108,3 @@
 - 最终验收由主 Agent 负责。
 - 如果当前编程工具不支持子 Agent 创建、任务调度或并行执行，必须明确说明这一能力限制，不能假装已经启动了多个 Agent。
 ```
-
-### 完成标准
-
-> **一次任务拿到完整执行报告：评估、分工、执行、统一验收全部完成；验收结合真实代码和 Git Diff，不靠 Agent 自述，未执行的测试不算通过。**
-
----
-
-三段关系：**开发前**介绍 Skill 的概念与创建方法，本页提供可直接使用的 Skill 示例，**开发中**在各阶段引用合适的 Skill。
-
-返回 [开发中](/ai/productivity/dev-spec/02-lifecycle) · [开发后](/ai/productivity/dev-spec/03-quality) · [开发前](/ai/productivity/dev-spec/01-foundation)
